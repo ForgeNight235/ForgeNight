@@ -1,0 +1,21 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "watch": "webpack --watch"
+    },
+    "devDependencies": {
+        "@babel/register": "^7.21.0",
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.4",
+        "sass": "^1.62.0",
+        "sass-loader": "^13.2.2",
+        "vite": "^4.0.0",
+        "vue-template-compiler": "^2.6.12",
+        "webpack": "^5.80.0"
+    },
+    "dependencies": {
+        "laravel-mix": "^6.0.49"
+    }
+}

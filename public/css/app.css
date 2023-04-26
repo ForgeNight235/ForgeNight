@@ -1,0 +1,315 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /*Стили где конец страницы белый*/
+    /*background: linear-gradient(180deg, #F4DC5E 0%,*/
+    /*rgba(244, 220, 94, 0) 50%,*/
+    /*rgba(228, 227, 224, 0) 50%, #E4E3E0 95%)*/
+    /*no-repeat;*/
+    /*Стили где конец страницы желтый*/
+    background: linear-gradient(180deg, #F4DC5E 0%,
+    rgba(244, 220, 94, 0) 50%,
+    rgba(228, 227, 224, 0) 50%, #F4DC5E 95%)
+    no-repeat;
+}
+
+/*Описываем стиль для нашего контейнера. Он будет использоваться на каждой странице.*/
+.container{
+    max-width: 1200px;
+    padding: 35px;
+    margin: 0 auto;
+}
+
+/*Стили для шапки веб-сайта*/
+header nav ul{
+    color: #232323;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Century Gothic", sans-serif;
+    font-weight: 400;
+}
+
+.header-link a{
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 25px;
+    color: #232323;
+}
+
+header nav img{
+    max-width: 200px;
+    width: 100%;
+}
+
+/*Стили для поля поиска*/
+header nav input{
+    border-radius: 5px;
+    max-width: 200%;
+    border: 1px solid #232323;
+    padding: 4px 8px;
+    background: none;
+    outline: none;
+}
+
+.search{
+    position: relative;
+}
+
+.search-btn{
+    position: absolute;
+    right: 0;
+    margin: 5px 15px;
+    top: 0;
+    cursor: pointer; /* Делаем курсор при наведении на кнопку на вид перекрестия */
+    transition: opacity 0.3s ease-in-out; /* Плавное появление/исчезновение при наведении */
+    opacity: 0.5; /* Изначально кнопка немного прозрачная */
+}
+
+.search-btn:hover {
+    opacity: 1; /* При наведении кнопка становится непрозрачной */
+}
+
+/*Отключаем значок стирания текста в input type search*/
+input[type="search"]::-ms-clear {
+    display: none;
+}
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+input[type="search"]::-webkit-search-decoration {
+    display: none;
+}
+
+.account-settings{
+    display: flex;
+    gap: 25px;
+}
+
+.account-settings img{
+    --size: 25px;
+    height: var(--size);
+}
+
+/*Стили для Footer*/
+footer .container{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr auto;
+}
+
+.footer-section img{
+    max-width: 200px;
+    padding-bottom: 20px;
+}
+
+.footer-section{
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.footer-section-links{
+    display: flex;
+    gap: 20px;
+}
+
+.footer-section ul{
+    list-style: none;
+}
+
+.footer-section ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 25px;
+    color: #232323;
+    font-family: "Century Gothic", sans-serif;
+    font-weight: 400;
+}
+
+/*Раздел с ссылками-картинками*/
+.img-links{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 35px;
+}
+
+.second__part{
+    width: 100%;
+    background: linear-gradient(0deg, #F4DC5E 0%,
+    rgba(244, 220, 94, 0) 50%,
+    rgba(228, 227, 224, 0) 50%, #E4E3E0 95%)
+    no-repeat;
+}
+
+.img-links img{
+    max-width: 360px;
+    min-width: 200px;
+    width: 100%;
+    transform: scale(1);
+    transition: .3s ease-in-out;
+}
+
+.img-links img:hover{
+    transform: scale(1.1);
+}
+
+/*Стили для раздела новых предметов*/
+
+.section-article {
+    padding: 0 0 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.section-article h1 {
+    font: 40px/50px "Century Gothic", sans-serif;
+    text-transform: uppercase;
+    color: #232323;
+
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.section-article h1::before{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    height: 2px;
+    transform: translate(-50%, 50%);
+    background-color: #232323;
+}
+
+.section-article h1::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #232323;
+}
+
+
+.section-article a {
+    font: 20px/25px "Century Gothic", sans-serif;
+    color: #232323;
+}
+
+/*Главный слайдер начальной страницы*/
+.main-slider-wrapper{
+    position: relative;
+    height: 1080px;
+    /*background: linear-gradient(180deg, #F4DC5E 0%,*/
+    /*rgba(244, 220, 94, 0) 50%,*/
+    /*rgba(228, 227, 224, 0) 50%, #E4E3E0 100%)*/
+    /*no-repeat;*/
+}
+
+.main-slider-wrapper .swiper-container {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    max-width: 1200px;
+    padding: 0 35px;
+}
+
+.main-slider-wrapper .swiper-slide {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 35px;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+
+.main-slider-wrapper .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*New items container*/
+.new-items-container{
+    position: relative;
+}
+
+.new-items-container .item-new-img img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.new-items-container .slider-item{
+    padding: 10px 30px 30px;
+    background: #FFFFFF;
+    position: relative;
+
+
+
+    border: 3px solid transparent;
+    border-image-source: linear-gradient(45deg, #f3ec78, #af4261);
+    border-image-slice: 1;
+    border-radius: 20px;
+
+    /*border-style: solid;*/
+    /*border-width: 1px;*/
+    /*border-image-source: linear-gradient(180deg, #C4C4C4 35.73%, rgba(232, 228, 138, 0.392708) 67.5%, #F4DC5E 100%);*/
+    /*border-image-slice: 100%;*/
+    /*border-image-width: 1;*/
+    /*border-radius: 20px;*/
+    /*border-image-slice: 1;*/
+
+}
+.new-items-container .slider-item::before{
+    content: "";
+    border-radius: 20px;
+    position: absolute;
+    z-index: -1;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+}
+
+.new-items-container .slider-item h1{
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #1A1B22;
+}
+
+.new-items-container .slider-item .wishlist{
+    height: 20px;
+    width: auto;
+    margin: 0 0 0 auto;
+}
+
+.new-items-container .slider-item .category h3{
+
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #F4DC5E;
+}
+
