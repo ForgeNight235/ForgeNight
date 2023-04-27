@@ -47,4 +47,6 @@
     @include('components.sales')
 
     @include('components.news')
+
+    @include('components.subscribe')
 @endsection
