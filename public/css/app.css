@@ -17,6 +17,23 @@ body{
     no-repeat;
 }
 
+/*Меняем цвет скролла на веб сайте*/
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #F4DC5E;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #f8d723;
+}
+
 /*Описываем стиль для нашего контейнера. Он будет использоваться на каждой странице.*/
 .container{
     max-width: 1200px;

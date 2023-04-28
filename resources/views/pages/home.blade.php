@@ -14,12 +14,30 @@
 
                     <div class="main-screen-banner">
                         <div class="swiper mySwiper-main">
-                            <div class="swiper-scrollbar"></div>
+{{--                            <div class="slider__scrollbar-buttons">--}}
+                                <div class="swiper-scrollbar"></div>
+{{--                                <div class="slider__navigation">--}}
+                                    <div class="swiper-button-next"></div>
+{{--                                </div>--}}
+{{--                            </div>--}}
+
+
                             <div class="swiper-wrapper">
 
-                                <div class="swiper-slide"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, deleniti eligendi nobis obcaecati recusandae soluta?</p></div>
-                                <div class="swiper-slide"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dicta dolores, inventore mollitia possimus suscipit!</p></div>
-                                <div class="swiper-slide"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, quibusdam!</p></div>
+                                <div class="swiper-slide">
+                                    <p>Теперь взор магистра войны обратился на Терру — Тронный мир и средоточие власти его отца.
+                                    </p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p>
+                                        Битва за галактику продолжается! Новые модели ереси Хоруса уже скоро в продаже! Следите за обновлениями в магазине миниатюр ForgeNight.
+                                    </p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p>
+                                        Заключительный этап работы над Детьми Императора! Уникальные миниатюры Warhammer 3D скоро в продаже! Следите за обновлениями.
+                                    </p>
+                                </div>
 
                             </div>
                         </div>
@@ -45,6 +63,11 @@
             scrollbar: {
                 el: ".swiper-scrollbar",
                 hide: false,
+                dragPosition: 1
+            },
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
             },
             // touchEventsTarget: 'wrapper', // Отключаем горизонтальный скролл для сенсорных устройств
             // allowTouchMove: false, /* добавьте это свойство, чтобы отключить горизонтальный скролл */
@@ -52,19 +75,34 @@
     </script>
 
     <style>
+        .main-screen-banner .slider__navigation .swiper-button-next{
+            position: relative;
+            /* top: auto; */
+            bottom: auto;
+            left: 0;
+            right: auto;
+        }
+
+        .main-screen-banner .slider__navigation{
+            width: fit-content;
+            height: fit-content;
+            margin: auto auto 0;
+        }
+
         .main-screen-banner .swiper-scrollbar{
             background: #232323;
             width: 9px;
             z-index: 1;
         }
         .main-screen-banner .swiper-scrollbar .swiper-scrollbar-drag{
-            background: linear-gradient(180deg, #DF7A03 0%, rgba(142, 142, 142, 0) 100%);
-            z-index: 2000000;
+            background: linear-gradient(180deg, #DF7A03 100%, rgba(142, 142, 142, 0) 100%);
+            height: auto;
+            width: auto !important;
         }
 
         .main-screen-banner .swiper.mySwiper-main{
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             gap: 20px;
         }
 
@@ -94,12 +132,21 @@
             color: #232323;
         }
 
+        .swiper-slide p{
+            display: flex;
+            align-items: center;
+        }
+
         .main-screen-banner .swiper-wrapper{
             max-height: 225px;
             min-height: 150px;
             width: 100%;
             height: 100%;
             padding: 0 0 0 20px;
+        }
+
+        .slider__scrollbar-buttons{
+            display: contents;
         }
     </style>
 

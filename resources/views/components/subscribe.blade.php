@@ -14,7 +14,10 @@
 
             <input type="email" placeholder="введите email">
 
-            <button>подписаться</button>
+            <a href="?subscribe">
+                <button>подписаться</button>
+            </a>
+
         </div>
 
     </div>
@@ -96,8 +99,47 @@
             line-height: 29px;
             text-decoration-line: underline;
             text-transform: lowercase;
-
+            cursor: pointer;
             color: #232323;
+        }
+
+        @media screen and (max-width: 1440px){
+            .subscribe-form{
+                gap: 10px;
+            }
+        }
+        @media screen and (max-width: 425px){
+            .subscribe::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
+            }
+
+            .subscribe-form h3, .subscribe input::placeholder, .subscribe-form p, .subscribe button, .subscribe input{
+                color: #f2f2f2;
+            }
+
+            .subscribe input{
+                border: 1px solid #f2f2f2;
+            }
+        }
+
+        @media screen and (max-width: 375px){
+            .subscribe-form h3{
+                font-size: 36px;
+            }
+            .subscribe-form p, .subscribe-form button, .subscribe-form input{
+                font-size: 18px;
+            }
+        }
+        @media screen and (max-width: 320px){
+            .subscribe-form{
+                gap: 0;
+            }
         }
     </style>
 </section>
