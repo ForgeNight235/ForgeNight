@@ -1,12 +1,11 @@
-// vite.config.js
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
 
-const VitePluginLaravel = require('laravel-vite-plugin').default;
-
-module.exports = {
+export default defineConfig({
     plugins: [
-        VitePluginLaravel({
-            input: ['resources/sass/app.scss', 'resources/js/app.js'],
+        laravel({
+            input: ['public/css/app.css', 'public/js/app.js'],
             refresh: true,
         }),
     ],
-};
+});
