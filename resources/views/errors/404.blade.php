@@ -176,7 +176,8 @@
     <h1 class="second-four">4</h1>
     <p class="wrong-para">Упс! Кажется, странички ещё не существует...</p>
 </div>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js'></script><script  src="{{ asset('js/app.js') }}"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js'></script>
+<script  src="{{ asset('public/js/404error.js') }}"></script>
 </body>
 </html>
 
