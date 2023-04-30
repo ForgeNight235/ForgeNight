@@ -1,5 +1,5 @@
 <section id="subscribe" class="subscribe">
-    <img src="images/subscribe/subscribe.webp" alt="" title="" class="subscribe-image">
+    <img src="public/images/subscribe/subscribe.webp" alt="" title="" class="subscribe-image">
     <div class="container">
         <div class="subscribe-form">
 

@@ -12,7 +12,7 @@
                     <h2>text description</h2>
                 </div>
                 <div class="slide-img">
-                    <img src="{{ asset('images\main-slider\slide1.png') }}" alt="">
+                    <img src="{{ asset('/public/images\main-slider\slide1.png') }}" alt="">
                 </div>
             </swiper-slide>
             <swiper-slide>Slide 2</swiper-slide>
@@ -27,17 +27,17 @@
             <div class="img-links">
                 <div class="link">
                     <a href="/pre-catalog">
-                        <img src="{{ asset('images/img-links/order.png') }}" alt="order">
+                        <img src="{{ asset('/public/images/img-links/order.png') }}" alt="order">
                     </a>
                 </div>
                 <div class="link">
                     <a href="/gallery">
-                        <img src="{{ asset(asset('images/img-links/gallery.png')) }}" alt="gallery">
+                        <img src="{{ asset(asset('/public/images/img-links/gallery.png')) }}" alt="gallery">
                     </a>
                 </div>
                 <div class="link">
                     <a href="/catalog">
-                        <img src="{{ asset('images/img-links/catalog.png') }}" alt="catalog">
+                        <img src="{{ asset('/public/images/img-links/catalog.png') }}" alt="catalog">
                     </a>
                 </div>
             </div>
