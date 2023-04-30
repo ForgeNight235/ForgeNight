@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer-section">
             <img
-                src="{{ asset('public/images/logo/svg/forgenight_logo.svg') }}"
+                src="{{ asset('public/images/logo/webp/forgenight_logo.webp') }}"
                 alt="ForgeNight"
                 title="ForgeNight — это творчество и индивидуальность в каждой миниатюре"
             >
@@ -11,7 +11,7 @@
                     <img src="{{ asset('public/images/web-site_icons/vk.svg') }}" alt="ВКонтакте">
                 </a>
                 <a target="_blank" href="https://www.youtube.com/channel/UCG7Xhyi01dHEiHCgy3u9SPw">
-                    <img src="{{ asset('public/images/web-site_icons/youtube.svg') }}" alt="YouTube">
+                    <img src="{{ asset('public/images/web-site_icons/youtube.webp') }}" alt="YouTube">
                 </a>
                 <a target="_blank" href="https://www.instagram.com/etozhecust/">
                     <img src="{{ asset('public/images/web-site_icons/instagram.svg') }}" alt="Instagram">

@@ -47,7 +47,7 @@
                 </a>
             </div>
             <div class="slide-img">
-                <img src="{{ asset('public/images\main-slider\slide1.png') }}" alt="">
+                <img src="{{ asset('public/images\main-slider\slide1.webp') }}" alt="slide">
             </div>
         </div>
     </div>

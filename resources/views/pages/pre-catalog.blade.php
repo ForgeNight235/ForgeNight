@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <div class="big__breadcrumbs">
+        <div class="breadcrumbs">
             <a href="{{ route('page.home') }}">
                 <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
                 <p>вернуться на главную страницу</p>
@@ -13,18 +13,23 @@
     </div>
 
     <style>
-        .big__breadcrumbs a{
+        .breadcrumbs a{
             display: flex;
             gap: 12px;
             text-decoration: none;
         }
-        .big__breadcrumbs p{
+        .breadcrumbs img{
+            --size: 15px;
+            width: var(--size);
+            height: var(--size);
+            margin: auto 0;
+        }
+        .breadcrumbs p{
             font-family: 'Century Gothic', sans-serif;
             font-style: normal;
             font-weight: 400;
-            font-size: 28px;
-            line-height: 34px;
-
+            font-size: 16px;
+            line-height: 20px;
             color: #232323;
         }
     </style>
