@@ -238,7 +238,7 @@ footer .container{
 
 /*Главный слайдер начальной страницы*/
 
-.main-screen-banner .container {
+.main-screen-banner .container{
     display: flex;
     position: relative;
     width: 100%;
@@ -267,7 +267,6 @@ footer .container{
 
 .main-screen-banner .container button{
     font-family: 'Century Gothic', sans-serif;
-    font-style: normal;
     font-weight: 400;
     font-size: 35px;
     line-height: 43px;
@@ -503,9 +502,23 @@ footer .container{
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 736px){
+    .img-links{
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+    }
+    .img-links .link{
+        width: fit-content;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
     .main-screen-banner .slide-img{
         display: none;
+    }
+    .main-screen-banner .img-links{
+        display: flex;
     }
 
     .header{

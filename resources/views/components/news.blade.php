@@ -42,7 +42,6 @@
                 <img src="images/news/new-tertiary-1.webp" alt="">
                 <div class="news-item-text">
                     <p>
-                        Пурпурный легион
                         Пополнение ассортимента детей императора
                     </p>
                     <a href="?new">

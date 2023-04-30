@@ -159,9 +159,6 @@
             color: #DF7A03;
         }
 
-        .img-links{
-            grid-template-columns: revert;
-        }
     </style>
 
 

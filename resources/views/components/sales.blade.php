@@ -8,7 +8,9 @@
         </div>
 
         <div class="sale-items-container">
+
             <div class="swiper-scrollbar-sales"></div>
+
             <div class="swiper mySwiper-sales">
 
                 <div class="swiper-wrapper">
