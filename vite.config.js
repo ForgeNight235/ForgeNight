@@ -9,5 +9,8 @@ export default defineConfig({
             input: ['public/css/app.css', 'public/js/app.js'],
             refresh: true,
         }),
-    ]
+    ],
+    build: {
+        outDir: 'dist' // этот параметр определяет название папки для вывода собранных файлов
+    }
 })
