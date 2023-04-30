@@ -8,8 +8,8 @@
         </div>
 
         <div class="sale-items-container">
-            <div class="swiper-scrollbar"></div>
-            <div class="swiper mySwiper">
+            <div class="swiper-scrollbar-sales"></div>
+            <div class="swiper mySwiper-sales">
 
                 <div class="swiper-wrapper">
 
@@ -85,10 +85,10 @@
 
             <!-- Initialize Swiper -->
             <script>
-                var swiper = new Swiper(".mySwiper", {
+                var swiper = new Swiper(".mySwiper-sales", {
                     slidesPerView: 1,
                     scrollbar: {
-                        el: ".swiper-scrollbar",
+                        el: ".swiper-scrollbar-sales",
                         hide: false,
                     },
                 });
@@ -100,18 +100,20 @@
                     height: 100%;
                 }
 
-                .sale-items-container .swiper-scrollbar{
+                .sale-items-container .swiper-scrollbar-sales{
                     min-width: 250px;
                     max-width: 500px;
-                    top: 0;
-                    right: 0;
-                    left: auto;
+                    background: #232323;
+                    height: 3px;
+                    margin: 0 0 0 auto;
                 }
                 .sale-items-container .swiper-scrollbar-drag {
                     width: calc(100% / var(--swiper-pagination-total));
+                    background: linear-gradient(180deg, #DF7A03 100%, rgba(142, 142, 142, 0) 100%);
+                    height: 3px;
                 }
 
-                .sale-items-container .swiper-scrollbar .swiper-scrollbar-drag{
+                .sale-items-container .swiper-scrollbar .swiper-scrollbar-sales-drag{
                     background: linear-gradient(180deg, #DF7A03 0%, rgba(142, 142, 142, 0) 100%);
                 }
 
@@ -119,12 +121,12 @@
                     width: 100%;
                     height: 100%;
                 }
-                .slider_info{
+                .sale-items-container .slider_info{
                     display: grid;
                     gap: 18px;
                 }
 
-                .slider_info button{
+                .sale-items-container .slider_info button{
                     background: #F4DC5E;
                     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
                     border-radius: 20px;
@@ -141,17 +143,17 @@
                     color: #000000;
                 }
 
-                .slider_info a{
+                .sale-items-container .slider_info a{
                     width: fit-content;
                     margin: 0 0 0 auto;
                 }
 
-                .slider_info-price{
+                .sale-items-container .slider_info-price{
                     display: grid;
                     gap: 18px;
                     text-align: left;
                 }
-                .old_price{
+                .sale-items-container .old_price{
                     font-family: 'Century Gothic', sans-serif;
                     font-style: normal;
                     font-weight: 400;
@@ -162,7 +164,7 @@
                     color: #232323;
 
                 }
-                .new_price{
+                .sale-items-container .new_price{
                     font-family: 'Century Gothic', sans-serif;
                     font-style: normal;
                     font-weight: 400;
@@ -203,10 +205,16 @@
                     max-height: 350px;
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
+                    object-fit: contain;
                     padding: 25px;
                     border: 2px solid #232323;
                     border-radius: 20px;
+                }
+
+                @media screen and (max-width: 425px){
+                    .sale-items-container .swiper-slide{
+                        display: grid;
+                    }
                 }
             </style>
         </div>

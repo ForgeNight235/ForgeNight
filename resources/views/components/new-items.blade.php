@@ -19,6 +19,27 @@
                 margin: 0 auto;
             }
 
+            .new-items-container .slider-item button{
+                font-family: 'Raleway', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 26px;
+                color: #232323;
+                padding: 4px 5px;
+                background: #F4DC5E;
+                border-radius: 8px;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                margin: 10px 0 0 0;
+            }
+
+            .item-new-img{
+                padding: 0 0 15px;
+            }
+
+
 
         </style>
 
@@ -33,13 +54,19 @@
                         <img class="wishlist" src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">
 
                         <div class="item-new-img">
-                            <img src="{{ asset('images/items/Chaos Daemons Slaanesh Keeper of Secrets_clear-min.png') }}" alt="">
+                            <a href="">
+                                <img src="{{ asset('images/items/Chaos Daemons Slaanesh Keeper of Secrets_clear-min.png') }}" alt="">
+                            </a>
                         </div>
 
-                        <h1>Slaanesh Keeper of Secrets</h1>
+                        <h1><a href="">Slaanesh Keeper of Secrets</a></h1>
 
-                        <h3 class="category-item">warhammer 40 000</h3>
+                        <h3 class="category-item"><a href="">warhammer 40 000</a></h3>
 
+                        <button>
+                            2000₱
+                            <img src="{{asset('images/web-site_icons/addToCart.webp')}}" alt="">
+                        </button>
                     </div>
 
                 </swiper-slide>
@@ -66,6 +93,16 @@
                     color: #A7A6A1;
                 }
 
+                .category-item a{
+                    font-family: 'Raleway', sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: #F4DC5E;
+                    text-decoration: none;
+                }
+
             </style>
 
 
@@ -86,6 +123,29 @@
                         el: '.swiper-pagination',
                         clickable: true,
                     },
+                    breakpoints: {
+                        2560:{
+                            slidesPerView: 5,
+                        },
+                        1440:{
+                            slidesPerView: 4
+                        },
+                        1024: {
+                            slidesPerView: 3
+                        },
+                        768: {
+                            slidesPerView: 3,
+                        },
+                        425: {
+                            slidesPerView: 1,
+                        },
+                        375: {
+                            slidesPerView: 1,
+                        },
+                        320: {
+                            slidesPerView: 1,
+                        }
+                    }
                 });
                 swiper.pagination.destroy(); // удаляем пагинацию
                 swiper.pagination.el.remove(); // удаляем элемент пагинации из DOM

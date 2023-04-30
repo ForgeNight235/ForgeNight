@@ -66,20 +66,20 @@ header nav img{
 }
 
 /*Стили для поля поиска*/
-header nav input{
-    border-radius: 5px;
-    max-width: 200%;
-    border: 1px solid #232323;
-    padding: 4px 8px;
-    background: none;
-    outline: none;
-}
 
-.search{
+.header .search, .header__container-search .search{
     position: relative;
 }
 
-.search-btn{
+.header .search input{
+    background: none;
+    outline: none;
+    height: 25px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.header .search-btn, .header__container-search .search-btn{
     position: absolute;
     right: 0;
     margin: 5px 15px;
@@ -87,6 +87,10 @@ header nav input{
     cursor: pointer; /* Делаем курсор при наведении на кнопку на вид перекрестия */
     transition: opacity 0.3s ease-in-out; /* Плавное появление/исчезновение при наведении */
     opacity: 0.5; /* Изначально кнопка немного прозрачная */
+}
+
+.header__container-search .search-btn{
+    margin: 10px 15px;
 }
 
 .search-btn:hover {
@@ -117,6 +121,7 @@ input[type="search"]::-webkit-search-decoration {
 /*Стили для Footer*/
 footer .container{
     display: grid;
+    gap: 15px;
     grid-template-columns: 3fr 1fr 1fr auto;
 }
 
@@ -146,6 +151,12 @@ footer .container{
     color: #232323;
     font-family: "Century Gothic", sans-serif;
     font-weight: 400;
+}
+
+@media screen and (max-width: 425px){
+    footer .container{
+        grid-template-columns: revert;
+    }
 }
 
 /*Раздел с ссылками-картинками*/
@@ -332,7 +343,7 @@ footer .container{
     right: -2px;
 }
 
-.new-items-container .slider-item h1{
+.new-items-container .slider-item h1 a{
     font-family: 'Century Gothic', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -340,6 +351,7 @@ footer .container{
     line-height: 22px;
     text-transform: uppercase;
     color: #1A1B22;
+    text-decoration: none;
 }
 
 .new-items-container .slider-item .wishlist{
@@ -447,6 +459,10 @@ footer .container{
     object-fit: cover;
 }
 
+.header__mobile{
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
     .news-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -484,5 +500,18 @@ footer .container{
     .news-grid-item-articles button {
         font-size: 14px;
         padding: 2px 8px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-screen-banner .slide-img{
+        display: none;
+    }
+
+    .header{
+        display: none;
+    }
+    .header__mobile{
+        display: block;
     }
 }

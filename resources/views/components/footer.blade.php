@@ -32,24 +32,24 @@
         </div>
         <div class="footer-section">
             <ul>
-                <li><a href="/contacts">контакты</a></li>
+                <li><a href="/contacts">вход</a></li>
             </ul>
             <ul>
-                <li><a href="/faq">оплата</a></li>
+                <li><a href="/faq">регистрация</a></li>
             </ul>
             <ul>
-                <li><a href="/faq">доставка</a></li>
+                <li><a href="/faq">ЧаВо</a></li>
             </ul>
         </div>
         <div class="footer-section">
             <ul>
-                <li><a href="/contacts">контакты</a></li>
+                <li><a href="/contacts">vk</a></li>
             </ul>
             <ul>
-                <li><a href="/faq">оплата</a></li>
+                <li><a href="/faq">telegram</a></li>
             </ul>
             <ul>
-                <li><a href="/faq">доставка</a></li>
+                <li><a href="/faq">instagram</a></li>
             </ul>
         </div>
     </div>

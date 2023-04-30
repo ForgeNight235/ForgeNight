@@ -89,10 +89,13 @@
             margin: auto auto 0;
         }
 
-        .main-screen-banner .swiper-scrollbar{
+        .main-screen-banner .swiper-scrollbar
+        {
             background: #232323;
             width: 9px;
             z-index: 1;
+            left: 10px;
+            height: calc(85% - 2 * var(--swiper-scrollbar-sides-offset,1%));
         }
         .main-screen-banner .swiper-scrollbar .swiper-scrollbar-drag{
             background: linear-gradient(180deg, #DF7A03 100%, rgba(142, 142, 142, 0) 100%);
@@ -107,16 +110,13 @@
         }
 
         .main-screen-banner .swiper.mySwiper-main .swiper-scrollbar{
-            left: 0;
+            left: 10px;
+            height: calc(85% - 2 * var(--swiper-scrollbar-sides-offset,1%));
         }
 
         .main-screen-banner .swiper {
             width: 100%;
             height: 100%;
-        }
-
-        .main-screen-banner{
-            /*overflow-x: hidden;*/
         }
 
         .main-screen-banner .swiper-slide {
@@ -132,7 +132,7 @@
             color: #232323;
         }
 
-        .swiper-slide p{
+        .main-screen-banner .swiper-slide p{
             display: flex;
             align-items: center;
         }
@@ -145,8 +145,22 @@
             padding: 0 0 0 20px;
         }
 
-        .slider__scrollbar-buttons{
-            display: contents;
+        .main-screen-banner .swiper-button-next{
+            left: 0;
+            transform: rotate(90deg);
+            bottom: 0;
+            top: auto;
+            width: 24px;
+            height: fit-content;
+        }
+        .main-screen-banner .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+            font-weight: 900;
+            font-size: 24px;
+            color: #DF7A03;
+        }
+
+        .img-links{
+            grid-template-columns: revert;
         }
     </style>
 
