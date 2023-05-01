@@ -22,8 +22,19 @@ class IndexController extends Controller
         return view('pages.pre-catalog');
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
+     */
     public function catalog()
     {
         return view('pages.catalog');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
+     */
+    public function single()
+    {
+        return view('pages.single');
     }
 }

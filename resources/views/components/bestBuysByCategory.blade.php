@@ -1,16 +1,15 @@
-<section id="new">
+<section class="bestBuysByCategory">
     <div class="container">
         <div class="section-article">
             <h1>
-                Новое
+                так же интересуются
             </h1>
-            <a href="/catalog">посмотреть все</a>
         </div>
 
 
         <div class="new-items-container">
 
-            <swiper-container class="mySwiper-news" slides-per-view="4"
+            <swiper-container class="mySwiper-recommend" slides-per-view="4"
                               space-between="30" centered-slides="true">
                 @for($i=0;$i<10;$i++)
                     <swiper-slide>
@@ -20,7 +19,7 @@
                                  alt="wishlist">
 
                             <div class="item-new-img">
-                                <a href="{{ route('page.single') }}">
+                                <a href="">
                                     <img
                                         src="{{ asset('public/images/items/Chaos Daemons Slaanesh Keeper of Secrets_clear-min.png') }}"
                                         alt="">
@@ -47,8 +46,7 @@
                 <div class="swiper-button-prev"></div>
             </div>
 
-
+            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         </div>
-
     </div>
 </section>

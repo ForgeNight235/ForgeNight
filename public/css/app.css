@@ -313,12 +313,12 @@ footer .container {
     position: relative;
 }
 
-.new-items-container .item-new-img img {
+.new-items-container .item-new-img img, .catalog .item-new-img img{
     width: 100%;
     border-radius: 20px;
 }
 
-.new-items-container .slider-item {
+.new-items-container .slider-item, .catalog .slider-item {
     padding: 10px 30px 30px;
     background: #FFFFFF;
     position: relative;
@@ -339,7 +339,7 @@ footer .container {
 
 }
 
-.new-items-container .slider-item::before {
+.new-items-container .slider-item::before, .catalog .slider-item::before{
     content: "";
     border-radius: 20px;
     position: absolute;
@@ -350,24 +350,27 @@ footer .container {
     right: -2px;
 }
 
-.new-items-container .slider-item h1 a {
+.new-items-container .slider-item h1, .catalog .slider-item h1{
     font-family: 'Century Gothic', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     text-transform: uppercase;
+}
+
+.new-items-container .slider-item h1 a, .catalog .slider-item h1 a{
     color: #1A1B22;
     text-decoration: none;
 }
 
-.new-items-container .slider-item .wishlist {
+.new-items-container .slider-item .wishlist, .catalog .slider-item .wishlist {
     height: 20px;
     width: auto;
     margin: 0 0 0 auto;
 }
 
-.new-items-container .slider-item .category h3 {
+.new-items-container .slider-item .category h3, .catalog .slider-item .category h3{
 
     font-family: 'Raleway', sans-serif;
     font-style: normal;
@@ -665,7 +668,7 @@ footer .container {
     margin: 0 auto;
 }
 
-.new-items-container .slider-item button {
+.new-items-container .slider-item button, .catalog .slider-item button{
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -681,7 +684,7 @@ footer .container {
     margin: 10px 0 0 0;
 }
 
-.item-new-img {
+.item-new-img, .catalog .item-new-img {
     padding: 0 0 15px;
 }
 
