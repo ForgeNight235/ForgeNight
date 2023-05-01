@@ -73,7 +73,7 @@
 
         <a href="/">
             <img
-                src="{{ asset('public/images/logo/svg/forgenight_logo.svg') }}"
+                src="{{ asset('public/images/logo/webp/forgenight_logo.webp') }}"
                 alt="ForgeNight"
                 title="ForgeNight — это творчество и индивидуальность в каждой миниатюре">
         </a>

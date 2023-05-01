@@ -21,4 +21,9 @@ class IndexController extends Controller
     {
         return view('pages.pre-catalog');
     }
+
+    public function catalog()
+    {
+        return view('pages.catalog');
+    }
 }

@@ -13,7 +13,7 @@ var swiperNews = new Swiper(".mySwiper-news", {
         nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev",
     }, breakpoints: {
         2560: {
-            slidesPerView: 5,
+            slidesPerView: 4,
         }, 1440: {
             slidesPerView: 4
         }, 1024: {

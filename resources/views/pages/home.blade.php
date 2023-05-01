@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                <a href="{{ route('page.catalog') }}">
+                <a href="{{ route('page.pre-catalog') }}">
                     <button>Перейти к каталогу</button>
                 </a>
             </div>
@@ -72,7 +72,7 @@
                 </a>
             </div>
             <div class="link">
-                <a href="{{ route('page.catalog') }}">
+                <a href="{{ route('page.pre-catalog') }}">
                     <img src="{{ asset('public/images/img-links/catalog.png') }}" alt="catalog">
                 </a>
             </div>

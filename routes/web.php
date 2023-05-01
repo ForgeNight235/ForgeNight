@@ -17,5 +17,6 @@ Route::group(['controller' => \App\Http\Controllers\IndexController::class,
     'as' => 'page.'],
 function () {
     Route::get('/', 'home')->name('home');
-    Route::get('/pre-catalog', 'preCatalog')->name('catalog');
+    Route::get('/pre-catalog', 'preCatalog')->name('pre-catalog');
+    Route::get('/catalog', 'catalog')->name('catalog');
 });
