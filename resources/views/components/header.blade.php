@@ -11,7 +11,7 @@
                     </a>
                 </li>
                 <li class="header-link">
-                    <a href="">о нас</a>
+                    <a href="{{ route('page.catalog') }}">каталог</a>
                 </li>
                 <li class="header-link">
                     <a href="">контакты</a>
@@ -35,7 +35,7 @@
                     <a href="/wishlist">
                         <img src="{{ asset('public/images/web-site_icons/wishlist.svg') }}" alt="wishlist">
                     </a>
-                    <a href="/account">
+                    <a href="{{ route('page.register') }}">
                         <img src="{{ asset('public/images/web-site_icons/account.svg') }}" alt="account">
                     </a>
                 </li>
@@ -57,11 +57,11 @@
         <div class="menu">
             <div class="burger-container">
                 <div class="menu__item">
-                    <a href="/account" class="account-link">
+                    <a href="{{ route('page.register') }}" class="account-link">
                         <img src="{{ asset('public/images/web-site_icons/account.svg') }}" alt="account">
                         Личный кабинет
                     </a>
-                    <a href="?">О нас</a>
+                    <a href="{{ route('page.catalog') }}">каталог</a>
                     <a href="?">Контакты</a>
                     <a href="?">Чаво</a>
                     <a href="?">Вход</a>
@@ -85,7 +85,7 @@
             <a href="/wishlist">
                 <img src="{{ asset('public/images/web-site_icons/wishlist.svg') }}" alt="wishlist">
             </a>
-            <a href="/account" class="account-link">
+            <a href="{{ route('page.register') }}" class="account-link">
                 <img src="{{ asset('public/images/web-site_icons/account.svg') }}" alt="account">
             </a>
         </li>

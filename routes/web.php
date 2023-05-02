@@ -20,4 +20,5 @@ function () {
     Route::get('/pre-catalog', 'preCatalog')->name('pre-catalog');
     Route::get('/catalog', 'catalog')->name('catalog');
     Route::get('/single', 'single')->name('single');
+    Route::get('/register', 'register')->name('register');
 });

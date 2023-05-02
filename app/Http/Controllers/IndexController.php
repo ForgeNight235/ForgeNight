@@ -37,4 +37,8 @@ class IndexController extends Controller
     {
         return view('pages.single');
     }
+    public function register()
+    {
+        return view('pages.auth.register');
+    }
 }

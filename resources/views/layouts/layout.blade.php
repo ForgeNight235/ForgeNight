@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars/css/OverlayScrollbars.min.css">
     <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars/js/OverlayScrollbars.min.js"></script>
     <script src="{{ asset('public/js/customScrolls.js') }}" defer></script>
+    <script src="{{ asset('public/js/registration.js') }}" defer></script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
     <title>@yield('title' | 'ForgeNight')</title>

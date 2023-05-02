@@ -63,7 +63,7 @@ var swiperSales = new Swiper(".mySwiper-sales", {
 // Бургер меню для шапки веб-сайта
 
 
-if (document.contains(document.querySelector('.burger')) && document.contains(document.querySelector('.close-menu'))) {
+// if (document.contains(document.querySelector('.burger')) && document.contains(document.querySelector('.close-menu'))) {
     const burger = document.querySelector('.burger');
     const body = document.querySelector('body');
     const menu = document.querySelector('.menu');
@@ -80,6 +80,7 @@ if (document.contains(document.querySelector('.burger')) && document.contains(do
     closeMenuButton.addEventListener('click', () => {
         burger.classList.remove('active');
         menu.classList.remove('active');
+        body.classList.remove('locked');
     });
-}
+// }
 

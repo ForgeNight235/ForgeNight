@@ -90,6 +90,12 @@ header nav img {
     opacity: 0.5; /* Изначально кнопка немного прозрачная */
 }
 
+.header .search-btn, .header__container-search .search-btn a {
+    height: fit-content;
+    margin: auto 0;
+    display: flex;
+}
+
 .header__container-search .search-btn {
     margin: 10px 15px;
 }
@@ -238,7 +244,7 @@ footer .container {
 }
 
 
-.section-article p, section-article a {
+.section-article p, .section-article a {
     font: 20px/25px "Century Gothic", sans-serif;
     color: #232323;
 }
@@ -313,7 +319,7 @@ footer .container {
     position: relative;
 }
 
-.new-items-container .item-new-img img, .catalog .item-new-img img{
+.new-items-container .item-new-img img, .catalog .item-new-img img {
     width: 100%;
     border-radius: 20px;
 }
@@ -339,7 +345,7 @@ footer .container {
 
 }
 
-.new-items-container .slider-item::before, .catalog .slider-item::before{
+.new-items-container .slider-item::before, .catalog .slider-item::before {
     content: "";
     border-radius: 20px;
     position: absolute;
@@ -350,7 +356,7 @@ footer .container {
     right: -2px;
 }
 
-.new-items-container .slider-item h1, .catalog .slider-item h1{
+.new-items-container .slider-item h1, .catalog .slider-item h1 {
     font-family: 'Century Gothic', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -359,7 +365,7 @@ footer .container {
     text-transform: uppercase;
 }
 
-.new-items-container .slider-item h1 a, .catalog .slider-item h1 a{
+.new-items-container .slider-item h1 a, .catalog .slider-item h1 a {
     color: #1A1B22;
     text-decoration: none;
 }
@@ -370,7 +376,7 @@ footer .container {
     margin: 0 0 0 auto;
 }
 
-.new-items-container .slider-item .category h3, .catalog .slider-item .category h3{
+.new-items-container .slider-item .category h3, .catalog .slider-item .category h3 {
 
     font-family: 'Raleway', sans-serif;
     font-style: normal;
@@ -668,7 +674,7 @@ footer .container {
     margin: 0 auto;
 }
 
-.new-items-container .slider-item button, .catalog .slider-item button{
+.new-items-container .slider-item button, .catalog .slider-item button {
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -1169,6 +1175,233 @@ body.locked {
     font-size: 16px;
     line-height: 20px;
     color: #232323;
+    margin: 0;
 }
 
 /*Конец стилей для страницы пред. каталога*/
+
+/*Стили для страницы каталога*/
+.filter_modal-btn {
+    display: none;
+}
+
+.filters_modal {
+    display: none;
+}
+
+.catalog-container {
+    display: flex;
+    gap: 20px;
+}
+
+.catalog .items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .catalog .items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+.catalog-container .os-scrollbar-track.os-scrollbar-track-off {
+    background: #232323;
+}
+
+.catalog-container .os-scrollbar-handle {
+    background: rgb(244, 220, 94) !important;
+}
+
+.catalog-container .accordion {
+    --bs-accordion-color: none;
+    --bs-accordion-bg: none;
+    --bs-accordion-transition: none;
+    --bs-accordion-border-color: none;
+    --bs-accordion-border-width: none;
+    --bs-accordion-border-radius: none;
+    --bs-accordion-inner-border-radius: none;
+    --bs-accordion-btn-color: none;
+    --bs-accordion-btn-bg: none;
+    --bs-accordion-btn-focus-border-color: none;
+    --bs-accordion-btn-focus-box-shadow: none;
+    --bs-accordion-active-color: none;
+    --bs-accordion-active-bg: none;
+}
+
+.catalog-container .accordion-item {
+    max-width: 300px;
+}
+
+.catalog-container .os-content {
+    padding: 0 !important;
+    display: grid;
+    gap: 20px;
+}
+
+.catalog-container .accordion-body a, .filter a {
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #232323;
+}
+
+.filter .clear {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.catalog-container .accordion-body {
+    display: grid;
+    gap: 20px;
+    max-width: 300px;
+    height: 250px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.catalog-container {
+    color: #232323;
+}
+
+.catalog-container .filter {
+    max-width: 300px;
+    display: grid;
+    gap: 13px;
+}
+
+.catalog-container .filter select {
+    outline: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background: none;
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    height: 40px;
+    width: fit-content;
+    padding: 10px 25px 10px 10px;
+}
+
+.catalog-container .filter option {
+    background: #F4DC5E;
+    cursor: pointer;
+}
+
+
+.catalog-container .filter span {
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.catalog-container .filter h3, .accordion-item button {
+    padding: 15px 0;
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 425px) {
+    .filter_modal-btn {
+        display: flex;
+    }
+
+    .catalog .items {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .filters_modal {
+        display: none;
+    }
+
+    .filters_modal.active {
+        display: block;
+        z-index: 123;
+        position: absolute;
+        background: #F4DC5E;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+    .section-article {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+
+    .section-article h1 {
+        font: 30px/40px "Century Gothic", sans-serif;
+        width: fit-content;
+    }
+
+    .section-article p {
+        text-align: right;
+    }
+
+    .catalog-container .accordion-body {
+        height: auto;
+    }
+
+    .filters {
+        display: none;
+    }
+
+    .filters_modal-container {
+        padding: 35px;
+    }
+
+    .filters_modal-container button {
+        align-items: center;
+        display: flex;
+        background: none;
+        border: none;
+        outline: none;
+        gap: 10px;
+        font-family: "Century Gothic", sans-serif;
+        font-size: 18px;
+        padding: 5px 0 15px;
+    }
+
+    .filter_modal-btn button p {
+        margin: auto 0 auto auto;
+        height: fit-content;
+        font-family: 'century gothic', sans-serif;
+        font-size: 20px;
+    }
+}
+
+.filter_modal-btn button {
+    padding: 5px;
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    align-items: center;
+    margin: 0 0 15px;
+    border-radius: 5px;
+}
+
+.filter_modal-btn img {
+    margin: auto auto auto 0;
+    --size: 25px;
+    width: var(--size);
+    height: var(--size);
+}
+
+/* Конец стилей для страницы каталога */
