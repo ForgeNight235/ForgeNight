@@ -2,28 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class IndexController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+     * @return Factory|\Illuminate\Foundation\Application|View|Application
      */
-    public function home(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function home(): Factory|\Illuminate\Foundation\Application|View|Application
     {
         return view('pages.home');
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
-    public function preCatalog(): \Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function preCatalog(): \Illuminate\Foundation\Application|View|Factory|Application
     {
         return view('pages.pre-catalog');
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function catalog()
     {
@@ -31,14 +33,22 @@ class IndexController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function single()
     {
         return view('pages.single');
     }
-    public function register()
+
+    /**
+     * @return Factory|\Illuminate\Foundation\Application|View|Application
+     */
+    public function register(): Factory|\Illuminate\Foundation\Application|View|Application
     {
         return view('pages.auth.register');
+    }
+    public function login(): Factory|\Illuminate\Foundation\Application|View|Application
+    {
+        return view('pages.auth.login');
     }
 }

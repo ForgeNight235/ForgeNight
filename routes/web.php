@@ -21,4 +21,15 @@ function () {
     Route::get('/catalog', 'catalog')->name('catalog');
     Route::get('/single', 'single')->name('single');
     Route::get('/register', 'register')->name('register');
+    Route::get('/login', 'login')->name('login');
+});
+
+//Контроллеры для авторизации, регистрации и выхода из аккаунта
+Route::group(['controller' => \App\Http\Controllers\AuthController::class,
+    'as' => 'auth.',
+    'prefix' => '/auth'
+    ], function () {
+    Route::post('/create', 'createUser')->name('createUser');
+    Route::post('/login', 'loginUser')->name('loginUser');
+    Route::get('/logoutUser', 'logoutUser')->name('logoutUser');
 });

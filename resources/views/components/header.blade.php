@@ -35,9 +35,87 @@
                     <a href="/wishlist">
                         <img src="{{ asset('public/images/web-site_icons/wishlist.svg') }}" alt="wishlist">
                     </a>
-                    <a href="{{ route('page.register') }}">
-                        <img src="{{ asset('public/images/web-site_icons/account.svg') }}" alt="account">
-                    </a>
+                    <div class="header__account-container">
+                        <a href="{{ route('page.register') }}" class="header__account-link">
+                            <img src="{{ asset('public/images/web-site_icons/account.svg') }}" alt="account">
+                        </a>
+
+                        @guest()
+                            <ul class="header__account-menu">
+                                <li><a href="{{ route('page.login') }}">Вход</a></li>
+                                <li><a href="{{ route('page.register') }}">Регистрация</a></li>
+                            </ul>
+                        @endguest
+
+                        @auth()
+                            <ul class="header__account-menu">
+                                <li><a href="?menu1">Личный кабинет</a></li>
+                                <li><a href="{{ route('auth.logoutUser') }}">Выход</a></li>
+                            </ul>
+                        @endauth
+
+
+                    </div>
+
+                    <script>
+                        const link = document.querySelector('.header__account-link');
+                        const menu = document.querySelector('.header__account-menu');
+                        let timeoutId;
+
+                        link.addEventListener('mouseenter', () => {
+                            clearTimeout(timeoutId);
+                            menu.style.display = 'block';
+                        });
+
+                        menu.addEventListener('mouseleave', () => {
+                            timeoutId = setTimeout(() => {
+                                menu.style.display = 'none';
+                            }, 500); // добавляем задержку в 500 миллисекунд (полсекунды)
+                        });
+                    </script>
+
+                    <style>
+                        .header__account-container ul{
+                            width: max-content;
+                            position: absolute;
+                            display: none;
+                            gap: 10px;
+                        }
+                        .header__account-container{
+                            position: relative;
+                        }
+                        .header__account--link:hover + .header__account--menu {
+                            display: block;
+                        }
+
+                        .header__account--menu {
+                            display: none;
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            background-color: #f9f9f9;
+                            border: 1px solid #ddd;
+                            padding: 0;
+                            margin: 0;
+                            list-style: none;
+                        }
+
+                        .header__account--menu li {
+                            margin: 0;
+                        }
+
+                        .header__account--menu a {
+                            display: block;
+                            padding: 10px;
+                            text-decoration: none;
+                            color: #333;
+                        }
+
+                        .header__account--menu a:hover {
+                            background-color: #f2f2f2;
+                        }
+                    </style>
+
                 </li>
             </ul>
         </nav>
