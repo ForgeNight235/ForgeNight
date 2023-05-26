@@ -48,12 +48,15 @@
                         @endguest
 
                         @auth()
-                            <ul class="header__account-menu">
-                                <li><a href="?menu1">Личный кабинет</a></li>
-                                <li><a href="{{ route('auth.logoutUser') }}">Выход</a></li>
+                            <ul class="header__account-menu" style="right: 0; text-align:right; top: 35px">
+                                <li><a href="{{ route('account.account') }}">Личный кабинет</a></li>
+                                <li><p href="" id="logout-btn">Выход</p></li>
                             </ul>
                         @endauth
 
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.css">
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.js"></script>
+                        @include('pages/auth/logout')
 
                     </div>
 
@@ -70,7 +73,9 @@
                         menu.addEventListener('mouseleave', () => {
                             timeoutId = setTimeout(() => {
                                 menu.style.display = 'none';
-                            }, 500); // добавляем задержку в 500 миллисекунд (полсекунды)
+                                menu.style.right = '0';
+                                menu.style.textAlign = 'right';
+                            }, 1000); // добавляем задержку в 500 миллисекунд (полсекунды)
                         });
                     </script>
 
@@ -135,15 +140,24 @@
         <div class="menu">
             <div class="burger-container">
                 <div class="menu__item">
-                    <a href="{{ route('page.register') }}" class="account-link">
-                        <img src="{{ asset('public/images/web-site_icons/account.svg') }}" alt="account">
-                        Личный кабинет
-                    </a>
-                    <a href="{{ route('page.catalog') }}">каталог</a>
-                    <a href="?">Контакты</a>
-                    <a href="?">Чаво</a>
-                    <a href="?">Вход</a>
-                    <a href="?">Регистрация</a>
+
+                    @guest()
+                        <ul class="header__account-menu">
+                            <li><a href="{{ route('page.login') }}">Вход</a></li>
+                            <li><a href="{{ route('page.register') }}">Регистрация</a></li>
+                        </ul>
+                    @endguest
+
+                    @auth()
+                        <ul class="header__account-menu" style="right: 0; text-align:right; top: 35px">
+                            <a href="{{ route('page.catalog') }}" class="account-link">
+                                <img src="{{ asset('public/images/web-site_icons/account.svg') }}" alt="account">
+                                Личный кабинет
+                            </a>
+                            <li><p href="" id="logoutMobile-btn">Выход</p></li>
+                        </ul>
+                    @endauth
+                    @include('pages/auth/logoutMobile')
                 </div>
             </div>
 

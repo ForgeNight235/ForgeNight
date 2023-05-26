@@ -15,14 +15,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
-{{--    Делаем кастомный скролл на веб-сайте--}}
+    {{--    Делаем кастомный скролл на веб-сайте--}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars/css/OverlayScrollbars.min.css">
     <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars/js/OverlayScrollbars.min.js"></script>
     <script src="{{ asset('public/js/customScrolls.js') }}" defer></script>
     <script src="{{ asset('public/js/registration.js') }}" defer></script>
+    <script src="{{ asset('public/js/burger.js') }}" defer></script>
+    <script src="{{ asset('public/js/logoutModal.js') }}" defer></script>
+    <script src="{{ asset('public/js/imagePreview.js') }}" defer></script>
+    <script src="{{ asset('public/js/mobileFormatter.js') }}" defer></script>
+
+
+
+    <title>@yield('title') | ForgeNight</title>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
-    <title>@yield('title' | 'ForgeNight')</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
 

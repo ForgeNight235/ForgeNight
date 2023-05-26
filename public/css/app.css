@@ -61,6 +61,22 @@ header nav ul {
     color: #232323;
 }
 
+.header__account-menu ul {
+    padding: 0;
+    margin-top: 5px;
+    gap: 10px;
+    text-align: left;
+}
+
+.header__account-menu a {
+    text-decoration: none;
+    color: #232323;
+}
+
+.header__account-menu li p {
+    cursor: pointer;
+}
+
 header nav img {
     max-width: 200px;
     width: 100%;
@@ -92,7 +108,7 @@ header nav img {
 
 .header .search-btn, .header__container-search .search-btn a {
     height: fit-content;
-    margin: auto 0;
+    margin: auto 5px;
     display: flex;
 }
 
@@ -320,29 +336,29 @@ footer .container {
 }
 
 .new-items-container .item-new-img img, .catalog .item-new-img img {
+    height: 175px;
     width: 100%;
     border-radius: 20px;
+    object-fit: contain;
 }
 
 .new-items-container .slider-item, .catalog .slider-item {
     padding: 10px 30px 30px;
-    background: #FFFFFF;
     position: relative;
 
+    background-image: linear-gradient(#FFFFFF, #FFFFFF), radial-gradient(circle at top left, #f3ec78, #af4261);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
 
     border: 3px solid transparent;
-    border-image-source: linear-gradient(45deg, #f3ec78, #af4261);
     border-image-slice: 1;
     border-radius: 20px;
 
-    /*border-style: solid;*/
-    /*border-width: 1px;*/
-    /*border-image-source: linear-gradient(180deg, #C4C4C4 35.73%, rgba(232, 228, 138, 0.392708) 67.5%, #F4DC5E 100%);*/
-    /*border-image-slice: 100%;*/
-    /*border-image-width: 1;*/
-    /*border-radius: 20px;*/
-    /*border-image-slice: 1;*/
+    /*max-height: 350px;*/
+    height: 400px;
+    max-width: 250px;
 
+    display: grid;
 }
 
 .new-items-container .slider-item::before, .catalog .slider-item::before {
@@ -363,6 +379,8 @@ footer .container {
     font-size: 18px;
     line-height: 22px;
     text-transform: uppercase;
+    margin: 0;
+    height: 75px;
 }
 
 .new-items-container .slider-item h1 a, .catalog .slider-item h1 a {
@@ -374,6 +392,11 @@ footer .container {
     height: 20px;
     width: auto;
     margin: 0 0 0 auto;
+}
+
+.wishlist {
+    width: fit-content !important;
+    height: fit-content !important;
 }
 
 .new-items-container .slider-item .category h3, .catalog .slider-item .category h3 {
@@ -629,7 +652,7 @@ footer .container {
     height: fit-content;
 }
 
-.main-screen-banner .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+.main-screen-banner .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after, .slider__navigation .swiper-button-next:after, .slider__navigation .swiper-button-prev:after {
     font-weight: 900;
     font-size: 24px;
     color: #DF7A03;
@@ -692,6 +715,14 @@ footer .container {
 
 .item-new-img, .catalog .item-new-img {
     padding: 0 0 15px;
+}
+
+.slider-item .category {
+    color: #F4DC5E;
+}
+
+{
+
 }
 
 /*Конец стилей блока с новыми предметами*/
@@ -1155,10 +1186,17 @@ body.locked {
     padding: 35px 0;
 }
 
+.breadcrumbs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 .breadcrumbs a {
     display: flex;
     gap: 12px;
     text-decoration: none;
+    align-items: center;
 }
 
 .breadcrumbs img {
@@ -1168,7 +1206,7 @@ body.locked {
     margin: auto 0;
 }
 
-.breadcrumbs p {
+.breadcrumbs p, .breadcrumbs a {
     font-family: 'Century Gothic', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -1305,6 +1343,7 @@ body.locked {
 }
 
 .catalog-container .filter h3, .accordion-item button {
+    background: transparent !important;
     padding: 15px 0;
     font-family: 'Century Gothic', sans-serif;
     font-style: normal;
@@ -1367,6 +1406,11 @@ body.locked {
         padding: 35px;
     }
 
+    .filters_modal-container .filter {
+        max-height: 400px;
+        overflow-y: scroll;
+    }
+
     .filters_modal-container button {
         align-items: center;
         display: flex;
@@ -1407,16 +1451,13 @@ body.locked {
 /* Конец стилей для страницы каталога */
 
 /*Стили для страницы регистрации*/
-/*.registration {*/
-/*    background: url('public/images/registration/Rectangle 53.png') no-repeat right;*/
-/*}*/
 
 .registration .register-img {
     margin: auto 0;
 }
 
 .registration .container form {
-    margin: 0 0 0 auto;
+    margin: 35px 0 35px auto;
 }
 
 .registration .container form .form-suggestion p {
@@ -1435,7 +1476,7 @@ body.locked {
     font-size: 20px;
     line-height: 25px;
     text-transform: lowercase;
-    color: #f2f2f2;
+    color: #262525;
 }
 
 .registration .container form .form-suggestion {
@@ -1470,7 +1511,7 @@ body.locked {
     cursor: pointer;
 }
 
-/* изменяем цвет фона чекбокса */
+/*изменяем цвет фона чекбокса*/
 input[type="checkbox"] {
     background-color: #CC0000; /* здесь указывается ваш цвет в формате HEX, RGB или названии */
 }
@@ -1505,16 +1546,876 @@ input[type="checkbox"] {
 
 .registration .container form {
     display: grid;
+    gap: 40px;
+}
+
+/*.registration .container form input {*/
+/*    width: 100%;*/
+/*    padding: 25px 30px;*/
+/*    max-width: 500px;*/
+/*    max-height: 60px;*/
+/*    border: 1px solid #F4DC5E;*/
+/*    outline: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/*Конец стилей для страницы регистрации*/
+.error-form {
+    position: relative;
+}
+
+.error-form p {
+    position: absolute;
+    margin: 0 5px 0 10px;
+    color: tomato;
+}
+
+.form-group {
+    display: grid;
+}
+
+.registration {
+    background: url('/public/images/registration/Rectangle 53.png') no-repeat right;
+}
+
+@media screen and (max-width: 768px) {
+    .register-img {
+        display: none;
+    }
+
+    .registration .container form {
+        margin: auto;
+    }
+
+    .registration .container form input, .registration .container form button {
+        /*width: fit-content;*/
+        font-size: 20px;
+        padding: 12px 16px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .form-suggestion {
+        display: grid !important;
+    }
+
+    .registration .container {
+        margin: 15px auto;
+    }
+}
+
+.login-box {
+    display: grid;
     gap: 30px;
 }
 
-.registration .container form input {
+.login-box .user-box {
+    position: relative;
+    height: fit-content;
+}
+
+.login-box .user-box input {
     width: 100%;
-    padding: 25px 30px;
-    max-width: 500px;
-    max-height: 60px;
+    padding: 10px;
+    font-size: 16px;
     border: 1px solid #F4DC5E;
+    border-radius: 20px;
     outline: none;
+    background: transparent;
+    color: #636363;
+
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 10px 0;
+    font-size: 16px;
+    color: #636363;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #F4DC5E;
+    font-size: 12px;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 80%, #FFFFFF 80%)
+}
+
+/*.registration {*/
+/*    background: url('public/images/registration/Rectangle 53.png') no-repeat right;*/
+/*}*/
+.registration img {
+    max-height: 600px;
+}
+
+.user-box button img {
+    height: 100%;
+}
+
+.registration .container .user-box .show-password {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    height: auto;
+    background: #F4DC5E;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 0 20px 20px 0;
+}
+
+.registration .container .user-box .show-password img {
+    max-width: 45px;
+    height: fit-content;
+}
+
+/*Стили для страницы аккаунта*/
+form button {
+    margin: auto;
+    background: #F4DC5E;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 8px 12px;
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 39px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.account__box.date input {
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-user-form {
+    display: grid;
+    gap: 35px;
+}
+
+.newsSubscription {
+    margin: auto 0 auto auto;
+    height: 25px;
+    width: 25px;
+}
+
+.account-content {
+    display: flex;
+    gap: 100px;
+    justify-content: space-between;
+}
+
+.account__personal__data form {
+    display: grid;
+    gap: 35px;
+    width: 100%;
+}
+
+.account__personal__data .account__box {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 2fr;
+}
+
+.account__personal__data .account__box input {
+    padding: 5px 0 8px 18px;
+    border: 1px solid #F4DC5E;
+    border-radius: 20px;
+    background: transparent;
+}
+
+.account__personal__data .account__box .avatar-user-form input {
+    width: fit-content;
+}
+
+.account__personal__data .account__box label {
+    align-items: center;
+    display: flex;
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #232323;
+}
+
+aside {
+    display: grid;
+    gap: 35px;
+    font-family: 'Century Gothic', sans-serif;
+    color: #232323;
+}
+
+aside .aside-article h2 {
+    padding: 6px 12px;
+    font-size: 22px !important;
+}
+
+aside .aside-article {
+    width: max-content;
+    z-index: 2;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px;
+}
+
+aside .aside-article a {
+    font-family: 'Century Gothic', sans-serif;
+    color: #232323;
+    text-decoration: none;
+    transition: .3s ease-in-out;
+}
+
+aside .aside-article a:hover {
+    text-decoration: underline rgba(0, 0, 0, .2);
+    transition: .3s ease-in-out;
+    padding: 6px 12px;
+    background: #E0E0E0;
     border-radius: 20px;
 }
-/*Конец стилей для страницы регистрации*/
+
+aside .aside-article a .avatar {
+    text-decoration: none;
+    display: block;
+    --size: 75px;
+    width: var(--size);
+    height: var(--size);
+    margin: 0 auto 15px auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+aside .aside-article .chosen {
+    z-index: 1;
+    padding: 6px 12px;
+    background: #E0E0E0;
+    border-radius: 20px;
+}
+
+.aside-article p {
+    text-align: center;
+}
+
+/*Конец стилей для страницы аккаунта*/
+
+/*Стили для страницы одного товара*/
+.item .section-article h1 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 59px;
+    background-size: cover;
+    -webkit-text-fill-color: transparent; /* переопределяет цвет текста с белого на прозрачный в браузерах на webkit */
+    -webkit-background-clip: text;
+}
+
+.item__content__container .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.item__content__container .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /*background: #fff;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.item__content__container .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item__content__container .swiper {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.item__content__container .swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+.item__content__container .mySwiper2 {
+    max-height: 400px;
+    max-width: 500px;
+}
+
+.item__content__container .mySwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    max-width: 500px;
+}
+
+.item__content__container .mySwiper .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.item__content__container .mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+.item__content__container .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.item__content__container .item-slider {
+    height: fit-content;
+}
+
+.item__content__container {
+    display: flex;
+    gap: 80px;
+}
+
+.item-info {
+    display: grid;
+    width: 100%;
+    font-family: 'Century Gothic', sans-serif;
+    color: #232323;
+}
+
+.item-info-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.item-info-options p {
+    line-height: 29px;
+    cursor: pointer;
+}
+
+.item-article h2 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.item-id span {
+    font-size: 24px;
+    line-height: 29px;
+    color: #B5B4B4;
+}
+
+.item-form-block p {
+    font-size: 40px;
+    line-height: 49px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.item-form-block .product-quantity {
+    display: flex;
+    padding: 12px;
+    background: #F4DC5E;
+    border-radius: 12px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.item-form-block .product-quantity input[type="number"] {
+    background: transparent;
+    border: none;
+    width: 35px;
+    text-align: center;
+    -moz-appearance: textfield; /* для Firefox */
+    appearance: none; /* для других браузеров */
+}
+
+.item-form-block .product-quantity input[type="number"]::-webkit-inner-spin-button,
+.item-form-block .product-quantity input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.item-form-block {
+    display: flex;
+    gap: 40px;
+}
+
+.item-form-block button {
+    font-weight: 400;
+    margin: 0;
+}
+
+.item__content__container form {
+    padding: 24px 0 46px;
+}
+
+@media screen and (max-width: 1000px) {
+    .item__content__container {
+        display: grid;
+    }
+}
+
+.item__content__container .accordion-button::after {
+    position: absolute;
+    margin: auto auto auto 15px;
+}
+
+.item__content__container button p {
+    padding: 0 0 0 45px;
+    margin: 0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #232323;
+    text-transform: lowercase;
+}
+
+.item__content__container .accordion-button,
+.item__content__container .accordion-item:first-of-type .accordion-button {
+    background: none;
+    border-radius: 20px 20px 0 0;
+}
+
+.item__content__container .accordion-button.collapsed,
+.item__content__container .accordion-button.collapsed:first-of-type,
+.item__content__container .accordion-item:last-of-type .accordion-button.collapsed {
+    background: linear-gradient(180deg, #E9E9E9 0%, #F4DC5E 93.02%);
+    box-shadow: 5px 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+
+.item__content__container .accordion {
+    display: grid;
+    gap: 24px;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+.item__content__container .accordion-item {
+    background: linear-gradient(180deg, #E9E9E9 0%, #F4DC5E 93.02%);
+    border: transparent;
+    border-radius: 20px;
+}
+
+.item__content__container .accordion-collapse.collapse.show {
+    border-radius: 0 0 20px 20px;
+}
+
+.item__content__container .accordion-header {
+    --bs-accordion-btn-focus-box-shadow: none;
+}
+
+.item__content__container .accordion-button span {
+    font-size: 12px;
+    line-height: 15px;
+    color: #AC9100;
+    display: flex;
+    gap: 8px;
+}
+
+.item__content__container .accordion-button {
+    display: flex;
+    gap: 18px;
+}
+
+.item__content__container table {
+    width: 100%;
+}
+
+.item__content__container td {
+    padding: 12px;
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 15px;
+    color: #232323;
+}
+
+.item__content__container td span {
+    color: #B49C19;
+}
+
+.item__content__container .accordion-body {
+    padding: 8px 12px 12px 12px;
+}
+
+@media screen and (max-width: 1024px) {
+    .item__content__container .item-reviews .block,
+    .item__content__container .item-reviews .block .review_data {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .item .section-article h1 {
+        font-size: 36px;
+    }
+
+    .item__content__container .mySwiper2,
+    .item__content__container .mySwiper {
+        width: 400px;
+        margin: 0;
+    }
+
+    .item__content__container .item-slider {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .item__content__container .mySwiper2,
+    .item__content__container .mySwiper {
+        width: 350px;
+        margin: 0;
+    }
+
+    .item__content__container .swiper-wrapper .swiper-slide img {
+        width: 75%;
+    }
+
+    .item__content__container .item-slider {
+        max-width: 350px;
+    }
+
+    .item__content__container td {
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .item .section-article h1 {
+        font-size: 24px;
+        line-height: 36px;
+    }
+
+    .item__content__container .mySwiper2,
+    .item__content__container .mySwiper {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .item__content__container .item-slider {
+        width: 350px;
+    }
+}
+
+.item-reviews.closed {
+    display: none;
+}
+
+.accordion.closed {
+    display: none;
+}
+
+.item-description.closed {
+    display: none;
+}
+
+.item-description {
+    display: grid;
+}
+
+.item-reviews {
+    display: grid;
+    gap: 25px;
+}
+
+.item-review-card .review_data {
+    display: flex;
+    gap: 25px;
+    height: fit-content;
+    margin: auto 0 auto auto;
+}
+
+.item-review-card {
+    display: grid;
+    position: relative;
+    background: #f2f2f2;
+    border-radius: 20px;
+    padding: 12px;
+}
+
+.item-review-card .avatar {
+    --size: 50px;
+    width: var(--size);
+    height: var(--size);
+    border: 1px solid #232323;
+    border-radius: 50%;
+}
+
+.item-review-card .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.item-review-card .block {
+    display: flex;
+    gap: 25px;
+    padding: 0 0 12px 0;
+}
+
+.item-review-card .nickname {
+    height: fit-content;
+    margin: auto auto auto 0;
+}
+
+.item-review-card .nickname p {
+    font-weight: bold;
+    display: block;
+    margin: 0;
+}
+
+.item-reviews .gallery button {
+    background: none;
+    border: none;
+
+}
+
+.item-reviews .gallery {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.item-reviews .gallery .image {
+    border-radius: 10px;
+}
+
+.item-reviews .gallery .image img {
+    border-radius: 10px;
+    --size: 100px;
+    width: var(--size);
+    height: var(--size);
+    object-fit: cover;
+}
+
+/*Конец стилей для страницы одного товара*/
+/*Стили для страницы оформления заказа*/
+.ordering .order-checkout .accordion .accordion-button::after {
+    position: absolute;
+    left: 24px;
+}
+
+.ordering .order-checkout .accordion .accordion-body {
+    display: flex;
+    gap: 20px;
+}
+
+.ordering .order-checkout .accordion .accordion-body img {
+    --size: 80px;
+    width: var(--size);
+    height: var(--size);
+    margin: auto 0 auto;
+}
+
+.ordering {
+    font-family: 'Century Gothic', sans-serif;
+}
+
+.ordering .order-checkout .accordion {
+    max-width: 660px;
+    display: grid;
+    gap: 60px;
+}
+
+.ordering .order-checkout .accordion .accordion-item {
+    background: linear-gradient(180deg, #787878 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 20px;
+    border: transparent;
+}
+
+.ordering .order-checkout .accordion-button:focus {
+    box-shadow: none;
+}
+
+.ordering .ordering__content .order-checkout .accordion form.address span {
+    font-size: 24px;
+    line-height: 29px;
+    color: #232323;
+}
+
+.ordering .ordering__content .order-checkout .accordion p {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    color: #1A1B22;
+    padding: 12px 0 0 56px;
+}
+
+.ordering .ordering__content form.address p.error {
+    color: tomato;
+    padding: 0;
+    margin: 0 auto 0 0;
+    font-weight: 100;
+    font-size: 14px;
+}
+
+.ordering .ordering__content form.address {
+    display: grid;
+    max-width: 350px;
+    margin: 0 auto 0 0;
+    gap: 35px;
+}
+
+.ordering .ordering__content form.address .form__group {
+    width: 100%;
+    padding: 0 24px 0 0;
+}
+
+.ordering .order-checkout form.address button {
+    font-size: 14px;
+    color: #f3c623;
+}
+
+.ordering .ordering__content form.address .form__group input {
+    width: 100%;
+}
+
+.ordering .ordering__content form.address .block {
+    display: flex;
+    /*gap: 70px;*/
+    justify-content: space-between;
+}
+
+.ordering .ordering__content input {
+    background: transparent;
+    border: transparent;
+    border-bottom: 1px solid #232323;
+    color: rgba(114, 115, 120, 0.6);
+    outline: transparent;
+}
+.ordering .order-checkout .accordion .accordion-button::after {
+    position: absolute;
+    left: 24px;
+}
+
+.ordering .order-checkout .accordion .accordion-body {
+    display: flex;
+    gap: 20px;
+}
+
+.ordering .order-checkout .accordion .accordion-body img {
+    --size: 80px;
+    width: var(--size);
+    height: var(--size);
+    margin: auto 0 auto;
+}
+
+.ordering {
+    font-family: 'Century Gothic', sans-serif;
+}
+
+.ordering .order-checkout .accordion {
+    max-width: 660px;
+    display: grid;
+    gap: 60px;
+}
+
+.ordering .order-checkout .accordion .accordion-item {
+    background: linear-gradient(180deg, #787878 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 20px;
+    border: transparent;
+}
+
+.ordering .order-checkout .accordion-button:focus {
+    box-shadow: none;
+}
+
+.ordering .ordering__content .order-checkout .accordion form.address span {
+    font-size: 24px;
+    line-height: 29px;
+    color: #232323;
+}
+
+.ordering .ordering__content .order-checkout .accordion p {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    color: #1A1B22;
+    padding: 12px 0 0 56px;
+}
+
+.ordering .ordering__content form.address p.error {
+    color: tomato;
+    padding: 0;
+    margin: 0 auto 0 0;
+    font-weight: 100;
+    font-size: 14px;
+}
+
+.ordering .ordering__content form.address {
+    display: grid;
+    max-width: 350px;
+    margin: 0 auto 0 0;
+    gap: 35px;
+}
+
+.ordering .ordering__content form.address .form__group {
+    width: 100%;
+    padding: 0 24px 0 0;
+}
+
+.ordering .order-checkout form.address button {
+    font-size: 14px;
+    color: #f3c623;
+}
+
+.ordering .ordering__content form.address .form__group input {
+    width: 100%;
+}
+
+.ordering .ordering__content input {
+    background: transparent;
+    border: transparent;
+    border-bottom: 1px solid #232323;
+    color: rgba(114, 115, 120, 0.6);
+    outline: transparent;
+}
+
+.ordering .order-checkout .accordion-item .accordion-body form.contacts button
+{
+    font-size: 14px;
+    color: #f3c623;
+}
+.ordering .order-checkout .accordion-item .accordion-body form.contacts {
+    display: grid;
+    gap: 35px;
+    max-width: 550px;
+    width: 100%;
+}
+.ordering .order-checkout .accordion-item .accordion-body form.contacts input
+{
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+.ordering .order-checkout .accordion-item .accordion-body form.contacts p.error
+{
+    margin: auto;
+    padding: 0;
+}
+/*Конец для страницы оформления заказа*/

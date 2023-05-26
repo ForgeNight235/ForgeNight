@@ -58,7 +58,7 @@
 
 
 
-    </script>
+
 
     <div class="container">
         <div class="img-links">

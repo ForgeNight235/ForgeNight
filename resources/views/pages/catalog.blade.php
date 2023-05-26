@@ -11,18 +11,29 @@
                 <a href="{{ route('page.home') }}">
                     <p>forgenight</p>
                     <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
-                    <p>каталог</p>
-
-                    <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
-                    <p>warhammer 40 000</p>
                 </a>
+                <a href="{{ route('page.catalog') }}">
+                    <p>каталог</p>
+                </a>
+                @if($collection)
+                    <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
+                    <a href="{{ route('page.catalog', ['collection' => $collection->id]) }}">
+                        {{ $collection->name }}
+                    </a>
+                @else
+                @endif
+
             </div>
 
             <div class="section-article">
                 <h1>
-                    Warhammer 40 000
+                    @if($collection)
+                        {{ $collection->name }}
+                    @else
+                        Все товары
+                    @endif
                 </h1>
-                <p>12 товар(ов) найдено</p>
+                <p>{{ $products->count() }} товар(ов) найдено</p>
             </div>
 
             <div class="filter_modal-btn">
@@ -62,32 +73,16 @@
                                      aria-labelledby="panelsStayOpen-headingOne">
                                     {{--                             использован id для настройки кастомного скрола от OverlayScrolls--}}
                                     <div class="accordion-body" id="my-scrollable-content">
-                                        <a href="?category">warhammer 40000</a>
-                                        <a href="?category">the horus heresy</a>
-                                        <a href="?category">dark angels</a>
-                                        <a href="?category">emperors children's</a>
-                                        <a href="?category">iron warriors</a>
-                                        <a href="?category">white scars</a>
-                                        <a href="?category">space wolfs</a>
-                                        <a href="?category">imperial fists</a>
-                                        <a href="?category">night lords</a>
-                                        <a href="?category">blood angels</a>
-                                        <a href="?category">iron hands</a>
-                                        <a href="?category">world eaters</a>
-                                        <a href="?category">ultramarine's</a>
-                                        <a href="?category">death guard</a>
-                                        <a href="?category">thousand sons</a>
-                                        <a href="?category">sons of horus/black legion</a>
-                                        <a href="?category">word bearer</a>
-                                        <a href="?category">salamanders</a>
-                                        <a href="?category">raven guard</a>
-                                        <a href="?category">alpha legion</a>
+                                        @foreach($collections as $collection)
+                                            <a href="?collection={{$collection->id}}">{{ $collection->name }}</a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <a class="clear" href="?category">очистить фильтр</a>
+                        @if(request()->get('collection'))
+                            <a href="{{ route('page.catalog') }}" class="clear">очистить фильтр</a>
+                        @endif
                     </div>
                 </div>
 
@@ -124,32 +119,17 @@
                                          aria-labelledby="panelsStayOpen-headingOne">
                                         {{--                             использован id для настройки кастомного скрола от OverlayScrolls--}}
                                         <div class="accordion-body" id="my-scrollable-content">
-                                            <a href="?category">warhammer 40000</a>
-                                            <a href="?category">the horus heresy</a>
-                                            <a href="?category">dark angels</a>
-                                            <a href="?category">emperors children's</a>
-                                            <a href="?category">iron warriors</a>
-                                            <a href="?category">white scars</a>
-                                            <a href="?category">space wolfs</a>
-                                            <a href="?category">imperial fists</a>
-                                            <a href="?category">night lords</a>
-                                            <a href="?category">blood angels</a>
-                                            <a href="?category">iron hands</a>
-                                            <a href="?category">world eaters</a>
-                                            <a href="?category">ultramarine's</a>
-                                            <a href="?category">death guard</a>
-                                            <a href="?category">thousand sons</a>
-                                            <a href="?category">sons of horus/black legion</a>
-                                            <a href="?category">word bearer</a>
-                                            <a href="?category">salamanders</a>
-                                            <a href="?category">raven guard</a>
-                                            <a href="?category">alpha legion</a>
+                                            @foreach($collections as $collection)
+                                                <a href="?category={{$collection->id}}">{{ $collection->name }}</a>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <a class="clear" href="?category">очистить фильтр</a>
+                            @if(request()->get('collection'))
+                                <a href="{{ route('page.catalog') }}" class="clear">очистить фильтр</a>
+                            @endif
                         </div>
                     </div>
 
@@ -157,30 +137,48 @@
 
 
                 <div class="items">
-                    @for($i=0;$i<12;$i++)
-                        <div class="slider-item">
-                            <img class="wishlist" src="{{ asset('public/images/web-site_icons/wishlist.svg') }}"
-                                 alt="wishlist">
+                    @if($products->count())
+                        @foreach($products as $product)
+                            <div class="slider-item">
+                                <button class="wishlist">
+                                    <img class="wishlist" src="{{ asset('public/images/web-site_icons/wishlist.svg') }}" alt="wishlist">
+                                </button>
 
-                            <div class="item-new-img">
-                                <a href="{{ route('page.single') }}">
-                                    <img
-                                        src="{{ asset('public/images/items/Chaos Daemons Slaanesh Keeper of Secrets_clear-min.png') }}"
-                                        alt="">
+                                <div class="item-new-img">
+                                    <a href="{{ route('product.show', $product) }}">
+
+                                        @if($product->images()->count() > 0)
+                                            <img src="{{ $product->images()->first()->path() }}" alt="{{ $product->name }}">
+                                        @endif
+
+                                    </a>
+                                </div>
+
+                                <h1><a href="{{ route('product.show', $product) }}">{{ $product->name }}</a></h1>
+
+
+                                <a href="?collection={{ $product->collection_id }}" class="category">
+                                    {{ $product->category->name }}
                                 </a>
+
+
+                                <a href="{{ route('product.addToCart', $product) }}">
+                                    <button>
+                                        {{ $product->price() }}
+                                        <img src="{{asset('public/images/web-site_icons/addToCart.webp')}}" alt="buy">
+                                    </button>
+                                </a>
+
                             </div>
+                        @endforeach
 
-                            <h1><a href="{{ route('page.single') }}">Slaanesh Keeper of Secrets</a></h1>
+                    @else
+                        <h4>На данный момент нет товаров выбранной категории</h4>
+                    @endif
 
-                            <h3 class="category-item"><a href="">warhammer 40 000</a></h3>
-
-                            <button>
-                                2000₱
-                                <img src="{{asset('public/images/web-site_icons/addToCart.webp')}}" alt="">
-                            </button>
-                        </div>
-                    @endfor
-                    <h1 style="text-align: center">Пагинация здесь</h1>
+                    <div class="pagination">
+                        {{ $products->links() }}
+                    </div>
                 </div>
 
             </div>

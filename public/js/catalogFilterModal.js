@@ -1,10 +1,11 @@
-const catalogFilterModal = () => {
+const CatalogFilterModal = () => {
     const modalOpen = document.querySelector('.filter_modal-btn');
     const modal = document.querySelector('.filters_modal');
     const modalClose = document.querySelector('.modalClose');
     const body = document.querySelector('body');
 
     modalOpen.addEventListener('click', () => {
+        console.log('work')
         modal.classList.toggle('active');
         body.classList.toggle('locked');
     });
@@ -14,7 +15,7 @@ const catalogFilterModal = () => {
     });
 }
 
-const init = () => {
-    catalogFilterModal();
+const initCatalogFilterModal = () => {
+    CatalogFilterModal();
 }
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', initCatalogFilterModal);

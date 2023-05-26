@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
+use App\Models\Product;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -25,19 +28,28 @@ class IndexController extends Controller
     }
 
     /**
+     * All products in page
      * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
-    public function catalog()
+    public function catalog(Request $request)
     {
-        return view('pages.catalog');
-    }
+        $collections = Collection::all();
 
-    /**
-     * @return Application|Factory|View|\Illuminate\Foundation\Application
-     */
-    public function single()
-    {
-        return view('pages.single');
+        $products = Product::query()->where('is_published', '=', true);
+
+        $collection = null;
+        if ($request->has('collection')) {
+            $collectionId = $request->get('collection');
+            $collection = Collection::findOrFail($collectionId);
+
+            $products = $products->where('collection_id', '=', $request->get('collection'));
+        }
+
+        $products = $products->paginate(20)->withQueryString();
+
+
+
+        return view('pages.catalog', compact('collections', 'products', 'collection'));
     }
 
     /**
@@ -47,8 +59,14 @@ class IndexController extends Controller
     {
         return view('pages.auth.register');
     }
+
     public function login(): Factory|\Illuminate\Foundation\Application|View|Application
     {
         return view('pages.auth.login');
+    }
+
+    public function cart()
+    {
+        return \view('pages.cart');
     }
 }

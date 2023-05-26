@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -27,12 +28,20 @@ class User extends Authenticatable
         'login',
         'email',
         'role',
+        'newsSubscription',
+        'avatar',
         'password',
         'city',
         'address',
         'index',
-        'mobile'
+        'mobile',
+        'birthDay'
     ];
+
+    public function avatarUrl()
+    {
+        return url('public/' . Storage::url($this->avatar));
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -44,6 +53,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function isAdmin()
+    {
+        return $this->role===self::IS_ADMIN;
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -52,4 +66,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function createdDate()
+    {
+        return date('d:m:Y', strtotime($this->created_at));
+    }
 }

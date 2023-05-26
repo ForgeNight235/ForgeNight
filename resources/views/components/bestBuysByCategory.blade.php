@@ -1,7 +1,7 @@
 <section class="bestBuysByCategory">
     <div class="container">
         <div class="section-article">
-            <h1>
+            <h1 style="background: none;">
                 так же интересуются
             </h1>
         </div>
@@ -9,8 +9,7 @@
 
         <div class="new-items-container">
 
-            <swiper-container class="mySwiper-recommend" slides-per-view="4"
-                              space-between="30" centered-slides="true">
+            <swiper-container class="mySwiper-recommend">
                 @for($i=0;$i<10;$i++)
                     <swiper-slide>
 
@@ -38,7 +37,6 @@
 
                     </swiper-slide>
                 @endfor
-
 
             </swiper-container>
             <div class="slider__navigation">

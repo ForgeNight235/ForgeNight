@@ -26,8 +26,27 @@ class CreateUserRequest extends FormRequest
             'login' => 'required|unique:users,login',
             'email' => 'required|unique:users,email|email',
             'password' => 'required|min:6',
-            'repeat_password' => 'required|min:6|same:password',
+            'repeat_password' => 'required|same:password',
             'rules' => 'accepted'
+        ];
+    }
+
+    public function messages()
+    {
+        return[
+            'name.required' => 'Заполните поле Имя',
+            'name.regex' => 'Кириллица и без цифр',
+            'login.required' => 'Заполните поле',
+            'login.unique' => 'Такой пользователь уже существует',
+            'email.required' => 'Введите электронную почту',
+            'email.email' => 'Неверный формат почты',
+            'password.required' => 'Введите пароль',
+            'password.min' => 'Минимум 6 знаков',
+            'repeat_password.required' => 'Поле подтверждения пароля обязательно',
+            'repeat_password.repeat' => 'Подтвердите пароль',
+            'repeat_password.same' => 'Поле должно совпадать с паролем',
+            'rules.accepted' => 'Для регистрации вы должны быть согласны с правилами регистрации'
+
         ];
     }
 }

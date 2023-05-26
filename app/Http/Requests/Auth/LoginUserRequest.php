@@ -11,7 +11,7 @@ class LoginUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return !auth()->check();
     }
 
     /**
@@ -23,7 +23,15 @@ class LoginUserRequest extends FormRequest
     {
         return [
             'login' => 'required',
-            'password' => 'required|min:6'
+            'password' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'login.required' => 'Неверно введены данные',
+            'password.required'=>''
         ];
     }
 }

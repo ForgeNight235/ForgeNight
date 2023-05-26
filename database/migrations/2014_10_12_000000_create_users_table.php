@@ -9,6 +9,8 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
@@ -20,15 +22,19 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('role', ['user', 'admin'])->default('user');
+            $table->boolean('newsSubscription')->default(false);
+            $table->string('avatar')->default('public/users-avatars/default-user.webp');
             $table->string('password');
             $table->string('city')->nullable();
             $table->string('address')->nullable();
             $table->string('index')->nullable();
             $table->string('mobile')->nullable();
+            $table->date('birthDay')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
