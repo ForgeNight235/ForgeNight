@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->integer('price')->default(0);
+            $table->integer('quantity')->default(1);
             $table->boolean('is_published')->default(true);
         });
     }

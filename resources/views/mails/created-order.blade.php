@@ -77,7 +77,7 @@
 <div
     style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Open Sans, Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
     Вы успешно создали заказ на веб-сайте ForgeNight!
-    В этом письме вы найдете список всех заказанных вами товаров, инструкцию по оплате и сроки изготовления изделий.
+    В этом письме вы найдете все детали о заказе.
 </div>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -208,7 +208,7 @@
                                         <tr>
                                             <td width="75%" align="left"
                                                 style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                                    {{ $product->product->name }} ( {{ $product->product->quantity }} )
+                                                    {{ $product->product->name }} ({{ $quantity[$product->id] }})
                                             </td>
                                             <td width="25%" align="left"
                                                 style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
@@ -318,7 +318,7 @@
                                                         Приблизительная дата отправки
                                                     </p>
                                                     <p>
-                                                        {{ $futureDate }}
+                                                        {{ $date }}
                                                     </p>
                                                 </td>
                                             </tr>

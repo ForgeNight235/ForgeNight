@@ -12,6 +12,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class OrderCreatedMail extends Mailable
 {
@@ -40,9 +41,9 @@ class OrderCreatedMail extends Mailable
      */
     public function content(): Content
     {
-//        $futureDate = date('d.m.Y', strtotime('+5 days'));
-        $futureDate = date('Y-m-d', strtotime('+5 days'));
         $user = auth()->user();
+        $orderReadyDate = Carbon::parse($this->order->created_at)->addDays(5)->locale('ru')->isoFormat('D MMMM YYYY, dddd');
+        $quantity = $this->order->products()->pluck('quantity', 'id');
         return new Content(
 
             view: 'mails.created-order',
@@ -50,8 +51,8 @@ class OrderCreatedMail extends Mailable
                 'products' => $this->order->products()->get(),
                 'total' => $this->order->total,
                 'user' => $user,
-                // не выводится дата вообще
-                'futureDate' => $futureDate,
+                'date' => $orderReadyDate,
+                'quantity' => $quantity,
             ]
         );
     }

@@ -100,6 +100,7 @@ Route::group([
 ], function () {
     Route::get('/', 'show')->name('show');
     Route::get('/{product:id}/remove', 'remove')->name('remove');
+    Route::post('/{id}', 'updateProductQuantity')->name('updateProductQuantity');
     Route::get('/deleteAll', 'clear')->name('clear');
 
     Route::group([
@@ -107,7 +108,7 @@ Route::group([
         'as' => 'product.',
         'prefix' => '/product'
     ], function () {
-        Route::get('/{product:id}', 'show')->name('show')->where('id', '[0-9]*');
+        Route::get('/{id}', 'show')->name('show')->where('id', '[0-9]*');
     });
 
     Route::group([

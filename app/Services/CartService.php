@@ -44,6 +44,12 @@ class CartService implements CartInterface
     /**
      * @inheritDoc
      */
+//    public function add(Product $product, $quantity = 1): void
+//    {
+//        $item = ['id' => $product->id, 'quantity' => $quantity];
+//        session()->push('cart', $item);
+//    }
+//
     public function add(Product $product): void
     {
         session()->push('cart', $product);
@@ -93,6 +99,29 @@ class CartService implements CartInterface
     {
         // TODO: Implement update() method.
     }
+
+    public function updateCartProductQuantity($itemId, $quantity)
+    {
+        // получаем текущее состояние корзины
+        $cart = session()->get('cart');
+
+//        dd($itemId, $quantity, $cart);
+
+        // проверяем наличия товара в корзине
+        if(isset($cart[$itemId])) {
+
+            // обновляем количество товара
+            $cart[$itemId]['quantity'] = $quantity;
+
+            // обновляем корзину в сессии
+            session()->put('cart', $cart);
+
+            return true;
+        }
+
+        return false;
+    }
+
 
     public function isEmpty(): bool
     {

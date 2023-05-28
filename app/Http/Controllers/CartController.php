@@ -42,6 +42,23 @@ class CartController extends Controller
     public function updateQuantity(Request $request)
     {
     }
+    public function updateProductQuantity(\Illuminate\Http\Request $request, $itemId)
+    {
+//        $product = Product::find($id);
+        $quantity = $request->input('quantity');
+
+        if ($this->cartService->updateCartProductQuantity($itemId, $quantity)) {
+            session()->flash('message', 'Количество товара успешно обновлено!');
+            return back();
+        }
+
+//        $cart = session()->get('cart');
+//        dd($cart, $itemId, $quantity);
+//        dd($request, $itemId);
+        session()->flash('message', 'Ошибка при обновлении количества товара!');
+        return back();
+    }
+
 
     public function orderIndex()
     {

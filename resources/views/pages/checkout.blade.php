@@ -229,6 +229,12 @@
                 </div>
                 <script src="{{ asset('public/js/cart/checkout/createOrder.js') }}" defer></script>
                 <style>
+                    .ordering .ordering__content .order-items-info form.order
+                    {
+                        display: grid;
+                        gap: 25px;
+                    }
+
                     .ordering .accordion-item
                     {
                         --bs-accordion-border-width: none;
