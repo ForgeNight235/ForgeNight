@@ -74,7 +74,8 @@ Route::group([
 
     Route::group([
         'controller' => \App\Http\Controllers\ProductController::class,
-        'as' => 'product.'
+        'as' => 'product.',
+        'prefix' => '/product'
     ], function ()
     {
         Route::post('/create', 'createProduct')->name('createProduct');
@@ -90,7 +91,9 @@ Route::group([
     Route::get('/{id}/addToCart', 'addToCart')->name('addToCart')
         ->where('id', '[0-9]*');
 
-    Route::get('/{product:id}', 'show')->name('show')->where('id', '[0-9]*');
+//    Route::get('/{product:id}', 'show')->name('show')->where('id', '[0-9]*');
+//    Выводим в адр. строке имя продукта, а не id
+    Route::get('/{product:name}', 'show')->name('show')->where('id', '[0-9]*');
 });
 
 Route::group([
