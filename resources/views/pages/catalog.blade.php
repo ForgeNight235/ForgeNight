@@ -135,51 +135,58 @@
 
                 </div>
 
-
-                <div class="items">
+                <div class="item-container">
                     @if($products->count())
-                        @foreach($products as $product)
-                            <div class="slider-item">
-                                <button class="wishlist">
-                                    <img class="wishlist" src="{{ asset('public/images/web-site_icons/wishlist.svg') }}" alt="wishlist">
-                                </button>
 
-                                <div class="item-new-img">
-                                    <a href="{{ route('product.show', $product) }}">
-
-                                        @if($product->images()->count() > 0)
-                                            <img src="{{ $product->images()->first()->path() }}" alt="{{ $product->name }}">
-                                        @endif
-
-                                    </a>
-                                </div>
-
-                                <h1><a href="{{ route('product.show', $product) }}">{{ $product->name }}</a></h1>
-
-
-                                <a href="?collection={{ $product->collection_id }}" class="category">
-                                    {{ $product->category->name }}
-                                </a>
-
-
-                                <a href="{{ route('product.addToCart', $product) }}">
-                                    <button>
-                                        {{ $product->price() }}
-                                        <img src="{{asset('public/images/web-site_icons/addToCart.webp')}}" alt="buy">
+                        <div class="items">
+                            @foreach($products as $product)
+                                <div class="slider-item">
+                                    <button class="wishlist">
+                                        <img class="wishlist"
+                                             src="{{ asset('public/images/web-site_icons/wishlist.svg') }}"
+                                             alt="wishlist">
                                     </button>
-                                </a>
 
-                            </div>
-                        @endforeach
+                                    <div class="item-new-img">
+                                        <a href="{{ route('product.show', $product) }}">
 
-                    @else
-                        <h4>На данный момент нет товаров выбранной категории</h4>
-                    @endif
+                                            @if($product->images()->count() > 0)
+                                                <img src="{{ $product->images()->first()->path() }}"
+                                                     alt="{{ $product->name }}">
+                                            @endif
 
-                    <div class="pagination">
-                        {{ $products->links() }}
-                    </div>
+                                        </a>
+                                    </div>
+
+                                    <h1><a href="{{ route('product.show', $product) }}">{{ $product->name }}</a></h1>
+
+
+                                    <a href="?collection={{ $product->collection_id }}" class="category">
+                                        {{ $product->category->name }}
+                                    </a>
+
+
+                                    <a href="{{ route('product.addToCart', $product) }}">
+                                        <button>
+                                            {{ $product->price() }}
+                                            <img src="{{asset('public/images/web-site_icons/addToCart.webp')}}"
+                                                 alt="buy">
+                                        </button>
+                                    </a>
+
+                                </div>
+                            @endforeach
+
+                            @else
+                                <h4>На данный момент нет товаров выбранной категории</h4>
+                            @endif
+                        </div>
+                        <div class="pagination">
+                            {{ $products->links() }}
+
+                        </div>
                 </div>
+
 
             </div>
 

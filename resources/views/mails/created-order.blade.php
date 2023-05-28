@@ -130,12 +130,12 @@
                                                            style="color: #ffffff; text-decoration: none;">Магазин
                                                             &nbsp;</a></p>
                                                 </td>
-{{--                                                <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 24px;">--}}
-{{--                                                    <a href="http://litmus.com" target="_blank"--}}
-{{--                                                       style="color: #ffffff; text-decoration: none;"><img--}}
-{{--                                                            src="shop.png" width="27" height="23"--}}
-{{--                                                            style="display: block; border: 0px;"/></a>--}}
-{{--                                                </td>--}}
+                                                {{--                                                <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 24px;">--}}
+                                                {{--                                                    <a href="http://litmus.com" target="_blank"--}}
+                                                {{--                                                       style="color: #ffffff; text-decoration: none;"><img--}}
+                                                {{--                                                            src="shop.png" width="27" height="23"--}}
+                                                {{--                                                            style="display: block; border: 0px;"/></a>--}}
+                                                {{--                                                </td>--}}
                                             </tr>
                                         </table>
                                     </td>
@@ -162,7 +162,8 @@
                             <tr>
                                 <td align="center"
                                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;">
-                                    <img src="{{ $message->embed('images/logo/webp/forgenight_logo.webp') }}" alt="ForgeNight" width="325" height="320"
+                                    <img src="{{ $message->embed('images/logo/webp/forgenight_logo.webp') }}"
+                                         alt="ForgeNight" width="325" height="320"
                                          style="display: block; border: 0px;"/><br>
                                     <h2 style="font-size: 30px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;">
                                         Спасибо Вам за Ваш заказ!
@@ -205,16 +206,16 @@
                                             </td>
                                         </tr>
                                         @foreach($products as $product)
-                                        <tr>
-                                            <td width="75%" align="left"
-                                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                            <tr>
+                                                <td width="75%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
                                                     {{ $product->product->name }} ({{ $quantity[$product->id] }})
-                                            </td>
-                                            <td width="25%" align="left"
-                                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                                {{ $product->product->price() }}
-                                            </td>
-                                        </tr>
+                                                </td>
+                                                <td width="25%" align="left"
+                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                                    {{ $product->product->price() }}
+                                                </td>
+                                            </tr>
                                         @endforeach
                                         <tr>
                                             <td width="75%" align="left"

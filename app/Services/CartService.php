@@ -44,16 +44,20 @@ class CartService implements CartInterface
     /**
      * @inheritDoc
      */
-//    public function add(Product $product, $quantity = 1): void
-//    {
-//        $item = ['id' => $product->id, 'quantity' => $quantity];
-//        session()->push('cart', $item);
-//    }
-//
     public function add(Product $product): void
     {
+        $quantity = 1;
+//        $item = ['id' => $product->id, 'quantity' => $quantity];
+
+        $product['quantity'] = $quantity;
+
         session()->push('cart', $product);
     }
+
+//    public function add(Product $product): void
+//    {
+//        session()->push('cart', $product);
+//    }
 
     /**
      * @inheritDoc

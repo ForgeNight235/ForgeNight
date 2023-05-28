@@ -1228,7 +1228,8 @@ body.locked {
 }
 
 .catalog-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
     gap: 20px;
 }
 
@@ -1236,6 +1237,33 @@ body.locked {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+}
+
+.catalog .catalog-container .item-container .pagination .text-muted
+{
+    font-size: 18px;
+}
+.catalog .catalog-container .item-container .pagination
+{
+    margin: 28px auto 0;
+    display: block;
+}
+.catalog .catalog-container .item-container .pagination ul
+{
+    display: flex;
+    margin: 0;
+}
+@media screen and (max-width: 950px) {
+    .catalog .catalog-container .items {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .catalog .catalog-container .items {
+        grid-template-columns: repeat(1, auto);
+        margin: auto;
+    }
 }
 
 @media screen and (max-width: 768px) {

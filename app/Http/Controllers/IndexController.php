@@ -45,7 +45,7 @@ class IndexController extends Controller
             $products = $products->where('collection_id', '=', $request->get('collection'));
         }
 
-        $products = $products->paginate(20)->withQueryString();
+        $products = $products->paginate(5)->withQueryString();
 
 
 

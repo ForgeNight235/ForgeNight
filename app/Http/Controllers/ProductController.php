@@ -7,6 +7,9 @@ use App\Models\Collection;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Services\CartService;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use function view;
 
 class ProductController extends Controller
@@ -42,7 +45,7 @@ class ProductController extends Controller
 
     /**
      * @param Product $product
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
+     * @return \Illuminate\Contracts\Foundation\Application|Factory|View|Application
      */
     public function show(Product $product)
     {
@@ -53,6 +56,10 @@ class ProductController extends Controller
         return view('pages.single', compact('product', 'collection'));
     }
 
+    /**
+     * @id string $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function addToCart(string $id)
     {
         /** @var Product $product */
