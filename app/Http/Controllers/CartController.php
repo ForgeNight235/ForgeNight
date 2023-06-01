@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Delivery;
+use App\Models\DeliveryOption;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
@@ -42,29 +44,32 @@ class CartController extends Controller
     public function updateQuantity(Request $request)
     {
     }
-    public function updateProductQuantity(\Illuminate\Http\Request $request, $itemId)
-    {
-//        $product = Product::find($id);
+    public function updateproductquantity(\Illuminate\Http\Request $request, $id) {
+
+        $product = Product::findOrFail($id); // Получаем объект товара по ID
+
         $quantity = $request->input('quantity');
 
-        if ($this->cartService->updateCartProductQuantity($itemId, $quantity)) {
+        if ($this->cartService->updateCartProductQuantity($product, $quantity)) { // Передаем объект товара в качестве первого аргумента
+
             session()->flash('message', 'Количество товара успешно обновлено!');
+
             return back();
         }
+//        dd($product, $id, $quantity);
+        session()->flash('message', 'Ошибка при обновлении количества товара');
 
-//        $cart = session()->get('cart');
-//        dd($cart, $itemId, $quantity);
-//        dd($request, $itemId);
-        session()->flash('message', 'Ошибка при обновлении количества товара!');
         return back();
     }
+
 
 
     public function orderIndex()
     {
         $cart = $this->cartService;
+        $deliverers = DeliveryOption::all();
 
-        return view('pages.checkout', compact('cart'));
+        return view('pages.checkout', compact('cart', 'deliverers'));
     }
 
     public function createOrder()
@@ -84,7 +89,7 @@ class CartController extends Controller
             ]);
         }
 
-        $this->cartService->clear();
+
 
         Mail::to(auth()->user()->email)->send(new \App\Mail\OrderCreatedMail($order));
 
@@ -116,7 +121,8 @@ class CartController extends Controller
 
         $order = Order::query()->create([
             'user_id' => auth()->user()->id,
-            'total' => $this->cartService->getTotal()
+            'total' => $this->cartService->getTotal(),
+            'delivery_option_id' => $request->input('delivery_type'),
         ]);
 
         foreach ($this->cartService->get() as $item) {
@@ -125,6 +131,12 @@ class CartController extends Controller
                 'product_id' => $item->id
             ]);
         }
+
+        $delivery = Delivery::query()->create([
+            'order_id' => $order->id,
+            'delivery_option_id' => $request->input('delivery_type')
+        ]);
+
 
         $this->cartService->clear();
 

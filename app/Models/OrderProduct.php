@@ -15,6 +15,11 @@ class OrderProduct extends Model
         'quantity'
     ];
 
+    public function totalProductPrice()
+    {
+        return number_format($this->quantity * $this->product->price, 0, ',', ' ') . ' ₱';
+    }
+
     public function product()
     {
         return $this->belongsTo(Product::class);

@@ -30,8 +30,8 @@ class LoginUserRequest extends FormRequest
     public function messages()
     {
         return [
-            'login.required' => 'Неверно введены данные',
-            'password.required'=>''
+            'login.required' => 'Введите логин',
+            'password.required'=> 'Введите пароль'
         ];
     }
 }

@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
-
+            $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
+            $table->foreignId('delivery_option_id')->constrained('delivery_options')->cascadeOnDelete();
+            $table->integer('price')->default(350);
+            $table->string('track_code')->nullable();
             $table->timestamps();
         });
     }

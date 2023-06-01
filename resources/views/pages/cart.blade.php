@@ -41,14 +41,14 @@
 {{--                                @method('PUT')--}}
                                 <div class="item">
 
-                                    <a href="{{ route('cart.product.show', $item) }}" class="item-img">
+                                    <a href="{{ route('product.show', $item) }}" class="item-img">
                                         <img
                                             src="{{ $item->images()->first()->path() }}"
                                             alt="{{ $item->name }}">
                                     </a>
 
                                     <div class="text-block">
-                                        <a href="{{ route('cart.product.show', $item) }}" class="item-title">
+                                        <a href="{{ route('product.show', $item) }}" class="item-title">
                                             {{ $item->name }}
                                         </a>
 
@@ -185,7 +185,7 @@
                                 <td>
                                     @if($cart->isEmpty())
                                     @else
-                                        {{ $cart->getTotal() }}
+                                        {{ $cart->getTotal() }} ₱
                                     @endif
                                 </td>
                             </tr>
@@ -195,11 +195,11 @@
                             </tr>
                             <tr>
                                 <td>доставка</td>
-                                <td>250 ₱</td>
+                                <td>350 ₱</td>
                             </tr>
                             <tr>
                                 <td>итоговая сумма</td>
-                                <td>1 253 ₱</td>
+                                <td>{{ $cart->getTotalWithDelivery() }} ₱</td>
                             </tr>
                         </table>
                     </div>

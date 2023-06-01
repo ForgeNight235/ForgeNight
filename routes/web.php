@@ -53,6 +53,12 @@ Route::group([
     Route::get('/orders', 'accountOrders')->name('accountOrders');
 
     Route::group([
+        'controller' => IndexController::class,
+    ], function () {
+        Route::get('/catalog', 'catalog')->name('catalog');
+    });
+
+    Route::group([
         'controller' => AuthController::class
     ], function () {
         Route::post('/update', 'updateUser')->name('updateUser');
@@ -103,7 +109,7 @@ Route::group([
 ], function () {
     Route::get('/', 'show')->name('show');
     Route::get('/{product:id}/remove', 'remove')->name('remove');
-    Route::post('/{id}', 'updateProductQuantity')->name('updateProductQuantity');
+    Route::post('/updateQuantity/{id}', 'updateProductQuantity')->name('updateProductQuantity');
     Route::get('/deleteAll', 'clear')->name('clear');
 
     Route::group([

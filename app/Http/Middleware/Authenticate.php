@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Order;
+use Carbon\Carbon;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Http\Request;
@@ -25,6 +27,17 @@ class Authenticate extends Middleware
     }
     public function accountOrders()
     {
-        return view('pages.accountSettings.accountOrders');
+        $authUserId = auth()->user()->id;
+        $orders = Order::query()->where('user_id', '=', $authUserId)->get();
+
+
+        return view('pages.accountSettings.accountOrders', compact('orders'));
+    }
+
+    public function isEmpty(): bool
+    {
+        if (count($this->get()) > 0) return false;
+
+        return true;
     }
 }

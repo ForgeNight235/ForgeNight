@@ -21,7 +21,25 @@ class Order extends Model
         return $this->hasMany(OrderProduct::class);
     }
 
+    // Отношение с пользователем
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    // Отношение с доставкой
+    public function delivery()
+    {
+        return $this->hasOne(Delivery::class);
+    }
+
+//    Получение красивой цены
+    public function price()
+    {
+        return number_format($this->total, 0, ',', ' ') . ' ₱';
+    }
+
+    public function priceWithDelivery()
+    {
+        return number_format($this->total + $this->delivery->price, 0, ',' , ' ') . ' ₱';
     }
 }

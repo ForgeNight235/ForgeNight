@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Collection;
+use App\Models\DeliveryOption;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -58,6 +60,17 @@ class DatabaseSeeder extends Seeder
         foreach ($categories as $category) {
             Collection::query()->create([
                 'name' => $category
+            ]);
+        }
+
+        $deliveryOptions = [
+            'СДЭК',
+            'Почта России',
+        ];
+
+        foreach ($deliveryOptions as $deliveryOption) {
+            DeliveryOption::query()->create([
+                'name' => $deliveryOption
             ]);
         }
     }

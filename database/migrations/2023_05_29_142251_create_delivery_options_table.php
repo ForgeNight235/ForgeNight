@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('delivery_options', function (Blueprint $table) {
             $table->id();
-            $table->enum('status', ['Отменен', 'Новый', 'В производстве', 'Отправлен', 'Завершен'])->default('Новый');
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->integer('total')->default(0);
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('delivery_option');
     }
 };

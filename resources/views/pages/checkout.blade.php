@@ -32,32 +32,56 @@
                                         src="{{ asset('public/images/web-site_icons/cart/infograph/infograph1.webp') }}"
                                         alt="1">
 
-                                    <form
-                                        action="{{ route('cart.checkout.updateUserAddress') }}"
-                                        method="post"
-                                        class="address"
-                                    >
-                                        @csrf
-                                        <span>адрес</span>
-                                        <div class="form__group">
-                                            <input type="text" name="address" class="large" placeholder="улица и дом"
-                                                   value="{{ auth()->user()->address }}">
-                                            <p class="error">@error('address') {{ $message }} @enderror</p>
-                                        </div>
+                                    <div class="forms">
 
-                                        <div class="block">
-                                            <input type="text" name="city" placeholder="город"
-                                                   value="{{ auth()->user()->city }}">
-                                            <p class="error">@error('city') {{ $message }} @enderror</p>
+                                        <form action="">
+                                            @csrf
+{{--                                            @foreach($deliverers as $delivery)--}}
 
-                                            <input type="text" name="index" placeholder="индекс"
-                                                   value="{{ auth()->user()->index }}">
-                                            <p class="error">@error('index') {{ $message }} @enderror</p>
-                                        </div>
+{{--                                                <div class="form__group">--}}
+{{--                                                    <label for="delivery">{{ $delivery->name }}</label>--}}
+{{--                                                    <input--}}
+{{--                                                        type="radio"--}}
+{{--                                                        id="delivery_{{ $delivery->id }}"--}}
+{{--                                                        name="delivery_type"--}}
+{{--                                                        value="{{ $delivery->id }}"--}}
+{{--                                                        data-delivery-name="{{ $delivery->name }}"--}}
+{{--                                                        >--}}
+{{--                                                </div>--}}
 
-                                        <button type="submit" class="btn-save" style="display: none;">сохранить данные
-                                        </button>
-                                    </form>
+{{--                                            @endforeach--}}
+
+                                        </form>
+
+                                        <form
+                                            action="{{ route('cart.checkout.updateUserAddress') }}"
+                                            method="post"
+                                            class="address"
+                                        >
+                                            @csrf
+                                            <span>адрес</span>
+                                            <div class="form__group">
+                                                <input type="text" name="address" class="large" placeholder="улица и дом"
+                                                       value="{{ auth()->user()->address }}">
+                                                <p class="error">@error('address') {{ $message }} @enderror</p>
+                                            </div>
+
+                                            <div class="block">
+                                                <input type="text" name="city" placeholder="город"
+                                                       value="{{ auth()->user()->city }}">
+                                                <p class="error">@error('city') {{ $message }} @enderror</p>
+
+                                                <input type="text" name="index" placeholder="индекс"
+                                                       value="{{ auth()->user()->index }}">
+                                                <p class="error">@error('index') {{ $message }} @enderror</p>
+                                            </div>
+
+                                            <button type="submit" class="btn-save" style="display: none;">сохранить данные
+                                            </button>
+                                        </form>
+
+                                    </div>
+
 
                                 </div>
                             </div>
@@ -210,127 +234,36 @@
                                 <p>итоговая стоимость</p>
                             </div>
                             <div class="underline"></div>
-                            <div class="price">{{ $cart->getTotal() }} ₱</div>
+                            <div class="price">{{ $cart->getTotalWithDelivery() }} ₱</div>
                         </div>
                     </div>
 
                     <form
-                        action=""
-{{--                        method="post"--}}
                         class="order"
                         id="js-checkout"
                     >
                         @csrf
                         <input type="password" name="password" placeholder="Для подтверждения заказа введите пароль"/>
 
+                        @foreach($deliverers as $delivery)
+
+                            <div class="form__group">
+
+                                <label for="delivery_type_{{ $delivery->id }}">
+                                    {{ $delivery->name }}
+                                </label>
+
+                                <input type="radio" id="delivery_type_{{ $delivery->id }}" name="delivery_type" value="{{ $delivery->id }}" data-delivery-name="{{ $delivery->name }}">
+
+                            </div>
+                        @endforeach
+
                         <button>оплатить</button>
                     </form>
 
                 </div>
                 <script src="{{ asset('public/js/cart/checkout/createOrder.js') }}" defer></script>
-                <style>
-                    .ordering .ordering__content .order-items-info form.order
-                    {
-                        display: grid;
-                        gap: 25px;
-                    }
 
-                    .ordering .accordion-item
-                    {
-                        --bs-accordion-border-width: none;
-                    }
-                    .ordering .ordering__content .order-items-info form.order button
-                    {
-                        font-weight: 100;
-                        padding: 12px 100px;
-                        background: #F4DC5E;
-                        border-radius: 20px;
-                        color: #232323;
-                        font-size: 20px;
-                        line-height: 25px;
-                    }
-                    .ordering .ordering__content .order-items-info .order-total .row>*
-                    {
-                        flex-shrink: inherit;
-                    }
-                    .ordering .ordering__content .order-items-info .order-total
-                    {
-                        margin: 30px 0 40px 0;
-                        display: flex;
-                        gap: 20px;
-                        flex-direction: column;
-                        font-size: 20px;
-                        line-height: 25px;
-                    }
-                    .ordering .ordering__content .order-items-info .order-total .row .price,
-                    .ordering .ordering__content .order-items-info .order-total .row .header
-                    {
-                        white-space: nowrap;
-                        width: fit-content;
-                    }
-                    .ordering .ordering__content .order-items-info .order-total .row p
-                    {
-                        margin: 0;
-                        padding: 0;
-                    }
-                    .ordering .ordering__content .order-items-info .order-total .row
-                    {
-                        flex-wrap: inherit;
-                        display: flex;
-                        flex-direction: row;
-                    }
-                    .ordering .ordering__content .order-items-info .order-total .row .underline
-                    {
-                        border-bottom: 1px dotted #232323;
-                        width: 100%;
-                    }
-                    .ordering .ordering__content .order-items-info .cart-items
-                    {
-                        display: flex;
-                        gap: 30px;
-                        flex-wrap: wrap;
-                        align-items: center;
-                        position: relative;
-                    }
-                    .ordering .ordering__content .order-items-info .cart-items button
-                    {
-                        background: transparent;
-                        border: transparent;
-                        outline: transparent;
-                    }
-                    .ordering .ordering__content .order-items-info .cart-items img
-                    {
-                        --size: 100px;
-                        max-width: var(--size);
-                        max-height: var(--size);
-                        object-fit: contain;
-                    }
-                    .ordering__content
-                    {
-                        display: grid;
-                        grid-template-columns: auto auto;
-                        gap: 55px;
-                    }
-                    .ordering .ordering__content .article a
-                    {
-                        font-size: 18px;
-                        line-height: 20px;
-                        color: #1A1B22;
-                        display: block;
-                        margin: auto 0 auto auto;
-                    }
-                    .ordering .ordering__content .article
-                    {
-                        display: flex;
-                        gap: 50px;
-                    }
-                    .ordering .ordering__content .article p
-                    {
-                        font-size: 24px;
-                        line-height: 29px;
-                        color: #1A1B22;
-                    }
-                </style>
             </div>
         </div>
 

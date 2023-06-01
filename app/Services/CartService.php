@@ -17,6 +17,14 @@ class CartService implements CartInterface
     }
 
     /**
+     * @return int orderPrice With delivery
+     */
+    public function getTotalWithDelivery(): int
+    {
+        return array_reduce($this->get(), fn($total, $item) => $total += $item->price, 0) + 350;
+    }
+
+    /**
      * @inheritDoc
      */
     public function get(): mixed
@@ -53,11 +61,6 @@ class CartService implements CartInterface
 
         session()->push('cart', $product);
     }
-
-//    public function add(Product $product): void
-//    {
-//        session()->push('cart', $product);
-//    }
 
     /**
      * @inheritDoc
@@ -104,25 +107,20 @@ class CartService implements CartInterface
         // TODO: Implement update() method.
     }
 
-    public function updateCartProductQuantity($itemId, $quantity)
-    {
-        // получаем текущее состояние корзины
-        $cart = session()->get('cart');
+    public function updateCartProductQuantity(Product $product, int $quantity) {
 
-//        dd($itemId, $quantity, $cart);
+        $cart = session()->get('cart') ?? []; // Используем пустой массив, если корзина еще не создана
 
-        // проверяем наличия товара в корзине
-        if(isset($cart[$itemId])) {
+        $productId = $product->id;
 
-            // обновляем количество товара
-            $cart[$itemId]['quantity'] = $quantity;
+        if (isset($cart[$productId])) {
 
-            // обновляем корзину в сессии
+            $cart[$productId]['quantity'] = $quantity;
+
             session()->put('cart', $cart);
 
             return true;
         }
-
         return false;
     }
 

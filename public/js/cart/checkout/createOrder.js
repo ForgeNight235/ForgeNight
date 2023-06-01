@@ -73,12 +73,6 @@ const initOrder = () => {
         cart(cartElement);
     }
 
-    // const createUserFormElement = document.getElementById('create-user-form');
-    //
-    // if (createUserFormElement) {
-    //     createUser(createUserFormElement);
-    // }
-
 }
 
 document.addEventListener('DOMContentLoaded', initOrder);
