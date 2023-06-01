@@ -1,14 +1,15 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "public/index.php",
-            "use": "@vercel/static-build"
-        }
+        { "src": "public", "use": "@vercel/static-build" }
     ],
     "routes": [
         {
-            "src": "/(.*)",
+            "src": "/index\\.php$",
+            "dest": "/"
+        },
+        {
+            "src": "/.*",
             "dest": "/index.php"
         }
     ]
