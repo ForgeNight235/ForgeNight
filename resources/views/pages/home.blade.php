@@ -3,7 +3,7 @@
 @section('title', 'Главная страница')
 
 @section('content')
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js') }}"></script>
     <div class="main-screen-banner">
         <div class="container">
             <div class="slide-text">
@@ -47,14 +47,14 @@
                 </a>
             </div>
             <div class="slide-img">
-                <img src="{{ asset('public/images\main-slider\slide1.webp') }}" alt="slide">
+                <img src="{{ asset('images\main-slider\slide1.webp') }}" alt="slide">
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="{{ asset('https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js') }}"></script>
+    <script src="{{ 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js' }}"></script>
 
-    <script src="{{ asset('public/js/mainSlider.js') }}" defer></script>
+    <script src="{{ asset('js/mainSlider.js') }}" defer></script>
 
 
 
@@ -64,17 +64,17 @@
         <div class="img-links">
             <div class="link">
                 <a href="/pre-catalog">
-                    <img src="{{ asset('public/images/img-links/order.png') }}" alt="order">
+                    <img src="{{ asset('images/img-links/order.png') }}" alt="order">
                 </a>
             </div>
             <div class="link">
                 <a href="/gallery">
-                    <img src="{{ asset(asset('public/images/img-links/gallery.png')) }}" alt="gallery">
+                    <img src="{{ asset(asset('images/img-links/gallery.png')) }}" alt="gallery">
                 </a>
             </div>
             <div class="link">
                 <a href="{{ route('page.pre-catalog') }}">
-                    <img src="{{ asset('public/images/img-links/catalog.png') }}" alt="catalog">
+                    <img src="{{ asset('images/img-links/catalog.png') }}" alt="catalog">
                 </a>
             </div>
         </div>

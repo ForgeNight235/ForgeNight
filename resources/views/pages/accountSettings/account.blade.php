@@ -4,8 +4,8 @@
 
 @section('content')
 
-    <script src="{{ asset('public/js/accountPage/imagePreview.js') }}"></script>
-    <script src="{{ asset('public/js/accountPage/mobileFormatter.js') }}"></script>
+    <script src="{{ asset('js/accountPage/imagePreview.js') }}"></script>
+    <script src="{{ asset('js/accountPage/mobileFormatter.js') }}"></script>
 
     <section class="account">
         <div class="container">
@@ -14,7 +14,7 @@
                 <a href="{{ route('page.home') }}">
                     <p>forgenight</p>
                     <img
-                        src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}"
+                        src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}"
                         alt="back"
                     >
                 </a>

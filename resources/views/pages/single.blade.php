@@ -8,13 +8,13 @@
             <div class="breadcrumbs">
                 <a href="{{ route('page.home') }}">
                     <p>forgenight</p>
-                    <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
+                    <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
                 </a>
                 <a href="{{ route('page.catalog') }}">
                     <p>каталог</p>
                 </a>
                 @if($collection)
-                    <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
+                    <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
                     <a href="{{ route('page.catalog', ['collection' => $collection->id]) }}">
                         {{ $collection->name }}
                     </a>
@@ -22,7 +22,7 @@
                 @endif
 
                 <a href="{{ route('product.show', $product) }}">
-                    <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
+                    <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
                     <p>{{ $product->name }}</p>
                 </a>
 
@@ -102,11 +102,11 @@
                         <div class="item-form-block">
                             <button>
                                 в корзину
-                                <img src="{{asset('public/images/web-site_icons/addToCart.webp')}}" alt="">
+                                <img src="{{asset('images/web-site_icons/addToCart.webp')}}" alt="">
                             </button>
 
                             <button class="wishlist">
-                                <img class="wishlist" src="{{ asset('public/images/web-site_icons/wishlist.svg') }}" alt="wishlist">
+                                <img class="wishlist" src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">
                             </button>
                         </div>
 
@@ -233,7 +233,7 @@
                                         </div>
                                     @endforeach
 
-                                    <script src=" {{ asset('public/js/singlePage/contentShowHide.js') }}" defer></script>
+                                    <script src=" {{ asset('js/singlePage/contentShowHide.js') }}" defer></script>
 
                                 </div>
                             @else
@@ -266,13 +266,13 @@
                 </style>
 
             </div>
-            <script src="{{ asset('public/js/singlePage/reviewsPhotos.js') }}" defer></script>
+            <script src="{{ asset('js/singlePage/reviewsPhotos.js') }}" defer></script>
 
-            <script src="{{ asset('public/js/singlePage/productQuantity.js') }}" defer></script>
+            <script src="{{ asset('js/singlePage/productQuantity.js') }}" defer></script>
 
-            <script src="{{ asset('public/js/singlePage/slider.js') }}" defer></script>
+            <script src="{{ asset('js/singlePage/slider.js') }}" defer></script>
 
-            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+            <script src="{{ asset('https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js') }}"></script>
         </div>
     </section>
 

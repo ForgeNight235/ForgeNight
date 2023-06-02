@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Collection;
 use App\Models\DeliveryOption;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
             'newsSubscription' => false,
             'password' => Hash::make('NostramoM31'),
-            'avatar' => 'public/users-avatars/admin.webp',
+            'avatar' => 'users-avatars/admin.webp',
             'city' => 'Казань',
             'address' => 'Ул. Октябрьская 90',
             'index' => '420025',
@@ -73,5 +74,78 @@ class DatabaseSeeder extends Seeder
                 'name' => $deliveryOption
             ]);
         }
+
+        $id = Product::query()->create([
+            'name' => 'Horus Ascended',
+                'price' => '3500',
+                'quantity' => '100',
+                'is_published' => true,
+                'collection_id' => '2'
+            ]
+        );
+        ProductImage::query()->create([
+            'product_id' => $id->id,
+            'image_path' => 'public/product_photos/horus/1.jpg'
+        ]);
+        ProductImage::query()->create([
+            'product_id' => $id->id,
+            'image_path' => 'public/product_photos/horus/2.jpg'
+        ]);
+        ProductImage::query()->create([
+            'product_id' => $id->id,
+            'image_path' => 'public/product_photos/horus/3.jpg'
+        ]);
+
+
+
+
+
+
+
+        $id = Product::query()->create([
+                'name' => 'Cerastus Knight-Castigator',
+                'price' => '8500',
+                'quantity' => '50',
+                'is_published' => true,
+                'collection_id' => '1'
+            ]
+        );
+        ProductImage::query()->create([
+            'product_id' => $id->id,
+            'image_path' => 'public/product_photos/cerastus/1.jpg'
+        ]);
+        ProductImage::query()->create([
+            'product_id' => $id->id,
+            'image_path' => 'public/storage/product_photos/cerastus/2.jpg'
+        ]);
+        ProductImage::query()->create([
+            'product_id' => $id->id,
+            'image_path' => 'public/storage/product_photos/cerastus/3.jpg'
+        ]);
+
+
+
+
+
+        $id = Product::query()->create([
+                'name' => 'Lion El Jonson',
+                'price' => '1500',
+                'quantity' => '150',
+                'is_published' => true,
+                'collection_id' => '3'
+            ]
+        );
+        ProductImage::query()->create([
+            'product_id' => $id->id,
+            'image_path' => 'public/product_photos/lion/1.jpg'
+        ]);
+        ProductImage::query()->create([
+            'product_id' => $id->id,
+            'image_path' => 'public/product_photos/lion/2.jpg'
+        ]);
+        ProductImage::query()->create([
+            'product_id' => $id->id,
+            'image_path' => 'public/product_photos/lion/2.jpg'
+        ]);
     }
 }

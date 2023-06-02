@@ -10,7 +10,7 @@
                 <a href="{{ route('page.home') }}">
                     <p>forgenight</p>
                     <img
-                        src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}"
+                        src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}"
                         alt="back"
                     >
                 </a>

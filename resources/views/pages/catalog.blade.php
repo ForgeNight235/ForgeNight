@@ -3,20 +3,20 @@
 @section('title', 'Каталог магазина')
 
 @section('content')
-    <script src="{{ asset('public/js/catalogFilterModal.js') }}" defer></script>
+    <script src="{{ asset('js/catalogFilterModal.js') }}" defer></script>
     <section class="catalog">
         <div class="container">
 
             <div class="breadcrumbs">
                 <a href="{{ route('page.home') }}">
                     <p>forgenight</p>
-                    <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
+                    <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
                 </a>
                 <a href="{{ route('page.catalog') }}">
                     <p>каталог</p>
                 </a>
                 @if($collection)
-                    <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
+                    <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
                     <a href="{{ route('page.catalog', ['collection' => $collection->id]) }}">
                         {{ $collection->name }}
                     </a>
@@ -40,7 +40,7 @@
             <div class="filter_modal-btn">
                 <button>
                     <p>фильтр</p>
-                    <img src="{{ asset('public/images/web-site_icons/filter.webp') }}" alt="filter">
+                    <img src="{{ asset('images/web-site_icons/filter.webp') }}" alt="filter">
 
                 </button>
             </div>
@@ -90,7 +90,7 @@
                 <div class="filters_modal">
                     <div class="filters_modal-container">
                         <button class="modalClose">
-                            <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
+                            <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
                             <p>вернуться к товарам</p>
                         </button>
                         <div class="filter">
@@ -144,7 +144,7 @@
                                 <div class="slider-item">
                                     <button class="wishlist">
                                         <img class="wishlist"
-                                             src="{{ asset('public/images/web-site_icons/wishlist.svg') }}"
+                                             src="{{ asset('images/web-site_icons/wishlist.svg') }}"
                                              alt="wishlist">
                                     </button>
 
@@ -170,7 +170,7 @@
                                     <a href="{{ route('product.addToCart', $product) }}">
                                         <button>
                                             {{ $product->price() }}
-                                            <img src="{{asset('public/images/web-site_icons/addToCart.webp')}}"
+                                            <img src="{{asset('images/web-site_icons/addToCart.webp')}}"
                                                  alt="buy">
                                         </button>
                                     </a>

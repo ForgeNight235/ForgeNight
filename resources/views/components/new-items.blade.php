@@ -16,13 +16,13 @@
                     <swiper-slide>
 
                         <div class="slider-item">
-                            <img class="wishlist" src="{{ asset('public/images/web-site_icons/wishlist.svg') }}"
+                            <img class="wishlist" src="{{ asset('images/web-site_icons/wishlist.svg') }}"
                                  alt="wishlist">
 
                             <div class="item-new-img">
                                 <a href="{{ route('page.single') }}">
                                     <img
-                                        src="{{ asset('public/images/items/Chaos Daemons Slaanesh Keeper of Secrets_clear-min.png') }}"
+                                        src="{{ asset('images/items/Chaos Daemons Slaanesh Keeper of Secrets_clear-min.png') }}"
                                         alt="">
                                 </a>
                             </div>
@@ -33,7 +33,7 @@
 
                             <button>
                                 2000₱
-                                <img src="{{asset('public/images/web-site_icons/addToCart.webp')}}" alt="">
+                                <img src="{{asset('images/web-site_icons/addToCart.webp')}}" alt="">
                             </button>
                         </div>
 

@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{ asset('public/images/logo/svg/website icon.svg') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/logo/svg/website icon.svg') }}" type="image/x-icon">
 
     <title>Страница не существует | Forgenight</title>
 </head>
@@ -179,7 +179,7 @@
     <p class="wrong-para">Упс! Кажется, странички ещё не существует...</p>
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js'></script>
-<script  src="{{ asset('public/js/404error.js') }}"></script>
+<script  src="{{ asset('js/404error.js') }}"></script>
 </body>
 </html>
 

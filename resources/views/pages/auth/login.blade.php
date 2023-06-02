@@ -6,7 +6,7 @@
     <section class="registration">
         <div class="container">
             <div class="register-img">
-                <img src="{{ asset('public/images/registration/registration.webp') }}" alt="registration">
+                <img src="{{ asset('images/registration/registration.webp') }}" alt="registration">
             </div>
             <form
                 action="{{ route('auth.loginUser') }}"
@@ -29,7 +29,7 @@
                     <div class="user-box">
                         <input type="password" name="password" value="{{ old('password') }}" placeholder="*** ***" id="password" autocomplete="password">
                         <div class="show-password" onclick="showPassword()">
-                            <img src="{{ asset('public/images/web-site_icons/free-icon-show-8527944.png') }}" alt="Показать пароль">
+                            <img src="{{ asset('images/web-site_icons/free-icon-show-8527944.png') }}" alt="Показать пароль">
                         </div>
 
                         <script>

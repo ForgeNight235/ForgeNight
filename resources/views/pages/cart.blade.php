@@ -79,7 +79,7 @@
 {{--                                            <button>--}}
                                                 <a href="{{ route('cart.remove', $item) }}" class="button">
                                                     <img
-                                                        src="{{ asset('public/images/web-site_icons/cart/delete.svg') }}"
+                                                        src="{{ asset('images/web-site_icons/cart/delete.svg') }}"
                                                         alt="delete">
                                                 </a>
 {{--                                            </button>--}}
@@ -88,8 +88,8 @@
                                     </div>
 
 
-                                    <script src="{{ asset('public/js/singlePage/productQuantity.js') }}" defer></script>
-                                    <script src="{{ asset('public/js/cart/cartDeleteItem.js') }}" defer></script>
+                                    <script src="{{ asset('js/singlePage/productQuantity.js') }}" defer></script>
+                                    <script src="{{ asset('js/cart/cartDeleteItem.js') }}" defer></script>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary btn-sm btn-save">
@@ -120,7 +120,7 @@
 {{--                            </script>--}}
                     @endif
 
-                        <script src="{{ asset('public/js/cart/checkout/saveBtnAttach.js') }}" defer></script>
+                        <script src="{{ asset('js/cart/checkout/saveBtnAttach.js') }}" defer></script>
                         <style>
                             .btn-save {
                                 display: none !important;
@@ -135,7 +135,7 @@
                     @else
                         <button>
                             <a href="{{ route('cart.clear') }}" style="text-decoration: none;">
-                                <img src="{{ asset('public/images/web-site_icons/cart/delete.svg') }}"
+                                <img src="{{ asset('images/web-site_icons/cart/delete.svg') }}"
                                      alt="delete">
                                 <span style="color: #232323;">удалить всё</span>
                             </a>
@@ -146,7 +146,7 @@
                 </div>
 
                 <!-- Подключение библиотеки jQuery -->
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="{{ asset('https://code.jquery.com/jquery-3.6.0.min.js') }}"></script>
 
                 <div class="order-checkout">
                     <div class="promocode">
@@ -156,7 +156,7 @@
                           Введите его в поле ниже, чтобы применить. Мы предлагаем различные промо-коды
                           для праздников и особых случаев. Не упустите шанс сохранить деньги при покупке товаров.">
                       <button class="btn btn-primary" type="button" disabled>
-                          <img src="{{ asset('public/images/web-site_icons/cart/promocodes-alert.svg') }}"
+                          <img src="{{ asset('images/web-site_icons/cart/promocodes-alert.svg') }}"
                                alt="promocode">
                       </button>
                     </span>

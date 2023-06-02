@@ -5,7 +5,7 @@
                 <li>
                     <a href="/">
                         <img
-                            src="{{ asset('public/images/logo/webp/forgenight_logo.webp') }}"
+                            src="{{ asset('images/logo/webp/forgenight_logo.webp') }}"
                             alt="ForgeNight"
                             title="ForgeNight — это творчество и индивидуальность в каждой миниатюре">
                     </a>
@@ -23,21 +23,21 @@
                     <input type="search" class="search">
                     <div class="search-btn">
                         <a href="/">
-                            <img src="{{ asset('public/images/web-site_icons/search.svg') }}" alt="search">
+                            <img src="{{ asset('images/web-site_icons/search.svg') }}" alt="search">
                         </a>
                     </div>
                 </li>
 
                 <li class="account-settings">
                     <a href="/cart">
-                        <img src="{{ asset('public/images/web-site_icons/cart-icon.svg') }}" alt="cart">
+                        <img src="{{ asset('images/web-site_icons/cart-icon.svg') }}" alt="cart">
                     </a>
                     <a href="/wishlist">
-                        <img src="{{ asset('public/images/web-site_icons/wishlist.svg') }}" alt="wishlist">
+                        <img src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">
                     </a>
                     <div class="header__account-container">
                         <a href="{{ route('page.register') }}" class="header__account-link">
-                            <img src="{{ asset('public/images/web-site_icons/account.svg') }}" alt="account">
+                            <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
                         </a>
 
                         @guest()
@@ -151,7 +151,7 @@
                     @auth()
                         <ul class="header__account-menu" style="right: 0; text-align:right; top: 35px">
                             <a href="{{ route('page.catalog') }}" class="account-link">
-                                <img src="{{ asset('public/images/web-site_icons/account.svg') }}" alt="account">
+                                <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
                                 Личный кабинет
                             </a>
                             <li><p href="" id="logoutMobile-btn">Выход</p></li>
@@ -165,29 +165,29 @@
 
         <a href="/">
             <img
-                src="{{ asset('public/images/logo/webp/forgenight_logo.webp') }}"
+                src="{{ asset('images/logo/webp/forgenight_logo.webp') }}"
                 alt="ForgeNight"
                 title="ForgeNight — это творчество и индивидуальность в каждой миниатюре">
         </a>
 
         <li class="account-settings">
             <a href="/cart">
-                <img src="{{ asset('public/images/web-site_icons/cart-icon.svg') }}" alt="cart">
+                <img src="{{ asset('images/web-site_icons/cart-icon.svg') }}" alt="cart">
             </a>
             <a href="/wishlist">
-                <img src="{{ asset('public/images/web-site_icons/wishlist.svg') }}" alt="wishlist">
+                <img src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">
             </a>
             <a href="{{ route('page.register') }}" class="account-link">
-                <img src="{{ asset('public/images/web-site_icons/account.svg') }}" alt="account">
+                <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
             </a>
         </li>
 
         <li class="account-settings-low-devices">
             <a href="/cart">
-                <img src="{{ asset('public/images/web-site_icons/cart-icon.svg') }}" alt="cart">
+                <img src="{{ asset('images/web-site_icons/cart-icon.svg') }}" alt="cart">
             </a>
             <a href="/wishlist">
-                <img src="{{ asset('public/images/web-site_icons/wishlist.svg') }}" alt="wishlist">
+                <img src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">
             </a>
         </li>
 
@@ -199,7 +199,7 @@
             <input type="search" placeholder="я ищу...">
             <div class="search-btn">
                 <a href="/">
-                    <img src="{{ asset('public/images/web-site_icons/search.svg') }}" alt="search">
+                    <img src="{{ asset('images/web-site_icons/search.svg') }}" alt="search">
                 </a>
             </div>
         </li>

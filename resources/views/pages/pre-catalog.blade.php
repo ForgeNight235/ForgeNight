@@ -14,109 +14,109 @@
             <div class="img-links">
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/da.svg') }}" alt="order">
+                        <img src="{{ asset('images/pre-catalog-links/da.svg') }}" alt="order">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset(asset('public/images/pre-catalog-links/ec.svg')) }}" alt="gallery">
+                        <img src="{{ asset(asset('images/pre-catalog-links/ec.svg')) }}" alt="gallery">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/iw.svg') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/iw.svg') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/ws.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/ws.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/sw.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/sw.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/if.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/if.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/nl.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/nl.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/ba.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/ba.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/ih.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/ih.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/we.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/we.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/u.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/u.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/dg.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/dg.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/ts.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/ts.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/soh.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/soh.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/wb.webp') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/wb.webp') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/s.svg') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/s.svg') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/rg.svg') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/rg.svg') }}" alt="catalog">
                     </a>
                 </div>
 
                 <div class="link">
                     <a href="{{ route('page.catalog') }}">
-                        <img src="{{ asset('public/images/pre-catalog-links/al.svg') }}" alt="catalog">
+                        <img src="{{ asset('images/pre-catalog-links/al.svg') }}" alt="catalog">
                     </a>
                 </div>
 

@@ -1602,7 +1602,7 @@ input[type="checkbox"] {
 }
 
 .registration {
-    background: url('/public/images/registration/Rectangle 53.png') no-repeat right;
+    background: url('/images/registration/Rectangle 53.png') no-repeat right;
 }
 
 @media screen and (max-width: 768px) {
@@ -1675,7 +1675,7 @@ input[type="checkbox"] {
 }
 
 /*.registration {*/
-/*    background: url('public/images/registration/Rectangle 53.png') no-repeat right;*/
+/*    background: url('images/registration/Rectangle 53.png') no-repeat right;*/
 /*}*/
 .registration img {
     max-height: 600px;

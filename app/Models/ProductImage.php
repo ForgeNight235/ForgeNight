@@ -17,7 +17,7 @@ class ProductImage extends Model
 
     public function path()
     {
-        return url('Public/' . Storage::url($this->image_path));
+        return url(Storage::url($this->image_path));
     }
 
     public function product()

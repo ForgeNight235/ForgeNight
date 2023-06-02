@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <script src="{{ asset('public/js/accountPage/imagePreview.js') }}"></script>
+    <script src="{{ asset('js/accountPage/imagePreview.js') }}"></script>
 
 
     <section class="account">
@@ -13,7 +13,7 @@
             <div class="breadcrumbs">
                 <a href="{{ route('page.home') }}">
                     <p>forgenight</p>
-                    <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
+                    <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
 
 
                 </a>
@@ -354,7 +354,7 @@
                                                 <a href="https://www.pochta.ru/tracking" target="_blank"
                                                    class="item-img">
                                                     <img
-                                                        src="{{ asset('public/images/delivery/1200px-Russian_Post.webp') }}"
+                                                        src="{{ asset('images/delivery/1200px-Russian_Post.webp') }}"
                                                         alt="{{ $order->delivery->DeliveryOption->name }}"
                                                         class="product__img"
                                                         title="Доставка {{ $order->delivery->DeliveryOption->name }}"

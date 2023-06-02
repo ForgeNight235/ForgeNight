@@ -4,7 +4,7 @@
     <section class="registration">
         <div class="container">
             <div class="register-img">
-                <img src="{{ asset('public/images/registration/registration.webp') }}" alt="registration">
+                <img src="{{ asset('images/registration/registration.webp') }}" alt="registration">
             </div>
 {{--            @include('components.errors.errors')--}}
             <form
@@ -55,7 +55,7 @@
                         <input type="password" name="password" placeholder="секретный пароль" value="{{ old('password') }}" id="password">
                         <label for="password">Секретный пароль</label>
                         <div class="show-password" onclick="showPassword()">
-                            <img src="{{ asset('public/images/web-site_icons/free-icon-show-8527944.png') }}" alt="Показать пароль">
+                            <img src="{{ asset('images/web-site_icons/free-icon-show-8527944.png') }}" alt="Показать пароль">
                         </div>
 
                         <script>
@@ -97,7 +97,7 @@
                     <label class="checkbox">
                         <input type="checkbox" name="rules" required id="privacy_policy">
                         <p>Я согласен(-на) с правилами регистрации</p>
-                        <img src="{{ asset('public/images/registration/question.webp') }}" alt="agreement"
+                        <img src="{{ asset('images/registration/question.webp') }}" alt="agreement"
                              title="Пользуясь веб-сайтом ForgeNight, Вы доверяете нам свою личную информацию. Мы делаем все для обеспечения ее безопасности и в то же время предоставляем Вам возможность управлять своими данными.">
                     </label>
                     <div class="error-form">
@@ -114,7 +114,7 @@
                 </div>
                 <style>
                     .registration {
-                        background: url('public/images/registration/Rectangle 53.png') no-repeat right;
+                        background: url('images/registration/Rectangle 53.png') no-repeat right;
                     }
                 </style>
             </form>

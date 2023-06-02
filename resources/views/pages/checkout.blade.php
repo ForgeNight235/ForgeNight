@@ -29,7 +29,7 @@
                                 <div class="accordion-body">
 
                                     <img
-                                        src="{{ asset('public/images/web-site_icons/cart/infograph/infograph1.webp') }}"
+                                        src="{{ asset('images/web-site_icons/cart/infograph/infograph1.webp') }}"
                                         alt="1">
 
                                     <div class="forms">
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                         </div>
-                        <script src="{{ asset('public/js/cart/checkout/buttonHideShow.js') }}" defer></script>
+                        <script src="{{ asset('js/cart/checkout/buttonHideShow.js') }}" defer></script>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
@@ -101,7 +101,7 @@
                                 <div class="accordion-body">
 
                                     <img
-                                        src="{{ asset('public/images/web-site_icons/cart/infograph/infograph2.webp') }}"
+                                        src="{{ asset('images/web-site_icons/cart/infograph/infograph2.webp') }}"
                                         alt="2">
 
                                     <form
@@ -160,7 +160,7 @@
                                  aria-labelledby="panelsStayOpen-headingThree">
                                 <div class="accordion-body">
                                     <img
-                                        src="{{ asset('public/images/web-site_icons/cart/infograph/infograph3.webp') }}"
+                                        src="{{ asset('images/web-site_icons/cart/infograph/infograph3.webp') }}"
                                         alt="3">
                                     <p>
                                         Уважаемый покупатель!
@@ -199,7 +199,7 @@
                                 </a>
                             </div>
 
-                            <script src="{{ asset('public/js/singlePage/reviewsPhotos.js') }}" defer></script>
+                            <script src="{{ asset('js/singlePage/reviewsPhotos.js') }}" defer></script>
                         @endforeach
 
                     </div>
@@ -262,7 +262,7 @@
                     </form>
 
                 </div>
-                <script src="{{ asset('public/js/cart/checkout/createOrder.js') }}" defer></script>
+                <script src="{{ asset('js/cart/checkout/createOrder.js') }}" defer></script>
 
             </div>
         </div>

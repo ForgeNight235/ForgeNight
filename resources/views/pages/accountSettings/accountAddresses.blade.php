@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <script src="{{ asset('public/js/accountPage/imagePreview.js') }}"></script>
+    <script src="{{ asset('js/accountPage/imagePreview.js') }}"></script>
 
 
     <section class="account">
@@ -11,7 +11,7 @@
             <div class="breadcrumbs">
                 <a href="{{ route('page.home') }}">
                     <p>forgenight</p>
-                    <img src="{{ asset('public/images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
+                    <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
 
 
                 </a>

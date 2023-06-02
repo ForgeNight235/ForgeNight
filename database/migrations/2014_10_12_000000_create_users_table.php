@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('role', ['user', 'admin'])->default('user');
             $table->boolean('newsSubscription')->default(false);
-            $table->string('avatar')->default('public/users-avatars/default-user.webp');
+            $table->string('avatar')->default('users-avatars/default-user.webp');
             $table->string('password');
             $table->string('city')->nullable();
             $table->string('address')->nullable();

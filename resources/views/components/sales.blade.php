@@ -17,7 +17,7 @@
 
                     <div class="swiper-slide">
                         <div class="slider_img">
-                            <img src="public/images/items/Kratos Heavy Assault Tank_clear.png"
+                            <img src="images/items/Kratos Heavy Assault Tank_clear.png"
                                  alt="Kratos Heavy Assault Tank"
                                  title="Kratos Heavy Assault Tank">
                         </div>
@@ -41,7 +41,7 @@
 
                     <div class="swiper-slide">
                         <div class="slider_img">
-                            <img src="public/images/items/Emperor's Children Sorcerer in Terminator Armour_clear.png"
+                            <img src="images/items/Emperor's Children Sorcerer in Terminator Armour_clear.png"
                                  alt="Emperor's Children Sorcerer in Terminator Armour"
                                  title="Emperor's Children Sorcerer in Terminator Armour">
                         </div>
@@ -65,7 +65,7 @@
 
                     <div class="swiper-slide">
                         <div class="slider_img">
-                            <img src="public/images/items/Emperor's Children Master of Possession_clear.png"
+                            <img src="images/items/Emperor's Children Master of Possession_clear.png"
                                  alt="Emperor's Children Master of Possession"
                                  title="Emperor's Children Master of Possession">
                         </div>

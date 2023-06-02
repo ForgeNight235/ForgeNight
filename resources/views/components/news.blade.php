@@ -9,7 +9,7 @@
 
         <div class="news-grid">
             <div class="news-grid-item-articles news-grid-main">
-                <img src="public/images/news/news-slider/new-main.webp" alt="new">
+                <img src="images/news/news-slider/new-main.webp" alt="new">
                 <div class="news-item-text">
                     <p>
                         галерея уже раскрашенных миниатюр от наших клиентов обновляется каждый день
@@ -24,7 +24,7 @@
             </div>
 
             <div class="news-grid-item-articles news-grid-secondary">
-                <img src="public/images/news/new-secondary.webp" alt="new">
+                <img src="images/news/new-secondary.webp" alt="new">
                 <div class="news-item-text">
                     <p>
                         Грядёт буря...
@@ -39,7 +39,7 @@
             </div>
 
             <div class="news-grid-item-articles news-grid-tertiary">
-                <img src="public/images/news/new-tertiary-1.webp" alt="new">
+                <img src="images/news/new-tertiary-1.webp" alt="new">
                 <div class="news-item-text">
                     <p>
                         Пополнение ассортимента детей императора
@@ -53,7 +53,7 @@
             </div>
 
             <div class="news-grid-item-articles news-grid-tertiary">
-                <img src="public/images/news/new-tertiary-2.webp" alt="new">
+                <img src="images/news/new-tertiary-2.webp" alt="new">
                 <div class="news-item-text">
                     <p>
                         Большие машины
@@ -68,7 +68,7 @@
             </div>
 
             <div class="news-grid-item-articles news-grid-tertiary">
-                <img src="public/images/news/new-tertiary-3.webp" alt="new">
+                <img src="images/news/new-tertiary-3.webp" alt="new">
                 <div class="news-item-text">
                     <p>
                         Ультрамарины
