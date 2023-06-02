@@ -116,11 +116,11 @@ class DatabaseSeeder extends Seeder
         ]);
         ProductImage::query()->create([
             'product_id' => $id->id,
-            'image_path' => 'public/storage/product_photos/cerastus/2.jpg'
+            'image_path' => 'public/product_photos/cerastus/2.jpg'
         ]);
         ProductImage::query()->create([
             'product_id' => $id->id,
-            'image_path' => 'public/storage/product_photos/cerastus/3.jpg'
+            'image_path' => 'public/product_photos/cerastus/3.jpg'
         ]);
 
 
