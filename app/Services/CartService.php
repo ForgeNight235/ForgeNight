@@ -13,7 +13,7 @@ class CartService implements CartInterface
      */
     public function getTotal(): int
     {
-        return array_reduce($this->get(), fn($total, $item) => $total += $item->price, 0);
+        return array_reduce($this->get(), fn($total, $item) => $total += ($item->price * $item->quantity), 0);
     }
 
     /**
@@ -21,7 +21,7 @@ class CartService implements CartInterface
      */
     public function getTotalWithDelivery(): int
     {
-        return array_reduce($this->get(), fn($total, $item) => $total += $item->price, 0) + 350;
+        return array_reduce($this->get(), fn($total, $item) => $total += ($item->price * $item->quantity), 0) + 350;
     }
 
     /**

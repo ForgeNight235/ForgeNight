@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+<script src="{{ asset('js/registration.js') }}" defer></script>
+
 @section('content')
     <section class="registration">
         <div class="container">

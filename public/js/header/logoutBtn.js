@@ -1,33 +1,31 @@
 // Модальное окно для выхода из аккаунта
-
-const modalLogout = () => {
-    const logoutButton = document.getElementById('logout-btn');
-    const logoutUrl = logoutButton.dataset.logouturl;
-
-    const swalWithBootstrapButtons = swal.mixin({
+// logoutMobile-btn
+const modal = () => {
+    const logoutURL = "{{ route('auth.logoutUser') }}";
+    const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success',
             cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
     });
-
-    logoutButton.addEventListener('click', function(e) {
-        e.preventDefault();
+    document.getElementById('logout-btn').addEventListener('click', function(e) {
+        e.preventDefault(); // Останавливаем стандартное поведение ссылки
         swalWithBootstrapButtons.fire({
             title: 'Выйти из аккаунта?',
-            text: 'Вы не сможете совершить заказ',
+            text: "Вы не сможете совершить заказ",
             icon: 'question',
             showCancelButton: true,
             confirmButtonText: 'Выйти',
             cancelButtonText: 'Остаться',
             reverseButtons: true,
-            preConfirm: function() {
-                return new Promise(function(resolve) {
-                    window.location.href = logoutUrl;
+            preConfirm: function () {
+                return new Promise(function (resolve) {
+                    window.location.href = logoutURL;
                     resolve();
                 });
             }
+
         }).then((result) => {
             if (result.isConfirmed) {
                 swalWithBootstrapButtons.fire(
@@ -35,26 +33,24 @@ const modalLogout = () => {
                     'Your file has been deleted.',
                     'warning'
                 );
-                window.location.replace('/catalog');
+
+                window.location.replace('/catalog')
                 // Здесь нужно написать код, который выполнится, если пользователь нажмет кнопку "Yes, delete it!"
-            } else if (result.dismiss === swal.DismissReason.cancel) {
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
                 swalWithBootstrapButtons.fire(
                     'Вы остаетесь!',
                     'Окно автоматически закроется',
                     'success'
-                );
-                setTimeout(function() {
-                    swal.close();
+                )
+                setTimeout(function () {
+                    Swal.close();
                 }, 3000);
             }
         });
+
     });
 }
-
-const initModalLogout = () => {
-    modalLogout();
+const initModal = () => {
+    modal();
 }
-
-document.addEventListener('DOMContentLoaded', initModalLogout);
-
-
+document.addEventListener('DOMContentLoaded', initModal());

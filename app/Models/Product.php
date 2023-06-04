@@ -16,6 +16,7 @@ class Product extends Model
         'quantity',
         'collection_id',
         'price',
+        'description',
         'is_published',
     ];
 

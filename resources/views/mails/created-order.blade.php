@@ -128,14 +128,10 @@
                                                     <p style="font-size: 18px; font-weight: 400; margin: 0; color: #ffffff;">
                                                         <a href="http://litmus.com" target="_blank"
                                                            style="color: #ffffff; text-decoration: none;">Магазин
-                                                            &nbsp;</a></p>
+{{--                                                            &nbsp;--}}
+                                                        </a>
+                                                    </p>
                                                 </td>
-                                                {{--                                                <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 24px;">--}}
-                                                {{--                                                    <a href="http://litmus.com" target="_blank"--}}
-                                                {{--                                                       style="color: #ffffff; text-decoration: none;"><img--}}
-                                                {{--                                                            src="shop.png" width="27" height="23"--}}
-                                                {{--                                                            style="display: block; border: 0px;"/></a>--}}
-                                                {{--                                                </td>--}}
                                             </tr>
                                         </table>
                                     </td>
@@ -205,6 +201,7 @@
                                                 Стоимость
                                             </td>
                                         </tr>
+{{--                                        @dump($quantity)--}}
                                         @foreach($products as $product)
                                             <tr>
                                                 <td width="75%" align="left"

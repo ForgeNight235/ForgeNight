@@ -187,7 +187,7 @@
 
                     <div class="item-description closed">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet animi architecto autem commodi consequuntur <br><br>corporis dignissimos ea eius error est eveniet ex expedita facilis impedit ipsam itaque labore maiores <br><br>maxime modi molestias natus necessitatibus non optio quas quisquam quos reiciendis, saepe sunt suscipit <br><br>ullam ut voluptatem voluptates! Amet assumenda iste non sunt voluptas. Aliquam animi architecto distinctio <br><br>earum esse, excepturi exercitationem fuga iure laboriosam placeat, quis recusandae, repudiandae sapiente.
+                            {{ $product->description }}
                         </p>
                     </div>
 

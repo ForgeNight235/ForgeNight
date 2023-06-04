@@ -4,8 +4,9 @@
 
 @section('content')
 
-    <script src="{{ asset('js/accountPage/imagePreview.js') }}"></script>
-    <script src="{{ asset('js/accountPage/mobileFormatter.js') }}"></script>
+    <script src="{{ asset('js/accountPage/imagePreview.js') }}" defer></script>
+    <script src="{{ asset('js/accountPage/mobileFormatter.js') }}" defer></script>
+
 
     <section class="account">
         <div class="container">

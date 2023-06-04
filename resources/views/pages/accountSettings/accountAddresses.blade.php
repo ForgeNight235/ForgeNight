@@ -2,8 +2,6 @@
 
 @section('content')
 
-    <script src="{{ asset('js/accountPage/imagePreview.js') }}"></script>
-
 
     <section class="account">
         <div class="container">

@@ -14,12 +14,12 @@ const burger = () => {
         menu.classList.toggle('active');
     });
 
-// обработчик клика на кнопку закрытия меню
-    closeMenuButton.addEventListener('click', () => {
-        burger.classList.remove('active');
-        menu.classList.remove('active');
-        body.classList.remove('locked');
-    });
+// // обработчик клика на кнопку закрытия меню
+//     closeMenuButton.addEventListener('click', () => {
+//         burger.classList.remove('active');
+//         menu.classList.remove('active');
+//         body.classList.remove('locked');
+//     });
 }
 const initBurger = () => {
     burger();

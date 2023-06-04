@@ -50,34 +50,16 @@
                         @auth()
                             <ul class="header__account-menu" style="right: 0; text-align:right; top: 35px">
                                 <li><a href="{{ route('account.account') }}">Личный кабинет</a></li>
-                                <li><p href="" id="logout-btn">Выход</p></li>
+                                <li><p id="logout-btn" data-logouturl="{{ route('auth.logoutUser') }}" >Выход</p></li>
                             </ul>
                         @endauth
 
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.css">
-                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.js"></script>
-                        @include('pages/auth/logout')
+                        <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.css') }}">
+                        <script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.js') }}" defer></script>
 
                     </div>
 
-                    <script>
-                        const link = document.querySelector('.header__account-link');
-                        const menu = document.querySelector('.header__account-menu');
-                        let timeoutId;
-
-                        link.addEventListener('mouseenter', () => {
-                            clearTimeout(timeoutId);
-                            menu.style.display = 'block';
-                        });
-
-                        menu.addEventListener('mouseleave', () => {
-                            timeoutId = setTimeout(() => {
-                                menu.style.display = 'none';
-                                menu.style.right = '0';
-                                menu.style.textAlign = 'right';
-                            }, 1000); // добавляем задержку в 500 миллисекунд (полсекунды)
-                        });
-                    </script>
+                    <script src="{{ asset('js/header/headerAccount.js') }}" defer></script>
 
                     <style>
                         .header__account-container ul{
@@ -157,7 +139,8 @@
                             <li><p href="" id="logoutMobile-btn">Выход</p></li>
                         </ul>
                     @endauth
-                    @include('pages/auth/logoutMobile')
+{{--                    @include('pages/auth/logoutMobile')--}}
+                        <script src="{{ asset('js/header/logoutBtn.js') }}" defer></script>
                 </div>
             </div>
 

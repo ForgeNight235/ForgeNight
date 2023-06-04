@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 
+<script src="{{ asset('js/singlePage/productQuantity.js') }}" defer></script>
+<script src="{{ asset('js/cart/cartDeleteItem.js') }}" defer></script>
+
 @section('title', 'Корзина')
 
 @section('content')
@@ -87,9 +90,6 @@
                                         </div>
                                     </div>
 
-
-                                    <script src="{{ asset('js/singlePage/productQuantity.js') }}" defer></script>
-                                    <script src="{{ asset('js/cart/cartDeleteItem.js') }}" defer></script>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary btn-sm btn-save">
@@ -162,10 +162,7 @@
                     </span>
 
                         <!-- Ваш JavaScript-код, который активирует Popover -->
-                        <script>
-                            const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-                            const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-                        </script>
+                        <script src="{{ asset('js/cart/promocodeNotificator.js') }}" defer></script>
                     </div>
 
                     <div class="checkout">

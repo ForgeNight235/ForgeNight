@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+<script src="{{ asset('js/singlePage/reviewsPhotos.js') }}" defer></script>
+
 @section('title', 'Оформление заказа')
 
 @section('content')
@@ -188,9 +190,9 @@
                         <a href="/cart">изменить</a>
                     </div>
 
-                    <div class="cart-items">
+                    <div class="cart-items gallery">
                         @foreach($cart->get() as $item)
-                            <div class="cart-item">
+                            <div class="cart-item img">
                                 <a href="{{ route('cart.product.show', $item) }}">
                                     <img
                                         src="{{ $item->images()->first()->path() }}"
@@ -199,7 +201,6 @@
                                 </a>
                             </div>
 
-                            <script src="{{ asset('js/singlePage/reviewsPhotos.js') }}" defer></script>
                         @endforeach
 
                     </div>

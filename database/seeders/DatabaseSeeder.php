@@ -80,6 +80,7 @@ class DatabaseSeeder extends Seeder
                 'price' => '3500',
                 'quantity' => '100',
                 'is_published' => true,
+                'description' => 'test 1',
                 'collection_id' => '2'
             ]
         );
@@ -107,6 +108,7 @@ class DatabaseSeeder extends Seeder
                 'price' => '8500',
                 'quantity' => '50',
                 'is_published' => true,
+                'description' => 'test 1',
                 'collection_id' => '1'
             ]
         );
@@ -132,6 +134,7 @@ class DatabaseSeeder extends Seeder
                 'price' => '1500',
                 'quantity' => '150',
                 'is_published' => true,
+                'description' => 'test 1',
                 'collection_id' => '3'
             ]
         );

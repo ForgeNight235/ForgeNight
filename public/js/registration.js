@@ -1,4 +1,4 @@
-const registration = () => {
+const registrationRule = () => {
     const form = document.querySelector('#registration');
     const checkbox = document.querySelector('#privacy_policy');
 
@@ -10,7 +10,7 @@ const registration = () => {
     });
 }
 
-const init = () => {
-    registration();
+const initRegistrationRule = () => {
+    registrationRule();
 }
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', initRegistrationRule);

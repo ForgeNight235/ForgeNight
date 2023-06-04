@@ -1,11 +1,12 @@
 @extends('layouts.layout')
 
+<script src="{{ asset('js/accountPage/showAllProductsInOrder.js') }}" defer></script>
+<script src="{{ asset('js/accountPage/reviewNotificator.js') }}" defer></script>
+
+
 @section('title', 'История заказов')
 
 @section('content')
-
-    <script src="{{ asset('js/accountPage/imagePreview.js') }}"></script>
-
 
     <section class="account">
         <div class="container">
@@ -62,18 +63,9 @@
                     </div>
                 </aside>
 
-                <style>
-                    /*body{*/
-                    /*    display: grid;*/
-                    /*    height: 100vh;*/
-                    /*}*/
-                </style>
-
                 <div class="account__personal__data">
 
                     <style>
-
-
                         .account__personal__data {
                             width: 100%;
                         }
@@ -300,11 +292,6 @@
                                                 </button>
                                             </span>
 
-                                            <!-- Ваш JavaScript-код, который активирует Popover -->
-                                            <script>
-                                                const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-                                                const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-                                            </script>
                                         </div>
 
                                         <button>{{ $order->products->count() }} Показать товары</button>
@@ -428,28 +415,6 @@
                             @endforeach
                         @endif
 
-                        <script>
-                            // Получаем все кнопки "показать все товары"
-                            var showItemsButtons = document.querySelectorAll('.order button');
-
-                            // Перебираем кнопки и добавляем обработчик события для каждой
-                            showItemsButtons.forEach(function (button) {
-                                // Назначаем обработчик события "клик"
-                                button.addEventListener('click', function () {
-                                    // Находим соответствующий блок order-items
-                                    var orderItems = this.parentNode.nextElementSibling;
-
-                                    // Проверяем, отображен ли блок order-items
-                                    if (orderItems.style.display === 'none') {
-                                        // Если блок скрыт, то отображаем его
-                                        orderItems.style.display = 'block';
-                                    } else {
-                                        // Если блок уже отображается, то скрываем его
-                                        orderItems.style.display = 'none';
-                                    }
-                                });
-                            });
-                        </script>
                         <style>
                             .order-items {
                                 /*display: none;*/
