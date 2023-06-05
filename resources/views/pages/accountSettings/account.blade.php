@@ -1,12 +1,12 @@
 @extends('layouts.layout')
 
+<script src="{{ asset('js/accountPage/successMessage.js') }}" defer></script>
+<script src="{{ asset('js/accountPage/imagePreview.js') }}" defer></script>
+<script src="{{ asset('js/accountPage/mobileFormatter.js') }}" defer></script>
+
 @section('title', 'Личный кабинет')
 
 @section('content')
-
-    <script src="{{ asset('js/accountPage/imagePreview.js') }}" defer></script>
-    <script src="{{ asset('js/accountPage/mobileFormatter.js') }}" defer></script>
-
 
     <section class="account">
         <div class="container">
@@ -33,6 +33,7 @@
             <div class="account-content">
                 <aside>
                     <div class="aside-article">
+
                         <a href="{{ route('account.account') }}">
                             <img
                                 src="{{ auth()->user()->avatarUrl() }}"
@@ -41,6 +42,7 @@
                             >
                             <p>{{ auth()->user()->login }}</p>
                         </a>
+
                         <a href="{{ route('account.account') }}">
                             <h2 class="chosen">Личные данные</h2>
                         </a>
@@ -53,9 +55,10 @@
                             <h2>История заказов</h2>
                         </a>
 
-                        <a href="{{ route('account.account') }}">
+                        <a href="{{ route('account.accountPassword') }}">
                             <h2>Смена пароля</h2>
                         </a>
+
                         @if(auth()->user()->role==='admin')
                             <a href="{{  route('admin.index') }}">
                                 <h2>Админ панель</h2>
@@ -118,19 +121,6 @@
                             </div>
                         </div>
 
-                        {{--                        <div class="account__box">--}}
-                        {{--                            <label for="mobile">Подписка на новости</label>--}}
-                        {{--                            <input--}}
-                        {{--                                type="checkbox"--}}
-                        {{--                                name="newsSubscription"--}}
-                        {{--                                class="newsSubscription"--}}
-                        {{--                                value="yes"--}}
-                        {{--                                @if(auth()->user()->newsSubscription === 'true')--}}
-                        {{--                                    checked--}}
-                        {{--                                @endif--}}
-                        {{--                            >--}}
-                        {{--                        </div>--}}
-
                         <div class="account__box">
                             <div class="avatar-user-form">
                                 <label for="image">Изменение фото профиля:</label>
@@ -152,6 +142,12 @@
                                 object-fit: cover;
                             ">
                         </div>
+
+                        @if(session('success'))
+                            <div class="success-form show" id="success-message">
+                                <p>{{ session('success') }}</p>
+                            </div>
+                        @endif
 
                         <button type="submit">Обновить данные</button>
                     </form>

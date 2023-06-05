@@ -19,14 +19,18 @@
                 <li class="header-link">
                     <a href="">чаво</a>
                 </li>
-                <li class="search">
-                    <input type="search" class="search">
-                    <div class="search-btn">
-                        <a href="/">
-                            <img src="{{ asset('images/web-site_icons/search.svg') }}" alt="search">
-                        </a>
-                    </div>
-                </li>
+                <form
+                    action="{{ route('page.catalog') }}"
+                    method="GET"
+                    class="search"
+                >
+                        <input type="search" placeholder="я ищу..." name="searchRequest" value="{{ old('searchRequest') }}">
+                        <div class="search-btn">
+                            <button>
+                                <img src="{{ asset('images/web-site_icons/search.svg') }}" alt="search">
+                            </button>
+                        </div>
+                </form>
 
                 <li class="account-settings">
                     <a href="/cart">
@@ -50,27 +54,32 @@
                         @auth()
                             <ul class="header__account-menu" style="right: 0; text-align:right; top: 35px">
                                 <li><a href="{{ route('account.account') }}">Личный кабинет</a></li>
-                                <li><p id="logout-btn" data-logouturl="{{ route('auth.logoutUser') }}" >Выход</p></li>
+                                <li><p id="logout-btn" data-logouturl="{{ route('auth.logoutUser') }}">Выход</p></li>
                             </ul>
                         @endauth
 
-                        <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.css') }}">
-                        <script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.js') }}" defer></script>
+                        <link rel="stylesheet"
+                              href="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.css') }}">
+                        <script
+                            src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.js') }}"
+                            defer></script>
 
                     </div>
 
                     <script src="{{ asset('js/header/headerAccount.js') }}" defer></script>
 
                     <style>
-                        .header__account-container ul{
+                        .header__account-container ul {
                             width: max-content;
                             position: absolute;
                             display: none;
                             gap: 10px;
                         }
-                        .header__account-container{
+
+                        .header__account-container {
                             position: relative;
                         }
+
                         .header__account--link:hover + .header__account--menu {
                             display: block;
                         }
@@ -139,8 +148,8 @@
                             <li><p href="" id="logoutMobile-btn">Выход</p></li>
                         </ul>
                     @endauth
-{{--                    @include('pages/auth/logoutMobile')--}}
-                        <script src="{{ asset('js/header/logoutBtn.js') }}" defer></script>
+                    {{--                    @include('pages/auth/logoutMobile')--}}
+                    <script src="{{ asset('js/header/logoutBtn.js') }}" defer></script>
                 </div>
             </div>
 
@@ -177,15 +186,17 @@
 
     </div>
 
-    <div class="header__container-search">
-        <li class="search">
-            <input type="search" placeholder="я ищу...">
-            <div class="search-btn">
-                <a href="/">
-                    <img src="{{ asset('images/web-site_icons/search.svg') }}" alt="search">
-                </a>
-            </div>
-        </li>
-    </div>
+    <form
+        action="{{ route('page.catalog') }}"
+        method="GET"
+        class="search"
+    >
+        <input type="search" placeholder="я ищу..." name="searchRequest" value="{{ old('searchRequest') }}">
+        <div class="search-btn">
+            <button>
+                <img src="{{ asset('images/web-site_icons/search.svg') }}" alt="search">
+            </button>
+        </div>
+    </form>
 
 </header>

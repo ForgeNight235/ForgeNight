@@ -8,10 +8,9 @@
     }
 </style>
 
-@section('title', 'Адресная книга')
+@section('title', 'Смена пароля')
 
 @section('content')
-
 
     <section class="account">
         <div class="container">
@@ -30,7 +29,7 @@
 
             <div class="section-article">
                 <h1>
-                    Адресная книга
+                    Смена пароля
                 </h1>
             </div>
 
@@ -51,7 +50,7 @@
                         </a>
 
                         <a href="{{ route('account.accountAddresses') }}">
-                            <h2 class="chosen">Адресная книга</h2>
+                            <h2>Адресная книга</h2>
                         </a>
 
                         <a href="{{ route('account.accountOrders') }}">
@@ -59,9 +58,8 @@
                         </a>
 
                         <a href="{{ route('account.accountPassword') }}">
-                            <h2>Смена пароля</h2>
+                            <h2 class="chosen">Смена пароля</h2>
                         </a>
-
                         @if(auth()->user()->role==='admin')
                             <a href="{{  route('admin.index') }}">
                                 <h2>Админ панель</h2>
@@ -73,30 +71,25 @@
                 <div class="account__personal__data">
 
                     <form
-                        action="{{ route('account.updateUserAddress') }}"
+                        action="{{ route('account.updatePassword') }}"
                         method="post"
                         enctype="multipart/form-data"
                     >
                         @csrf
                         <div class="account__box">
-                            <label for="address">Почтовый адрес*</label>
-                            <input name="address" type="text" value="{{ auth()->user()->address }}"  placeholder="Ул. Бумажная 1а" id="address">
+                            <label for="password">Новый пароль</label>
+                            <input name="password" type="password" value="{{ old('password') }}"
+                                   placeholder="ваш новый пароль" id="password">
                             <div class="error-form">
-                                <p>@error('address') {{ $message }} @enderror</p>
+                                <p>@error('password') {{ $message }} @enderror</p>
                             </div>
                         </div>
                         <div class="account__box">
-                            <label for="city">Город*</label>
-                            <input name="city" type="text" value="{{ auth()->user()->city }}"  placeholder="Москва" id="city">
+                            <label for="repeatPassword">Повторите пароль</label>
+                            <input name="repeatPassword" type="password" value="{{ old('repeatPassword') }}"
+                                   placeholder="повторите новый пароль" id="repeatPassword">
                             <div class="error-form">
-                                <p>@error('city') {{ $message }} @enderror</p>
-                            </div>
-                        </div>
-                        <div class="account__box">
-                            <label for="index">Почтовый индекс*</label>
-                            <input name="index" type="number" value="{{ auth()->user()->index }}" id="index" placeholder="308004">
-                            <div class="error-form">
-                                <p>@error('index') {{ $message }} @enderror</p>
+                                <p>@error('repeatPassword') {{ $message }} @enderror</p>
                             </div>
                         </div>
 
@@ -107,6 +100,7 @@
                         @endif
 
                         <button type="submit">Обновить данные</button>
+
                     </form>
 
                 </div>

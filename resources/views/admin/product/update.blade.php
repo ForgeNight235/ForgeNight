@@ -26,18 +26,26 @@
                     <p>админ панель</p>
                 </a>
 
+                <a href="{{ route('admin.showAllProducts') }}">
+                    <img
+                        src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}"
+                        alt="back"
+                    >
+                    <p>товары</p>
+                </a>
+
                 <a href="{{ route('admin.createProduct') }}">
                     <img
                         src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}"
                         alt="back"
                     >
-                    <p>добавление товара</p>
+                    <p>{{ $product->name }}</p>
                 </a>
             </div>
 
             <div class="section-article">
                 <h1>
-                    Добавление предмета
+                    {{ $product->name }}
                 </h1>
             </div>
 
@@ -83,15 +91,20 @@
                     >
                         @csrf
                         <div class="account__box">
+                            <label for="id">ID товара:</label>
+                            <p>{{ $product->id }}</p>
+                        </div>
+
+                        <div class="account__box">
                             <label for="name">Название товара</label>
-                            <input name="name" type="text" id="name" placeholder="Cerastus Knight-Castigator" value="{{ old('name') }}">
+                            <input name="name" type="text" id="name" placeholder="Cerastus Knight-Castigator" value="{{ $product->name }}">
                             <div class="error-form">
                                 <p>@error('name') {{ $message }} @enderror</p>
                             </div>
                         </div>
                         <div class="account__box">
                             <label for="price">Цена товара</label>
-                            <input name="price" type="text" id="price" placeholder="1 250 ₱" value="{{ old('price') }}">
+                            <input name="price" type="text" id="price" placeholder="1 250 ₱" value="{{ $product->price }}">
                             <div class="error-form">
                                 <p>@error('price') {{ $message }} @enderror</p>
                             </div>
@@ -99,7 +112,7 @@
 
                         <div class="account__box">
                             <label for="quantity">Количество товара</label>
-                            <input name="quantity" type="number" id="quantity" placeholder="999 шт." value="{{ old('quantity') }}">
+                            <input name="quantity" type="number" id="quantity" placeholder="999 шт." value="{{ $product->quantity }}">
                             <div class="error-form">
                                 <p>@error('quantity') {{ $message }} @enderror</p>
                             </div>
@@ -108,10 +121,14 @@
                         <div class="account__box">
                             <label for="description">Описание товара</label>
                             <textarea name="description" id="description" cols="30" rows="10" placeholder="">
-{{--                                {{ old('description') }}--}}
+                                {{ $product->description }}
                             </textarea>
 
                             <style>
+                                .account__box p
+                                {
+                                    margin: 0;
+                                }
                                 .account .account-content .account__box textarea#description
                                 {
                                     padding: 35px 15px;
@@ -138,7 +155,7 @@
 
                         <select name="collection_id">
                             @foreach($collections as $item)
-                                <option value="{{ $item->id }}">
+                                <option value="{{ $item->id }}" @if($item->id == $product->collection_id) selected @endif>
                                     {{ $item->name }} - ID: {{ $item->id }}
                                 </option>
                             @endforeach
@@ -152,6 +169,18 @@
                                 <p>@error('image_path') {{$message}} @enderror</p>
                             </div>
                         </div>
+
+                        @if ($product->images->count() > 0)
+                            <div>
+                                <label>Выбранные фотографии:</label>
+                                <ul>
+                                    @foreach ($product->images as $image)
+                                        <li>{{ $image->image_path }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <img
                             id="preview"
                             alt="Image Preview"
@@ -166,8 +195,25 @@
                             "
                         >
 
+                        <div class="account__box">
+                            <label for="quantity">Дата создания:</label>
+                            <p>{{ $product->created_at }}</p>
+                        </div>
+
+                        <div class="account__box">
+                            <label for="quantity">Дата обновления:</label>
+                            <p>{{ $product->updated_at }}</p>
+                        </div>
+
                         <button type="submit">Опубликовать</button>
                     </form>
+
+                    <form action="{{ route('admin.deleteProduct', $product->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить этот продукт?')">Удалить товар</button>
+                    </form>
+
 
 
                 </div>

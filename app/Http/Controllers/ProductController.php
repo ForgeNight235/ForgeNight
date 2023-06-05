@@ -25,20 +25,20 @@ class ProductController extends Controller
     {
         $validated = $request->validated();
 
-        $validated['is_published'] = (bool)$request->get('is_published');
+        $validated['is_published'] = (bool) $request->get('is_published');
+        $validated['description'] = $request->input('description');
 
-        $product = Product::query()->create($validated);
+        $product = new Product($validated);
+        $product->save();
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
-                ProductImage::query()->create([
+                ProductImage::create([
                     'product_id' => $product->id,
-                    'image_path' => $file->store('public/images')
+                    'image_path' => $file->store('public/product_photos')
                 ]);
             }
         }
-
-//        dd($request->all());
 
         return redirect()->route('page.home');
     }

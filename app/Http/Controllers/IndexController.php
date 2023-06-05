@@ -45,9 +45,13 @@ class IndexController extends Controller
             $products = $products->where('collection_id', '=', $request->get('collection'));
         }
 
-        $products = $products->paginate(5)->withQueryString();
+        if ($request->has('searchRequest'))
+        {
+            $searchKeyword = $request->get('searchRequest');
+            $products = $products->where('name', 'like', "%{$searchKeyword}%");
+        }
 
-
+        $products = $products->paginate(9)->withQueryString();
 
         return view('pages.catalog', compact('collections', 'products', 'collection'));
     }
@@ -60,11 +64,17 @@ class IndexController extends Controller
         return view('pages.auth.register');
     }
 
+    /**
+     * @return Factory|\Illuminate\Foundation\Application|View|Application
+     */
     public function login(): Factory|\Illuminate\Foundation\Application|View|Application
     {
         return view('pages.auth.login');
     }
 
+    /**
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
+     */
     public function cart()
     {
         return \view('pages.cart');

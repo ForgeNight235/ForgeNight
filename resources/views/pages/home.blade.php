@@ -8,9 +8,9 @@
         <div class="container">
             <div class="slide-text">
                 <h2>Студия 3-D печати</h2>
-                <h5>
+                <h3>
                     ForgeNight — это творчество и индивидуальность в каждой миниатюре
-                </h5>
+                </h3>
 
                 <div class="main-screen-banner">
                     <div class="swiper mySwiper-main">

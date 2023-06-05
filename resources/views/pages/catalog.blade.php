@@ -30,10 +30,20 @@
                     @if($collection)
                         {{ $collection->name }}
                     @else
-                        Все товары
+
+                        @if(request()->has('searchRequest'))
+                            @if($products->isEmpty())
+                                Все товары
+                            @else
+                                Запрос "{{ request('searchRequest') }}"
+                            @endif
+                        @else
+                            Все товары
+                        @endif
+
                     @endif
                 </h1>
-{{--                Изменить количество вывода. Надо считать все товары которые есть, а не только то что выводится--}}
+                {{--                Изменить количество вывода. Надо считать все товары которые есть, а не только то что выводится--}}
                 <p>{{ $products->count() }} товар(ов) найдено</p>
             </div>
 
@@ -137,6 +147,13 @@
                 </div>
 
                 <div class="item-container">
+
+                    @if(request()->has('searchRequest'))
+                        @if($products->isEmpty())
+                            <h4>Товаров по запросу "{{ request('searchRequest') }}" не найдено</h4>
+                        @endif
+                    @endif
+
                     @if($products->count())
 
                         <div class="items">
@@ -186,8 +203,8 @@
                             {{ $products->links() }}
 
                         </div>
-                </div>
 
+                </div>
 
             </div>
 

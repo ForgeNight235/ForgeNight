@@ -17,14 +17,22 @@ class Authenticate extends Middleware
     {
         return $request->expectsJson() ? null : route('page.login');
     }
+
     public function account()
     {
         return view('pages.accountSettings.account');
     }
+
     public function accountAddresses()
     {
         return view('pages.accountSettings.accountAddresses');
     }
+
+    public function accountPassword()
+    {
+        return view('pages.accountSettings.accountPassword');
+    }
+
     public function accountOrders()
     {
         $authUserId = auth()->user()->id;

@@ -80,11 +80,23 @@ header nav ul {
 header nav img {
     max-width: 200px;
     width: 100%;
+    display: flex;
 }
 
 /*Стили для поля поиска*/
 
 .header .search, .header__container-search .search {
+    position: relative;
+}
+
+header.header .container form.search .search-btn button
+{
+    padding: 6px 4px;
+    margin: 0;
+    background: transparent;
+}
+header.header .container form.search
+{
     position: relative;
 }
 
@@ -318,7 +330,7 @@ footer .container {
     color: #232323;
 }
 
-.slide-text h5 {
+.slide-text h3 {
     font-family: 'Century Gothic', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -335,14 +347,14 @@ footer .container {
     position: relative;
 }
 
-.new-items-container .item-new-img img, .catalog .item-new-img img {
+.item-new-img img, .item-new-img img {
     height: 175px;
     width: 100%;
     border-radius: 20px;
     object-fit: contain;
 }
 
-.new-items-container .slider-item, .catalog .slider-item {
+.slider-item, .slider-item {
     padding: 10px 30px 30px;
     position: relative;
 
@@ -361,7 +373,7 @@ footer .container {
     display: grid;
 }
 
-.new-items-container .slider-item::before, .catalog .slider-item::before {
+.slider-item::before, .slider-item::before {
     content: "";
     border-radius: 20px;
     position: absolute;
@@ -372,7 +384,7 @@ footer .container {
     right: -2px;
 }
 
-.new-items-container .slider-item h1, .catalog .slider-item h1 {
+.slider-item h1, .slider-item h1 {
     font-family: 'Century Gothic', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -383,12 +395,12 @@ footer .container {
     height: 75px;
 }
 
-.new-items-container .slider-item h1 a, .catalog .slider-item h1 a {
+.slider-item h1 a, .slider-item h1 a {
     color: #1A1B22;
     text-decoration: none;
 }
 
-.new-items-container .slider-item .wishlist, .catalog .slider-item .wishlist {
+.slider-item .wishlist, .slider-item .wishlist {
     height: 20px;
     width: auto;
     margin: 0 0 0 auto;
@@ -399,8 +411,8 @@ footer .container {
     height: fit-content !important;
 }
 
-.new-items-container .slider-item .category h3, .catalog .slider-item .category h3 {
-
+.slider-item .category h3, .slider-item .category h3 {
+    white-space: nowrap;
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -409,7 +421,7 @@ footer .container {
     color: #F4DC5E;
 }
 
-/*Стили для блока новстей сайта*/
+/*Стили для блока новостей сайта*/
 .news-grid-item-articles {
     position: relative;
     min-height: 180px;
@@ -500,6 +512,35 @@ footer .container {
 
 .header__mobile {
     display: none;
+}
+
+.header__mobile form.search
+{
+    padding: 0 15px;
+    position: relative;
+}
+
+.header__mobile form.search input:focus
+{
+    outline: none;
+}
+
+.header__mobile form.search .search-btn
+{
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
+.header__mobile form.search .search-btn button
+{
+    background: none;
+    padding: 6px 8px;
+}
+
+.header__mobile form.search .search-btn button img
+{
+    display: flex;
 }
 
 @media screen and (max-width: 768px) {
@@ -684,6 +725,7 @@ footer .container {
     line-height: 19px;
     color: #F4DC5E;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .swiper-container {
@@ -697,7 +739,8 @@ footer .container {
     margin: 0 auto;
 }
 
-.new-items-container .slider-item button, .catalog .slider-item button {
+.slider-item button, .catalog .slider-item button {
+    margin: 10px 0 0 auto;
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -710,7 +753,6 @@ footer .container {
     outline: none;
     border: none;
     cursor: pointer;
-    margin: 10px 0 0 0;
 }
 
 .item-new-img, .catalog .item-new-img {
@@ -719,10 +761,12 @@ footer .container {
 
 .slider-item .category {
     color: #F4DC5E;
+    white-space: nowrap;
 }
 
-{
-
+.item-new-img a{
+    display: block;
+    height: max-content;
 }
 
 /*Конец стилей блока с новыми предметами*/
@@ -832,7 +876,7 @@ footer .container {
     text-align: left;
     color: #232323;
 
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -1064,6 +1108,7 @@ footer .container {
 }
 
 .header__mobile input {
+    padding: 0 6px;
     background: none;
     border-radius: 5px;
     width: 100%;
@@ -1233,26 +1278,28 @@ body.locked {
     gap: 20px;
 }
 
-.catalog .items {
+.catalog .items,
+.items.admin
+{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.catalog .catalog-container .item-container .pagination .text-muted
-{
+.item-container .pagination .text-muted {
     font-size: 18px;
 }
-.catalog .catalog-container .item-container .pagination
-{
+
+.item-container .pagination {
     margin: 28px auto 0;
     display: block;
 }
-.catalog .catalog-container .item-container .pagination ul
-{
+
+.item-container .pagination ul {
     display: flex;
     margin: 0;
 }
+
 @media screen and (max-width: 950px) {
     .catalog .catalog-container .items {
         grid-template-columns: repeat(2, auto);
@@ -1674,9 +1721,6 @@ input[type="checkbox"] {
     background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 80%, #FFFFFF 80%)
 }
 
-/*.registration {*/
-/*    background: url('images/registration/Rectangle 53.png') no-repeat right;*/
-/*}*/
 .registration img {
     max-height: 600px;
 }
@@ -1707,6 +1751,7 @@ input[type="checkbox"] {
 
 /*Стили для страницы аккаунта*/
 form button {
+    transition: opacity 0.3s ease-in-out;
     margin: auto;
     background: #F4DC5E;
     border-radius: 20px;
@@ -1740,7 +1785,7 @@ form button {
 
 .account-content {
     display: flex;
-    gap: 100px;
+    gap: 75px;
     justify-content: space-between;
 }
 
@@ -1784,14 +1829,13 @@ aside {
     font-family: 'Century Gothic', sans-serif;
     color: #232323;
 }
-@media screen and (max-width: 768px)
-{
-    .account-content
-    {
+
+@media screen and (max-width: 768px) {
+    .account-content {
         display: grid;
     }
-    .aside-article
-    {
+
+    .aside-article {
         display: flex;
         max-width: 100% !important;
         width: 100% !important;
@@ -1803,16 +1847,15 @@ aside {
         scrollbar-width: none; /* Для браузеров, поддерживающих свойство scrollbar-width */
         -ms-overflow-style: none; /* Для Internet Explorer и Edge */
     }
+
     /* Для браузеров, не поддерживающих свойство scrollbar-width */
     .aside-article::-webkit-scrollbar {
         display: none;
     }
 }
 
-@media screen and (max-width: 900px)
-{
-    .account-content
-    {
+@media screen and (max-width: 900px) {
+    .account-content {
         gap: 25px;
     }
 }
@@ -1862,6 +1905,217 @@ aside .aside-article .chosen {
 
 .aside-article p {
     text-align: center;
+}
+
+.success-form {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #5cb85c;
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    padding: 24px 12px;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 16px;
+}
+
+.success-form p {
+    margin: 0;
+}
+
+.success-form.show {
+    display: block;
+    opacity: 1;
+}
+
+.account__personal__data {
+    width: 100%;
+}
+
+.account__personal__data .orders .order {
+    margin-bottom: 45px;
+}
+
+.account__personal__data .order__header .order__header-container {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(244, 220, 94, 0.5);
+    border-radius: 20px;
+    padding: 12px 20px;
+}
+
+.account__personal__data .order__header .element {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: #232323;
+    font-weight: 400;
+}
+
+.account__personal__data .order__header {
+    margin: 0 0 20px 0;
+}
+
+.account__personal__data .underline {
+    border-bottom: 1px solid #232323;
+}
+
+.account__personal__data .orders .order__alert {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: #232323;
+    padding: 42px 0 32px;
+}
+
+.account__personal__data .orders a {
+    padding: 16px 34px;
+    background: #F4DC5E;
+    border-radius: 20px;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+    color: #232323;
+    text-decoration: none;
+}
+
+.account__personal__data .orders .order {
+    border: solid 1px #d2d2d2;
+    border-radius: 4px;
+    background: #fafafa;
+}
+
+.account__personal__data .orders .order .order-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.account__personal__data .orders .order .order-header button,
+.account__personal__data .orders .order .order-header .order-status {
+    padding: 6px;
+    --size: 40px;
+    height: var(--size);
+}
+
+.account__personal__data .orders .order .order-header button {
+    border: 1px solid #a8a8a8;
+    border-radius: 4px;
+}
+
+.account__personal__data .orders .order .order-header button.btn-primary {
+    background: orange;
+    border: none;
+}
+
+.account__personal__data .orders .order .order-header .promocode span {
+
+    height: fit-content;
+}
+
+.account__personal__data .orders .order .order-header .order-status {
+    background: #9FC061;
+    border-radius: 4px;
+    color: #f2f2f2;
+    padding: 6px 12px;
+}
+
+.account__personal__data .orders .order .order-header {
+    padding: 15px 20px;
+}
+
+.account__personal__data .orders .order .order-footer {
+    background: #f2f2f2;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.account__personal__data .orders .order .order-items {
+    padding: 15px 20px;
+    background: #f2f2f2;
+}
+
+.account__personal__data .orders .order .order-items .order-item .product-details {
+    border: 1px solid #bbb;
+    padding: 10px;
+    background: #fff;
+}
+
+.account__personal__data .orders .order .order-items .order-item .product-details img.product__img {
+    width: 100px;
+}
+
+.account__personal__data .orders .order .order-items .order-item .product-details a.item-img {
+    padding: 0;
+    background: transparent;
+}
+
+.account__personal__data .orders .order .order-items .order-item .product-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    /*display: flex;*/
+    /*gap: 50px;*/
+    /*justify-content: space-between;*/
+}
+
+.account__personal__data .orders .order .order-items .order-item .product-details.delivery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    gap: 15px;
+}
+
+.account__personal__data .orders .order .order-items .order-item .product-details .article {
+    display: grid;
+    height: fit-content;
+    margin: auto auto auto 0;
+}
+
+.account__personal__data .orders .order .order-items .order-item .product-details .article span {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.account__personal__data .orders .order .order-items .order-item .product-details .article p {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+}
+
+.account__personal__data .orders .order .order-items .order-item .product-details .article p.center {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.account__personal__data .orders .order .order-items .order-item .product-details .article a.track,
+.account__personal__data .orders .order .order-footer .article a.track {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.account__personal__data .orders .order .order-footer .article {
+    display: grid;
+}
+
+.account__personal__data .orders .order .order-footer .article p {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.account__personal__data .orders .order .order-footer .article p.price {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: 'Century Gothic', sans-serif;
 }
 
 /*Конец стилей для страницы аккаунта*/
@@ -2366,6 +2620,7 @@ aside .aside-article .chosen {
     color: rgba(114, 115, 120, 0.6);
     outline: transparent;
 }
+
 .ordering .order-checkout .accordion .accordion-button::after {
     position: absolute;
     left: 24px;
@@ -2454,42 +2709,41 @@ aside .aside-article .chosen {
     outline: transparent;
 }
 
-.ordering .order-checkout .accordion-item .accordion-body form.contacts button
-{
+.ordering .order-checkout .accordion-item .accordion-body form.contacts button {
     font-size: 14px;
     color: #f3c623;
 }
+
 .ordering .order-checkout .accordion-item .accordion-body form.contacts {
     display: grid;
     gap: 35px;
     max-width: 550px;
     width: 100%;
 }
-.ordering .order-checkout .accordion-item .accordion-body form.contacts input
-{
+
+.ordering .order-checkout .accordion-item .accordion-body form.contacts input {
     max-width: 400px;
     width: 100%;
     margin: auto;
     display: block;
     text-align: center;
 }
-.ordering .order-checkout .accordion-item .accordion-body form.contacts p.error
-{
+
+.ordering .order-checkout .accordion-item .accordion-body form.contacts p.error {
     margin: auto;
     padding: 0;
 }
-.ordering .ordering__content .order-items-info form.order
-{
+
+.ordering .ordering__content .order-items-info form.order {
     display: grid;
     gap: 25px;
 }
 
-.ordering .accordion-item
-{
+.ordering .accordion-item {
     --bs-accordion-border-width: none;
 }
-.ordering .ordering__content .order-items-info form.order button
-{
+
+.ordering .ordering__content .order-items-info form.order button {
     font-weight: 100;
     padding: 12px 100px;
     background: #F4DC5E;
@@ -2498,12 +2752,12 @@ aside .aside-article .chosen {
     font-size: 20px;
     line-height: 25px;
 }
-.ordering .ordering__content .order-items-info .order-total .row>*
-{
+
+.ordering .ordering__content .order-items-info .order-total .row > * {
     flex-shrink: inherit;
 }
-.ordering .ordering__content .order-items-info .order-total
-{
+
+.ordering .ordering__content .order-items-info .order-total {
     margin: 30px 0 40px 0;
     display: flex;
     gap: 20px;
@@ -2511,72 +2765,73 @@ aside .aside-article .chosen {
     font-size: 20px;
     line-height: 25px;
 }
+
 .ordering .ordering__content .order-items-info .order-total .row .price,
-.ordering .ordering__content .order-items-info .order-total .row .header
-{
+.ordering .ordering__content .order-items-info .order-total .row .header {
     white-space: nowrap;
     width: fit-content;
 }
-.ordering .ordering__content .order-items-info .order-total .row p
-{
+
+.ordering .ordering__content .order-items-info .order-total .row p {
     margin: 0;
     padding: 0;
 }
-.ordering .ordering__content .order-items-info .order-total .row
-{
+
+.ordering .ordering__content .order-items-info .order-total .row {
     flex-wrap: inherit;
     display: flex;
     flex-direction: row;
 }
-.ordering .ordering__content .order-items-info .order-total .row .underline
-{
+
+.ordering .ordering__content .order-items-info .order-total .row .underline {
     border-bottom: 1px dotted #232323;
     width: 100%;
 }
-.ordering .ordering__content .order-items-info .cart-items
-{
+
+.ordering .ordering__content .order-items-info .cart-items {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
     align-items: center;
     position: relative;
 }
-.ordering .ordering__content .order-items-info .cart-items button
-{
+
+.ordering .ordering__content .order-items-info .cart-items button {
     background: transparent;
     border: transparent;
     outline: transparent;
 }
-.ordering .ordering__content .order-items-info .cart-items img
-{
+
+.ordering .ordering__content .order-items-info .cart-items img {
     --size: 100px;
     max-width: var(--size);
     max-height: var(--size);
     object-fit: contain;
 }
-.ordering__content
-{
+
+.ordering__content {
     display: grid;
     grid-template-columns: auto auto;
     gap: 55px;
 }
-.ordering .ordering__content .article a
-{
+
+.ordering .ordering__content .article a {
     font-size: 18px;
     line-height: 20px;
     color: #1A1B22;
     display: block;
     margin: auto 0 auto auto;
 }
-.ordering .ordering__content .article
-{
+
+.ordering .ordering__content .article {
     display: flex;
     gap: 50px;
 }
-.ordering .ordering__content .article p
-{
+
+.ordering .ordering__content .article p {
     font-size: 24px;
     line-height: 29px;
     color: #1A1B22;
 }
+
 /*Конец для страницы оформления заказа*/

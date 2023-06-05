@@ -50,6 +50,7 @@ Route::group([
 ], function () {
     Route::get('/account', 'account')->name('account');
     Route::get('/address', 'accountAddresses')->name('accountAddresses');
+    Route::get('/password', 'accountPassword')->name('accountPassword');
     Route::get('/orders', 'accountOrders')->name('accountOrders');
 
     Route::group([
@@ -63,6 +64,7 @@ Route::group([
     ], function () {
         Route::post('/update', 'updateUser')->name('updateUser');
         Route::post('/updateAddress', 'updateUserAddress')->name('updateUserAddress');
+        Route::post('/updatePassword', 'updatePassword')->name('updatePassword');
     });
 
 });
@@ -77,6 +79,10 @@ Route::group([
 ], function () {
     Route::get('/adminPanel', 'index')->name('index');
     Route::get('/addProduct', 'create')->name('createProduct');
+    Route::get('/showAllProducts', 'showAllProducts')->name('showAllProducts');
+    Route::get('/edit/{product:name}', 'updateProduct')->name('updateProduct');
+    Route::delete('/delete/{product:name}', 'deleteProduct')->name('deleteProduct');
+
 
     Route::group([
         'controller' => \App\Http\Controllers\ProductController::class,
