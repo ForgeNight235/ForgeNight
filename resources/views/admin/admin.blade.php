@@ -85,7 +85,7 @@
 
                                 <a href="{{ route('admin.showAllProducts') }}">
                                     <button>
-                                        Изменить товар
+                                        Товары
                                     </button>
                                 </a>
                             </div>

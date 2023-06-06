@@ -17,7 +17,7 @@ return new class extends Migration
                 ->constrained('products')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->string('image_path');
+            $table->string('image_path')->nullable()->default('product_photos/item_default_comp.webp');
             $table->timestamps();
         });
     }

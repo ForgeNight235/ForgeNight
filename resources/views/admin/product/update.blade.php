@@ -157,7 +157,7 @@
                                 name="is_published"
                                 class="newsSubscription"
                                 value="yes"
-                                checked
+                                {{ $product->is_published ? 'checked' : '' }}
                             >
                             <div class="error-form">
                                 <p>@error('is_published') {{ $message }} @enderror</p>
@@ -172,7 +172,7 @@
                             @endforeach
                         </select>
                         <div class="error-form">
-                            <p>@error('image_path') {{$message}} @enderror</p>
+                            <p>@error('collection_id') {{$message}} @enderror</p>
                         </div>
 
                         <div class="account__box">
@@ -184,13 +184,85 @@
                             </div>
                         </div>
 
+                        <style>
+                            section.account .account__personal__data form ul.gallery
+                            {
+                                display: flex;
+                                flex-wrap: wrap;
+                                gap: 15px;
+                                margin: 15px 0;
+                                padding: 0;
+                            }
+
+                            section.account .account__personal__data form ul.gallery .image
+                            {
+                                display: grid;
+                                gap: 8px;
+                            }
+                            section.account .account__personal__data form ul.gallery .image label.delete-button
+                            {
+                                text-align: center;
+                            }
+                            .delete-button {
+                                display: inline-block;
+                                padding: 6px 12px;
+                                background-color: #ff6347;
+                                color: #ffffff;
+                                border: none;
+                                border-radius: 4px;
+                                cursor: pointer;
+                                text-decoration: none;
+                            }
+
+                            .delete-button:hover {
+                                background-color: #ff4d32;
+                            }
+
+                            .delete-button:focus {
+                                outline: none;
+                                box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.3);
+                            }
+
+                            section.account .account__personal__data form
+                            {
+                                align-items: center;
+                                font-family: 'Century Gothic', sans-serif;
+                                font-style: normal;
+                                font-weight: 400;
+                                font-size: 20px;
+                                line-height: 25px;
+                                color: #232323;
+                            }
+                        </style>
+
                         @if ($product->images->count() > 0)
                             <div>
-                                <label>Выбранные фотографии:</label>
-                                <ul>
-                                    @foreach ($product->images as $image)
-                                        <li>{{ $image->image_path }}</li>
+                                <label>Фотографии продукта:</label>
+                                <ul class="gallery">
+                                    @foreach($product->images()->get() as $image)
+                                        <div class="image">
+                                            <img
+                                                src="{{ $image->path() }}"
+                                                alt="{{ $product->name }}"
+                                                style="width: 100px; height: 100px; object-fit: cover;"
+                                            >
+                                            <input type="checkbox" name="deleted_images[]" value="{{ $image->id }}" id="delete_{{ $image->id }}">
+                                            <label for="delete_{{ $image->id }}" class="delete-button">Удалить</label>
+
+                                        </div>
                                     @endforeach
+{{--                                    @foreach ($product->images->get() as $image)--}}
+{{--                                        <li>--}}
+{{--                                            @if($product->images()->count() > 0)--}}
+{{--                                                <img--}}
+{{--                                                    src="{{ $product->path() }}"--}}
+{{--                                                     alt="{{ $product->name }}"--}}
+{{--                                                    style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;"--}}
+{{--                                                >--}}
+{{--                                            @endif--}}
+{{--                                            <input type="checkbox" name="deleted_images[]" value="{{ $image->id }}"> Удалить--}}
+{{--                                        </li>--}}
+{{--                                    @endforeach--}}
                                 </ul>
                             </div>
                         @endif
@@ -219,7 +291,7 @@
                             <p>{{ $product->updated_at }}</p>
                         </div>
 
-                        <button type="submit">Опубликовать</button>
+                        <button type="submit">Сохранить изменения</button>
                     </form>
 
                     <div class="admin__product-btn">

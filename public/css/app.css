@@ -1349,7 +1349,8 @@ body.locked {
 }
 
 @media screen and (max-width: 768px) {
-    .catalog .items {
+    .catalog .items,
+    .items.admin{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -1468,7 +1469,8 @@ body.locked {
         display: flex;
     }
 
-    .catalog .items {
+    .catalog .items,
+    .items.admin{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 20px;
@@ -1863,6 +1865,11 @@ form button {
     color: #232323;
 }
 
+section.account .account__personal__data form select
+{
+    padding: 8px 4px;
+}
+
 aside {
     display: grid;
     gap: 35px;
@@ -2207,7 +2214,7 @@ aside .aside-article .chosen {
 
 .item__content__container .mySwiper2 {
     max-height: 400px;
-    max-width: 500px;
+    width: 500px;
 }
 
 .item__content__container .mySwiper {

@@ -57,19 +57,26 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+
+                        @if($product->images()->count() > 1)
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        @endif
+
                     </div>
 
-                    <div thumbsSlider="" class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            @foreach($product->images()->get() as $image)
-                                <div class="swiper-slide">
-                                    <img src="{{ $image->path() }}" alt="{{ $product->name }}">
-                                </div>
-                            @endforeach
+                    @if($product->images()->count() > 1)
+                        <div thumbsSlider="" class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                @foreach($product->images()->get() as $image)
+                                    <div class="swiper-slide">
+                                        <img src="{{ $image->path() }}" alt="{{ $product->name }}">
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endif
+
                 </div>
 
                 <div class="item-info">

@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
             'ultramarine\'s',
             'death guard',
             'thousand sons',
-            'sons of horus/black legion',
+            'black legion',
             'word bearer',
             'salamanders',
             'raven guard',

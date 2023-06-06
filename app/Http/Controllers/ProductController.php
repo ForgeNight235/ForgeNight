@@ -44,6 +44,10 @@ class ProductController extends Controller
                     'image_path' => $file->store('public/product_photos')
                 ]);
             }
+        } else {
+            ProductImage::create([
+                'product_id' => $product->id,
+            ]);
         }
 
         return redirect()->route('page.home');
@@ -61,20 +65,21 @@ class ProductController extends Controller
         $validated['is_published'] = (bool)$request->get('is_published');
         $validated['description'] = $request->input('description');
 
-        $productId = $product->id;
-//        dd($product, $validated, $productId);
-
         if ($request->hasFile('images')) {
             $productImages = [];
             foreach ($request->file('images') as $file) {
                 $productImages[] = [
-                    'product_id' => $productId,
+                    'product_id' => $product->id,
                     'image_path' => $file->store('public/product_photos')
                 ];
             }
             ProductImage::insert($productImages);
         }
 
+        if ($request->has('deleted_images')) {
+            $deletedImages = $request->input('deleted_images');
+            ProductImage::whereIn('id', $deletedImages)->delete();
+        }
 
         $product->update($validated);
 
