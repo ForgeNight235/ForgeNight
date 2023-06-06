@@ -4,30 +4,35 @@
 
 const reviewPhotos = () => {
     const gallery = document.querySelector('.gallery');
-    const images = gallery.querySelectorAll('img');
-    const maxImages = 3;
 
-    if (images.length > maxImages) {
-        for (let i = maxImages; i < images.length; i++) {
-            images[i].style.display = 'none';
-        }
+    if (gallery) { // Проверяем наличие элемента .gallery
+        const images = gallery.querySelectorAll('img');
+        const maxImages = 3;
 
-        const hiddenImages = images.length - maxImages;
-        const btn = document.createElement('button');
-        btn.innerHTML = 'показать <br> ещё ' + hiddenImages;
-
-        btn.addEventListener('click', function() {
+        if (images.length > maxImages) {
             for (let i = maxImages; i < images.length; i++) {
-                images[i].style.display = 'block';
+                images[i].style.display = 'none';
             }
 
-            btn.style.display = 'none';
-        });
+            const hiddenImages = images.length - maxImages;
+            const btn = document.createElement('button');
+            btn.innerHTML = 'показать <br> ещё ' + hiddenImages;
 
-        gallery.appendChild(btn);
+            btn.addEventListener('click', function() {
+                for (let i = maxImages; i < images.length; i++) {
+                    images[i].style.display = 'block';
+                }
+
+                btn.style.display = 'none';
+            });
+
+            gallery.appendChild(btn);
+        }
     }
 }
+
 const initReviewPhotos = () => {
     reviewPhotos();
 }
+
 document.addEventListener('DOMContentLoaded', initReviewPhotos);

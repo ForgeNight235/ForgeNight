@@ -13,7 +13,7 @@ const headerAccountSetting = () => {
             menu.style.display = 'none';
             menu.style.right = '0';
             menu.style.textAlign = 'right';
-        }, 1000); // добавляем задержку в 500 миллисекунд (полсекунды)
+        }, 1000); // добавляем задержку в 1000 миллисекунд (секунда)
     });
 }
 

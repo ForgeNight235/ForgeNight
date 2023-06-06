@@ -20,7 +20,8 @@ const itemSlider = () => {
             swiper: thumbsSwiper,
         },
         zoom: {
-            enabled: true
+            enabled: true,
+            maxRatio: 5,
         }
     });
 };

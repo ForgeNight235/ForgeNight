@@ -18,6 +18,12 @@
     {{--    Делаем кастомный скролл на веб-сайте--}}
     <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/overlayscrollbars/css/OverlayScrollbars.min.css') }}">
     <script src="{{ asset('https://cdn.jsdelivr.net/npm/overlayscrollbars/js/OverlayScrollbars.min.js') }}"></script>
+    <link rel="stylesheet"
+          href="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.css') }}">
+    <script
+        src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.js') }}"
+        defer></script>
+    <script src="{{ asset('js/header/logoutBtn.js') }}" defer></script>
     <script src="{{ asset('js/customScrolls.js') }}" defer></script>
     <script src="{{ asset('js/burger.js') }}" defer></script>
     <script src="{{ asset('js/logoutModal.js') }}" defer></script>

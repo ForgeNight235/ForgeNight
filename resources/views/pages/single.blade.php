@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 
+<script src=" {{ asset('js/singlePage/contentShowHide.js') }}" defer></script>
+<script src="{{ asset('js/singlePage/reviewsPhotos.js') }}" defer></script>
+
 @section('title', $product->name)
 
 @section('content')
@@ -48,13 +51,16 @@
                         <div class="swiper-wrapper">
                             @foreach($product->images()->get() as $image)
                                 <div class="swiper-slide">
-                                    <img src="{{ $image->path() }}" alt="{{ $product->name }}">
+                                    <div class="swiper-zoom-container">
+                                        <img src="{{ $image->path() }}" alt="{{ $product->name }}">
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
+
                     <div thumbsSlider="" class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             @foreach($product->images()->get() as $image)
@@ -233,7 +239,7 @@
                                         </div>
                                     @endforeach
 
-                                    <script src=" {{ asset('js/singlePage/contentShowHide.js') }}" defer></script>
+
 
                                 </div>
                             @else
@@ -266,7 +272,7 @@
                 </style>
 
             </div>
-            <script src="{{ asset('js/singlePage/reviewsPhotos.js') }}" defer></script>
+
 
             <script src="{{ asset('js/singlePage/productQuantity.js') }}" defer></script>
 

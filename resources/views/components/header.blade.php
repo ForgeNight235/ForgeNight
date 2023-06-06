@@ -58,11 +58,7 @@
                             </ul>
                         @endauth
 
-                        <link rel="stylesheet"
-                              href="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.css') }}">
-                        <script
-                            src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@9.4.0/dist/sweetalert2.min.js') }}"
-                            defer></script>
+
 
                     </div>
 
@@ -149,7 +145,7 @@
                         </ul>
                     @endauth
                     {{--                    @include('pages/auth/logoutMobile')--}}
-                    <script src="{{ asset('js/header/logoutBtn.js') }}" defer></script>
+
                 </div>
             </div>
 
