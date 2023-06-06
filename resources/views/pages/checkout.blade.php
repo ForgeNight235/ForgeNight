@@ -198,6 +198,7 @@
                                         src="{{ $item->images()->first()->path() }}"
                                         alt="{{ $item->name }}"
                                     >
+                                    <h1>{{ $item->quantity }}</h1>
                                 </a>
                             </div>
 

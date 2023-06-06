@@ -72,6 +72,7 @@
 
                 <div class="admin-options">
                     <div class="option__selector">
+
                         <div class="option__selector__block">
                             <h3>Управление товарами</h3>
                             <div class="selections">
@@ -88,6 +89,16 @@
                                 </a>
                             </div>
                         </div>
+
+                        <div class="option__selector__block">
+                            <h3>Управление заказами</h3>
+                            <div class="selections">
+                                <a href="{{ route('admin.allOrders') }}">
+                                    <button class="btn btn-primary">Заказы</button>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 

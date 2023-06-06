@@ -1,30 +1,43 @@
 @extends('layouts.layout')
 
-<script src="{{ asset('js/accountPage/reviewNotificator.js') }}" defer></script>
-
-
-@section('title', 'История заказов')
+@section('title', 'Все заказы')
 
 @section('content')
-
-    <section class="account orders">
+    <section class="account orders admin">
         <div class="container">
 
             <div class="breadcrumbs">
                 <a href="{{ route('page.home') }}">
                     <p>forgenight</p>
-                    <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
-
-
+                    <img
+                        src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}"
+                        alt="back"
+                    >
                 </a>
                 <a href="{{ route('account.account') }}">
                     <p>личный кабинет</p>
+                </a>
+
+                <a href="{{ route('admin.index') }}">
+                    <img
+                        src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}"
+                        alt="back"
+                    >
+                    <p>админ панель</p>
+                </a>
+
+                <a href="{{ route('admin.index') }}">
+                    <img
+                        src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}"
+                        alt="back"
+                    >
+                    <p>админ панель</p>
                 </a>
             </div>
 
             <div class="section-article">
                 <h1>
-                    История заказов
+                    Админ панель
                 </h1>
             </div>
 
@@ -50,7 +63,7 @@
                         </a>
 
                         <a href="{{ route('account.accountOrders') }}">
-                            <h2 class="chosen">История заказов</h2>
+                            <h2>История заказов</h2>
                         </a>
 
                         <a href="{{ route('account.accountPassword') }}">
@@ -59,7 +72,7 @@
 
                         @if(auth()->user()->role==='admin')
                             <a href="{{  route('admin.index') }}">
-                                <h2>Админ панель</h2>
+                                <h2 class="chosen">Админ панель</h2>
                             </a>
                         @endif
                     </div>
@@ -120,7 +133,7 @@
                                             <div class="order-item">
                                                 <div class="product-details">
                                                     <a href="{{ route('product.show', $product->product) }}" target="_blank" class="item-img">
-{{--                                                    <a href="{{ route('product.show', $product->id, $product->name) }}" class="item-img">--}}
+                                                        {{--                                                    <a href="{{ route('product.show', $product->id, $product->name) }}" class="item-img">--}}
                                                         <img
                                                             src="{{ $product->product->images()->first()->path() }}"
                                                             alt="{{ $product->product->name }}"
@@ -136,7 +149,7 @@
                                                     <div class="article">
                                                         <span>Количество</span>
                                                         <p class="center">{{ $product->quantity }}</p>
-{{--                                                        <p class="center">{{ $order->products->OrderProduct->quantity }}</p>--}}
+                                                        {{--                                                        <p class="center">{{ $order->products->OrderProduct->quantity }}</p>--}}
                                                     </div>
 
                                                     <div class="article">
@@ -229,7 +242,7 @@
 
                                 </div>
                             @endforeach
-                                {{ $orders->links() }}
+                            {{ $orders->links() }}
                         @endif
 
                     </div>

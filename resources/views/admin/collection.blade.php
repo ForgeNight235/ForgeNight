@@ -83,7 +83,7 @@
                             <h2>Смена пароля</h2>
                         </a>
                         @if(auth()->user()->role==='admin')
-                            <a href="">
+                            <a href="{{ route('admin.index') }}">
                                 <h2 class="chosen">Админ панель</h2>
                             </a>
                         @endif
@@ -120,6 +120,10 @@
                                 </div>
                             </form>
                         @endforeach
+                        {{ $collection->links('pagination::bootstrap-5') }}
+
+
+
                     </div>
 
 
@@ -144,6 +148,7 @@
                                 </div>
                             </form>
                         @endforeach
+                        {{ $collection->links() }}
                     </div>
 
                 </div>

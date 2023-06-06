@@ -2163,6 +2163,102 @@ aside .aside-article .chosen {
     font-family: 'Century Gothic', sans-serif;
 }
 
+section.account.orders .pagination .page-item.active .page-link {
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+
+/* Цвет ссылок пагинации */
+section.account.orders .pagination .page-item .page-link {
+    background-color: #f0f0f0;
+    color: #212529;
+}
+
+/* Цвет ссылок пагинации при наведении */
+section.account.orders .pagination .page-item .page-link:hover {
+    background-color: #f2f2f2;
+}
+
+/* Цвет рамки активной ссылки пагинации */
+section.account.orders .pagination .page-item.active .page-link {
+    border-color: #0d6efd;
+    padding: 8px 16px;
+    margin: 0 6px;
+}
+
+section.account.orders .pagination .page-item.active
+{
+    height: fit-content;
+    margin: auto 0;
+}
+section.account.orders .pagination .page-item.disabled
+{
+    display: none;
+}
+
+/* Цвет рамки ссылок пагинации */
+section.account.orders .pagination .page-item .page-link {
+    border-color: #e0e0e0;
+    padding: 8px 16px;
+    margin: 0 6px;
+}
+
+/* Цвет текста в ссылках пагинации */
+section.account.orders .pagination .page-item .page-link {
+    color: #212529;
+}
+section.account.orders .pagination .page-item span.page-link
+{
+    border-radius: 40%;
+}
+
+/* Цвет стрелок в ссылках пагинации */
+section.account.orders .pagination .page-item .page-link svg {
+    fill: #212529;
+}
+
+/* Цвет фона и текста при наведении на стрелки в ссылках пагинации */
+section.account.orders .pagination .page-item .page-link:hover svg,
+section.account.orders .pagination .page-item .page-link:focus svg {
+    fill: #f4dc5e;
+    background-color: #f2f2f2;
+    color: #212529;
+}
+
+/* Цвет фона и текста при отключенных стрелках в ссылках пагинации */
+section.account.orders .pagination .page-item.disabled .page-link svg {
+    fill: #f0f0f0;
+    background-color: #f0f0f0;
+    color: #ffffff;
+}
+
+/* Цвет рамки и текста при отключенных стрелках в ссылках пагинации */
+section.account.orders .pagination .page-item.disabled .page-link {
+    border-color: #e0e0e0;
+    color: #ffffff;
+}
+
+/* Цвет фона и текста при наведении на отключенные стрелки в ссылках пагинации */
+section.account.orders .pagination .page-item.disabled .page-link:hover,
+section.account.orders .pagination .page-item.disabled .page-link:focus {
+    background-color: #f0f0f0;
+    color: #ffffff;
+}
+
+/* Цвет фона и текста в ссылке "Previous" пагинации */
+section.account.orders .pagination .page-item.prev .page-link {
+    background-color: #ffffff;
+    color: #ff6347;
+    border-color: #e0e0e0;
+}
+
+/* Цвет фона и текста в ссылке "Next" пагинации */
+section.account.orders .pagination .page-item.next .page-link {
+    background-color: #ffffff;
+    color: #ff6347;
+    border-color: #e0e0e0;
+}
+
 /*Конец стилей для страницы аккаунта*/
 
 /*Стили для страницы одного товара*/
@@ -3047,6 +3143,7 @@ section.admin .admin-options {
 section.admin .option__selector__block {
     background-color: #ffffff;
     padding: 20px;
+    margin-bottom: 25px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -3139,3 +3236,253 @@ section.admin .account__personal__data span {
     font-size: 18px;
 }
 /* Конец стилей для админ/Admin панели */
+
+/*Стили для корзины/cart*/
+.cart .cart__content .order-checkout a
+{
+    text-decoration: none;
+}
+.cart .cart__content .order-checkout button.order {
+    padding: 12px 16px;
+    background: #F4DC5E;
+    border-radius: 20px;
+    font-size: 20px;
+    line-height: 25px;
+    outline: transparent;
+    border: transparent;
+    width: fit-content;
+    display: block;
+    margin: 0 auto auto auto;
+}
+
+.cart .cart__content .order-checkout .checkout tbody {
+    display: grid;
+    gap: 25px;
+}
+
+.cart .cart__content .order-checkout .checkout table {
+    gap: 25px;
+    display: grid;
+    width: 100%;
+}
+
+.cart .cart__content .order-checkout .checkout table td {
+    width: 100%;
+    font-size: 20px;
+    line-height: 25px;
+    color: #1A1B22;
+}
+
+.cart .cart__content .order-checkout .checkout table td:nth-child(2) {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.cart .cart__content .order-checkout span {
+    position: absolute;
+    right: 0;
+    top: -10px;
+}
+
+.cart .cart__content .order-checkout button.btn-primary {
+    background: transparent;
+    border: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.cart .cart__content span {
+    width: fit-content;
+    height: fit-content;
+}
+
+.cart .cart__content .order-checkout input {
+    height: 18px;
+    background: transparent;
+    border: transparent;
+    outline: transparent;
+    border-bottom: 1px solid #94959B;
+    width: 100%;
+    padding: 0 0 7px 0;
+}
+
+.cart .cart__content .order-checkout {
+    display: grid;
+    gap: 25px;
+    position: relative;
+    height: fit-content;
+}
+
+.cart .items button {
+    background: transparent;
+    border: transparent;
+    outline: transparent;
+    padding: 42px 0 0 0;
+}
+
+.cart .items .item .item-checkout .item-options button img {
+    --size: 20px;
+    width: var(--size);
+    height: var(--size);
+}
+
+.cart .items .item .item-checkout .item-options button {
+    height: fit-content;
+    width: fit-content;
+    background: transparent;
+    border: transparent;
+    margin: auto;
+    padding: 0;
+}
+
+.cart .items .item .item-checkout .item-options .product-quantity input {
+    height: fit-content;
+    background: transparent;
+    border: transparent;
+    outline: transparent;
+    appearance: none;
+    text-align: center;
+}
+
+.cart .items .item .text-block {
+    margin: auto auto auto 12px;
+}
+
+.cart .items .item .item-checkout .item-options .product-quantity
+input[type="number"] {
+    background: transparent;
+    border: none;
+    width: 35px;
+    text-align: center;
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+}
+
+.cart .items .item .item-checkout .item-options .product-quantity
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+}
+
+.cart .items .item .item-checkout .item-options .product-quantity
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.cart .items .item .item-checkout .item-options .product-quantity button {
+    height: fit-content;
+}
+
+.cart .items .item .item-checkout .item-options .product-quantity {
+    height: fit-content;
+    display: flex;
+    background: #F4DC5E;
+    border-radius: 12px;
+    padding: 4px 8px;
+}
+
+.cart .items .item {
+    display: flex;
+    gap: 12px;
+    max-width: 550px;
+    justify-content: space-between;
+}
+
+.cart {
+    font-family: 'Century Gothic', sans-serif;
+}
+
+.cart .items .item .text-block a.item-title {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #1A1B22;
+}
+
+.cart .items .item .text-block a {
+    text-decoration: none;
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #1A1B22;
+}
+
+.cart .items .item a.item-img {
+    margin: auto;
+    max-width: 100px;
+    width: 100%;
+    object-fit: contain;
+    height: 95px;
+}
+
+.cart .items .item a img {
+    max-width: 100px;
+    width: 100%;
+    object-fit: contain;
+    height: 95px;
+    margin: auto;
+}
+
+.cart .items .item .item-options {
+    display: flex;
+    gap: 15px;
+}
+
+.cart .items form .btn-save
+{
+    text-align: center;
+    color: #232323;
+    padding: 0 0 25px;
+    margin: 0 auto;
+    display: block;
+}
+
+.cart .items .item .item-checkout {
+    gap: 18px;
+    padding: 12px 0 0 0;
+    display: grid;
+}
+
+.cart .items .item .item-checkout p {
+    font-size: 28px;
+    line-height: 44px;
+    color: #1A1B22;
+    margin: 0;
+}
+
+.cart .items .item .text-block {
+    display: grid;
+    justify-content: space-between;
+}
+
+.cart__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.cart .container .section-article h1 {
+    font-weight: 700;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.cart .container .section-article {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.cart .container .section-article span {
+    font: 40px/50px "Century Gothic", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+/*Конец стилей для корзины/cart*/

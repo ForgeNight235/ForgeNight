@@ -53,6 +53,7 @@ class OrderController extends Controller
 
         foreach ($this->cartService->get() as $item) {
             OrderProduct::query()->create([
+                'quantity' => $item->quantity,
                 'order_id' => $order->id,
                 'product_id' => $item->id
             ]);

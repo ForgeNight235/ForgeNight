@@ -82,6 +82,7 @@ Route::group([
     Route::get('/showAllProducts', 'showAllProducts')->name('showAllProducts');
     Route::get('/edit/{product:name}', 'updateProduct')->name('updateProduct');
     Route::get('/collection', 'collectionPage')->name('collectionPage');
+    Route::get('/allOrders', 'allOrders')->name('allOrders');
     Route::delete('/delete/{product:name}', 'deleteProduct')->name('deleteProduct');
 
     Route::group([
@@ -117,7 +118,7 @@ Route::group([
 
 //    Route::get('/{product:id}', 'show')->name('show')->where('id', '[0-9]*');
 //    Выводим в адр. строке имя продукта, а не id
-    Route::get('/{product:name}', 'show')->name('show')->where('id', '[0-9]*');
+    Route::get('/{product:name}', 'show')->name('show');
 });
 
 Route::group([
@@ -129,6 +130,9 @@ Route::group([
     Route::get('/{product:id}/remove', 'remove')->name('remove');
     Route::post('/updateQuantity/{id}', 'updateProductQuantity')->name('updateProductQuantity');
     Route::get('/deleteAll', 'clear')->name('clear');
+
+    Route::post('/cart/update-quantity', 'updateQuantity')->name('updateQuantity');
+
 
     Route::group([
         'controller' => \App\Http\Controllers\ProductController::class,

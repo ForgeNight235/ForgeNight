@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Collection;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -89,10 +90,19 @@ class AdminController extends Controller
      */
     public function collectionPage(Request $request): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
-        $collection = Collection::all();
+        $collection = Collection::paginate(10);
 
         return \view('admin.collection', compact('collection'));
     }
 
+    /**
+     * @param Request $request
+     * @return Factory|Application|View|\Illuminate\Contracts\Foundation\Application
+     */
+    public function allOrders(Request $request): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
+    {
+        $orders = Order::paginate(10);
 
+        return \view('admin.order.showAllOrders', compact('orders'));
+    }
 }

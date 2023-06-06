@@ -30,6 +30,7 @@
     <script src="{{ asset('js/burger.js') }}" defer></script>
     <script src="{{ asset('js/logoutModal.js') }}" defer></script>
     <script src="{{ asset('js/accountPage/successMessage.js') }}" defer></script>
+    <script src="{{ asset('js/accountPage/showAllProductsInOrder.js') }}" defer></script>
 
     <title>@yield('title') | ForgeNight</title>
 

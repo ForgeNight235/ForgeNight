@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderCreatedMail;
 use App\Models\Delivery;
 use App\Models\DeliveryOption;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Services\CartService;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Request;
@@ -21,14 +27,22 @@ class CartController extends Controller
         $this->cartService = new CartService();
     }
 
-    public function show(Product $product)
+    /**
+     * @param Product $product
+     * @return Factory|\Illuminate\Foundation\Application|View|Application
+     */
+    public function show(Product $product): Factory|\Illuminate\Foundation\Application|View|Application
     {
         $cart = $this->cartService;
 
         return view('pages.cart', compact('cart'));
     }
 
-    public function remove(Product $product)
+    /**
+     * @param Product $product
+     * @return RedirectResponse
+     */
+    public function remove(Product $product): RedirectResponse
     {
 //        dd($product);
         if ($this->cartService->remove($product)) {
@@ -41,10 +55,31 @@ class CartController extends Controller
         return back();
     }
 
-    public function updateQuantity(Request $request)
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return RedirectResponse
+     */
+    public function updateQuantity(\Illuminate\Http\Request $request): RedirectResponse
     {
+        $productId = $request->input('id');
+        $quantity = $request->input('quantity');
+
+        // Найдите товар в корзине по ID и обновите его количество
+        $product = Product::findOrFail($productId);
+        $this->cartService->updateCartProductQuantity($product, $quantity);
+
+        session()->flash('message', 'Количество товара успешно обновлено!');
+
+        return back();
     }
-    public function updateproductquantity(\Illuminate\Http\Request $request, $id) {
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function updateproductquantity(\Illuminate\Http\Request $request, $id): RedirectResponse
+    {
 
         $product = Product::findOrFail($id); // Получаем объект товара по ID
 
@@ -63,8 +98,10 @@ class CartController extends Controller
     }
 
 
-
-    public function orderIndex()
+    /**
+     * @return Factory|\Illuminate\Foundation\Application|View|Application
+     */
+    public function orderIndex(): Factory|\Illuminate\Foundation\Application|View|Application
     {
         $cart = $this->cartService;
         $deliverers = DeliveryOption::all();
@@ -72,7 +109,10 @@ class CartController extends Controller
         return view('pages.checkout', compact('cart', 'deliverers'));
     }
 
-    public function createOrder()
+    /**
+     * @return RedirectResponse
+     */
+    public function createOrder(): RedirectResponse
     {
         if ($this->cartService->isEmpty()) {
             return back()->withErrors(['empty', 'Невозможно создать пустой заказ!']);
@@ -89,23 +129,18 @@ class CartController extends Controller
             ]);
         }
 
-
-
-        Mail::to(auth()->user()->email)->send(new \App\Mail\OrderCreatedMail($order));
+        Mail::to(auth()->user()->email)->send(new OrderCreatedMail($order));
 
         return redirect()->route('page.home')->with('message' . 'Заказ успешно создан!');
     }
 
-    public function clear()
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return JsonResponse
+     */
+    public function store(\Illuminate\Http\Request $request): JsonResponse
     {
-        $this->cartService->clear();
-
-        return back();
-    }
-
-    public function store(\Illuminate\Http\Request $request)
-    {
-        if(!Hash::check($request->get('password'), auth()->user()->getAuthPassword())) {
+        if (!Hash::check($request->get('password'), auth()->user()->getAuthPassword())) {
             return response()->json([
                 'message' => 'Введенный пароль недействителен для вашего аккаунта',
                 'status' => false
@@ -128,7 +163,8 @@ class CartController extends Controller
         foreach ($this->cartService->get() as $item) {
             OrderProduct::query()->create([
                 'order_id' => $order->id,
-                'product_id' => $item->id
+                'product_id' => $item->id,
+                'quantity' => $item->quantity // Добавляем поле quantity
             ]);
         }
 
@@ -142,7 +178,7 @@ class CartController extends Controller
 
 //        $user = auth()->user();
 
-        Mail::to(auth()->user()->email)->send(new \App\Mail\OrderCreatedMail($order));
+        Mail::to(auth()->user()->email)->send(new OrderCreatedMail($order));
 //        Mail::to($user->email)->send(new \App\Mail\OrderCreatedMail($order));
 
         return response()->json([
@@ -151,5 +187,12 @@ class CartController extends Controller
             'redirect_url' => route('page.home')
         ]);
 
+    }
+
+    public function clear()
+    {
+        $this->cartService->clear();
+
+        return back();
     }
 }

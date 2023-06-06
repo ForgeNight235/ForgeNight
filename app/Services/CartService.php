@@ -50,33 +50,9 @@ class CartService implements CartInterface
     }
 
     /**
-     * @inheritDoc
+     * @param Product $product
+     * @return bool
      */
-    public function add(Product $product): void
-    {
-        $quantity = 1;
-//        $item = ['id' => $product->id, 'quantity' => $quantity];
-
-        $product['quantity'] = $quantity;
-
-        session()->push('cart', $product);
-    }
-
-    /**
-     * @inheritDoc
-     */
-//    public function remove(Product $product): bool
-//    {
-//        if (!in_array($product, $this->get())) {
-//            return false;
-//        }
-//
-//        $items = array_filter($this->get(), fn($element) => $element->id !== $product->id);
-//
-//        $this->set($items);
-//
-//        return true;
-//    }
     public function remove(Product $product): bool
     {
         $cartItems = $this->get();
@@ -94,6 +70,10 @@ class CartService implements CartInterface
     }
 
 
+    /**
+     * @param array $items
+     * @return void
+     */
     private function set(array $items): void
     {
         session(['cart' => $items]);
@@ -107,24 +87,45 @@ class CartService implements CartInterface
         // TODO: Implement update() method.
     }
 
-    public function updateCartProductQuantity(Product $product, int $quantity) {
+    /**
+     * @param Product $product
+     * @return void
+     */
+    public function add(Product $product): void
+    {
+        $quantity = 1;
 
-        $cart = session()->get('cart') ?? []; // Используем пустой массив, если корзина еще не создана
-
-        $productId = $product->id;
-
-        if (isset($cart[$productId])) {
-
-            $cart[$productId]['quantity'] = $quantity;
-
-            session()->put('cart', $cart);
-
-            return true;
+        if ($this->updateCartProductQuantity($product, $quantity)) {
+            return;
         }
+
+        $product['quantity'] = $quantity;
+        session()->push('cart', $product);
+    }
+
+    /**
+     * @param Product $product
+     * @param int $quantity
+     * @return bool
+     */
+    public function updateCartProductQuantity(Product $product, int $quantity): bool
+    {
+        $cart = $this->get();
+
+        foreach ($cart as &$item) {
+            if ($item['id'] === $product->id) {
+                $item['quantity'] = $quantity;
+                $this->set($cart);
+                return true;
+            }
+        }
+
         return false;
     }
 
-
+    /**
+     * @return bool
+     */
     public function isEmpty(): bool
     {
         if (count($this->get()) > 0) return false;
@@ -132,6 +133,9 @@ class CartService implements CartInterface
         return true;
     }
 
+    /**
+     * @return int
+     */
     public function count(): int
     {
         $cart = session('cart', []);
