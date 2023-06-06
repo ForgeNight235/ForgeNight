@@ -59,4 +59,4 @@ const modal = () => {
 const initModal = () => {
     modal();
 }
-document.addEventListener('DOMContentLoaded', initModal());
+document.addEventListener('DOMContentLoaded', initModal);

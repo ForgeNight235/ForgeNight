@@ -89,14 +89,13 @@ header nav img {
     position: relative;
 }
 
-header.header .container form.search .search-btn button
-{
+header.header .container form.search .search-btn button {
     padding: 6px 4px;
     margin: 0;
     background: transparent;
 }
-header.header .container form.search
-{
+
+header.header .container form.search {
     position: relative;
 }
 
@@ -514,32 +513,27 @@ footer .container {
     display: none;
 }
 
-.header__mobile form.search
-{
+.header__mobile form.search {
     padding: 0 15px;
     position: relative;
 }
 
-.header__mobile form.search input:focus
-{
+.header__mobile form.search input:focus {
     outline: none;
 }
 
-.header__mobile form.search .search-btn
-{
+.header__mobile form.search .search-btn {
     position: absolute;
     top: 0;
     right: 15px;
 }
 
-.header__mobile form.search .search-btn button
-{
+.header__mobile form.search .search-btn button {
     background: none;
     padding: 6px 8px;
 }
 
-.header__mobile form.search .search-btn button img
-{
+.header__mobile form.search .search-btn button img {
     display: flex;
 }
 
@@ -764,7 +758,7 @@ footer .container {
     white-space: nowrap;
 }
 
-.item-new-img a{
+.item-new-img a {
     display: block;
     height: max-content;
 }
@@ -1046,6 +1040,48 @@ footer .container {
 /*Конец стилей блока с подпиской на новости*/
 
 /*Стили для шапки сайта*/
+.header__account-container ul {
+    width: max-content;
+    position: absolute;
+    display: none;
+    gap: 10px;
+}
+
+.header__account-container {
+    position: relative;
+}
+
+.header__account--link:hover + .header__account--menu {
+    display: block;
+}
+
+.header__account--menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.header__account--menu li {
+    margin: 0;
+}
+
+.header__account--menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.header__account--menu a:hover {
+    background-color: #f2f2f2;
+}
+
 @media screen and (max-width: 425px) {
     .header__mobile .container img {
         max-height: 40px !important;
@@ -1279,8 +1315,7 @@ body.locked {
 }
 
 .catalog .items,
-.items.admin
-{
+.items.admin {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;

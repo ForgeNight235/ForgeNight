@@ -24,12 +24,12 @@
                     method="GET"
                     class="search"
                 >
-                        <input type="search" placeholder="я ищу..." name="searchRequest" value="{{ old('searchRequest') }}">
-                        <div class="search-btn">
-                            <button>
-                                <img src="{{ asset('images/web-site_icons/search.svg') }}" alt="search">
-                            </button>
-                        </div>
+                    <input type="search" placeholder="я ищу..." name="searchRequest" value="{{ old('searchRequest') }}">
+                    <div class="search-btn">
+                        <button>
+                            <img src="{{ asset('images/web-site_icons/search.svg') }}" alt="search">
+                        </button>
+                    </div>
                 </form>
 
                 <li class="account-settings">
@@ -58,55 +58,7 @@
                             </ul>
                         @endauth
 
-
-
                     </div>
-
-                    <script src="{{ asset('js/header/headerAccount.js') }}" defer></script>
-
-                    <style>
-                        .header__account-container ul {
-                            width: max-content;
-                            position: absolute;
-                            display: none;
-                            gap: 10px;
-                        }
-
-                        .header__account-container {
-                            position: relative;
-                        }
-
-                        .header__account--link:hover + .header__account--menu {
-                            display: block;
-                        }
-
-                        .header__account--menu {
-                            display: none;
-                            position: absolute;
-                            top: 100%;
-                            left: 0;
-                            background-color: #f9f9f9;
-                            border: 1px solid #ddd;
-                            padding: 0;
-                            margin: 0;
-                            list-style: none;
-                        }
-
-                        .header__account--menu li {
-                            margin: 0;
-                        }
-
-                        .header__account--menu a {
-                            display: block;
-                            padding: 10px;
-                            text-decoration: none;
-                            color: #333;
-                        }
-
-                        .header__account--menu a:hover {
-                            background-color: #f2f2f2;
-                        }
-                    </style>
 
                 </li>
             </ul>
@@ -144,7 +96,6 @@
                             <li><p href="" id="logoutMobile-btn">Выход</p></li>
                         </ul>
                     @endauth
-                    {{--                    @include('pages/auth/logoutMobile')--}}
 
                 </div>
             </div>
