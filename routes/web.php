@@ -91,6 +91,7 @@ Route::group([
     ], function ()
     {
         Route::post('/create', 'createProduct')->name('createProduct');
+        Route::post('/update/{product:id}', 'updateProduct')->name('updateProduct');
     });
 });
 

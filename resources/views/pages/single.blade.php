@@ -278,7 +278,6 @@
 
             <script src="{{ asset('js/singlePage/slider.js') }}" defer></script>
 
-            <script src="{{ asset('https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js') }}"></script>
         </div>
     </section>
 

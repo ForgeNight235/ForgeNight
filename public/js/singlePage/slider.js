@@ -21,7 +21,7 @@ const itemSlider = () => {
         },
         zoom: {
             enabled: true,
-            maxRatio: 5,
+            maxRatio: 3,
         }
     });
 };

@@ -1,8 +1,15 @@
 @extends('layouts.layout')
 
-@section('title', 'Админ панель')
+@section('title', 'Редактирование товара: ' . $product->name)
 
 @section('content')
+
+    @if(session('success'))
+        <div class="success-form show" id="success-message">
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
+
     <section class="account">
         <div class="container">
 
@@ -85,7 +92,7 @@
 
                 <div class="account__personal__data">
                     <form
-                        action="{{ route('admin.product.createProduct') }}"
+                        action="{{ route('admin.product.updateProduct', $product) }}"
                         method="post"
                         enctype="multipart/form-data"
                     >
@@ -123,6 +130,9 @@
                             <textarea name="description" id="description" cols="30" rows="10" placeholder="">
                                 {{ $product->description }}
                             </textarea>
+                            <div class="error-form">
+                                <p>@error('description') {{ $message }} @enderror</p>
+                            </div>
 
                             <style>
                                 .account__box p
@@ -135,35 +145,39 @@
                                 }
                             </style>
 
-                            <div class="error-form">
-                                <p>@error('quantity') {{ $message }} @enderror</p>
-                            </div>
                         </div>
 
 
 
                         <div class="account__box">
-                            <label for="mobile">Опубликовать сразу?</label>
+                            <label for="is_published">Опубликовать сразу?</label>
                             <input
+                                id="is_published"
                                 type="checkbox"
                                 name="is_published"
                                 class="newsSubscription"
                                 value="yes"
                                 checked
                             >
+                            <div class="error-form">
+                                <p>@error('is_published') {{ $message }} @enderror</p>
+                            </div>
                         </div>
 
                         <select name="collection_id">
                             @foreach($collections as $item)
-                                <option value="{{ $item->id }}" @if($item->id == $product->collection_id) selected @endif>
-                                    {{ $item->name }} - ID: {{ $item->id }}
+                                <option value="{{ $item->id }}" @if($item->id == $product->collection_id) selected @endif name="collection_id">
+                                    {{ $item->name }} - ID: {{ $item->products->count() }} шт.
                                 </option>
                             @endforeach
                         </select>
+                        <div class="error-form">
+                            <p>@error('image_path') {{$message}} @enderror</p>
+                        </div>
 
                         <div class="account__box">
                             <label for="image_path">Изображения товара</label>
-                            <input type="file" name="images[]" id="image_path" multiple>
+                            <input type="file" name="images[]" id="image_path" multiple accept="image/*">
 
                             <div class="error-form">
                                 <p>@error('image_path') {{$message}} @enderror</p>
@@ -208,14 +222,96 @@
                         <button type="submit">Опубликовать</button>
                     </form>
 
-                    <form action="{{ route('admin.deleteProduct', $product->id) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить этот продукт?')">Удалить товар</button>
-                    </form>
+                    <div class="admin__product-btn">
+                        <a href="{{ route('admin.showAllProducts') }}">
+                            <button class="back-button">
+                                Назад
+                            </button>
+                        </a>
+
+                        <a href="{{ route('product.show', $product) }}" target="_blank">
+                            <button>
+                                Открыть страницу товара
+                            </button>
+                        </a>
+
+                        <form action="{{ route('admin.deleteProduct', $product->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete" onclick="return confirm('Вы уверены, что хотите удалить этот продукт?')">Удалить товар</button>
+                        </form>
+                    </div>
 
 
+                    <style>
+                        .admin__product-btn {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin: 20px 0;
+                        }
 
+                        .admin__product-btn a {
+                            text-decoration: none;
+                        }
+
+                        .admin__product-btn button {
+                            padding: 10px 20px;
+                            border-radius: 5px;
+                            font-size: 16px;
+                            font-weight: bold;
+                            color: #ffffff;
+                            background-color: #f4dc5e;
+                            border: none;
+                            cursor: pointer;
+                            transition: background-color 0.3s ease;
+                        }
+
+                        .admin__product-btn button:hover {
+                            background-color: #f2f2f2;
+                            color: #212529;
+                        }
+
+                        .admin__product-btn .delete {
+                            padding: 10px 20px;
+                            border-radius: 5px;
+                            font-size: 16px;
+                            font-weight: bold;
+                            color: #ffffff;
+                            background-color: #ff6347;
+                            border: none;
+                            cursor: pointer;
+                            transition: background-color 0.3s ease;
+                        }
+
+                        .admin__product-btn .delete:hover {
+                            background-color: #e0e0e0;
+                            color: #212529;
+                        }
+
+                        .admin__product-btn .back-button {
+                            padding: 10px 20px;
+                            border-radius: 5px;
+                            font-size: 16px;
+                            font-weight: bold;
+                            color: #ffffff;
+                            background-color: #0d6efd;
+                            border: none;
+                            cursor: pointer;
+                            transition: background-color 0.3s ease;
+                        }
+
+                        .admin__product-btn .back-button:hover {
+                            background-color: #e0e0e0;
+                            color: #212529;
+                        }
+
+                        .account__personal__data form
+                        {
+                            width: fit-content;
+                        }
+
+                    </style>
                 </div>
 
             </div>

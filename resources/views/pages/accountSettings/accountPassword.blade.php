@@ -1,6 +1,5 @@
 @extends('layouts.layout')
 
-<script src="{{ asset('js/accountPage/successMessage.js') }}" defer></script>
 <style>
     body {
         display: grid;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Product\UpdateProductRequest;
 use App\Models\Collection;
 use App\Models\Product;
 use Illuminate\Contracts\View\Factory;
@@ -11,23 +12,31 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|Factory|View|Application
+     */
+    public function index(): Application|View|Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('admin.admin');
     }
 
-    public function create()
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|Factory|View|Application
+     */
+    public function create(): Application|View|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $collections = Collection::all();
 
         return view('admin.product.create', compact('collections'));
     }
 
+
+
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\Foundation\Application|Factory|View|Application
      */
-    public function showAllProducts(Request $request)
+    public function showAllProducts(Request $request): Application|View|Factory|\Illuminate\Contracts\Foundation\Application
     {
 
         $collections = Collection::all();
@@ -48,7 +57,7 @@ class AdminController extends Controller
      * @param Product $product
      * @return \Illuminate\Contracts\Foundation\Application|Factory|View|Application
      */
-    public function updateProduct(Product $product)
+    public function updateProduct(Product $product): Application|View|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $collectionId = $product->collection_id;
 
@@ -57,7 +66,12 @@ class AdminController extends Controller
         return \view('admin.product.update', compact('product', 'collections', 'collectionId'));
     }
 
-    public function deleteProduct(Request $request, $id)
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|Factory|View|Application
+     */
+    public function deleteProduct(Request $request, $id): Application|View|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $product = Product::where('id', $id)->firstOrFail();
 
