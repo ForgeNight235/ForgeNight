@@ -84,7 +84,8 @@
                         @csrf
                         <div class="account__box">
                             <label for="name">Название товара</label>
-                            <input name="name" type="text" id="name" placeholder="Cerastus Knight-Castigator" value="{{ old('name') }}">
+                            <input name="name" type="text" id="name" placeholder="Cerastus Knight-Castigator"
+                                   value="{{ old('name') }}">
                             <div class="error-form">
                                 <p>@error('name') {{ $message }} @enderror</p>
                             </div>
@@ -99,7 +100,8 @@
 
                         <div class="account__box">
                             <label for="quantity">Количество товара</label>
-                            <input name="quantity" type="number" id="quantity" placeholder="999 шт." value="{{ old('quantity') }}">
+                            <input name="quantity" type="number" id="quantity" placeholder="999 шт."
+                                   value="{{ old('quantity') }}">
                             <div class="error-form">
                                 <p>@error('quantity') {{ $message }} @enderror</p>
                             </div>
@@ -111,18 +113,11 @@
 {{--                                {{ old('description') }}--}}
                             </textarea>
 
-                            <style>
-                                .account .account-content .account__box textarea#description
-                                {
-                                    padding: 35px 15px;
-                                }
-                            </style>
 
                             <div class="error-form">
                                 <p>@error('quantity') {{ $message }} @enderror</p>
                             </div>
                         </div>
-
 
 
                         <div class="account__box">
@@ -139,7 +134,8 @@
                         <select name="collection_id">
                             @foreach($collections as $item)
                                 <option value="{{ $item->id }}">
-                                    {{ $item->name }} - ID: {{ $item->id }}
+                                    {{ $item->name }} - ID: {{ $item->products->count() }} товаров
+
                                 </option>
                             @endforeach
                         </select>

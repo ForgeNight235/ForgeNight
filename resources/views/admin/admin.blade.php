@@ -3,7 +3,7 @@
 @section('title', 'Админ панель')
 
 @section('content')
-    <section class="account">
+    <section class="account admin">
         <div class="container">
 
             <div class="breadcrumbs">
@@ -73,37 +73,22 @@
                 <div class="admin-options">
                     <div class="option__selector">
                         <div class="option__selector__block">
-                            <h3>
-                                Управление товарами
-                            </h3>
+                            <h3>Управление товарами</h3>
                             <div class="selections">
                                 <a href="{{ route('admin.createProduct') }}">
-                                    <button>
-                                        Добавить товар
-                                    </button>
+                                    <button class="btn btn-primary">Добавить товар</button>
                                 </a>
-
                                 <a href="{{ route('admin.showAllProducts') }}">
-                                    <button>
-                                        Товары
+                                    <button class="btn btn-primary">Товары</button>
+                                </a>
+                                <a href="{{ route('admin.collectionPage') }}">
+                                    <button class="btn btn-primary">
+                                        Категории
                                     </button>
                                 </a>
                             </div>
                         </div>
-
-                        <style>
-                            .admin-options
-                            {
-                                width: 100%;
-                            }
-                            .option__selector__block h3
-                            {
-                                text-align: center;
-                            }
-                        </style>
-
                     </div>
-
                 </div>
 
             </div>

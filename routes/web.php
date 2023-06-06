@@ -81,8 +81,19 @@ Route::group([
     Route::get('/addProduct', 'create')->name('createProduct');
     Route::get('/showAllProducts', 'showAllProducts')->name('showAllProducts');
     Route::get('/edit/{product:name}', 'updateProduct')->name('updateProduct');
+    Route::get('/collection', 'collectionPage')->name('collectionPage');
     Route::delete('/delete/{product:name}', 'deleteProduct')->name('deleteProduct');
 
+    Route::group([
+        'controller' => \App\Http\Controllers\CollectionController::class,
+        'as' => 'collection.',
+        'prefix' => '/collection'
+    ], function () {
+        Route::post('/collection', 'store')->name('store');
+        Route::put('/update/{collection}', 'update')->name('update');
+        Route::delete('/delete/{collection}', 'destroy')->name('destroy');
+
+    });
 
     Route::group([
         'controller' => \App\Http\Controllers\ProductController::class,

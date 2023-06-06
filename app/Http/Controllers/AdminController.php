@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Product\UpdateProductRequest;
 use App\Models\Collection;
 use App\Models\Product;
 use Illuminate\Contracts\View\Factory;
@@ -29,7 +28,6 @@ class AdminController extends Controller
 
         return view('admin.product.create', compact('collections'));
     }
-
 
 
     /**
@@ -82,6 +80,18 @@ class AdminController extends Controller
         $products = $products->paginate(9)->withQueryString();
 
         return \view('admin.product.showAllProducts', compact('products'))->with('success', 'Продукт успешно удален');
+    }
+
+
+    /**
+     * @param Request $request
+     * @return Factory|Application|View|\Illuminate\Contracts\Foundation\Application
+     */
+    public function collectionPage(Request $request): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
+    {
+        $collection = Collection::all();
+
+        return \view('admin.collection', compact('collection'));
     }
 
 

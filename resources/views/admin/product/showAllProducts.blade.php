@@ -116,37 +116,6 @@
                         </a>
                     @endif
 
-                    <style>
-                        .items.admin
-                        {
-                            padding: 35px 0;
-                        }
-                        form.adminSearch
-                        {
-                            position: relative;
-                            font-family: "Century Gothic",sans-serif;
-                        }
-                        form.adminSearch .search-btn button
-                        {
-                            position: absolute;
-                            top: 4px;
-                            right: 4px;
-                        }
-                        form.adminSearch input
-                        {
-                            width: 100%;
-                            padding: 6px 4px;
-                        }
-                        form.adminSearch input:focus
-                        {
-                            outline: none;
-                        }
-                        form.adminSearch img
-                        {
-                            display: flex;
-                        }
-                    </style>
-
                     @if(request()->has('adminSearchRequest'))
                         @if($products->isEmpty())
                             <h4>Товаров по запросу "{{ request('adminSearchRequest') }}" не найдено</h4>

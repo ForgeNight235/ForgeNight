@@ -1350,7 +1350,7 @@ body.locked {
 
 @media screen and (max-width: 768px) {
     .catalog .items,
-    .items.admin{
+    .items.admin {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -1470,7 +1470,7 @@ body.locked {
     }
 
     .catalog .items,
-    .items.admin{
+    .items.admin {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 20px;
@@ -1838,8 +1838,7 @@ form button {
     grid-template-columns: 1fr 2fr;
 }
 
-.account__box .error-form p
-{
+.account__box .error-form p {
     white-space: nowrap;
 }
 
@@ -1865,8 +1864,7 @@ form button {
     color: #232323;
 }
 
-section.account .account__personal__data form select
-{
+section.account .account__personal__data form select {
     padding: 8px 4px;
 }
 
@@ -2883,3 +2881,261 @@ aside .aside-article .chosen {
 }
 
 /*Конец для страницы оформления заказа*/
+
+/* Стили для админ/Admin панели */
+.account .account-content .account__box textarea#description {
+    padding: 35px 15px;
+}
+
+.items.admin {
+    padding: 35px 0;
+}
+
+form.adminSearch {
+    position: relative;
+    font-family: "Century Gothic", sans-serif;
+}
+
+form.adminSearch .search-btn button {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+form.adminSearch input {
+    width: 100%;
+    padding: 6px 4px;
+}
+
+form.adminSearch input:focus {
+    outline: none;
+}
+
+form.adminSearch img {
+    display: flex;
+}
+
+section.account .account__personal__data form ul.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 15px 0;
+    padding: 0;
+}
+
+section.account .account__personal__data form ul.gallery .image {
+    display: grid;
+    gap: 8px;
+}
+
+section.account .account__personal__data form ul.gallery .image label.delete-button {
+    text-align: center;
+}
+
+section.admin .delete-button {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #ff6347;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+section.admin .delete-button:hover {
+    background-color: #ff4d32;
+}
+
+section.admin .delete-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.3);
+}
+
+section.admin section.account .account__personal__data form {
+    align-items: center;
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #232323;
+}
+section.admin .account__box p
+{
+    margin: 0;
+}
+section.admin .account .account-content .account__box textarea#description
+{
+    padding: 35px 15px;
+}
+
+section.admin .admin__product-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+section.admin .admin__product-btn a {
+    text-decoration: none;
+}
+
+section.admin .admin__product-btn button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #f4dc5e;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+section.admin .admin__product-btn button:hover {
+    background-color: #f2f2f2;
+    color: #212529;
+}
+
+section.admin .admin__product-btn .delete {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ff6347;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+section.admin .admin__product-btn .delete:hover {
+    background-color: #e0e0e0;
+    color: #212529;
+}
+
+section.admin .admin__product-btn .back-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0d6efd;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+section.admin .admin__product-btn .back-button:hover {
+    background-color: #e0e0e0;
+    color: #212529;
+}
+
+section.admin .account__personal__data form
+{
+    width: fit-content;
+}
+
+section.admin .admin-options {
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    font-family: "Century Gothic", sans-serif;
+}
+
+section.admin .option__selector__block {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+section.admin .option__selector__block h3 {
+    color: #212529;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+section.admin .selections {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+section.admin .selections a {
+    text-decoration: none;
+}
+
+section.admin .btn {
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+section.admin .btn:hover {
+    background-color: #0b5ed7;
+}
+section.admin .form__category form.create,
+section.admin .form__category form.destroy .category
+{
+    display: flex;
+    justify-content: space-between;
+}
+section.admin .form__category
+{
+    margin: 25px 0;
+}
+section.admin .form__category h3
+{
+    padding: 16px 0;
+}
+
+section.admin .account__personal__data {
+    margin-bottom: 20px;
+}
+
+section.admin .account__personal__data form {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+section.admin .account__personal__data .category {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+section.admin .account__personal__data input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 300px;
+}
+
+section.admin .account__personal__data button[type="submit"] {
+    margin: 0 0 0 auto;
+    padding: 8px 16px;
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+section.admin .account__personal__data button[type="submit"]:hover {
+    background-color: #0a58ca;
+}
+
+section.admin .account__personal__data span {
+    margin-right: 10px;
+    font-size: 18px;
+}
+/* Конец стилей для админ/Admin панели */

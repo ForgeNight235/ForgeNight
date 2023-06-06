@@ -40,9 +40,15 @@
                         <img src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">
                     </a>
                     <div class="header__account-container">
-                        <a href="{{ route('page.register') }}" class="header__account-link">
-                            <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
-                        </a>
+                        @if(auth()->user())
+                            <a href="{{ route('account.account') }}" class="header__account-link">
+                                <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
+                            </a>
+                        @else
+                            <a href="{{ route('page.register') }}" class="header__account-link">
+                                <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
+                            </a>
+                        @endif
 
                         @guest()
                             <ul class="header__account-menu">
@@ -89,7 +95,7 @@
 
                     @auth()
                         <ul class="header__account-menu" style="right: 0; text-align:right; top: 35px">
-                            <a href="{{ route('page.catalog') }}" class="account-link">
+                            <a href=" {{ route('page.catalog') }}" class="account-link">
                                 <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
                                 Личный кабинет
                             </a>
