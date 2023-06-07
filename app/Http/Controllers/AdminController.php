@@ -101,8 +101,11 @@ class AdminController extends Controller
      */
     public function allOrders(Request $request): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
-        $orders = Order::paginate(10);
+        $orders = Order::paginate(5);
+        $products = Product::all();
+        $orderStatuses = ['Отменен', 'Новый', 'В производстве', 'Отправлен', 'Завершен'];
 
-        return \view('admin.order.showAllOrders', compact('orders'));
+
+        return \view('admin.order.showAllOrders', compact('orders', 'products', 'orderStatuses'));
     }
 }

@@ -1,6 +1,6 @@
 const showAllProductsInOrder = () => {
     // Получаем все кнопки "показать все товары"
-    var showItemsButtons = document.querySelectorAll('.order button');
+    var showItemsButtons = document.querySelectorAll('.order button.showHide');
 
     // Перебираем кнопки и добавляем обработчик события для каждой
     showItemsButtons.forEach(function (button) {

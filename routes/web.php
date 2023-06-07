@@ -69,11 +69,14 @@ Route::group([
 
 });
 
+//Route::post('/orders/{orderId}/update', 'OrderController@update')->name('orders.update');
+//Route::post('/orders/{orderId}/update', 'OrderController@update')->name('update');
+
 //Всё для админ панели
 Route::group([
     'controller' => AdminController::class,
     'as' => 'admin.',
-    'prefix' => '/admin',
+    '/admin',
     'middleware' => ['auth', AdminMiddleware::class],
 
 ], function () {
@@ -84,6 +87,14 @@ Route::group([
     Route::get('/collection', 'collectionPage')->name('collectionPage');
     Route::get('/allOrders', 'allOrders')->name('allOrders');
     Route::delete('/delete/{product:name}', 'deleteProduct')->name('deleteProduct');
+
+    Route::group([
+        'controller' => \App\Http\Controllers\Api\OrderController::class,
+        'as' => 'order.',
+        'prefix' => '/orders',
+    ], function () {
+        Route::post('/{orderId}/update', 'update')->name('update');
+    });
 
     Route::group([
         'controller' => \App\Http\Controllers\CollectionController::class,

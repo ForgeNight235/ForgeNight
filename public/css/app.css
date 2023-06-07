@@ -2668,7 +2668,7 @@ section.account.orders .pagination .page-item.next .page-link {
 }
 
 /*Конец стилей для страницы одного товара*/
-/*Стили для страницы оформления заказа*/
+/*Стили для страницы оформления заказа/order*/
 .ordering .order-checkout .accordion .accordion-button::after {
     position: absolute;
     left: 24px;
@@ -2976,7 +2976,7 @@ section.account.orders .pagination .page-item.next .page-link {
     color: #1A1B22;
 }
 
-/*Конец для страницы оформления заказа*/
+/*Конец для страницы оформления заказа/order*/
 
 /* Стили для админ/Admin панели */
 .account .account-content .account__box textarea#description {

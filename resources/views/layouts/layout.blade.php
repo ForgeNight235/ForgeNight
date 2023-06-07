@@ -5,9 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="@yield('meta-description')">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('https://unpkg.com/swiper/swiper-bundle.min.css') }}" />
-{{--    <script src="{{ asset('https://unpkg.com/swiper/swiper-bundle.min.js') }}" defer></script>--}}
     <script src="{{ asset('https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js') }}"></script>
     <script src="{{ asset('js/sliders.js') }}" defer></script>
     <link rel="icon" href="{{ asset('images/logo/svg/website icon.svg') }}" type="image/x-icon">

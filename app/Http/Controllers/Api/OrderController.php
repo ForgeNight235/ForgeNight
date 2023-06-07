@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Mail\OrderCreatedMail;
-use App\Models\Delivery;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\Product;
 use App\Services\CartService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Testing\Fluent\Concerns\Has;
 
 class OrderController extends Controller
 {
@@ -22,9 +22,13 @@ class OrderController extends Controller
         $this->cartService = new CartService();
     }
 
-    public function store(Request $request)
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function store(Request $request): JsonResponse
     {
-        if(!Hash::check($request->get('password'), auth()->user()->getAuthPassword())) {
+        if (!Hash::check($request->get('password'), auth()->user()->getAuthPassword())) {
             return response()->json([
                 'message' => 'Введенный пароль недействителен для вашего аккаунта',
                 'status' => false
@@ -43,14 +47,6 @@ class OrderController extends Controller
             'total' => $this->cartService->getTotal(),
         ]);
 
-//        dd($order->id); // проверяем, что $order->id имеет значение
-
-//        $delivery = Delivery::query()->create([
-//            'order_id' => $order->id,
-//        ]);
-//
-//        dd($delivery); // проверяем, что $delivery был создан
-
         foreach ($this->cartService->get() as $item) {
             OrderProduct::query()->create([
                 'quantity' => $item->quantity,
@@ -62,14 +58,16 @@ class OrderController extends Controller
         $this->cartService->clear();
 
         Mail::to(auth()->user()->email)->send(new OrderCreatedMail($order));
-        //oqfbjqeemuexkgmm
         return response()->json([
             'message', 'Order has been created',
             'status' => true,
-
-
-
         ]);
 
     }
+
+    public function update(Request $request, $orderId)
+    {
+
+    }
+
 }
