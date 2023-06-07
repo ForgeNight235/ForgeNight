@@ -35,6 +35,22 @@ class DatabaseSeeder extends Seeder
             'birthDay' => '2002-12-07'
         ]);
 
+        User::query()->create([
+            'name' => 'Антон',
+            'surname' => 'Синицын',
+            'patronymic' => 'Мирославович',
+            'login' => 'tony.mir',
+            'email' => 'tony@mk.ru',
+            'role' => 'user',
+            'newsSubscription' => true,
+            'password' => Hash::make('tonySas'),
+            'city' => 'Архангельск',
+            'address' => 'Ул. Большая Красная д. 4',
+            'index' => '720011',
+            'mobile' => '+7 (843) 129-2003',
+            'birthDay' => '1980-11-17'
+        ]);
+
         $categories = [
             'warhammer 40000',
             'the horus heresy',

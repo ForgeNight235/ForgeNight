@@ -111,7 +111,9 @@
                                         <button>{{ $order->products->count() }} Показать товары</button>
 
                                         <div class="order-status">
-                                            {{ $order->status }}
+                                            <p>
+                                                {{ $order->status }}
+                                            </p>
                                         </div>
                                     </div>
 

@@ -93,7 +93,10 @@ Route::group([
         'as' => 'order.',
         'prefix' => '/orders',
     ], function () {
-        Route::post('/{orderId}/update', 'update')->name('update');
+        Route::post('/{orderId}/updateQuantity', 'updateProductQuantity')->name('updateProductQuantity');
+        Route::post('/updateOrderStatus/{orderId}', 'updateOrderStatus')->name('updateOrderStatus');
+        Route::post('/order/{orderId}/product/{productId}/delete', 'deleteOrderProduct')->name('deleteOrderProduct');
+        Route::post('/product', 'replaceProduct')->name('replaceProduct');
     });
 
     Route::group([

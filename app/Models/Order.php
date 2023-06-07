@@ -42,4 +42,17 @@ class Order extends Model
     {
         return number_format($this->total + $this->delivery->price, 0, ',' , ' ') . ' ₱';
     }
+
+    public function totalOrderPrice()
+    {
+        $totalPrice = 0;
+
+        foreach ($this->products as $orderProduct) {
+            $totalPrice += $orderProduct->quantity * $orderProduct->product->price;
+        }
+
+        $totalPrice += 350;
+
+        return number_format($totalPrice, 0, ',', ' ') . ' ₱';
+    }
 }

@@ -20,22 +20,34 @@ class Product extends Model
         'is_published',
     ];
 
-    public function price()
+    /**
+     * @return string
+     */
+    public function price(): string
     {
         return number_format($this->price, 0, ',', ' ') . ' ₱';
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function collection(): BelongsTo
     {
         return $this->belongsTo(Collection::class);
     }
 
+    /**
+     * @return HasMany
+     */
     public function images(): HasMany
     {
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
 
-    public function category()
+    /**
+     * @return BelongsTo
+     */
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Collection::class, 'collection_id');
     }
