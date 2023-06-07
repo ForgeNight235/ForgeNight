@@ -47,7 +47,8 @@
                 <aside>
                     <div class="aside-article">
                         <a href="{{ route('account.account') }}">
-                            <img src="{{ auth()->user()->avatarUrl() }}" alt="{{ auth()->user()->login }}" class="avatar">
+                            <img src="{{ auth()->user()->avatarUrl() }}" alt="{{ auth()->user()->login }}"
+                                 class="avatar">
                             <p>{{ auth()->user()->login }}</p>
                         </a>
 
@@ -103,14 +104,17 @@
                                         </div>
 
                                         <div class="promocode">
-                                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Пишите отзывы на товары, чтобы получить специальные скидочные промокоды! Промокоды действуют на все виды продукции магазина.">
+                                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"
+                                                  data-bs-trigger="hover focus"
+                                                  data-bs-content="Пишите отзывы на товары, чтобы получить специальные скидочные промокоды! Промокоды действуют на все виды продукции магазина.">
                                                 <button class="btn btn-primary" type="button" disabled>
                                                     <p>Оставить отзыв</p>
                                                 </button>
                                             </span>
                                         </div>
 
-                                        <button class="showHide">{{ $order->products->count() }} Показать товары</button>
+                                        <button class="showHide">{{ $order->products->count() }} Показать товары
+                                        </button>
 
                                         <div class="order-status">
                                             <form
@@ -132,24 +136,23 @@
 
                                                 <button type="submit">Сохранить</button>
                                                 <style>
-                                                    section.account.orders.admin .order-status
-                                                    {
+                                                    section.account.orders.admin .order-status {
                                                         display: flex;
                                                         align-items: center;
                                                     }
-                                                    section.account.orders.admin .order form#orderStatus
-                                                    {
+
+                                                    section.account.orders.admin .order form#orderStatus {
                                                         display: grid;
                                                         gap: 5px;
                                                         margin-top: 49px;
                                                     }
-                                                    section.account.orders.admin .order form#orderStatus select
-                                                    {
+
+                                                    section.account.orders.admin .order form#orderStatus select {
                                                         background: transparent;
                                                         border: transparent;
                                                     }
-                                                    section.account.orders.admin .order form#orderStatus button
-                                                    {
+
+                                                    section.account.orders.admin .order form#orderStatus button {
                                                         display: flex;
                                                         align-items: center;
                                                     }
@@ -161,67 +164,53 @@
                                     <div class="order-items" style="display:none;">
                                         @foreach($order->products as $key => $orderProduct)
 
-                                                <div class="order-item">
-                                                    <div class="product-details">
-                                                        <div class="article">
-                                                            <span>Название</span>
-                                                            <p>{{ $orderProduct->product->name }}</p>
-                                                            <span>Id товара: {{ $orderProduct->product->id }}</span>
-                                                        </div>
+                                            <div class="order-item">
+                                                <div class="product-details">
+                                                    <div class="article">
+                                                        <span>Название</span>
+                                                        <p>{{ $orderProduct->product->name }}</p>
+                                                        <span>Id товара: {{ $orderProduct->product->id }}</span>
+                                                    </div>
 
-                                                        <form
-                                                            action="{{ route('admin.order.updateProductQuantity', ['orderId' => $order->id]) }}"
-                                                            method="post"
-                                                        >
-                                                            @csrf
-                                                            <input type="hidden" name="productId" value="{{ $orderProduct->product_id }}">
+                                                    <form
+                                                        action="{{ route('admin.order.updateProductQuantity', ['orderId' => $order->id]) }}"
+                                                        method="post"
+                                                    >
+                                                        @csrf
+                                                        <input type="hidden" name="productId"
+                                                               value="{{ $orderProduct->product_id }}">
                                                         <div class="article">
                                                             <label for="quantity">Количество</label>
-                                                            <input type="number" id="quantity" name="quantity" value="{{ $orderProduct->quantity }}" min="1">
+                                                            <input type="number" id="quantity" name="quantity"
+                                                                   value="{{ $orderProduct->quantity }}" min="1">
                                                         </div>
-                                                            <button>
-                                                                обновить
+                                                        <button>
+                                                            обновить
+                                                        </button>
+                                                    </form>
+
+                                                    <form action="{{ route('admin.order.deleteOrderProduct', ['orderId' => $order->id, 'productId' => $orderProduct->id]) }}" method="post">
+                                                        @csrf
+                                                        <div class="article">
+                                                            <span>Удалить товар</span>
+                                                            <button type="submit" class="delete-product" onclick="return confirm('Вы уверены, что хотите удалить этот продукт?')">
+                                                                Удалить
                                                             </button>
-                                                        </form>
-
-                                                        <div class="article">
-                                                            <span>Цена за шт.</span>
-                                                            <p class="center">{{ $orderProduct->product->price() }}</p>
                                                         </div>
+                                                    </form>
 
-                                                        <div class="article">
-                                                            <span>Итого</span>
-                                                            <p class="center">{{ $orderProduct->totalProductPrice() }}</p>
-                                                        </div>
-
-                                                        <form
-                                                            action="{{ route('admin.order.replaceProduct') }}"
-                                                            method="post"
-                                                        >
-                                                            @csrf
-                                                            <div class="article">
-                                                                <label for="replace">Заменить товар</label>
-                                                                <select name="replace_product[]" id="replace">
-                                                                    <option value="">Выберите товар</option>
-                                                                    @foreach($products as $product)
-                                                                        <option value="{{ $product->id }}">{{ $product->name }}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </form>
-
-                                                        <form action="{{ route('admin.order.deleteOrderProduct', ['orderId' => $order->id, 'productId' => $orderProduct->id]) }}" method="post">
-                                                            @csrf
-                                                            <div class="article">
-                                                                <span>Удалить товар</span>
-                                                                <button type="submit" class="delete-product" onclick="return confirm('Вы уверены, что хотите удалить этот продукт?')">
-                                                                    Удалить
-                                                                </button>
-                                                            </div>
-                                                        </form>
-
+                                                    <div class="article">
+                                                        <span>Цена за шт.</span>
+                                                        <p class="center">{{ $orderProduct->product->price() }}</p>
                                                     </div>
+
+                                                    <div class="article">
+                                                        <span>Итого</span>
+                                                        <p class="center">{{ $orderProduct->totalProductPrice() }}</p>
+                                                    </div>
+
                                                 </div>
+                                            </div>
 
                                         @endforeach
                                     </div>
@@ -229,7 +218,9 @@
                                     <div class="order-footer">
                                         <div class="article">
                                             @if($order->delivery)
-                                                <p>Доставка:<br> {{ $order->delivery->deliveryOption->name ?? 'Без доставки' }}</p>
+                                                <p>
+                                                    Доставка:<br> {{ $order->delivery->deliveryOption->name ?? 'Без доставки' }}
+                                                </p>
                                             @else
                                                 <p>Доставка: Без доставки</p>
                                             @endif
@@ -239,7 +230,9 @@
                                             <p>Трек-код:</p>
                                             @if($order->delivery)
                                                 @if($order->delivery->DeliveryOption->name === 'Почта России')
-                                                    <a href="https://www.pochta.ru/tracking?barcode={{ $order->delivery->track_code }}" class="track" target="_blank">{{ $order->delivery->track_code }}</a>
+                                                    <a href="https://www.pochta.ru/tracking?barcode={{ $order->delivery->track_code }}"
+                                                       class="track"
+                                                       target="_blank">{{ $order->delivery->track_code }}</a>
                                                     <span>отследить</span>
                                                 @else
                                                     <p>{{ $order->delivery->track_code }}</p>
@@ -263,6 +256,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 @endsection

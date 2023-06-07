@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Collection;
 use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -105,7 +106,7 @@ class AdminController extends Controller
         $products = Product::all();
         $orderStatuses = ['Отменен', 'Новый', 'В производстве', 'Отправлен', 'Завершен'];
 
-
         return \view('admin.order.showAllOrders', compact('orders', 'products', 'orderStatuses'));
     }
+
 }

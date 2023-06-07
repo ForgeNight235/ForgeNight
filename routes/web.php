@@ -76,7 +76,6 @@ Route::group([
 Route::group([
     'controller' => AdminController::class,
     'as' => 'admin.',
-    '/admin',
     'middleware' => ['auth', AdminMiddleware::class],
 
 ], function () {
@@ -87,6 +86,7 @@ Route::group([
     Route::get('/collection', 'collectionPage')->name('collectionPage');
     Route::get('/allOrders', 'allOrders')->name('allOrders');
     Route::delete('/delete/{product:name}', 'deleteProduct')->name('deleteProduct');
+    Route::get('/test', 'showReplaceProductForm')->name('showReplaceProductForm');
 
     Route::group([
         'controller' => \App\Http\Controllers\Api\OrderController::class,
@@ -96,7 +96,9 @@ Route::group([
         Route::post('/{orderId}/updateQuantity', 'updateProductQuantity')->name('updateProductQuantity');
         Route::post('/updateOrderStatus/{orderId}', 'updateOrderStatus')->name('updateOrderStatus');
         Route::post('/order/{orderId}/product/{productId}/delete', 'deleteOrderProduct')->name('deleteOrderProduct');
-        Route::post('/product', 'replaceProduct')->name('replaceProduct');
+        Route::post('/order/{orderId}/product/{productId}/replace', 'showReplaceProductForm')->name('showReplaceProductForm');
+        Route::post('/replaceProduct/{orderId}/{productId}', 'replaceProduct')->name('replaceProduct');
+
     });
 
     Route::group([
