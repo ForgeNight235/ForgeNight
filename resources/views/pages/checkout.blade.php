@@ -259,7 +259,7 @@
                             </div>
                         @endforeach
 
-                        <button>оплатить</button>
+                        <button>оформить</button>
                     </form>
 
                 </div>

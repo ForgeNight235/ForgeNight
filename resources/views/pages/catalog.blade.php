@@ -3,7 +3,6 @@
 @section('title', 'Каталог магазина')
 
 @section('content')
-    <script src="{{ asset('js/catalogFilterModal.js') }}" defer></script>
     <section class="catalog">
         <div class="container">
 
@@ -171,6 +170,9 @@
                                             @if($product->images()->count() > 0)
                                                 <img src="{{ $product->images()->first()->path() }}"
                                                      alt="{{ $product->name }}">
+                                            @else
+                                                <img src="{{ asset('storage/product_photos/item_default_comp.webp') }}"
+                                                     alt="{{ $product->name }}">
                                             @endif
 
                                         </a>
@@ -184,7 +186,9 @@
                                     </a>
 
 
-                                    <a href="{{ route('product.addToCart', $product) }}">
+                                    <a href="{{ route('product.addToCartCatalog', $product) }}#scrollAnchor-{{ $product->id }}"
+                                       class="addToCartLink"
+                                       data-product-id="{{ $product->id }}">
                                         <button>
                                             {{ $product->price() }}
                                             <img src="{{asset('images/web-site_icons/addToCart.webp')}}"
@@ -195,6 +199,7 @@
                                 </div>
                             @endforeach
 
+
                             @else
                                 <h4>На данный момент нет товаров выбранной категории</h4>
                             @endif
@@ -203,16 +208,9 @@
                             {{ $products->links() }}
 
                         </div>
-
                 </div>
-
             </div>
-
         </div>
-
-        <style>
-
-        </style>
     </section>
 
     @include('components.bestBuysByCategory')

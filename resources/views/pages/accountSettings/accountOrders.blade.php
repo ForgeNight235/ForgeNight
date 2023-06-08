@@ -84,7 +84,6 @@
                             </div>
 
                             <a href="{{ route('account.catalog') }}">перейти в каталог</a>
-
                         @else
                             @foreach($orders as $order)
                                 <div class="order">
@@ -108,7 +107,7 @@
 
                                         </div>
 
-                                        <button>{{ $order->products->count() }} Показать товары</button>
+                                        <button class="showHide">{{ $order->products->count() }} Показать товары</button>
 
                                         <div class="order-status">
                                             <p>
@@ -224,7 +223,7 @@
                                         <div class="article">
                                             <p>Итого</p>
                                             <p class="price">
-                                                {{ $order->priceWithDelivery() }}
+                                                {{ $order->totalOrderPrice() }}
                                             </p>
                                         </div>
                                     </div>

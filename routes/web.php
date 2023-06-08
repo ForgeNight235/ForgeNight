@@ -131,6 +131,8 @@ Route::group([
 
     Route::get('/{id}/addToCart', 'addToCart')->name('addToCart')
         ->where('id', '[0-9]*');
+    Route::post('/{id}/addToCart', 'addToCart')->name('addToCart');
+    Route::get('/{id}/addToCartCatalog', 'addToCartCatalog')->name('addToCartCatalog');
 
 //    Route::get('/{product:id}', 'show')->name('show')->where('id', '[0-9]*');
 //    Выводим в адр. строке имя продукта, а не id
@@ -148,6 +150,7 @@ Route::group([
     Route::get('/deleteAll', 'clear')->name('clear');
 
     Route::post('/cart/update-quantity', 'updateQuantity')->name('updateQuantity');
+    Route::post('/cart/update-quantity', 'updateQuantityCartPage')->name('updateQuantityCartPage');
 
 
     Route::group([

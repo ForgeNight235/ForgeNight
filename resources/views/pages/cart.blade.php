@@ -7,11 +7,9 @@
 @section('title', 'Корзина')
 
 @section('content')
+
     <section class="cart">
         <div class="container">
-            @if(session()->has('message'))
-                <p>{{session()->get('message')}}</p>
-            @endif
             <div class="section-article">
                 <h1>
                     Корзина
@@ -32,57 +30,47 @@
 
                     @if($cart->isEmpty())
                         <h2>В корзине нет товаров</h2>
+                        <a href="{{ route('account.catalog') }}" class="catalogAnchor">перейти в каталог</a>
                     @else
 
                         @foreach($cart->get() as $item)
-                            <form
-                                action="{{ route('cart.updateQuantity')}}"
-                                method="post"
-                                class="product__form"
-                            >
+                            <form action="{{ route('cart.updateQuantityCartPage') }}" method="post" class="product__form">
                                 <input type="hidden" name="id" value="{{ $item['id'] }}">
                                 @csrf
-{{--                                @method('PUT')--}}
-                                <div class="item">
 
+                                <div class="item">
                                     <a href="{{ route('product.show', $item) }}" class="item-img" target="_blank">
-                                        <img
-                                            src="{{ $item->images()->first()->path() }}"
-                                            alt="{{ $item->name }}">
+                                        @if( empty($item->images()->first()) )
+                                            <img src="{{ asset('storage/product_photos/item_default_comp.webp') }}" alt="{{ $item->name }}">
+                                        @else
+                                            <img src="{{ $item->images()->first()->path() }}" alt="{{ $item->name }}">
+                                        @endif
+
                                     </a>
 
                                     <div class="text-block">
                                         <a href="{{ route('product.show', $item) }}" class="item-title" target="_blank">
                                             {{ $item->name }}
                                         </a>
-
                                         <a href="{{ route('cart.catalog.catalog', ['collection' => $item->collection_id]) }}" target="_blank">
                                             {{ $item->category->name }}
                                         </a>
                                     </div>
 
                                     <div class="item-checkout">
-                                        <p style="white-space: nowrap">
-                                            {{ $item->price() }}
-                                        </p>
+                                        <p style="white-space: nowrap">{{ $item->price() }}</p>
                                         <div class="item-options">
-
                                             <div class="product-quantity">
                                                 <button type="button" class="btn btn-sm btn-minus"><i class="fas fa-minus"></i></button>
                                                 <input type="number" class="form-control form-control-sm" name="quantity" min="1" value="{{ $item->quantity }}">
                                                 <button type="button" class="btn btn-sm btn-plus"><i class="fa fa-plus"></i></button>
                                             </div>
-{{--                                            <button>--}}
-                                                <a href="{{ route('cart.remove', $item) }}" class="button">
-                                                    <img
-                                                        src="{{ asset('images/web-site_icons/cart/delete.svg') }}"
-                                                        alt="delete">
-                                                </a>
-{{--                                            </button>--}}
 
+                                            <a href="{{ route('cart.remove', $item) }}" class="button" onclick="return confirm('Вы уверены, что хотите удалить этот продукт из корзины?')">
+                                                <img src="{{ asset('images/web-site_icons/cart/delete.svg') }}" alt="delete">
+                                            </a>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <button type="submit" class="btn btn-primary btn-sm btn-save">
@@ -90,6 +78,9 @@
                                 </button>
                             </form>
                         @endforeach
+
+
+
                     @endif
 
                         <style>
@@ -105,7 +96,7 @@
                     @if($cart->isEmpty())
                     @else
                         <button>
-                            <a href="{{ route('cart.clear') }}" style="text-decoration: none;">
+                            <a href="{{ route('cart.clear') }}" style="text-decoration: none;" onclick="return confirm('Вы уверены, что хотите очистить корзину?')">
                                 <img src="{{ asset('images/web-site_icons/cart/delete.svg') }}"
                                      alt="delete">
                                 <span style="color: #232323;">удалить всё</span>
@@ -116,61 +107,57 @@
 
                 </div>
 
-                <!-- Подключение библиотеки jQuery -->
-                <script src="{{ asset('https://code.jquery.com/jquery-3.6.0.min.js') }}"></script>
-
                 <div class="order-checkout">
-                    <div class="promocode">
-                        <input type="text" placeholder="ввести промокод">
-                        <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"
-                              data-bs-content="Используйте промокод, чтобы получить скидку на ваш заказ!
-                          Введите его в поле ниже, чтобы применить. Мы предлагаем различные промо-коды
-                          для праздников и особых случаев. Не упустите шанс сохранить деньги при покупке товаров.">
-                      <button class="btn btn-primary" type="button" disabled>
-                          <img src="{{ asset('images/web-site_icons/cart/promocodes-alert.svg') }}"
-                               alt="promocode">
-                      </button>
-                    </span>
+{{--                    <div class="promocode">--}}
+{{--                        <input type="text" placeholder="ввести промокод">--}}
+{{--                        <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus"--}}
+{{--                              data-bs-content="Используйте промокод, чтобы получить скидку на ваш заказ!--}}
+{{--                          Введите его в поле ниже, чтобы применить. Мы предлагаем различные промо-коды--}}
+{{--                          для праздников и особых случаев. Не упустите шанс сохранить деньги при покупке товаров.">--}}
+{{--                      <button class="btn btn-primary" type="button" disabled>--}}
+{{--                          <img src="{{ asset('images/web-site_icons/cart/promocodes-alert.svg') }}"--}}
+{{--                               alt="promocode">--}}
+{{--                      </button>--}}
+{{--                    </span>--}}
 
-                        <!-- Ваш JavaScript-код, который активирует Popover -->
-                        <script src="{{ asset('js/cart/promocodeNotificator.js') }}" defer></script>
-                    </div>
+{{--                        <!-- Ваш JavaScript-код, который активирует Popover -->--}}
+{{--                        <script src="{{ asset('js/cart/promocodeNotificator.js') }}" defer></script>--}}
+{{--                    </div>--}}
 
-                    <div class="checkout">
-                        <table>
-                            <tr>
-                                <td>количество товаров</td>
-                                <td>
-                                    @if($cart->isEmpty())
-                                        0
-                                    @else
-                                        {{ $cart->count() }}
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>стоимость</td>
-                                <td>
-                                    @if($cart->isEmpty())
-                                    @else
-                                        {{ $cart->getTotal() }} ₱
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>скидка</td>
-                                <td>15%</td>
-                            </tr>
-                            <tr>
-                                <td>доставка</td>
-                                <td>350 ₱</td>
-                            </tr>
-                            <tr>
-                                <td>итоговая сумма</td>
-                                <td>{{ $cart->getTotalWithDelivery() }} ₱</td>
-                            </tr>
-                        </table>
-                    </div>
+                    @if($cart->isEmpty())
+                    @else
+                        <div class="checkout">
+                            <table>
+                                <tr>
+                                    <td>количество товаров</td>
+                                    <td>
+                                        @if($cart->isEmpty())
+                                            0
+                                        @else
+                                            {{ $cart->count() }}
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>стоимость</td>
+                                    <td>
+                                        @if($cart->isEmpty())
+                                        @else
+                                            {{ $cart->getTotal() }} ₱
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>доставка</td>
+                                    <td>350 ₱</td>
+                                </tr>
+                                <tr>
+                                    <td>итоговая сумма</td>
+                                    <td>{{ $cart->getTotalWithDelivery() }} ₱</td>
+                                </tr>
+                            </table>
+                        </div>
+                    @endif
 
                     @if($cart->isEmpty())
                     @else

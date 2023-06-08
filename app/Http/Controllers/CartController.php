@@ -14,9 +14,9 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Request;
 
 class CartController extends Controller
 {
@@ -46,57 +46,35 @@ class CartController extends Controller
     {
 //        dd($product);
         if ($this->cartService->remove($product)) {
-            session()->flash('message', 'Товар успешно удален!');
+
+            $productName = $product->name;
+            session()->flash('success', 'Товар" ' . $productName . ' " успешно удален!');
             return back();
         }
 //        dd($product);
 
-        session()->flash('message', 'Товар не удален!');
+        session()->flash('failure', 'Товар не удален!');
         return back();
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return RedirectResponse
      */
-    public function updateQuantity(\Illuminate\Http\Request $request): RedirectResponse
+    public function updateQuantityCartPage(Request $request): RedirectResponse
     {
         $productId = $request->input('id');
         $quantity = $request->input('quantity');
 
         // Найдите товар в корзине по ID и обновите его количество
         $product = Product::findOrFail($productId);
-        $this->cartService->updateCartProductQuantity($product, $quantity);
+        $this->cartService->updateCartProductQuantityCartPage($product, $quantity);
 
-        session()->flash('message', 'Количество товара успешно обновлено!');
-
-        return back();
-    }
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param $id
-     * @return RedirectResponse
-     */
-    public function updateproductquantity(\Illuminate\Http\Request $request, $id): RedirectResponse
-    {
-
-        $product = Product::findOrFail($id); // Получаем объект товара по ID
-
-        $quantity = $request->input('quantity');
-
-        if ($this->cartService->updateCartProductQuantity($product, $quantity)) { // Передаем объект товара в качестве первого аргумента
-
-            session()->flash('message', 'Количество товара успешно обновлено!');
-
-            return back();
-        }
-//        dd($product, $id, $quantity);
-        session()->flash('message', 'Ошибка при обновлении количества товара');
+        $productName = $product->name;
+        session()->flash('success', 'Количество товара " ' . $productName . ' " успешно обновлено!');
 
         return back();
     }
-
 
     /**
      * @return Factory|\Illuminate\Foundation\Application|View|Application
@@ -131,14 +109,14 @@ class CartController extends Controller
 
         Mail::to(auth()->user()->email)->send(new OrderCreatedMail($order));
 
-        return redirect()->route('page.home')->with('message' . 'Заказ успешно создан!');
+        return redirect()->route('page.home')->with('success' . 'Заказ успешно создан!');
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return JsonResponse
      */
-    public function store(\Illuminate\Http\Request $request): JsonResponse
+    public function store(Request $request): JsonResponse
     {
         if (!Hash::check($request->get('password'), auth()->user()->getAuthPassword())) {
             return response()->json([
@@ -176,10 +154,7 @@ class CartController extends Controller
 
         $this->cartService->clear();
 
-//        $user = auth()->user();
-
         Mail::to(auth()->user()->email)->send(new OrderCreatedMail($order));
-//        Mail::to($user->email)->send(new \App\Mail\OrderCreatedMail($order));
 
         return response()->json([
             'message', 'Order has been created',

@@ -2,6 +2,8 @@
 
 <script src=" {{ asset('js/singlePage/contentShowHide.js') }}" defer></script>
 <script src="{{ asset('js/singlePage/reviewsPhotos.js') }}" defer></script>
+<script src="{{ asset('js/singlePage/productQuantity.js') }}" defer></script>
+<script src="{{ asset('js/singlePage/slider.js') }}" defer></script>
 
 @section('title', $product->name)
 
@@ -35,27 +37,31 @@
                 <h1>
                     {{ $product->name }}
                 </h1>
-                {{--Стили перемещать нельзя, т.к. php код не работает в css--}}
-                <style>
-                    .section-article h1 {
-                        background: url({{ $product->images->last()->path() }}) no-repeat center center;
-                        background-color: #320001;
-                    }
-                </style>
 
             </div>
 
             <div class="item__content__container">
                 <div class="item-slider">
-                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                         class="swiper mySwiper2">
                         <div class="swiper-wrapper">
-                            @foreach($product->images()->get() as $image)
+                            @if(empty($product->images->last()))
                                 <div class="swiper-slide">
                                     <div class="swiper-zoom-container">
-                                        <img src="{{ $image->path() }}" alt="{{ $product->name }}">
+                                        <img src="{{ asset('storage/product_photos/item_default_comp.webp') }}"
+                                             alt="{{ $product->name }}">
                                     </div>
                                 </div>
-                            @endforeach
+                            @else
+                                @foreach($product->images()->get() as $image)
+                                    <div class="swiper-slide">
+                                        <div class="swiper-zoom-container">
+                                            <img src="{{ $image->path() }}" alt="{{ $product->name }}">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+
                         </div>
 
                         @if($product->images()->count() > 1)
@@ -97,45 +103,47 @@
                     </div>
 
                     <form
-                        action=""
+                        action="{{ route('product.addToCart', $product->id) }}"
                         method="post"
                         enctype="multipart/form-data"
-                    >
+                        id="add-to-cart-form">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $product['id'] }}">
                         <div class="item-form-block">
                             <p>{{ $product->price() }}</p>
 
-                            <div class="product-quantity">
-                                <button type="button" class="btn btn-sm btn-minus"><i class="fas fa-minus"></i></button>
-                                <input type="number" class="form-control form-control-sm" name="quantity" min="1" value="1">
-                                <button type="button" class="btn btn-sm btn-plus"><i class="fa fa-plus"></i></button>
-                            </div>
-
+{{--                            <div class="product-quantity">--}}
+{{--                                <button type="button" class="btn btn-sm btn-minus"><i class="fas fa-minus"></i></button>--}}
+{{--                                <input type="number" class="form-control form-control-sm" name="quantity" min="1"--}}
+{{--                                       value="1">--}}
+{{--                                <button type="button" class="btn btn-sm btn-plus"><i class="fa fa-plus"></i></button>--}}
+{{--                            </div>--}}
                         </div>
 
                         <div class="item-form-block">
-                            <button>
+                            <button type="submit">
                                 в корзину
-                                <img src="{{asset('images/web-site_icons/addToCart.webp')}}" alt="">
-                            </button>
-
-                            <button class="wishlist">
-                                <img class="wishlist" src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">
+                                <img src="{{asset('images/web-site_icons/addToCart.webp')}}" alt="addToCart">
                             </button>
                         </div>
-
                     </form>
+
 
                     <div class="accordion" id="accordionPanelsStayOpenExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                        aria-controls="panelsStayOpen-collapseOne">
                                     <p>доставка</p> <br>
                                     @if(auth()->check())
-                                        <span><i class="fa-solid fa-location-dot"></i> в {{ auth()->user()->city }}</span>
+                                        <span><i
+                                                class="fa-solid fa-location-dot"></i> в {{ auth()->user()->city }}</span>
                                     @endif
                                 </button>
                             </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                 aria-labelledby="panelsStayOpen-headingOne">
                                 <div class="accordion-body">
                                     <table>
                                         <tr>
@@ -161,16 +169,22 @@
 
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapseTwo">
                                     <p>оплата</p>
                                 </button>
                             </h2>
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                                 aria-labelledby="panelsStayOpen-headingTwo">
                                 <div class="accordion-body">
                                     <p>
-                                        Для оформления заказа в нашем магазине, оплата осуществляется переводом на карту. Вся необходимая информация и инструкции по оплате будут направлены вам на указанный электронный адрес.
+                                        Для оформления заказа в нашем магазине, оплата осуществляется переводом на
+                                        карту. Вся необходимая информация и инструкции по оплате будут направлены вам на
+                                        указанный электронный адрес.
                                         <br><br>
-                                        После оплаты, наш администратор свяжется с вами для уточнения деталей заказа и подтверждения его оформления.
+                                        После оплаты, наш администратор свяжется с вами для уточнения деталей заказа и
+                                        подтверждения его оформления.
                                         <br><br>
                                         Благодарим вас за покупку в нашем магазине!
                                     </p>
@@ -180,16 +194,23 @@
 
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapseThree">
                                     <p>гарантии</p>
                                 </button>
                             </h2>
-                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                                 aria-labelledby="panelsStayOpen-headingThree">
                                 <div class="accordion-body">
                                     <p>
-                                        Мы гарантируем качество всех изделий, которые вы приобретаете в нашем магазине. Каждое изделие проходит тщательную проверку перед отправкой. Мы также предоставляем бережную упаковку, чтобы ваш заказ достиг вас без повреждений.
+                                        Мы гарантируем качество всех изделий, которые вы приобретаете в нашем магазине.
+                                        Каждое изделие проходит тщательную проверку перед отправкой. Мы также
+                                        предоставляем бережную упаковку, чтобы ваш заказ достиг вас без повреждений.
                                         <br><br>
-                                        В случае обнаружения некомплекта изделия, свяжитесь с нами в течение 7 дней с момента получения заказа. Мы с радостью отправим вам недостающие части в кратчайшие сроки.
+                                        В случае обнаружения некомплекта изделия, свяжитесь с нами в течение 7 дней с
+                                        момента получения заказа. Мы с радостью отправим вам недостающие части в
+                                        кратчайшие сроки.
                                         <br><br>
                                         Благодарим вас за выбор нашего магазина и надеемся на длительное сотрудничество!
                                     </p>
@@ -200,7 +221,34 @@
 
                     <div class="item-description closed">
                         <p>
-                            {{ $product->description }}
+                            @if(empty($product->description))
+                                Добро пожаловать в наш магазин 3D-печатных моделей ForgeNight! Мы специализируемся на
+                                производстве и продаже высококачественных моделей для любителей варгеймов и настольных
+                                игр, особенно во вселенной Warhammer 40 000.
+                                <br><br>
+                                Наша продукция отличается уникальной детализацией и высокой прочностью благодаря
+                                использованию SLA-печати с использованием смолы Anycubic. Каждая модель создается с
+                                большой тщательностью, чтобы воссоздать самые малейшие детали и придать вашим игровым
+                                сценариям неповторимый реализм.
+                                <br><br>
+                                Мы гордимся своим превосходным качеством печати, достигнутым благодаря слою печати в 15
+                                микрон. Это позволяет нам воплотить в жизнь даже самые сложные и тонкие детали, делая
+                                наши модели восхитительными визуально и приятными на ощупь.
+                                <br><br>
+                                В нашем магазине мы также предлагаем различные услуги и дополнительные возможности для
+                                наших клиентов. Мы готовы оказать консультации по выбору моделей, помочь в поиске нужных
+                                вам изделий и предоставить помощь со сборкой и покраской моделей.
+                                <br><br>
+                                Наш интернет-магазин уже имеет множество довольных клиентов и успешно реализованных
+                                проектов. Мы стремимся к постоянному расширению ассортимента и обеспечению
+                                удовлетворения потребностей наших клиентов.
+                                <br><br>
+                                Присоединяйтесь к нашей страсти к варгеймам и настольным играм! Откройте для себя
+                                уникальные модели, созданные с любовью к деталям и непревзойденному качеству. Будем рады
+                                помочь вам воплотить ваши игровые миры в реальность.
+                            @else
+                                {{ $product->description }}
+                            @endif
                         </p>
                     </div>
 
@@ -235,7 +283,16 @@
 
                                 <div class="text">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam doloribus incidunt ipsa laudantium praesentium quaerat recusandae. Deleniti facilis harum maiores modi nisi quos recusandae reiciendis repellat sequi! Assumenda consequatur corporis dolor doloremque incidunt inventore minus nemo possimus quibusdam voluptatibus! Ab adipisci alias aperiam aspernatur at aut blanditiis commodi consequatur deserunt dicta doloremque eaque eos eum fuga illo incidunt ipsam itaque laborum nemo odio odit officia officiis placeat quae quasi quis quo, recusandae rem sequi sunt vitae voluptas, voluptates voluptatibus? Ad aliquid architecto atque dolore ea eius esse, laborum numquam omnis, quasi quia quibusdam quo quod rem repellat sapiente tenetur totam.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam doloribus
+                                        incidunt ipsa laudantium praesentium quaerat recusandae. Deleniti facilis harum
+                                        maiores modi nisi quos recusandae reiciendis repellat sequi! Assumenda
+                                        consequatur corporis dolor doloremque incidunt inventore minus nemo possimus
+                                        quibusdam voluptatibus! Ab adipisci alias aperiam aspernatur at aut blanditiis
+                                        commodi consequatur deserunt dicta doloremque eaque eos eum fuga illo incidunt
+                                        ipsam itaque laborum nemo odio odit officia officiis placeat quae quasi quis
+                                        quo, recusandae rem sequi sunt vitae voluptas, voluptates voluptatibus? Ad
+                                        aliquid architecto atque dolore ea eius esse, laborum numquam omnis, quasi quia
+                                        quibusdam quo quod rem repellat sapiente tenetur totam.
                                     </p>
                                 </div>
 
@@ -245,7 +302,6 @@
                                             <img src="{{ $image->path() }}" alt="{{ $product->name }}">
                                         </div>
                                     @endforeach
-
 
 
                                 </div>
@@ -261,29 +317,38 @@
                 </div>
 
 
-
-                {{--Стили перемещать нельзя, иначе конфликт с js--}}
+                {{--Стили перемещать нельзя, иначе конфликт с js
+                и php разметка не работает в xxx.css--}}
                 <style>
-                    .item-reviews.closed{
+                    @if(empty($product->images->last() ) )
+                    .section-article h1 {
+                        background-color: #320001;
+                    }
+
+                    @else
+                    .section-article h1 {
+                        background: url({{ $product->images->last()->path() }}) no-repeat center center;
+                        background-color: #320001;
+                    }
+                    @endif
+                    .item-reviews.closed {
                         display: none;
                     }
-                    .accordion.closed{
+
+                    .accordion.closed {
                         display: none;
                     }
-                    .item-description.closed{
+
+                    .item-description.closed {
                         display: none;
                     }
-                    .item-description{
+
+                    .item-description {
                         display: grid;
                     }
                 </style>
 
             </div>
-
-
-            <script src="{{ asset('js/singlePage/productQuantity.js') }}" defer></script>
-
-            <script src="{{ asset('js/singlePage/slider.js') }}" defer></script>
 
         </div>
     </section>

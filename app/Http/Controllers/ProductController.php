@@ -12,6 +12,8 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use function view;
 
 class ProductController extends Controller
@@ -100,11 +102,25 @@ class ProductController extends Controller
         return view('pages.single', compact('product', 'collection'));
     }
 
-    /**
-     * @id string $id
-     * @return RedirectResponse
-     */
-    public function addToCart(string $id): RedirectResponse
+//    public function addToCartCatalog(Request $request)
+//    {
+//        $quantity = 1;
+//        $productId = $request->input('id');
+//
+//        $cart = $this->get();
+//
+//        foreach ($cart as &$product) {
+//            if ($product['id'] === $productId) {
+//                $product['quantity'] += $quantity;
+//                $this->set($cart);
+//                return back()->with('success', 'Успешно добавлен товар');
+//            }
+//        }
+//
+////        dd($productId, $quantity, $product['id']);
+//        return back()->with('failure', 'Ошибка добавления товара');
+//    }
+    public function addToCartCatalog(string $id): RedirectResponse
     {
         /** @var Product $product */
         $product = Product::query()->find($id);
@@ -114,7 +130,68 @@ class ProductController extends Controller
         }
 
         $this->cartService->add($product);
+        $productName = $product->name;
 
-        return back();
+        return back()->with('success', 'Товар " '.$productName.' успешно добавлен в корзину!"');
     }
+
+    /**
+     * @id string $id
+     * @return RedirectResponse
+     */
+    public function addToCart(Request $request): RedirectResponse
+    {
+        $productId = $request->input('id');
+        $quantity = $request->input('quantity');
+
+//        // Найдите товар в корзине по ID и обновите его количество
+        $product = Product::findOrFail($productId);
+//        dd($request['quantity'], $product);
+
+//        $this->cartService->updateCartProductQuantitySinglePage($product, $quantity);
+//        $this->cartService->add($product, $quantity);
+
+//        if ($this->updateSingleProductQuantity($product, $quantity)) {
+//            return back()->with('success', 'Количество продукта изменено');
+//        }
+
+        $this->cartService->add($product, $quantity);
+        $productName = $product->name;
+
+//        dd($quantity);
+
+        return back()->with('success', 'Товар "'.$productName.'" добавлен в корзину!');
+    }
+    public function updateSingleProductQuantity(Product $product, int $quantity): bool
+    {
+        $cart = $this->get();
+
+        foreach ($cart as &$product) {
+            if ($product['id'] === $product->id) {
+                $product['quantity'] += $quantity;
+                $this->set($cart);
+                return true;
+            }
+        }
+
+        return false;
+    }
+    public function get(): mixed
+    {
+        try {
+            if (session()->has('cart')) {
+                return session()->get('cart');
+            }
+
+            return [];
+        } catch (\Throwable $throwable) {
+            Log::error($throwable->getMessage());
+            return [];
+        }
+    }
+    private function set(array $items): void
+    {
+        session(['cart' => $items]);
+    }
+
 }

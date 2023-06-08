@@ -96,7 +96,6 @@ class DatabaseSeeder extends Seeder
                 'price' => '3500',
                 'quantity' => '100',
                 'is_published' => true,
-                'description' => 'test 1',
                 'collection_id' => '2'
             ]
         );

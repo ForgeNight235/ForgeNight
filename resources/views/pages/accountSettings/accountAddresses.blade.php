@@ -11,7 +11,6 @@
 
 @section('content')
 
-
     <section class="account">
         <div class="container">
 
@@ -98,12 +97,6 @@
                                 <p>@error('index') {{ $message }} @enderror</p>
                             </div>
                         </div>
-
-                        @if(session('success'))
-                            <div class="success-form show" id="success-message">
-                                <p>{{ session('success') }}</p>
-                            </div>
-                        @endif
 
                         <button type="submit">Обновить данные</button>
                     </form>

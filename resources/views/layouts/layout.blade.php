@@ -11,6 +11,7 @@
     <script src="{{ asset('https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js') }}"></script>
     <script src="{{ asset('js/sliders.js') }}" defer></script>
     <link rel="icon" href="{{ asset('images/logo/svg/website icon.svg') }}" type="image/x-icon">
+    <script src="{{ asset('https://code.jquery.com/jquery-3.6.0.min.js') }}"></script>
     <link href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css') }}" rel="stylesheet"
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js') }}" defer
@@ -29,8 +30,10 @@
     <script src="{{ asset('js/customScrolls.js') }}" defer></script>
     <script src="{{ asset('js/burger.js') }}" defer></script>
     <script src="{{ asset('js/logoutModal.js') }}" defer></script>
-    <script src="{{ asset('js/accountPage/successMessage.js') }}" defer></script>
-    <script src="{{ asset('js/accountPage/showAllProductsInOrder.js') }}" defer></script>
+    <script src="{{ asset('js/messages/successMessage.js') }}" defer></script>
+    <script src="{{ asset('js/messages/failureMessage.js') }}" defer></script>
+    <script src="{{ asset('js/catalog/pageAnchor.js') }}" defer></script>
+    <script src="{{ asset('/js/catalog/catalogFilterModal.js') }}" defer></script>
 
     <title>@yield('title') | ForgeNight</title>
 

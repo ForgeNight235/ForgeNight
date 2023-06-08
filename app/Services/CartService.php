@@ -101,6 +101,10 @@ class CartService implements CartInterface
 
         $product['quantity'] = $quantity;
         session()->push('cart', $product);
+
+        $productName = $product->name;
+        session()->flash('success', 'Товар " '.$productName.' " добавлен в корзину!');
+
     }
 
     /**
@@ -114,6 +118,36 @@ class CartService implements CartInterface
 
         foreach ($cart as &$item) {
             if ($item['id'] === $product->id) {
+                $item['quantity'] += $quantity;
+                $this->set($cart);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function updateSingleProductQuantity(Product $product, int $quantity): bool
+    {
+        $cart = $this->get();
+
+        foreach ($cart as &$product) {
+            if ($product['id'] === $product->id) {
+                $product['quantity'] += $quantity;
+                $this->set($cart);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function updateCartProductQuantityCartPage(Product $product, int $quantity): bool
+    {
+        $cart = $this->get();
+
+        foreach ($cart as &$item) {
+            if ($item['id'] === $product->id) {
                 $item['quantity'] = $quantity;
                 $this->set($cart);
                 return true;
@@ -122,6 +156,23 @@ class CartService implements CartInterface
 
         return false;
     }
+
+    public function updateCartProductQuantitySinglePage(Product $product, int $quantity)
+    {
+        $cart = $this->get();
+
+        foreach ($cart as &$product)
+        {
+            if ($product['id'] === $product->id)
+            {
+                $product['quantity'] = $quantity;
+                $this->set($cart);
+                return back()->with('success', 'Успешно обновлено количество');
+            }
+        }
+        return back()->with('failure', 'Ошибка при обновлении количества товара');
+    }
+
 
     /**
      * @return bool

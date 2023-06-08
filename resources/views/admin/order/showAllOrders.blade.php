@@ -91,9 +91,8 @@
                     <div class="orders">
                         @if($orders->isEmpty())
                             <div class="order__alert">
-                                <p>Вы ещё не совершали покупок в нашем магазине</p>
+                                <p>В магазине ещё не было произведено заказов :(</p>
                             </div>
-                            <a href="{{ route('account.catalog') }}">перейти в каталог</a>
                         @else
                             @foreach($orders as $order)
                                 <div class="order">

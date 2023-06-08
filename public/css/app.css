@@ -1951,7 +1951,7 @@ aside .aside-article .chosen {
 .aside-article p {
     text-align: center;
 }
-
+/*Стили для сообщений об успехе/success*/
 .success-form {
     position: absolute;
     display: none;
@@ -1967,6 +1967,7 @@ aside .aside-article .chosen {
     padding: 24px 12px;
     font-family: 'Century Gothic', sans-serif;
     font-size: 16px;
+    z-index: 99;
 }
 
 .success-form p {
@@ -1977,6 +1978,33 @@ aside .aside-article .chosen {
     display: block;
     opacity: 1;
 }
+
+.failure-form {
+     position: absolute;
+     display: none;
+     opacity: 0;
+     transition: opacity 0.3s ease-in-out;
+     top: 50px;
+     left: 50%;
+     transform: translateX(-50%);
+     background: #d9534f;
+     color: #fff;
+     border-radius: 8px;
+     text-align: center;
+     padding: 24px 12px;
+     font-family: 'Century Gothic', sans-serif;
+     font-size: 16px;
+ }
+
+.failure-form p {
+    margin: 0;
+}
+
+.failure-form.show {
+    display: block;
+    opacity: 1;
+}
+/* Конец стилей для сообщений об неудаче/failure*/
 
 .account__personal__data {
     width: 100%;
@@ -2703,6 +2731,28 @@ section.account.orders .pagination .page-item.next .page-link {
     border: transparent;
 }
 
+.ordering .checkout,
+section.cart .checkout
+{
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding: 15px 0 0 0;
+}
+
+section.cart .cart__content .items a.catalogAnchor
+{
+    padding: 16px 34px;
+    background: #F4DC5E;
+    border-radius: 20px;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 24px;
+    white-space: nowrap;
+    color: #232323;
+    text-decoration: none;
+    margin: 25px 0 0 0;
+    display: block;
+    width: fit-content;
+}
+
 .ordering .order-checkout .accordion-button:focus {
     box-shadow: none;
 }
@@ -3321,10 +3371,16 @@ section.admin .account__personal__data span {
     padding: 42px 0 0 0;
 }
 
-.cart .items .item .item-checkout .item-options button img {
+.cart .items .item .item-checkout .item-options img {
     --size: 20px;
     width: var(--size);
     height: var(--size);
+}
+
+.cart .items .item .item-checkout .item-options a
+{
+    height: fit-content;
+    margin: auto;
 }
 
 .cart .items .item .item-checkout .item-options button {
@@ -3386,7 +3442,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .cart .items .item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 12px;
     max-width: 550px;
     justify-content: space-between;
@@ -3417,7 +3474,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .cart .items .item a.item-img {
-    margin: auto;
+    margin: auto auto auto 0;
     max-width: 100px;
     width: 100%;
     object-fit: contain;

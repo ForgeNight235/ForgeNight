@@ -1,3 +1,15 @@
+@if(session('success'))
+    <div class="success-form show" id="success-message">
+        <p>{{ session('success') }}</p>
+    </div>
+@endif
+
+@if(session('failure'))
+    <div class="failure-form show" id="failure-message">
+        <p>{{ session('failure') }}</p>
+    </div>
+@endif
+
 <header class="header">
     <div class="container">
         <nav>
