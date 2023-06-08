@@ -64,4 +64,9 @@ class Authenticate extends Middleware
     {
         return $request->expectsJson() ? null : route('page.login');
     }
+
+    public function orderSuccessCreated()
+    {
+        return \view('pages.order.orderCreated');
+    }
 }

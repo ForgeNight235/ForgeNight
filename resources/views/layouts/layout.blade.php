@@ -34,6 +34,9 @@
     <script src="{{ asset('js/messages/failureMessage.js') }}" defer></script>
     <script src="{{ asset('js/catalog/pageAnchor.js') }}" defer></script>
     <script src="{{ asset('/js/catalog/catalogFilterModal.js') }}" defer></script>
+    <script src="{{ asset('js/accountPage/showAllProductsInOrder.js') }}" defer></script>
+    <script src="{{ asset('js/accountPage/imagePreview.js') }}" defer></script>
+    <script src="{{ asset('js/accountPage/mobileFormatter.js') }}" defer></script>
 
     <title>@yield('title') | ForgeNight</title>
 

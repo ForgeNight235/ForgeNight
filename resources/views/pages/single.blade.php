@@ -89,7 +89,7 @@
                     <div class="item-info-options">
                         <p id="product">доставка</p>
                         <p id="description">описание</p>
-                        <p id="reviews">отзывы</p>
+{{--                        <p id="reviews">отзывы</p>--}}
                     </div>
 
                     <div class="item-article">
@@ -252,67 +252,67 @@
                         </p>
                     </div>
 
-                    <div class="item-reviews closed">
-                        <div class="item-review-card">
-                            @if(auth()->check())
-                                <div class="block">
-                                    <div class="avatar">
+{{--                    <div class="item-reviews closed">--}}
+{{--                        <div class="item-review-card">--}}
+{{--                            @if(auth()->check())--}}
+{{--                                <div class="block">--}}
+{{--                                    <div class="avatar">--}}
 
-                                        <img src="{{ auth()->user()->avatarUrl() }}" alt="{{ auth()->user()->login }}">
+{{--                                        <img src="{{ auth()->user()->avatarUrl() }}" alt="{{ auth()->user()->login }}">--}}
 
-                                    </div>
-                                    <div class="nickname">
-                                        <p>{{ auth()->user()->login}}</p>
-                                    </div>
+{{--                                    </div>--}}
+{{--                                    <div class="nickname">--}}
+{{--                                        <p>{{ auth()->user()->login}}</p>--}}
+{{--                                    </div>--}}
 
-                                    <div class="review_data">
-                                    <span>
-                                        {{ auth()->user()->createdDate()}}
-                                    </span>
+{{--                                    <div class="review_data">--}}
+{{--                                    <span>--}}
+{{--                                        {{ auth()->user()->createdDate()}}--}}
+{{--                                    </span>--}}
 
-                                        <div class="review-mark">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                    </div>
+{{--                                        <div class="review-mark">--}}
+{{--                                            <i class="fa-solid fa-star"></i>--}}
+{{--                                            <i class="fa-solid fa-star"></i>--}}
+{{--                                            <i class="fa-solid fa-star"></i>--}}
+{{--                                            <i class="fa-solid fa-star"></i>--}}
+{{--                                            <i class="fa-solid fa-star"></i>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                </div>
+{{--                                </div>--}}
 
-                                <div class="text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam doloribus
-                                        incidunt ipsa laudantium praesentium quaerat recusandae. Deleniti facilis harum
-                                        maiores modi nisi quos recusandae reiciendis repellat sequi! Assumenda
-                                        consequatur corporis dolor doloremque incidunt inventore minus nemo possimus
-                                        quibusdam voluptatibus! Ab adipisci alias aperiam aspernatur at aut blanditiis
-                                        commodi consequatur deserunt dicta doloremque eaque eos eum fuga illo incidunt
-                                        ipsam itaque laborum nemo odio odit officia officiis placeat quae quasi quis
-                                        quo, recusandae rem sequi sunt vitae voluptas, voluptates voluptatibus? Ad
-                                        aliquid architecto atque dolore ea eius esse, laborum numquam omnis, quasi quia
-                                        quibusdam quo quod rem repellat sapiente tenetur totam.
-                                    </p>
-                                </div>
+{{--                                <div class="text">--}}
+{{--                                    <p>--}}
+{{--                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam doloribus--}}
+{{--                                        incidunt ipsa laudantium praesentium quaerat recusandae. Deleniti facilis harum--}}
+{{--                                        maiores modi nisi quos recusandae reiciendis repellat sequi! Assumenda--}}
+{{--                                        consequatur corporis dolor doloremque incidunt inventore minus nemo possimus--}}
+{{--                                        quibusdam voluptatibus! Ab adipisci alias aperiam aspernatur at aut blanditiis--}}
+{{--                                        commodi consequatur deserunt dicta doloremque eaque eos eum fuga illo incidunt--}}
+{{--                                        ipsam itaque laborum nemo odio odit officia officiis placeat quae quasi quis--}}
+{{--                                        quo, recusandae rem sequi sunt vitae voluptas, voluptates voluptatibus? Ad--}}
+{{--                                        aliquid architecto atque dolore ea eius esse, laborum numquam omnis, quasi quia--}}
+{{--                                        quibusdam quo quod rem repellat sapiente tenetur totam.--}}
+{{--                                    </p>--}}
+{{--                                </div>--}}
 
-                                <div class="gallery">
-                                    @foreach($product->images()->get() as $image)
-                                        <div class="image">
-                                            <img src="{{ $image->path() }}" alt="{{ $product->name }}">
-                                        </div>
-                                    @endforeach
+{{--                                <div class="gallery">--}}
+{{--                                    @foreach($product->images()->get() as $image)--}}
+{{--                                        <div class="image">--}}
+{{--                                            <img src="{{ $image->path() }}" alt="{{ $product->name }}">--}}
+{{--                                        </div>--}}
+{{--                                    @endforeach--}}
 
 
-                                </div>
-                            @else
-                                Ещё нет отзывов на этот товар.
-                                <br><br>
-                                Станьте первым!
-                            @endif
-                        </div>
+{{--                                </div>--}}
+{{--                            @else--}}
+{{--                                Ещё нет отзывов на этот товар.--}}
+{{--                                <br><br>--}}
+{{--                                Станьте первым!--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
 
-                    </div>
+{{--                    </div>--}}
 
                 </div>
 

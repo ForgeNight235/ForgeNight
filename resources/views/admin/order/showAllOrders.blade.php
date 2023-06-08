@@ -102,17 +102,18 @@
                                             <span>Оформлен: {{ \Carbon\Carbon::parse($order->created_at)->format('d.m.Y') }}</span>
                                         </div>
 
-                                        <div class="promocode">
-                                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"
-                                                  data-bs-trigger="hover focus"
-                                                  data-bs-content="Пишите отзывы на товары, чтобы получить специальные скидочные промокоды! Промокоды действуют на все виды продукции магазина.">
-                                                <button class="btn btn-primary" type="button" disabled>
-                                                    <p>Оставить отзыв</p>
-                                                </button>
-                                            </span>
-                                        </div>
+{{--                                        <div class="promocode">--}}
+{{--                                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"--}}
+{{--                                                  data-bs-trigger="hover focus"--}}
+{{--                                                  data-bs-content="Пишите отзывы на товары, чтобы получить специальные скидочные промокоды! Промокоды действуют на все виды продукции магазина.">--}}
+{{--                                                <button class="btn btn-primary" type="button" disabled>--}}
+{{--                                                    <p>Оставить отзыв</p>--}}
+{{--                                                </button>--}}
+{{--                                            </span>--}}
+{{--                                        </div>--}}
 
-                                        <button class="showHide">{{ $order->products->count() }} Показать товары
+                                        <button class="showHide">
+                                            {{ $order->products->count() }} Товары
                                         </button>
 
                                         <div class="order-status">

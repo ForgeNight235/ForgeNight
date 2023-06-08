@@ -162,7 +162,7 @@ class CartController extends Controller
         return response()->json([
             'message', 'Order has been created',
             'status' => true,
-            'redirect_url' => route('page.home')
+            'redirect_url' => route('account.orderSuccessCreated')
         ]);
 
     }

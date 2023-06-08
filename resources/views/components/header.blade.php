@@ -48,9 +48,9 @@
                     <a href="/cart">
                         <img src="{{ asset('images/web-site_icons/cart-icon.svg') }}" alt="cart">
                     </a>
-                    <a href="/wishlist">
-                        <img src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">
-                    </a>
+{{--                    <a href="/wishlist">--}}
+{{--                        <img src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">--}}
+{{--                    </a>--}}
                     <div class="header__account-container">
                         @if(auth()->user())
                             <a href="{{ route('account.account') }}" class="header__account-link">
@@ -66,12 +66,14 @@
                             <ul class="header__account-menu">
                                 <li><a href="{{ route('page.login') }}">Вход</a></li>
                                 <li><a href="{{ route('page.register') }}">Регистрация</a></li>
+                                <li><a href="{{ route('page.catalog') }}">Каталог</a></li>
+                                <li><a href="/cart">Корзина</a></li>
                             </ul>
                         @endguest
 
                         @auth()
-                            <ul class="header__account-menu" style="right: 0; text-align:right; top: 35px">
-                                <li><a href="{{ route('account.account') }}">Личный кабинет</a></li>
+                            <ul class="header__account-menu" style="text-align:left; top: 35px">
+                                <li><a href="{{ route('account.account') }}">Мой аккаунт</a></li>
                                 <li><p id="logout-btn" data-logouturl="{{ route('auth.logoutUser') }}">Выход</p></li>
                             </ul>
                         @endauth
@@ -102,16 +104,16 @@
                         <ul class="header__account-menu">
                             <li><a href="{{ route('page.login') }}">Вход</a></li>
                             <li><a href="{{ route('page.register') }}">Регистрация</a></li>
+                            <li><a href="{{ route('page.catalog') }}">Каталог</a></li>
+                            <li><a href="/cart">Корзина</a></li>
                         </ul>
                     @endguest
 
                     @auth()
-                        <ul class="header__account-menu" style="right: 0; text-align:right; top: 35px">
-                            <a href=" {{ route('page.catalog') }}" class="account-link">
-                                <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
-                                Личный кабинет
-                            </a>
-                            <li><p href="" id="logoutMobile-btn">Выход</p></li>
+                        <ul class="header__account-menu" style="text-align:left; top: 35px; padding: 0">
+                            <li><a href="{{ route('account.account') }}">Мой аккаунт</a></li>
+                            <li><a href="{{ route('page.catalog') }}">Каталог</a></li>
+                            <li><a href="/cart">Корзина</a></li>
                         </ul>
                     @endauth
 
@@ -131,21 +133,33 @@
             <a href="/cart">
                 <img src="{{ asset('images/web-site_icons/cart-icon.svg') }}" alt="cart">
             </a>
-            <a href="/wishlist">
-                <img src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">
-            </a>
-            <a href="{{ route('page.register') }}" class="account-link">
-                <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
-            </a>
+{{--            <a href="/wishlist">--}}
+{{--                <img src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">--}}
+{{--            </a>--}}
+            @if(auth()->user())
+                <a href="{{ route('account.account') }}" class="account-link">
+                    <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
+                </a>
+            @else
+                <a href="{{ route('page.register') }}" class="account-link">
+                    <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
+                </a>
+            @endif
         </li>
 
         <li class="account-settings-low-devices">
             <a href="/cart">
                 <img src="{{ asset('images/web-site_icons/cart-icon.svg') }}" alt="cart">
             </a>
-            <a href="/wishlist">
-                <img src="{{ asset('images/web-site_icons/wishlist.svg') }}" alt="wishlist">
-            </a>
+            @if(auth()->user())
+                <a href="{{ route('account.account') }}" class="account-link">
+                    <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
+                </a>
+            @else
+                <a href="{{ route('page.register') }}" class="account-link">
+                    <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
+                </a>
+            @endif
         </li>
 
 

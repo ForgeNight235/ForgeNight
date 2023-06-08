@@ -83,7 +83,7 @@
 
     @include('components.new-items')
 
-    @include('components.sales')
+{{--    @include('components.sales')--}}
 
     @include('components.news')
 

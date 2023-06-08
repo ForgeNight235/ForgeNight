@@ -52,6 +52,8 @@ Route::group([
     Route::get('/address', 'accountAddresses')->name('accountAddresses');
     Route::get('/password', 'accountPassword')->name('accountPassword');
     Route::get('/orders', 'accountOrders')->name('accountOrders');
+    Route::get('/orderSuccessCreated', 'orderSuccessCreated')->name('orderSuccessCreated');
+
 
     Route::group([
         'controller' => IndexController::class,

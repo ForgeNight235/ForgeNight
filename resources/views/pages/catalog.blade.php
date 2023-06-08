@@ -56,17 +56,17 @@
 
             <div class="catalog-container">
                 <div class="filters">
-                    <div class="filter">
-                        <h3>
-                            Фильтры
-                        </h3>
-                        <span>Сортировать по:</span>
-                        <select name="" id="">
-                            <option value="">новизне</option>
-                            <option value="">по возрастанию</option>
-                            <option value="">по убыванию</option>
-                        </select>
-                    </div>
+{{--                    <div class="filter">--}}
+{{--                        <h3>--}}
+{{--                            Фильтры--}}
+{{--                        </h3>--}}
+{{--                        <span>Сортировать по:</span>--}}
+{{--                        <select name="" id="">--}}
+{{--                            <option value="">новизне</option>--}}
+{{--                            <option value="">по возрастанию</option>--}}
+{{--                            <option value="">по убыванию</option>--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
 
                     <div class="filter">
 
@@ -102,17 +102,17 @@
                             <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
                             <p>вернуться к товарам</p>
                         </button>
-                        <div class="filter">
-                            <h3>
-                                Фильтры
-                            </h3>
-                            <span>Сортировать по:</span>
-                            <select name="" id="">
-                                <option value="">новизне</option>
-                                <option value="">по возрастанию</option>
-                                <option value="">по убыванию</option>
-                            </select>
-                        </div>
+{{--                        <div class="filter">--}}
+{{--                            <h3>--}}
+{{--                                Фильтры--}}
+{{--                            </h3>--}}
+{{--                            <span>Сортировать по:</span>--}}
+{{--                            <select name="" id="">--}}
+{{--                                <option value="">новизне</option>--}}
+{{--                                <option value="">по возрастанию</option>--}}
+{{--                                <option value="">по убыванию</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
 
                         <div class="filter">
 

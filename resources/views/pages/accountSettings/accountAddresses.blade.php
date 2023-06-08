@@ -1,12 +1,5 @@
 @extends('layouts.layout')
 
-<style>
-    body {
-        display: grid;
-        height: 100vh;
-    }
-</style>
-
 @section('title', 'Адресная книга')
 
 @section('content')

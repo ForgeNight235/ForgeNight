@@ -12,6 +12,7 @@ class Delivery extends Model
     protected $fillable = [
         'order_id',
         'delivery_option_id',
+        'track_code'
     ];
 
     public function deliveryPrice()

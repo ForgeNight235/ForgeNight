@@ -1,8 +1,5 @@
 @extends('layouts.layout')
 
-<script src="{{ asset('js/accountPage/imagePreview.js') }}" defer></script>
-<script src="{{ asset('js/accountPage/mobileFormatter.js') }}" defer></script>
-
 @section('title', 'Личный кабинет')
 
 @section('content')
