@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+//        Создание двух пользователей. Первый - администратор, второй - обычный пользователь
         User::query()->create([
             'name' => 'Илья',
             'surname' => 'Семагин',
@@ -85,85 +86,45 @@ class DatabaseSeeder extends Seeder
             'Почта России',
         ];
 
+//        Запись всех категорий в базу данных
         foreach ($deliveryOptions as $deliveryOption) {
             DeliveryOption::query()->create([
                 'name' => $deliveryOption
             ]);
         }
 
-        $id = Product::query()->create([
-            'name' => 'Horus Ascended',
-                'price' => '3500',
-                'quantity' => '100',
+//        Сиды для создания товаров
+        $productsData = [
+            [
+                'name' => 'Kratos Heavy Assault Tank',
+                'quantity' => '999',
+                'collection_id' => '2',
+                'price' => '4500',
                 'is_published' => true,
-                'collection_id' => '2'
-            ]
-        );
-        ProductImage::query()->create([
-            'product_id' => $id->id,
-            'image_path' => 'public/product_photos/horus/1.jpg'
-        ]);
-        ProductImage::query()->create([
-            'product_id' => $id->id,
-            'image_path' => 'public/product_photos/horus/2.jpg'
-        ]);
-        ProductImage::query()->create([
-            'product_id' => $id->id,
-            'image_path' => 'public/product_photos/horus/3.jpg'
-        ]);
+                'images' => [
+                    'public/product_photos/kratos/Kratos-Heavy-Assault-Tank_clear.webp',
+                    'public/product_photos/kratos/Kratos-Heavy-Assault-Tank1_cler.webp',
+                    'public/product_photos/kratos/Kratos-Heavy-Assault-Tank2_cler.webp',
+                ],
+            ],
+        ];
+
+        foreach ($productsData as $productData)
+        {
+            $images = $productData['images'];
+            unset($productData['images']);
+
+            $product = Product::create($productData);
+
+            foreach ($images as $imagePath)
+            {
+                $product->images()->create([
+                    'image_path' => $imagePath,
+                    'product_id' => $product->id
+                ]);
+            }
+        }
 
 
-
-
-
-
-
-        $id = Product::query()->create([
-                'name' => 'Cerastus Knight-Castigator',
-                'price' => '8500',
-                'quantity' => '50',
-                'is_published' => true,
-                'description' => 'test 1',
-                'collection_id' => '1'
-            ]
-        );
-        ProductImage::query()->create([
-            'product_id' => $id->id,
-            'image_path' => 'public/product_photos/cerastus/1.jpg'
-        ]);
-        ProductImage::query()->create([
-            'product_id' => $id->id,
-            'image_path' => 'public/product_photos/cerastus/2.jpg'
-        ]);
-        ProductImage::query()->create([
-            'product_id' => $id->id,
-            'image_path' => 'public/product_photos/cerastus/3.jpg'
-        ]);
-
-
-
-
-
-        $id = Product::query()->create([
-                'name' => 'Lion El Jonson',
-                'price' => '1500',
-                'quantity' => '150',
-                'is_published' => true,
-                'description' => 'test 1',
-                'collection_id' => '3'
-            ]
-        );
-        ProductImage::query()->create([
-            'product_id' => $id->id,
-            'image_path' => 'public/product_photos/lion/1.jpg'
-        ]);
-        ProductImage::query()->create([
-            'product_id' => $id->id,
-            'image_path' => 'public/product_photos/lion/2.jpg'
-        ]);
-        ProductImage::query()->create([
-            'product_id' => $id->id,
-            'image_path' => 'public/product_photos/lion/2.jpg'
-        ]);
     }
 }
