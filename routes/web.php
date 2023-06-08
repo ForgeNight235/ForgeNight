@@ -181,9 +181,4 @@ Route::group([
         Route::post('/updateAddresses', 'updateUserAddress')->name('updateUserAddress');
         Route::post('/updateContacts', 'updateUser')->name('updateUserContacts');
     });
-//     app/Http/Middleware/Authenticate.php меняем тут путь
-//    Route::get('/create', 'createOrder')->middleware('auth')->name('createOrder');
-//    Route::post('/create/order', 'store')->middleware('auth')->name('store');
-
-//    Route::get('/{product:id}/remove', 'remove')->name('remove');
 });

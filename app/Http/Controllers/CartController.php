@@ -15,6 +15,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -76,11 +77,13 @@ class CartController extends Controller
         return back();
     }
 
-    /**
-     * @return Factory|\Illuminate\Foundation\Application|View|Application
-     */
-    public function orderIndex(): Factory|\Illuminate\Foundation\Application|View|Application
+
+    public function orderIndex(): RedirectResponse|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
+        if (!Auth::check())
+        {
+            return redirect()->route('page.login');
+        }
         $cart = $this->cartService;
         $deliverers = DeliveryOption::all();
 
