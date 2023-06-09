@@ -3,6 +3,7 @@
 @section('title', 'Каталог магазина')
 
 @section('content')
+
     <section class="catalog">
         <div class="container">
 
@@ -43,7 +44,7 @@
                     @endif
                 </h1>
                 {{--                Изменить количество вывода. Надо считать все товары которые есть, а не только то что выводится--}}
-                <p>{{ $products->count() }} товар(ов) найдено</p>
+                <p>{{ $products->total() }} товар(ов) найдено</p>
             </div>
 
             <div class="filter_modal-btn">
@@ -158,11 +159,11 @@
                         <div class="items">
                             @foreach($products as $product)
                                 <div class="slider-item">
-                                    <button class="wishlist">
-                                        <img class="wishlist"
-                                             src="{{ asset('images/web-site_icons/wishlist.svg') }}"
-                                             alt="wishlist">
-                                    </button>
+{{--                                    <button class="wishlist">--}}
+{{--                                        <img class="wishlist"--}}
+{{--                                             src="{{ asset('images/web-site_icons/wishlist.svg') }}"--}}
+{{--                                             alt="wishlist">--}}
+{{--                                    </button>--}}
 
                                     <div class="item-new-img">
                                         <a href="{{ route('product.show', $product) }}">
@@ -178,7 +179,7 @@
                                         </a>
                                     </div>
 
-                                    <h1><a href="{{ route('product.show', $product) }}">{{ $product->name }}</a></h1>
+                                    <h1><a href="{{ route('product.show', $product) }}">{{ Illuminate\Support\Str::limit($product->name, 25, '...') }}</a></h1>
 
 
                                     <a href="?collection={{ $product->collection_id }}" class="category">
@@ -204,10 +205,13 @@
                                 <h4>На данный момент нет товаров выбранной категории</h4>
                             @endif
                         </div>
-                        <div class="pagination">
-                            {{ $products->links() }}
+                            <div class="pagination">
+                                {{ $products->links('pagination::bootstrap-4') }}
+                                <span class="pagination-info">
+        Показано {{ $products->firstItem() }} - {{ $products->lastItem() }} из {{ $products->total() }}
+    </span>
+                            </div>
 
-                        </div>
                 </div>
             </div>
         </div>

@@ -1,3 +1,7 @@
+@section('meta-description', "Купите $product->name в нашем магазине по выгодной цене. $product->name - идеальный выбор для вас. Заказывайте сейчас и получите быструю доставку.")
+
+
+
 @extends('layouts.layout')
 
 <script src=" {{ asset('js/singlePage/contentShowHide.js') }}" defer></script>

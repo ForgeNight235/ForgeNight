@@ -10,35 +10,56 @@
 
         <div class="new-items-container">
 
-            <swiper-container class="mySwiper-news" slides-per-view="4"
-                              space-between="30" centered-slides="true">
-                @for($i=0;$i<10;$i++)
+
+            <swiper-container class="mySwiper-newsProducts" slides-per-view="4"
+                              space-between="30">
+
+                @foreach($newProducts as $product)
                     <swiper-slide>
 
                         <div class="slider-item">
-                            <img class="wishlist" src="{{ asset('images/web-site_icons/wishlist.svg') }}"
-                                 alt="wishlist">
+{{--                            <img class="wishlist" src="{{ asset('images/web-site_icons/wishlist.svg') }}"--}}
+{{--                                 alt="wishlist">--}}
 
                             <div class="item-new-img">
-                                <a href="{{ route('page.single') }}">
-                                    <img
-                                        src="{{ asset('images/items/Chaos Daemons Slaanesh Keeper of Secrets_clear-min.png') }}"
-                                        alt="">
+                                <a href="{{ route('product.show', $product) }}">
+                                    @if($product->images()->count() > 0)
+                                        <img src="{{ $product->images()->first()->path() }}"
+                                             alt="{{ $product->name }}">
+                                    @else
+                                        <img src="{{ asset('storage/product_photos/item_default_comp.webp') }}"
+                                             alt="{{ $product->name }}">
+                                    @endif
                                 </a>
                             </div>
 
-                            <h1><a href="">Slaanesh Keeper of Secrets</a></h1>
+                            <h1>
+                                <a href="{{ route('product.show', $product) }}">
+                                    {{ Illuminate\Support\Str::limit($product->name, 25, '...') }}
+                                </a>
+                            </h1>
 
-                            <h3 class="category-item"><a href="">warhammer 40 000</a></h3>
+                            <h3 class="category-item">
+                                <a href="{{ route('page.catalog', ['collection' => $product->collection_id]) }}">
+                                    {{ $product->category->name }}
+                                </a>
+                            </h3>
 
-                            <button>
-                                2000₱
-                                <img src="{{asset('images/web-site_icons/addToCart.webp')}}" alt="">
-                            </button>
+
+                            <a href="{{ route('product.addToCartCatalog', $product) }}#scrollAnchor-{{ $product->id }}"
+                               class="addToCartLink"
+                               data-product-id="{{ $product->id }}">
+                                <button>
+                                    {{ $product->price() }}
+                                    <img src="{{asset('images/web-site_icons/addToCart.webp')}}"
+                                         alt="buy">
+                                </button>
+                            </a>
                         </div>
 
                     </swiper-slide>
-                @endfor
+                @endforeach
+
 
 
             </swiper-container>

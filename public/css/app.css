@@ -339,14 +339,15 @@ footer .container {
     font-family: 'Century Gothic', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: clamp(24px, 4vw, 96px);
-    line-height: clamp(24px, 5vw, 96px);
+    font-size: clamp(24px, 4vw, 48px);
+    line-height: clamp(24px, 5vw, 64px);
     color: #232323;
 }
 
 /*New items container*/
 .new-items-container {
     position: relative;
+    height: fit-content;
 }
 
 .item-new-img img, .item-new-img img {
@@ -373,6 +374,13 @@ footer .container {
     max-width: 250px;
 
     display: grid;
+}
+@media screen and (max-width: 700px)
+{
+    .slider-item, .slider-item
+    {
+        margin: auto;
+    }
 }
 
 .slider-item::before, .slider-item::before {
@@ -1230,7 +1238,8 @@ footer .container {
     transition: all .3s ease;
 }
 
-.menu__item a {
+.menu__item a,
+.menu__item p.logout-btn{
     font-family: 'century gothic', sans-serif;
     color: #232323;
     font-size: 24px;
@@ -1339,12 +1348,24 @@ body.locked {
 
 .item-container .pagination {
     margin: 28px auto 0;
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 }
 
 .item-container .pagination ul {
+    flex-direction: row;
     display: flex;
     margin: 0;
+}
+
+@media screen and (max-width: 425px)
+{
+    .item-container .pagination
+    {
+        display: grid;
+        gap: 15px;
+    }
 }
 
 @media screen and (max-width: 950px) {
@@ -2379,6 +2400,7 @@ section.account.orders .order-items .order-item.mobile a.item-img
 .product-details-mobile a.item-img img.product__img,
 section.account.orders .order-items .order-item.mobile a.item-img img.product__img
 {
+    object-fit: contain;
     --size: 100px;
     height: var(--size);
     width: var(--size);

@@ -9,6 +9,7 @@
         <p>{{ session('failure') }}</p>
     </div>
 @endif
+<script src="{{ asset('js/header/logoutBtn.js') }}" defer></script>
 
 <header class="header">
     <div class="container">
@@ -66,15 +67,13 @@
                             <ul class="header__account-menu">
                                 <li><a href="{{ route('page.login') }}">Вход</a></li>
                                 <li><a href="{{ route('page.register') }}">Регистрация</a></li>
-                                <li><a href="{{ route('page.catalog') }}">Каталог</a></li>
-                                <li><a href="/cart">Корзина</a></li>
                             </ul>
                         @endguest
 
                         @auth()
                             <ul class="header__account-menu" style="text-align:left; top: 35px">
                                 <li><a href="{{ route('account.account') }}">Мой аккаунт</a></li>
-                                <li><p id="logout-btn" data-logouturl="{{ route('auth.logoutUser') }}">Выход</p></li>
+                                <li><p class="logout-btn" data-logouturl="{{ route('auth.logoutUser') }}">Выход</p></li>
                             </ul>
                         @endauth
 
@@ -114,6 +113,7 @@
                             <li><a href="{{ route('account.account') }}">Мой аккаунт</a></li>
                             <li><a href="{{ route('page.catalog') }}">Каталог</a></li>
                             <li><a href="/cart">Корзина</a></li>
+                            <li><p class="logout-btn" data-logouturl="{{ route('auth.logoutUser') }}">Выход</p></li>
                         </ul>
                     @endauth
 

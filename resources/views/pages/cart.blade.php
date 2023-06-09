@@ -1,12 +1,11 @@
 @extends('layouts.layout')
 
-<script src="{{ asset('js/singlePage/productQuantity.js') }}" defer></script>
-<script src="{{ asset('js/cart/cartDeleteItem.js') }}" defer></script>
-<script src="{{ asset('js/cart/checkout/saveBtnAttach.js') }}" defer></script>
-
 @section('title', 'Корзина')
 
 @section('content')
+    <script src="{{ asset('js/singlePage/productQuantity.js') }}" defer></script>
+    <script src="{{ asset('js/cart/cartDeleteItem.js') }}" defer></script>
+    <script src="{{ asset('js/cart/checkout/saveBtnAttach.js') }}" defer></script>
 
     <section class="cart">
         <div class="container">

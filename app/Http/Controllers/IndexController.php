@@ -8,6 +8,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -16,7 +17,15 @@ class IndexController extends Controller
      */
     public function home(): Factory|\Illuminate\Foundation\Application|View|Application
     {
-        return view('pages.home');
+        $collections = Collection::all();
+        $newProducts = Product::query()
+            ->where('is_published', '=', true)
+            ->orderBy('created_at', 'desc') // Сортировка по дате создания (последние добавленные)
+            ->limit(20) // Ограничение количества записей до 20
+            ->get();
+
+
+        return view('pages.home', compact('newProducts', 'collections'));
     }
 
     /**
@@ -51,9 +60,17 @@ class IndexController extends Controller
             $products = $products->where('name', 'like', "%{$searchKeyword}%");
         }
 
+        $bestSellingProducts = Product::query()
+            ->join('order_products', 'products.id', '=', 'order_products.product_id')
+            ->select('products.*', DB::raw('SUM(order_products.quantity) as total_quantity'))
+            ->groupBy('products.id')
+            ->orderByDesc('total_quantity')
+            ->limit(20)
+            ->get();
+
         $products = $products->paginate(9)->withQueryString();
 
-        return view('pages.catalog', compact('collections', 'products', 'collection'));
+        return view('pages.catalog', compact('collections', 'products', 'collection', 'bestSellingProducts'));
     }
 
     /**
@@ -77,6 +94,14 @@ class IndexController extends Controller
      */
     public function cart()
     {
-        return \view('pages.cart');
+        $bestSellingProducts = Product::query()
+            ->join('order_products', 'products.id', '=', 'order_products.product_id')
+            ->select('products.*', DB::raw('SUM(order_products.quantity) as total_quantity'))
+            ->groupBy('products.id')
+            ->orderByDesc('total_quantity')
+            ->limit(20)
+            ->get();
+
+        return \view('page.cart', compact('bestSellingProducts'));
     }
 }

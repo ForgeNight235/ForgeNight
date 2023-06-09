@@ -16,6 +16,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -36,7 +37,15 @@ class CartController extends Controller
     {
         $cart = $this->cartService;
 
-        return view('pages.cart', compact('cart'));
+        $bestSellingProducts = Product::query()
+            ->join('order_products', 'products.id', '=', 'order_products.product_id')
+            ->select('products.*', DB::raw('SUM(order_products.quantity) as total_quantity'))
+            ->groupBy('products.id')
+            ->orderByDesc('total_quantity')
+            ->limit(20)
+            ->get();
+
+        return view('pages.cart', compact('cart', 'bestSellingProducts'));
     }
 
     /**
