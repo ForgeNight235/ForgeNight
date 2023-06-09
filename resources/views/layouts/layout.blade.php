@@ -32,6 +32,7 @@
     <script src="{{ asset('js/customScrolls.js') }}" defer></script>
     <script src="{{ asset('js/burger.js') }}" defer></script>
 {{--    <script src="{{ asset('js/logoutModal.js') }}" defer></script>--}}
+    <script src="{{ asset('js/header/logoutBtn.js') }}" defer></script>
     <script src="{{ asset('js/messages/successMessage.js') }}" defer></script>
     <script src="{{ asset('js/messages/failureMessage.js') }}" defer></script>
     <script src="{{ asset('js/catalog/pageAnchor.js') }}" defer></script>

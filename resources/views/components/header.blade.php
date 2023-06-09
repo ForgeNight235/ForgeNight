@@ -9,7 +9,6 @@
         <p>{{ session('failure') }}</p>
     </div>
 @endif
-<script src="{{ asset('js/header/logoutBtn.js') }}" defer></script>
 
 <header class="header">
     <div class="container">
@@ -44,6 +43,7 @@
                         </button>
                     </div>
                 </form>
+
 
                 <li class="account-settings">
                     <a href="/cart">

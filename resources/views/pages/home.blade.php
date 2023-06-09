@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 
+@section('meta-description', '
+ForgeNight - магазин 3D-печатных моделей для варгеймов и настольных игр. Уникальная детализация и прочность. Реализуйте свои игровые миры!')
+
 @section('title', 'Главная страница')
 
 @section('content')

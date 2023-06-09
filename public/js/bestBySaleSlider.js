@@ -1,8 +1,8 @@
 const sliderBestBySale = () => {
     const sliderBestByCheck = document.querySelector('.mySwiper-newsProductsSale')
 
-    // if (sliderBestByCheck)
-    // {
+    if (sliderBestByCheck)
+    {
         var swiper = new Swiper(".mySwiper-newsProductsSale", {
             slidesPerView: 4, spaceBetween: 30, loop: true, navigation: {
                 nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev",
@@ -24,7 +24,7 @@ const sliderBestBySale = () => {
                 }
             }
         });
-    // }
+    }
 }
 
 const initSliderBestBySale = () => {
