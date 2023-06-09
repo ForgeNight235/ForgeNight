@@ -1,9 +1,9 @@
 const sliderBestBySale = () => {
-    const sliderBestByCheck = document.querySelector('.mySwiper-recommend')
+    const sliderBestByCheck = document.querySelector('.mySwiper-newsProductsSale')
 
     // if (sliderBestByCheck)
     // {
-        var swiper = new Swiper(".mySwiper-recommend", {
+        var swiper = new Swiper(".mySwiper-newsProductsSale", {
             slidesPerView: 4, spaceBetween: 30, loop: true, navigation: {
                 nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev",
             }, breakpoints: {
@@ -16,7 +16,7 @@ const sliderBestBySale = () => {
                 }, 768: {
                     slidesPerView: 3,
                 }, 425: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                 }, 375: {
                     slidesPerView: 1,
                 }, 320: {

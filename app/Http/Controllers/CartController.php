@@ -109,7 +109,7 @@ class CartController extends Controller
         }
         $order = Order::query()->create([
             'user_id' => auth()->user()->getAuthIdentifier(), //->id
-            'total' => $this->cartService->getTotal()
+            'total' => $this->cartService->getTotalWithDelivery()
         ]);
 
         foreach ($this->cartService->get() as $item) {
@@ -146,7 +146,7 @@ class CartController extends Controller
 
         $order = Order::query()->create([
             'user_id' => auth()->user()->id,
-            'total' => $this->cartService->getTotal(),
+            'total' => $this->cartService->getTotalWithDelivery(),
             'delivery_option_id' => $request->input('delivery_type'),
         ]);
 

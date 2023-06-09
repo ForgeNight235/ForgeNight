@@ -259,6 +259,10 @@
                             </div>
                         @endforeach
 
+                        <div class="order-confirmation-message">
+                            <h4>Перед оформлением заказа проверьте свои контактные данные: доставка и контакты</h4>
+                        </div>
+
                         <button>оформить</button>
                     </form>
 

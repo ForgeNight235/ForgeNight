@@ -1,10 +1,11 @@
-@if(isset($bestSellingProducts) && count($bestSellingProducts) > 0)
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
+<link
+    rel="stylesheet"
+    href="{{ asset('https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css') }}"
+/>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="{{ asset('https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js') }}" defer></script>
+@if(isset($bestSellingProducts) && count($bestSellingProducts) > 0)
+
     <section id="new">
         <div class="container">
             <div class="section-article">

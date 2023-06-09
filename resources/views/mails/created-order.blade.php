@@ -126,7 +126,7 @@
                                             <tr>
                                                 <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400;">
                                                     <p style="font-size: 18px; font-weight: 400; margin: 0; color: #ffffff;">
-                                                        <a href="http://litmus.com" target="_blank"
+                                                        <a href="#"
                                                            style="color: #ffffff; text-decoration: none;">Магазин
 {{--                                                            &nbsp;--}}
                                                         </a>
@@ -217,21 +217,11 @@
                                         <tr>
                                             <td width="75%" align="left"
                                                 style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
-                                                Shipping + Handling
+                                                Почта России
                                             </td>
                                             <td width="25%" align="left"
                                                 style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
-                                                $10.00
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="75%" align="left"
-                                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
-                                                Sales Tax
-                                            </td>
-                                            <td width="25%" align="left"
-                                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
-                                                $5.00
+                                                350 ₱
                                             </td>
                                         </tr>
                                     </table>
@@ -361,9 +351,9 @@
                 <tr>
                     <td bgcolor="#ffffff" align="center"
                         style="padding: 30px 30px 30px 30px; color: #666666; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;">
-                        <p style="margin: 0;">This email was built and tested with Litmus. <a
-                                href="https://litmus.com?utm_campaign=litmus_templates&utm_source=litmus_community&utm_medium=templates"
-                                style="color: #5db3ec;">What's Litmus?</a></p>
+                        <p style="margin: 0;">
+                            С уважением,<br>Команда forgenight
+                        </p>
                     </td>
                 </tr>
             </table>
@@ -412,31 +402,6 @@
     }</style>
 <div id="_t"></div>
 <img src="https://oooavzq7.emltrk.com/v2/oooavzq7?i=[CONTACT-ID]" width="1" height="1" border="0" alt=""/>
-
-{{--<img src="{{ $message->embed('images/logo/webp/forgenight_logo.webp') }}" alt="ForgeNight">--}}
-
-{{--<h3>Здравствуйте!</h3>--}}
-{{--<p>Ваш заказ был успешно создан!</p>--}}
-
-{{--<table>--}}
-{{--    <tr>--}}
-{{--        <th>Номер</th>--}}
-{{--        <th>Наименование</th>--}}
-{{--        <th>Стоимость. шт.</th>--}}
-{{--        <th>Количество</th>--}}
-{{--        <th>Фото</th>--}}
-{{--    </tr>--}}
-
-{{--    @foreach($products as $product)--}}
-{{--        <tr>--}}
-{{--            <td>{{ $product->product->id }}</td>--}}
-{{--            <td>{{ $product->product->name }}</td>--}}
-{{--            <td>{{ $product->product->price() }}</td>--}}
-{{--            <td>{{ $product->product->quantity }}</td>--}}
-{{--        </tr>--}}
-{{--    @endforeach--}}
-
-{{--</table>--}}
 
 </body>
 </html>
