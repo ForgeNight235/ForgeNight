@@ -209,7 +209,7 @@
                                                     {{ $product->product->name }} ({{ $quantity[$product->id] }})
                                                 </td>
                                                 <td width="25%" align="left"
-                                                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                                    style="text-align: right; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
                                                     {{ $product->product->price() }}
                                                 </td>
                                             </tr>
@@ -220,7 +220,7 @@
                                                 Почта России
                                             </td>
                                             <td width="25%" align="left"
-                                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                                style="text-align: right; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
                                                 350 ₱
                                             </td>
                                         </tr>
@@ -236,7 +236,7 @@
                                                 Итого
                                             </td>
                                             <td width="25%" align="left"
-                                                style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
+                                                style="text-align: right; font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
                                                 {{ $total }} ₱
                                             </td>
                                         </tr>
