@@ -86,8 +86,6 @@ ForgeNight - магазин 3D-печатных моделей для варге
 
     @include('components.new-items')
 
-{{--    @include('components.sales')--}}
-
     @include('components.news')
 
     @include('components.subscribe')

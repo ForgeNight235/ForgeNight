@@ -7,9 +7,7 @@
             <a href="/catalog">посмотреть все</a>
         </div>
 
-
         <div class="new-items-container">
-
 
             <swiper-container class="mySwiper-newsProducts" slides-per-view="4"
                               space-between="30">
@@ -18,9 +16,6 @@
                     <swiper-slide>
 
                         <div class="slider-item">
-{{--                            <img class="wishlist" src="{{ asset('images/web-site_icons/wishlist.svg') }}"--}}
-{{--                                 alt="wishlist">--}}
-
                             <div class="item-new-img">
                                 <a href="{{ route('product.show', $product) }}">
                                     @if($product->images()->count() > 0)
@@ -39,12 +34,11 @@
                                 </a>
                             </h1>
 
-                            <h3 class="category-item">
+                            <h4 class="category-item">
                                 <a href="{{ route('page.catalog', ['collection' => $product->collection_id]) }}">
                                     {{ $product->category->name }}
                                 </a>
-                            </h3>
-
+                            </h4>
 
                             <a href="{{ route('product.addToCartCatalog', $product) }}#scrollAnchor-{{ $product->id }}"
                                class="addToCartLink"
@@ -60,14 +54,11 @@
                     </swiper-slide>
                 @endforeach
 
-
-
             </swiper-container>
             <div class="slider__navigation">
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-
 
         </div>
 

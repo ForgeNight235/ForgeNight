@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Collection;
 use App\Models\Order;
-use App\Models\OrderProduct;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -31,14 +31,12 @@ class AdminController extends Controller
         return view('admin.product.create', compact('collections'));
     }
 
-
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\Foundation\Application|Factory|View|Application
      */
     public function showAllProducts(Request $request): Application|View|Factory|\Illuminate\Contracts\Foundation\Application
     {
-
         $collections = Collection::all();
 
         $products = Product::query();
@@ -48,7 +46,7 @@ class AdminController extends Controller
             $products = $products->where('name', 'like', "%{$adminSearchRequest}%");
         }
 
-        $products = $products->paginate(9)->withQueryString();
+        $products = $products->paginate(5)->withQueryString();
 
         return view('admin.product.showAllProducts', compact('products', 'collections'));
     }
@@ -79,7 +77,7 @@ class AdminController extends Controller
 
         $products = Product::query();
 
-        $products = $products->paginate(9)->withQueryString();
+        $products = $products->paginate(5)->withQueryString();
 
         return \view('admin.product.showAllProducts', compact('products'))->with('success', 'Продукт успешно удален');
     }
@@ -91,7 +89,7 @@ class AdminController extends Controller
      */
     public function collectionPage(Request $request): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
-        $collection = Collection::paginate(10);
+        $collection = Collection::paginate(5);
 
         return \view('admin.collection', compact('collection'));
     }
@@ -107,6 +105,13 @@ class AdminController extends Controller
         $orderStatuses = ['Отменен', 'Новый', 'В производстве', 'Отправлен', 'Завершен'];
 
         return \view('admin.order.showAllOrders', compact('orders', 'products', 'orderStatuses'));
+    }
+
+    public function showAllUsers()
+    {
+        $users = User::all();
+
+        return \view('admin.users.users', compact('users'));
     }
 
 }

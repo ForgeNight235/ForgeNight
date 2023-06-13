@@ -40,7 +40,7 @@ class IndexController extends Controller
      * All products in page
      * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
-    public function catalog(Request $request)
+    public function catalog(Request $request): \Illuminate\Foundation\Application|View|Factory|Application
     {
         $collections = Collection::all();
 
@@ -54,8 +54,7 @@ class IndexController extends Controller
             $products = $products->where('collection_id', '=', $request->get('collection'));
         }
 
-        if ($request->has('searchRequest'))
-        {
+        if ($request->has('searchRequest')) {
             $searchKeyword = $request->get('searchRequest');
             $products = $products->where('name', 'like', "%{$searchKeyword}%");
         }

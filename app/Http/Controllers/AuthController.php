@@ -9,14 +9,15 @@ use App\Http\Requests\Auth\UpdatePasswordRequest;
 use App\Http\Requests\Auth\UpdateRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Symfony\Component\Console\Input\Input;
 
 class AuthController extends Controller
 {
+    /**
+     * @param CreateUserRequest $request
+     * @return RedirectResponse
+     */
     public function createUser(CreateUserRequest $request): RedirectResponse
     {
         $validated = $request->validated();
@@ -31,30 +32,30 @@ class AuthController extends Controller
         return redirect()->route('page.catalog');
     }
 
+    /**
+     * @param LoginUserRequest $request
+     * @return RedirectResponse
+     */
     public function loginUser(LoginUserRequest $request): RedirectResponse
     {
-
         $validated = $request->validated();
-
         if (auth()->attempt($validated, $request->input('remember'))) {
-
             $user = auth()->user();
             $rememberToken = Str::random(60);
-
             $user->update([
                 'remember_token' => $rememberToken
             ]);
-
             return redirect()->route('account.account')
                 ->withCookie(cookie('remember_token', $rememberToken, 10080)); //1 week
-
         }
-
         return back()
             ->withErrors(['invalid' => 'Неверное введенные данные'])
             ->withInput($request->except(['password']));
     }
 
+    /**
+     * @return RedirectResponse
+     */
     public function logoutUser(): RedirectResponse
     {
         auth()->logout();
@@ -62,12 +63,16 @@ class AuthController extends Controller
         return redirect()->route('page.home');
     }
 
-    public function updateUser(UpdateRequest $request, User $user)
+    /**
+     * @param UpdateRequest $request
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function updateUser(UpdateRequest $request, User $user): RedirectResponse
     {
         $validated = $request->validated();
 
-        if ($request->hasFile('avatar'))
-        {
+        if ($request->hasFile('avatar')) {
             $validated['avatar'] = $request->file('avatar')->store('public/users-avatars');
         }
 
@@ -81,11 +86,17 @@ class AuthController extends Controller
 
         return back();
     }
-    public function updateUserAddress(UpdateAddressRequest $request, User $user)
+
+    /**
+     * @param UpdateAddressRequest $request
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function updateUserAddress(UpdateAddressRequest $request, User $user): RedirectResponse
     {
         $validated = $request->validated();
 
-        $user= auth()->user();
+        $user = auth()->user();
 
         $user->update($validated);
 
@@ -94,7 +105,12 @@ class AuthController extends Controller
         return back();
     }
 
-    public function updatePassword(UpdatePasswordRequest $request, User $user)
+    /**
+     * @param UpdatePasswordRequest $request
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function updatePassword(UpdatePasswordRequest $request, User $user): RedirectResponse
     {
         $user = auth()->user();
 

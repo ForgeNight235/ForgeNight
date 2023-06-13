@@ -189,7 +189,8 @@
                                                         </button>
                                                     </form>
 
-                                                    <form action="{{ route('admin.order.deleteOrderProduct', ['orderId' => $order->id, 'productId' => $orderProduct->id]) }}" method="post">
+                                                    <form
+                                                        action="{{ route('admin.order.deleteOrderProduct', ['orderId' => $order->id, 'productId' => $orderProduct->id]) }}" method="post">
                                                         @csrf
                                                         <div class="article">
                                                             <span>Удалить товар</span>
@@ -227,13 +228,19 @@
                                         </div>
 
                                         <div class="article">
-                                            <p>Трек-код:</p>
+                                            <form
+                                                action="admin.order.addT"
+                                            >
+                                                @csrf
+                                                <label for="track_code">Трек-код:</label>
+                                                <input type="number" id="track_code" value="{{ $order->delivery->track_code }}" placeholder="Трек-код доставки">
+                                            </form>
+
                                             @if($order->delivery)
                                                 @if($order->delivery->DeliveryOption->name === 'Почта России')
                                                     <a href="https://www.pochta.ru/tracking?barcode={{ $order->delivery->track_code }}"
                                                        class="track"
                                                        target="_blank">{{ $order->delivery->track_code }}</a>
-                                                    <span>отследить</span>
                                                 @else
                                                     <p>{{ $order->delivery->track_code }}</p>
                                                 @endif

@@ -89,8 +89,7 @@ class CartController extends Controller
 
     public function orderIndex(): RedirectResponse|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        if (!Auth::check())
-        {
+        if (!Auth::check()) {
             return redirect()->route('page.login');
         }
         $cart = $this->cartService;

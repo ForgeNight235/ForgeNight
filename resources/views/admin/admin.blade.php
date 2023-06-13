@@ -17,7 +17,6 @@
                 <a href="{{ route('account.account') }}">
                     <p>личный кабинет</p>
                 </a>
-
                 <a href="{{ route('admin.index') }}">
                     <img
                         src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}"
@@ -95,6 +94,15 @@
                             <div class="selections">
                                 <a href="{{ route('admin.allOrders') }}">
                                     <button class="btn btn-primary">Заказы</button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="option__selector__block">
+                            <h3>Пользователи</h3>
+                            <div class="selections">
+                                <a href="{{ route('admin.allUsers') }}">
+                                    <button class="btn btn-primary">Список пользователей</button>
                                 </a>
                             </div>
                         </div>

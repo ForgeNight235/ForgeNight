@@ -104,7 +104,7 @@ header.header .container form.search {
     outline: none;
     height: 25px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 6px 8px;
 }
 
 .header .search-btn, .header__container-search .search-btn {
@@ -716,6 +716,8 @@ footer .container {
     top: 0;
     bottom: 0;
     width: 100%;
+    left: 0;
+    right: 0;
 }
 
 .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after, .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
@@ -733,10 +735,22 @@ footer .container {
     white-space: nowrap;
 }
 
+.swiper, swiper-container
+{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin: auto;
+    padding: 0 40px;
+    width: calc(100% - 80px);
+}
+
 .swiper-container {
-    padding: 35px 0;
-    width: 100%;
+    /*padding: 35px 0;*/
+    /*width: 100%;*/
     height: 100%;
+
+
 }
 
 .mySwiper-news {
@@ -1164,7 +1178,7 @@ footer .container {
 }
 
 .header__mobile input {
-    padding: 0 6px;
+    padding: 6px 8px;
     background: none;
     border-radius: 5px;
     width: 100%;
@@ -2244,6 +2258,11 @@ section.account.orders .pagination .page-item.active .page-link {
     color: #ffffff;
 }
 
+section.account.orders .article span
+{
+    display: grid;
+}
+
 /* Цвет ссылок пагинации */
 section.account.orders .pagination .page-item .page-link {
     background-color: #f0f0f0;
@@ -3214,6 +3233,49 @@ section.cart .cart__content .items a.catalogAnchor
 /*Конец для страницы оформления заказа/order*/
 
 /* Стили для админ/Admin панели */
+section.account.admin .content .users
+{
+    font-family: "Century Gothic", sans-serif;
+    display: grid;
+    gap: 45px;
+    margin: auto auto 0 0;
+    background-color: #f2f2f2;
+    padding: 35px;
+}
+section.account.admin .account-content
+{
+    justify-content: inherit;
+}
+section.account.admin .content .user
+{
+    background: #fff;
+    width: 350px;
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
+    gap: 25px;
+    padding: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+section.account.admin .content .user img
+{
+    --size: 75px;
+    border-radius: 50%;
+    width: var(--size);
+    height: var(--size);
+    object-fit: cover;
+}
+section.account.admin .content .user p
+{
+    font-size: clamp(18px, 50%, 36px);
+    font-weight: bold;
+}
+section.account.admin .content .user span
+{
+    color: rgba(72, 72, 72, 0.62);
+    font-size: clamp(14px, 50%, 24px);
+    font-weight: 700;
+}
 .account .account-content .account__box textarea#description {
     padding: 35px 15px;
 }
@@ -3758,8 +3820,8 @@ section.order-created .success-message br {
     line-height: 20px;
 }
 
-section.order-created .success-message::first-letter {
-    color: #444343;
-    font-size: 96px;
-}
+/*section.order-created .success-message::first-letter {*/
+/*    color: #444343;*/
+/*    font-size: 96px;*/
+/*}*/
 /*Конец стилей для страницы-уведомления после оформления заказа*/

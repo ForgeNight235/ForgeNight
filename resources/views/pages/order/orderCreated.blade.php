@@ -13,7 +13,7 @@
             </div>
 
             <p class="success-message">
-                Уважаемый {{ auth()->user()->name }},
+                Уважаемый покупатель,
                 <br><br>
                 Ваш заказ успешно оформлен!
                 <br><br>

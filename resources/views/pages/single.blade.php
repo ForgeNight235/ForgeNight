@@ -115,13 +115,6 @@
                         <input type="hidden" name="id" value="{{ $product['id'] }}">
                         <div class="item-form-block">
                             <p>{{ $product->price() }}</p>
-
-{{--                            <div class="product-quantity">--}}
-{{--                                <button type="button" class="btn btn-sm btn-minus"><i class="fas fa-minus"></i></button>--}}
-{{--                                <input type="number" class="form-control form-control-sm" name="quantity" min="1"--}}
-{{--                                       value="1">--}}
-{{--                                <button type="button" class="btn btn-sm btn-plus"><i class="fa fa-plus"></i></button>--}}
-{{--                            </div>--}}
                         </div>
 
                         <div class="item-form-block">
@@ -355,8 +348,9 @@
             </div>
 
         </div>
+        @include('components.bestBuysByCategory')
     </section>
 
-    @include('components.bestBuysByCategory')
+
 
 @endsection

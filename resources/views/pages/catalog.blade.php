@@ -57,17 +57,17 @@
 
             <div class="catalog-container">
                 <div class="filters">
-{{--                    <div class="filter">--}}
-{{--                        <h3>--}}
-{{--                            Фильтры--}}
-{{--                        </h3>--}}
-{{--                        <span>Сортировать по:</span>--}}
-{{--                        <select name="" id="">--}}
-{{--                            <option value="">новизне</option>--}}
-{{--                            <option value="">по возрастанию</option>--}}
-{{--                            <option value="">по убыванию</option>--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
+                    {{--                    <div class="filter">--}}
+                    {{--                        <h3>--}}
+                    {{--                            Фильтры--}}
+                    {{--                        </h3>--}}
+                    {{--                        <span>Сортировать по:</span>--}}
+                    {{--                        <select name="" id="">--}}
+                    {{--                            <option value="">новизне</option>--}}
+                    {{--                            <option value="">по возрастанию</option>--}}
+                    {{--                            <option value="">по убыванию</option>--}}
+                    {{--                        </select>--}}
+                    {{--                    </div>--}}
 
                     <div class="filter">
 
@@ -103,17 +103,17 @@
                             <img src="{{ asset('images/web-site_icons/big__breadcrumbs.webp') }}" alt="back">
                             <p>вернуться к товарам</p>
                         </button>
-{{--                        <div class="filter">--}}
-{{--                            <h3>--}}
-{{--                                Фильтры--}}
-{{--                            </h3>--}}
-{{--                            <span>Сортировать по:</span>--}}
-{{--                            <select name="" id="">--}}
-{{--                                <option value="">новизне</option>--}}
-{{--                                <option value="">по возрастанию</option>--}}
-{{--                                <option value="">по убыванию</option>--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="filter">--}}
+                        {{--                            <h3>--}}
+                        {{--                                Фильтры--}}
+                        {{--                            </h3>--}}
+                        {{--                            <span>Сортировать по:</span>--}}
+                        {{--                            <select name="" id="">--}}
+                        {{--                                <option value="">новизне</option>--}}
+                        {{--                                <option value="">по возрастанию</option>--}}
+                        {{--                                <option value="">по убыванию</option>--}}
+                        {{--                            </select>--}}
+                        {{--                        </div>--}}
 
                         <div class="filter">
 
@@ -159,11 +159,6 @@
                         <div class="items">
                             @foreach($products as $product)
                                 <div class="slider-item">
-{{--                                    <button class="wishlist">--}}
-{{--                                        <img class="wishlist"--}}
-{{--                                             src="{{ asset('images/web-site_icons/wishlist.svg') }}"--}}
-{{--                                             alt="wishlist">--}}
-{{--                                    </button>--}}
 
                                     <div class="item-new-img">
                                         <a href="{{ route('product.show', $product) }}">
@@ -179,13 +174,15 @@
                                         </a>
                                     </div>
 
-                                    <h1><a href="{{ route('product.show', $product) }}">{{ Illuminate\Support\Str::limit($product->name, 25, '...') }}</a></h1>
-
+                                    <h1>
+                                        <a href="{{ route('product.show', $product) }}">
+                                            {{ Illuminate\Support\Str::limit($product->name, 25, '...') }}
+                                        </a>
+                                    </h1>
 
                                     <a href="?collection={{ $product->collection_id }}" class="category">
                                         {{ $product->category->name }}
                                     </a>
-
 
                                     <a href="{{ route('product.addToCartCatalog', $product) }}#scrollAnchor-{{ $product->id }}"
                                        class="addToCartLink"
@@ -200,17 +197,16 @@
                                 </div>
                             @endforeach
 
-
                             @else
                                 <h4>На данный момент нет товаров выбранной категории</h4>
                             @endif
                         </div>
-                            <div class="pagination">
-                                {{ $products->links('pagination::bootstrap-4') }}
-                                <span class="pagination-info">
+                        <div class="pagination">
+                            {{ $products->links('pagination::bootstrap-4') }}
+                            <span class="pagination-info">
         Показано {{ $products->firstItem() }} - {{ $products->lastItem() }} из {{ $products->total() }}
     </span>
-                            </div>
+                        </div>
 
                 </div>
             </div>

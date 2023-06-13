@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+use JetBrains\PhpStorm\ArrayShape;
 
 class LoginUserRequest extends FormRequest
 {
@@ -19,6 +20,7 @@ class LoginUserRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
+    #[ArrayShape(['login' => "string", 'password' => "string"])]
     public function rules(): array
     {
         return [
@@ -27,7 +29,11 @@ class LoginUserRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    /**
+     * @return string[]
+     */
+    #[ArrayShape(['login.required' => "string", 'password.required' => "string"])]
+    public function messages(): array
     {
         return [
             'login.required' => 'Введите логин',

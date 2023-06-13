@@ -89,6 +89,7 @@ Route::group([
     Route::get('/allOrders', 'allOrders')->name('allOrders');
     Route::delete('/delete/{product:name}', 'deleteProduct')->name('deleteProduct');
     Route::get('/test', 'showReplaceProductForm')->name('showReplaceProductForm');
+    Route::get('/users', 'showAllUsers')->name('allUsers');
 
     Route::group([
         'controller' => \App\Http\Controllers\Api\OrderController::class,
@@ -100,6 +101,7 @@ Route::group([
         Route::post('/order/{orderId}/product/{productId}/delete', 'deleteOrderProduct')->name('deleteOrderProduct');
         Route::post('/order/{orderId}/product/{productId}/replace', 'showReplaceProductForm')->name('showReplaceProductForm');
         Route::post('/replaceProduct/{orderId}/{productId}', 'replaceProduct')->name('replaceProduct');
+        Route::post('/addTrackCode/{orderId}/{deliveryId}', 'addTrackCode')->name('addTrackCode');
 
     });
 

@@ -94,13 +94,11 @@
 
                     <div class="form-suggestion">
                         <p>Не зарегистрированы? </p>
-                        <a href="{{ route('page.register') }}">зарегистрируйтесь</a>
+                        <a href="{{ route('page.register') }}">
+                            зарегистрируйтесь
+                        </a>
                     </div>
                 </div>
-
-                <style>
-
-                </style>
             </form>
         </div>
 

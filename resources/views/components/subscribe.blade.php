@@ -3,9 +3,9 @@
     <div class="container">
         <div class="subscribe-form">
 
-            <h3>
+            <h5>
                 ПОДПИШИСЬ
-            </h3>
+            </h5>
 
             <p>
                 Не упускай новости и новые релизы,

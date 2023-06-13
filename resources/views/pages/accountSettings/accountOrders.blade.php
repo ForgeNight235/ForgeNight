@@ -95,17 +95,17 @@
                                             <span>Оформлен: {{ \Carbon\Carbon::parse($order->created_at)->format('d.m.Y') }}</span>
                                         </div>
 
-{{--                                        <div class="promocode">--}}
-{{--                                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"--}}
-{{--                                                  data-bs-trigger="hover focus"--}}
-{{--                                                  data-bs-content="Пишите отзывы на товары, чтобы получить специальные скидочные промокоды!--}}
-{{--                                                  Промокоды действуют на все виды продукции магазина.">--}}
-{{--                                                <button class="btn btn-primary" type="button" disabled>--}}
-{{--                                              <p>Оставить отзыв</p>--}}
-{{--                                                </button>--}}
-{{--                                            </span>--}}
+                                        {{--                                        <div class="promocode">--}}
+                                        {{--                                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"--}}
+                                        {{--                                                  data-bs-trigger="hover focus"--}}
+                                        {{--                                                  data-bs-content="Пишите отзывы на товары, чтобы получить специальные скидочные промокоды!--}}
+                                        {{--                                                  Промокоды действуют на все виды продукции магазина.">--}}
+                                        {{--                                                <button class="btn btn-primary" type="button" disabled>--}}
+                                        {{--                                              <p>Оставить отзыв</p>--}}
+                                        {{--                                                </button>--}}
+                                        {{--                                            </span>--}}
 
-{{--                                        </div>--}}
+                                        {{--                                        </div>--}}
 
                                         <button class="showHide">{{ $order->products->count() }} Товары</button>
 
@@ -117,13 +117,13 @@
                                     </div>
 
 
-
                                     <div class="order-items" style="display: none;">
                                         @foreach($order->products as $product)
                                             <div class="order-item">
                                                 <div class="product-details">
-                                                    <a href="{{ route('product.show', $product->product) }}" target="_blank" class="item-img">
-{{--                                                    <a href="{{ route('product.show', $product->id, $product->name) }}" class="item-img">--}}
+                                                    <a href="{{ route('product.show', $product->product) }}"
+                                                       target="_blank" class="item-img">
+                                                        {{--                                                    <a href="{{ route('product.show', $product->id, $product->name) }}" class="item-img">--}}
                                                         <img
                                                             src="{{ $product->product->images()->first()->path() }}"
                                                             alt="{{ $product->product->name }}"
@@ -139,7 +139,7 @@
                                                     <div class="article">
                                                         <span>Количество</span>
                                                         <p class="center">{{ $product->quantity }}</p>
-{{--                                                        <p class="center">{{ $order->products->OrderProduct->quantity }}</p>--}}
+                                                        {{--                                                        <p class="center">{{ $order->products->OrderProduct->quantity }}</p>--}}
                                                     </div>
 
                                                     <div class="article">
@@ -155,7 +155,8 @@
 
 
                                                 <div class="product-details-mobile">
-                                                    <a href="{{ route('product.show', $product->product) }}" target="_blank" class="item-img">
+                                                    <a href="{{ route('product.show', $product->product) }}"
+                                                       target="_blank" class="item-img">
                                                         <img
                                                             src="{{ $product->product->images()->first()->path() }}"
                                                             alt="{{ $product->product->name }}"
@@ -170,7 +171,8 @@
                                                         </div>
 
                                                         <div class="article">
-                                                            <p class="center">{{ $product->quantity }} x {{ $product->product->price() }}</p>
+                                                            <p class="center">{{ $product->quantity }}
+                                                                x {{ $product->product->price() }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -193,15 +195,19 @@
                                                 <div class="article">
                                                     <span>Доставка</span>
                                                     <p>{{ $order->delivery->DeliveryOption->name }}</p>
-                                                    <span>Трек-код:
-                                                        @if($order->delivery->DeliveryOption->name === 'Почта России')
+                                                    @if($order->delivery->DeliveryOption->name === 'Почта России')
+                                                        @if(!empty($order->delivery->track_code))
+                                                            <span>Трек-код:
                                                             <a href="https://www.pochta.ru/tracking?barcode={{ $order->delivery->track_code }}"
                                                                class="track"
-                                                               target="_blank">{{ $order->delivery->track_code }}</a>
-                                                        @else
-                                                            <p>{{ $order->delivery->track_code }}</p>
-                                                        @endif
+                                                               target="_blank">{{ $order->delivery->track_code }}
+                                                            </a>
                                                         </span>
+                                                        @endif
+
+                                                    @else
+                                                        <p>{{ $order->delivery->track_code }}</p>
+                                                    @endif
                                                 </div>
 
                                                 <div class="article">
@@ -232,19 +238,13 @@
                                                     <span>Доставка</span>
                                                     <p>{{ $order->delivery->DeliveryOption->name }}</p>
 
-                                                    @if(empty($order->delivery->track_code))
-                                                    @else
+                                                    @if(!empty($order->delivery->track_code))
                                                         <span>Трек-код:
-                                                        @if($order->delivery->DeliveryOption->name === 'Почта России')
-                                                                <a href="https://www.pochta.ru/tracking?barcode={{ $order->delivery->track_code }}"
-                                                                   class="track"
-                                                                   target="_blank">
-                                                                {{ $order->delivery->track_code }}
+                                                            <a href="https://www.pochta.ru/tracking?barcode={{ $order->delivery->track_code }}"
+                                                               class="track"
+                                                               target="_blank">{{ $order->delivery->track_code }}
                                                             </a>
-                                                            @else
-                                                                <p>{{ $order->delivery->track_code }}</p>
-                                                            @endif
-                                                    </span>
+                                                        </span>
                                                     @endif
 
 
@@ -275,18 +275,13 @@
                                         </div>
 
                                         <div class="article">
-                                            <p>Трек-код:</p>
-                                            @if($order->delivery)
-                                                @if($order->delivery->DeliveryOption->name === 'Почта России')
+                                            @if(!empty($order->delivery->track_code))
+                                                <span>Трек-код:
                                                     <a href="https://www.pochta.ru/tracking?barcode={{ $order->delivery->track_code }}"
                                                        class="track"
-                                                       target="_blank">{{ $order->delivery->track_code }}</a>
-                                                    <span>отследить</span>
-                                                @else
-                                                    <p>{{ $order->delivery->track_code }}</p>
-                                                @endif
-                                            @else
-                                                <p>Не отправлен</p>
+                                                       target="_blank">{{ $order->delivery->track_code }}
+                                                    </a>
+                                                </span>
                                             @endif
                                         </div>
 
@@ -300,7 +295,7 @@
 
                                 </div>
                             @endforeach
-                                {{ $orders->links() }}
+                            {{ $orders->links() }}
                         @endif
 
                     </div>
