@@ -1,0 +1,12 @@
+{
+  "public/css/app.css": {
+    "file": "assets/app-fd0deae8.css",
+    "isEntry": true,
+    "src": "public/css/app.css"
+  },
+  "public/js/sliders.js": {
+    "file": "assets/sliders-1ef2ead6.js",
+    "isEntry": true,
+    "src": "public/js/sliders.js"
+  }
+}
