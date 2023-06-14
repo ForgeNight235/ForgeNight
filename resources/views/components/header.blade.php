@@ -58,15 +58,15 @@
                                 <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
                             </a>
                         @else
-                            <a href="{{ route('page.register') }}" class="header__account-link">
+                            <a href="{{ route('register') }}" class="header__account-link">
                                 <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
                             </a>
                         @endif
 
                         @guest()
                             <ul class="header__account-menu">
-                                <li><a href="{{ route('page.login') }}">Вход</a></li>
-                                <li><a href="{{ route('page.register') }}">Регистрация</a></li>
+                                <li><a href="{{ route('login') }}">Вход</a></li>
+                                <li><a href="{{ route('register') }}">Регистрация</a></li>
                             </ul>
                         @endguest
 
@@ -101,8 +101,8 @@
 
                     @guest()
                         <ul class="header__account-menu">
-                            <li><a href="{{ route('page.login') }}">Вход</a></li>
-                            <li><a href="{{ route('page.register') }}">Регистрация</a></li>
+                            <li><a href="{{ route('login') }}">Вход</a></li>
+                            <li><a href="{{ route('register') }}">Регистрация</a></li>
                             <li><a href="{{ route('page.catalog') }}">Каталог</a></li>
                             <li><a href="/cart">Корзина</a></li>
                         </ul>
@@ -141,7 +141,7 @@
                     <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
                 </a>
             @else
-                <a href="{{ route('page.register') }}" class="account-link">
+                <a href="{{ route('register') }}" class="account-link">
                     <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
                 </a>
             @endif
@@ -156,7 +156,7 @@
                     <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
                 </a>
             @else
-                <a href="{{ route('page.register') }}" class="account-link">
+                <a href="{{ route('register') }}" class="account-link">
                     <img src="{{ asset('images/web-site_icons/account.svg') }}" alt="account">
                 </a>
             @endif

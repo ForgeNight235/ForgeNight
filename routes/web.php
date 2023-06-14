@@ -186,3 +186,7 @@ Route::group([
         Route::post('/updateContacts', 'updateUser')->name('updateUserContacts');
     });
 });
+
+Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');
+Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+Auth::routes(['verify' => true]);
