@@ -3825,3 +3825,50 @@ section.order-created .success-message br {
 /*    font-size: 96px;*/
 /*}*/
 /*Конец стилей для страницы-уведомления после оформления заказа*/
+/*Стили для иконографии личного заказа*/
+section.personal__order .image-container .text h3
+{
+    font-family: 'Century Gothic', sans-serif;
+    font-size: clamp(14px, 4vw, 24px);
+    text-align: left;
+    color: #232323;
+    transition: .3s ease-in-out;
+}
+section.personal__order .image img
+{
+    --size: 80px;
+    height: var(--size);
+    width: var(--size);
+}
+section.personal__order .image-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    width: fit-content;
+    margin-bottom: 20px; /* Регулируйте отступ между блоками по вашему усмотрению */
+}
+
+section.personal__order .image {
+    position: relative;
+}
+
+section.personal__order .dots {
+    width: 2px;
+    height: 25px;
+    display: grid;
+    gap: 10px;
+    margin: 15px 0 5px 40px;
+}
+
+section.personal__order .dot
+{
+    width: 1px;
+    background: #232323;
+    height: 10px;
+}
+
+section.personal__order .text {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+/*Конец стилей для иконографии личного заказа*/

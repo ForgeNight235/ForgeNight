@@ -66,7 +66,7 @@ ForgeNight - магазин 3D-печатных моделей для варге
     <div class="container">
         <div class="img-links">
             <div class="link">
-                <a href="/pre-catalog">
+                <a href="{{ route('page.personalOrder') }}">
                     <img src="{{ asset('images/img-links/order.png') }}" alt="order">
                 </a>
             </div>
