@@ -56,6 +56,5 @@
 {{--            </ul>--}}
         </div>
     </div>
-    <h5 style="text-align: center; font-size: 16px">i love you, Aigul</h5>
-    <h5 style="text-align: center; font-size: 6px">powered by avavion & vazgen</h5>
+    <h5 style="text-align: center; font-size: 4px">powered by avavion & vazgen</h5>
 </footer>
