@@ -36,9 +36,10 @@ class IndexController extends Controller
         return view('pages.pre-catalog');
     }
 
+
     /**
-     * All products in page
-     * @return Application|Factory|View|\Illuminate\Foundation\Application
+     * @param Request $request
+     * @return \Illuminate\Foundation\Application|View|Factory|Application
      */
     public function catalog(Request $request): \Illuminate\Foundation\Application|View|Factory|Application
     {
@@ -102,5 +103,10 @@ class IndexController extends Controller
             ->get();
 
         return \view('page.cart', compact('bestSellingProducts'));
+    }
+
+    public function personalOrder()
+    {
+        return \view('pages.personalOrder');
     }
 }
