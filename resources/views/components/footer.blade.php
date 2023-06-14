@@ -35,10 +35,10 @@
         </div>
         <div class="footer-section">
             <ul>
-                <li><a href="{{ route('login') }}">вход</a></li>
+                <li><a href="{{ route('page.login') }}">вход</a></li>
             </ul>
             <ul>
-                <li><a href="{{ route('register') }}">регистрация</a></li>
+                <li><a href="{{ route('page.register') }}">регистрация</a></li>
             </ul>
             <ul>
                 <li><a href="/faq">ЧаВо</a></li>
