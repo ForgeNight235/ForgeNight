@@ -56,5 +56,6 @@
 {{--            </ul>--}}
         </div>
     </div>
+    <h1>text align private</h1>
     <h5 style="text-align: center; font-size: 4px">powered by avavion & vazgen</h5>
 </footer>
