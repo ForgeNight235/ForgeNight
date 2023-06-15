@@ -3902,4 +3902,10 @@ section.personal__order .welcome-section .banner img {
         position: absolute;
     }
 }
+@media screen and (max-width: 470px){
+    section.personal__order .welcome-section
+    {
+        gap: 20px;
+    }
+}
 /*Конец стилей для иконографии личного заказа*/
