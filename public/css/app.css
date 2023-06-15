@@ -664,6 +664,7 @@ footer .container {
 }
 
 .main-screen-banner .swiper-slide {
+    width: calc(100% - 15px);
     max-height: 225px;
     min-height: 150px;
     display: flex;
@@ -677,6 +678,8 @@ footer .container {
 }
 
 .main-screen-banner .swiper-slide p {
+    font-size: clamp(20px, 4vw, 24px);
+    width: calc(100% - 15px);
     display: flex;
     align-items: center;
 }
