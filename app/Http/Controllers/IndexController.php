@@ -19,8 +19,8 @@ class IndexController extends Controller
     {
         $collections = Collection::all();
         $newProducts = Product::query()->where('is_published', '=', true)->orderBy('created_at', 'desc') // Сортировка по дате создания (последние добавленные)
-            ->limit(20) // Ограничение количества записей до 20
-            ->get();
+        ->limit(20) // Ограничение количества записей до 20
+        ->get();
 
 
         return view('pages.home', compact('newProducts', 'collections'));
@@ -99,8 +99,35 @@ class IndexController extends Controller
         return \view('pages.personalOrder');
     }
 
-    public function faq()
+    /**
+     * @return Factory|\Illuminate\Foundation\Application|View|Application
+     */
+    public function faq(): Factory|\Illuminate\Foundation\Application|View|Application
     {
         return \view('pages.faq');
+    }
+
+    /**
+     * @return Factory|\Illuminate\Foundation\Application|View|Application
+     */
+    public function contacts(): Factory|\Illuminate\Foundation\Application|View|Application
+    {
+        return \view('pages.contacts');
+    }
+
+    /**
+     * @return Factory|\Illuminate\Foundation\Application|View|Application
+     */
+    public function payment(): Factory|\Illuminate\Foundation\Application|View|Application
+    {
+        return \view('pages.payment');
+    }
+
+    /**
+     * @return Factory|\Illuminate\Foundation\Application|View|Application
+     */
+    public function delivery(): Factory|\Illuminate\Foundation\Application|View|Application
+    {
+        return \view('pages.delivery');
     }
 }

@@ -30,6 +30,9 @@ Route::group(['controller' => IndexController::class,
         Route::get('/cart', 'cart')->name('cart');
         Route::get('/personalOrder', 'personalOrder')->name('personalOrder');
         Route::get('faq', 'faq')->name('faq');
+        Route::get('/contacts', 'contacts')->name('contacts');
+        Route::get('/payment', 'payment')->name('payment');
+        Route::get('/delivery', 'delivery')->name('delivery');
     });
 
 //Контроллеры для авторизации, регистрации и выхода из аккаунта

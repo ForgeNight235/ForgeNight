@@ -24,13 +24,13 @@
         </div>
         <div class="footer-section">
             <ul>
-                <li><a href="/contacts">контакты</a></li>
+                <li><a href="{{ route('page.contacts') }}">контакты</a></li>
             </ul>
             <ul>
-                <li><a href="/faq">оплата</a></li>
+                <li><a href="{{ route('page.payment') }}">оплата</a></li>
             </ul>
             <ul>
-                <li><a href="/faq">доставка</a></li>
+                <li><a href="{{ route('page.delivery') }}">доставка</a></li>
             </ul>
         </div>
         <div class="footer-section">

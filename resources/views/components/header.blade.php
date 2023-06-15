@@ -26,7 +26,7 @@
                     <a href="{{ route('page.catalog') }}">каталог</a>
                 </li>
                 <li class="header-link">
-                    <a href="">контакты</a>
+                    <a href="{{ route('page.contacts') }}">контакты</a>
                 </li>
                 <li class="header-link">
                     <a href="{{ route('page.faq') }}">чаво</a>

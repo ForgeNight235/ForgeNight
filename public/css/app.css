@@ -4006,3 +4006,10 @@ section.faq .questions .accordion-item h2
     padding: 0 15px;
 }
 /*Конец стилей для страницы с вопросами*/
+
+/*Стили для страницы с оплатой*/
+section.payment .text p,
+section.delivery .text p
+{
+    font-family: "Century Gothic", Montserrat, sans-serif;
+}
