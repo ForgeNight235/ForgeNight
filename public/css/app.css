@@ -168,8 +168,8 @@ footer .container {
         gap: 0;
         grid-template-columns: repeat(1, auto);
     }
-    footer .container .footer-section:first-child
-    {
+
+    footer .container .footer-section:first-child {
         padding-left: 2rem;
     }
 }
@@ -244,7 +244,8 @@ footer .container {
 }
 
 .section-article h1 {
-    font: 40px/50px "Century Gothic", sans-serif;
+    /*font: 40px/50px "Century Gothic", sans-serif; */
+    font: clamp(24px, 10vw, 40px)/50px "Century Gothic", sans-serif;
     text-transform: uppercase;
     color: #232323;
 
@@ -375,10 +376,9 @@ footer .container {
 
     display: grid;
 }
-@media screen and (max-width: 700px)
-{
-    .slider-item, .slider-item
-    {
+
+@media screen and (max-width: 700px) {
+    .slider-item, .slider-item {
         margin: auto;
     }
 }
@@ -735,8 +735,7 @@ footer .container {
     white-space: nowrap;
 }
 
-.swiper, swiper-container
-{
+.swiper, swiper-container {
     display: flex;
     align-content: center;
     justify-content: space-between;
@@ -1124,13 +1123,12 @@ footer .container {
     .header__mobile .container .burger-container .account-link {
         display: block !important;
     }
-    .header__mobile .container .burger-container .menu__item
-    {
+
+    .header__mobile .container .burger-container .menu__item {
         padding: 4px 0;
     }
 
-    .header__mobile .container .burger-container .header__account-menu
-    {
+    .header__mobile .container .burger-container .header__account-menu {
         padding: 0;
     }
 
@@ -1253,7 +1251,7 @@ footer .container {
 }
 
 .menu__item a,
-.menu__item p.logout-btn{
+.menu__item p.logout-btn {
     font-family: 'century gothic', sans-serif;
     color: #232323;
     font-size: 24px;
@@ -1373,10 +1371,8 @@ body.locked {
     margin: 0;
 }
 
-@media screen and (max-width: 425px)
-{
-    .item-container .pagination
-    {
+@media screen and (max-width: 425px) {
+    .item-container .pagination {
         display: grid;
         gap: 15px;
     }
@@ -1510,16 +1506,17 @@ body.locked {
     line-height: 39px;
     text-transform: capitalize;
 }
+
 @media screen and (max-width: 425px) {
-    .catalog-container
-    {
+    .catalog-container {
         grid-template-columns: repeat(1, auto);
     }
-    section.catalog .item-container
-    {
+
+    section.catalog .item-container {
         width: fit-content;
         margin: auto;
     }
+
     .filter_modal-btn {
         display: flex;
     }
@@ -1557,7 +1554,6 @@ body.locked {
     /*    font: 30px/40px "Century Gothic", sans-serif;*/
     /*    width: fit-content;*/
     /*}*/
-
     .section-article p {
         text-align: right;
     }
@@ -2010,6 +2006,7 @@ aside .aside-article .chosen {
 .aside-article p {
     text-align: center;
 }
+
 /*Стили для сообщений об успехе/success*/
 .success-form {
     position: absolute;
@@ -2039,21 +2036,21 @@ aside .aside-article .chosen {
 }
 
 .failure-form {
-     position: absolute;
-     display: none;
-     opacity: 0;
-     transition: opacity 0.3s ease-in-out;
-     top: 50px;
-     left: 50%;
-     transform: translateX(-50%);
-     background: #d9534f;
-     color: #fff;
-     border-radius: 8px;
-     text-align: center;
-     padding: 24px 12px;
-     font-family: 'Century Gothic', sans-serif;
-     font-size: 16px;
- }
+    position: absolute;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d9534f;
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    padding: 24px 12px;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 16px;
+}
 
 .failure-form p {
     margin: 0;
@@ -2063,6 +2060,7 @@ aside .aside-article .chosen {
     display: block;
     opacity: 1;
 }
+
 /* Конец стилей для сообщений об неудаче/failure*/
 
 .account__personal__data {
@@ -2258,8 +2256,7 @@ section.account.orders .pagination .page-item.active .page-link {
     color: #ffffff;
 }
 
-section.account.orders .article span
-{
+section.account.orders .article span {
     display: grid;
 }
 
@@ -2281,13 +2278,12 @@ section.account.orders .pagination .page-item.active .page-link {
     margin: 0 6px;
 }
 
-section.account.orders .pagination .page-item.active
-{
+section.account.orders .pagination .page-item.active {
     height: fit-content;
     margin: auto 0;
 }
-section.account.orders .pagination .page-item.disabled
-{
+
+section.account.orders .pagination .page-item.disabled {
     display: none;
 }
 
@@ -2302,8 +2298,8 @@ section.account.orders .pagination .page-item .page-link {
 section.account.orders .pagination .page-item .page-link {
     color: #212529;
 }
-section.account.orders .pagination .page-item span.page-link
-{
+
+section.account.orders .pagination .page-item span.page-link {
     border-radius: 40%;
 }
 
@@ -2355,40 +2351,38 @@ section.account.orders .pagination .page-item.next .page-link {
 }
 
 .product-details-mobile .details,
-.order-item.mobile
-{
+.order-item.mobile {
     display: grid;
     gap: 8px;
 }
-.order-item.mobile .details .article span
-{
+
+.order-item.mobile .details .article span {
     display: grid;
     text-align: left;
 }
+
 .product-details-mobile .details .article span,
-.order-item.mobile .details .article span
-{
-    color: rgba(28,28,27,0.62);
+.order-item.mobile .details .article span {
+    color: rgba(28, 28, 27, 0.62);
     font-weight: 600;
     font-size: 14px;
 }
-.order-item.mobile .details .article span a.track
-{
+
+.order-item.mobile .details .article span a.track {
     margin: 0;
     padding: 0;
     font-weight: 500;
     background: none;
     font-size: 16px;
 }
+
 .product-details-mobile .details .article p,
-.order-item.mobile .details .article p
-{
+.order-item.mobile .details .article p {
     margin: 0;
     font-weight: 600;
 }
 
-.order-item.mobile
-{
+.order-item.mobile {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 15px;
@@ -2396,56 +2390,55 @@ section.account.orders .pagination .page-item.next .page-link {
     padding: 10px;
     background: #fff;
 }
-.product-details-mobile
-{
+
+.product-details-mobile {
     display: flex;
     gap: 8px;
     border: 1px solid #bbb;
     padding: 10px;
     background: #fff;
 }
+
 .product-details-mobile,
-.order-item.mobile
-{
+.order-item.mobile {
     display: none;
 }
+
 .product-details-mobile a.item-img,
-section.account.orders .order-items .order-item.mobile a.item-img
-{
+section.account.orders .order-items .order-item.mobile a.item-img {
     width: fit-content;
     background: none;
     padding: 0;
 }
+
 .product-details-mobile a.item-img img.product__img,
-section.account.orders .order-items .order-item.mobile a.item-img img.product__img
-{
+section.account.orders .order-items .order-item.mobile a.item-img img.product__img {
     object-fit: contain;
     --size: 100px;
     height: var(--size);
     width: var(--size);
 }
-section.account.orders .order-items .order-item.mobile a.item-img img.product__img
-{
+
+section.account.orders .order-items .order-item.mobile a.item-img img.product__img {
     object-fit: contain;
 }
-@media screen and (max-width: 545px)
-{
-    .order-item.mobile
-    {
+
+@media screen and (max-width: 545px) {
+    .order-item.mobile {
         display: grid;
         align-items: center;
     }
-    section.account.orders .product-details.delivery
-    {
+
+    section.account.orders .product-details.delivery {
         display: flex;
     }
+
     section.account.orders .product-details,
-    .product-details.delivery
-    {
+    .product-details.delivery {
         display: none !important;
     }
-    .product-details-mobile
-    {
+
+    .product-details-mobile {
         display: flex !important;
     }
 
@@ -2875,29 +2868,29 @@ section.account.orders .order-items .order-item.mobile a.item-img img.product__i
     font-weight: bold;
     margin-bottom: 10px;
 }
-@media screen and (max-width: 880px)
-{
-    .ordering .ordering__content
-    {
+
+@media screen and (max-width: 880px) {
+    .ordering .ordering__content {
         display: flex;
         flex-direction: column;
     }
-    .ordering .order-checkout
-    {
+
+    .ordering .order-checkout {
         width: 100%;
     }
-    .ordering .order-checkout .accordion .accordion-body img
-    {
+
+    .ordering .order-checkout .accordion .accordion-body img {
         --size: 40px !important;
         max-width: var(--size);
         max-height: var(--size);
     }
-    .ordering .ordering__content form.address .block
-    {
+
+    .ordering .ordering__content form.address .block {
         flex-direction: column;
         gap: 25px;
     }
 }
+
 .ordering .order-checkout .accordion .accordion-button::after {
     position: absolute;
     left: 24px;
@@ -2932,14 +2925,12 @@ section.account.orders .order-items .order-item.mobile a.item-img img.product__i
 }
 
 .ordering .checkout,
-section.cart .checkout
-{
-    border-top: 1px solid rgba(0,0,0,0.1);
+section.cart .checkout {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 15px 0 0 0;
 }
 
-section.cart .cart__content .items a.catalogAnchor
-{
+section.cart .cart__content .items a.catalogAnchor {
     padding: 16px 34px;
     background: #F4DC5E;
     border-radius: 20px;
@@ -3101,10 +3092,11 @@ section.cart .cart__content .items a.catalogAnchor
     color: rgba(114, 115, 120, 0.6);
     outline: transparent;
 }
-.ordering .header
-{
+
+.ordering .header {
     display: block !important;
 }
+
 .ordering .order-checkout .accordion-item .accordion-body form.contacts button {
     font-size: 14px;
     color: #f3c623;
@@ -3233,8 +3225,7 @@ section.cart .cart__content .items a.catalogAnchor
 /*Конец для страницы оформления заказа/order*/
 
 /* Стили для админ/Admin панели */
-section.account.admin .content .users
-{
+section.account.admin .content .users {
     font-family: "Century Gothic", sans-serif;
     display: grid;
     gap: 45px;
@@ -3242,12 +3233,12 @@ section.account.admin .content .users
     background-color: #f2f2f2;
     padding: 35px;
 }
-section.account.admin .account-content
-{
+
+section.account.admin .account-content {
     justify-content: inherit;
 }
-section.account.admin .content .user
-{
+
+section.account.admin .content .user {
     background: #fff;
     width: 350px;
     display: grid;
@@ -3257,25 +3248,26 @@ section.account.admin .content .user
     border-radius: 20px;
     cursor: pointer;
 }
-section.account.admin .content .user img
-{
+
+section.account.admin .content .user img {
     --size: 75px;
     border-radius: 50%;
     width: var(--size);
     height: var(--size);
     object-fit: cover;
 }
-section.account.admin .content .user p
-{
+
+section.account.admin .content .user p {
     font-size: clamp(18px, 50%, 36px);
     font-weight: bold;
 }
-section.account.admin .content .user span
-{
+
+section.account.admin .content .user span {
     color: rgba(72, 72, 72, 0.62);
     font-size: clamp(14px, 50%, 24px);
     font-weight: 700;
 }
+
 .account .account-content .account__box textarea#description {
     padding: 35px 15px;
 }
@@ -3354,12 +3346,12 @@ section.admin section.account .account__personal__data form {
     line-height: 25px;
     color: #232323;
 }
-section.admin .account__box p
-{
+
+section.admin .account__box p {
     margin: 0;
 }
-section.admin .account .account-content .account__box textarea#description
-{
+
+section.admin .account .account-content .account__box textarea#description {
     padding: 35px 15px;
 }
 
@@ -3425,8 +3417,7 @@ section.admin .admin__product-btn .back-button:hover {
     color: #212529;
 }
 
-section.admin .account__personal__data form
-{
+section.admin .account__personal__data form {
     width: fit-content;
 }
 
@@ -3477,18 +3468,18 @@ section.admin .btn {
 section.admin .btn:hover {
     background-color: #0b5ed7;
 }
+
 section.admin .form__category form.create,
-section.admin .form__category form.destroy .category
-{
+section.admin .form__category form.destroy .category {
     display: flex;
     justify-content: space-between;
 }
-section.admin .form__category
-{
+
+section.admin .form__category {
     margin: 25px 0;
 }
-section.admin .form__category h3
-{
+
+section.admin .form__category h3 {
     padding: 16px 0;
 }
 
@@ -3533,21 +3524,21 @@ section.admin .account__personal__data span {
     margin-right: 10px;
     font-size: 18px;
 }
+
 /* Конец стилей для админ/Admin панели */
 
 /*Стили для корзины/cart*/
-@media screen and (max-width: 740px){
-    .cart .cart__content
-    {
+@media screen and (max-width: 740px) {
+    .cart .cart__content {
         display: flex;
         flex-direction: column;
     }
 }
 
-.cart .cart__content .order-checkout a
-{
+.cart .cart__content .order-checkout a {
     text-decoration: none;
 }
+
 .cart .cart__content .order-checkout button.order {
     padding: 12px 16px;
     background: #F4DC5E;
@@ -3632,8 +3623,7 @@ section.admin .account__personal__data span {
     height: var(--size);
 }
 
-.cart .items .item .item-checkout .item-options a
-{
+.cart .items .item .item-checkout .item-options a {
     height: fit-content;
     margin: auto;
 }
@@ -3749,8 +3739,7 @@ input[type="number"]::-webkit-inner-spin-button {
     gap: 15px;
 }
 
-.cart .items form .btn-save
-{
+.cart .items form .btn-save {
     text-align: center;
     color: #232323;
     padding: 0 0 25px;
@@ -3798,6 +3787,7 @@ input[type="number"]::-webkit-inner-spin-button {
     font-weight: 500;
     letter-spacing: 0.05em;
 }
+
 /*Конец стилей для корзины/cart*/
 /*Стили для страницы-уведомления после оформления заказа*/
 section.order-created .success-message {
@@ -3826,20 +3816,23 @@ section.order-created .success-message br {
 /*}*/
 /*Конец стилей для страницы-уведомления после оформления заказа*/
 /*Стили для иконографии личного заказа*/
-section.personal__order .image-container .text h3
-{
+
+
+section.personal__order .image-container .text h3 {
     font-family: 'Century Gothic', sans-serif;
     font-size: clamp(14px, 4vw, 24px);
     text-align: left;
     color: #232323;
     transition: .3s ease-in-out;
+
 }
-section.personal__order .image img
-{
+
+section.personal__order .image img {
     --size: 80px;
     height: var(--size);
     width: var(--size);
 }
+
 section.personal__order .image-container {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -3859,8 +3852,7 @@ section.personal__order .dots {
     margin: 15px 0 5px 40px;
 }
 
-section.personal__order .dot
-{
+section.personal__order .dot {
     width: 1px;
     background: #232323;
     height: 10px;
@@ -3870,5 +3862,44 @@ section.personal__order .text {
     margin-left: 20px;
     display: flex;
     align-items: center;
+}
+
+section.personal__order .welcome-section .banner .dropdown {
+    width: fit-content;
+    margin: 40px auto 0;
+}
+
+section.personal__order .welcome-section .banner button.dropdown-toggle {
+    /*margin: 40px auto 0;*/
+}
+
+section.personal__order .welcome-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    margin: 0 auto 100px;
+}
+
+section.personal__order .welcome-section .banner img {
+    width: 100%;
+    max-width: 600px;
+    max-height: 450px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px){
+    section.personal__order .processing {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    section.personal__order .welcome-section .banner
+    {
+        height: fit-content;
+        margin: auto;
+    }
+    section.personal__order .text h3.first
+    {
+        position: absolute;
+    }
 }
 /*Конец стилей для иконографии личного заказа*/

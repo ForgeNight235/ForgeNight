@@ -33,7 +33,7 @@
                             <img src="{{ asset('images/web-site_icons/cart/infograph/infograph1.webp') }}" alt="1st step">
                         </div>
                         <div class="text">
-                            <h3>Загрузите вашу модель в форму заявки</h3>
+                            <h3 class="first">Загрузите вашу модель в форму заявки</h3>
                         </div>
                         <div class="dots">
                             <div class="dot"></div>
@@ -94,30 +94,83 @@
                     </div>
                 </div>
             </div>
+            <div class="processing">
+                <div class="process">
+                    <div class="wrapper">
+                        <h2>Переговоры</h2>
+                        <p>
+                            При индивидуальном заказе с вами связывается наше доверенное лицо для уточнения данных о заказе.
+                        </p>
+                    </div>
+                </div>
+                <div class="process">
+                    <div class="wrapper">
+                        <h2>поиск модели</h2>
+                        <p>
+                            поиск модели
+                            мы берем вашу модель или ищем и приобретаем сами модель, которая вам нужна.
+                        </p>
+                    </div>
+                </div>
+                <div class="process">
+                    <div class="wrapper">
+                        <h2>уточняем детали</h2>
+                        <p>
+                            показываем вам 3д модель и удтверждаем размеры, масштаб и ваши личные пожелания.
+                        </p>
+                    </div>
+                </div>
+                <div class="process">
+                    <div class="wrapper">
+                        <h2>Оплата заказа</h2>
+                        <p>
+                            вы оплачиваете заказ, подтверждаете данные для отправки. после, происходит подготовка модели печати и отправка в печать.
+                        </p>
+                    </div>
+                </div>
+                <div class="process">
+                    <div class="wrapper">
+                        <h2>обработка</h2>
+                        <p>
+                            на этом этапе происходит печать изделий, их постобратка и подготовка к отправке.
+                        </p>
+                    </div>
+                </div>
+                <div class="process">
+                    <div class="wrapper">
+                        <h2>отправка</h2>
+                        <p>
+                            на этом этапе мы предоставляем вам фотоотчет о проделаной работе, бережно упаковываем и отправляем заказ.
+                            Всё четко и прозрачно!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
 
             <style>
-                section.personal__order .welcome-section .banner .dropdown
+                section.personal__order .processing
                 {
-                    width: fit-content;
-                    margin: 40px auto 0;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 40px;
                 }
-                section.personal__order .welcome-section .banner button.dropdown-toggle
+                section.personal__order .process
                 {
-                    /*margin: 40px auto 0;*/
+                    color: #232323;
+                    font-family: 'Century Gothic', sans-serif;
                 }
-                section.personal__order .welcome-section
+                section.personal__order .process .wrapper
                 {
-                    display: flex;
-                    justify-content: space-between;
-                    gap: 60px;
-                }
-                section.personal__order .welcome-section .banner img
-                {
-                    width: 100%;
-                    max-width: 600px;
-                    max-height: 450px;
+                    background: linear-gradient(180deg, #FFFFFF 0%, rgba(0, 0, 0, 0) 100%);
                     border-radius: 20px;
-                    object-fit: cover;
+                    padding: 15px 15px clamp(15px, 30vh, 100px);
+                }
+                section.personal__order .process h2
+                {
+                    font-size: clamp(20px, 4vw, 39px);
+                    line-height: clamp(28px, 4vw, 39px);
+                    text-transform: uppercase;
                 }
 
             </style>
