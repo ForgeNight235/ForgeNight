@@ -3870,7 +3870,7 @@ section.personal__order .welcome-section .banner .dropdown {
 }
 
 section.personal__order .welcome-section .banner button.dropdown-toggle {
-    /*margin: 40px auto 0;*/
+    padding: 12px 16px;
 }
 
 section.personal__order .welcome-section {
@@ -3886,6 +3886,14 @@ section.personal__order .welcome-section .banner img {
     max-height: 450px;
     border-radius: 20px;
     object-fit: cover;
+}
+
+section.personal__order .welcome-section .banner button.dropdown-toggle:hover
+{
+    background: #F4DC5E;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.25);
+    border: none;
+    color: #232323;
 }
 
 @media screen and (max-width: 768px){
@@ -3906,6 +3914,30 @@ section.personal__order .welcome-section .banner img {
     section.personal__order .welcome-section
     {
         gap: 20px;
+    }
+}
+@media screen and (max-width: 410px){
+    section.personal__order .welcome-section .banner img
+    {
+        display: none;
+    }
+    section.personal__order .welcome-section
+    {
+        display: grid;
+        justify-content: inherit;
+    }
+    section.personal__order .image-container .text h3
+    {
+        font-size: clamp(20px, 4vw, 24px);
+    }
+}
+@media screen and (max-width: 380px)
+{
+    section.personal__order .processing
+    {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr) !important;
+        align-items: center;
     }
 }
 /*Конец стилей для иконографии личного заказа*/
