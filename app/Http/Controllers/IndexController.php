@@ -18,9 +18,7 @@ class IndexController extends Controller
     public function home(): Factory|\Illuminate\Foundation\Application|View|Application
     {
         $collections = Collection::all();
-        $newProducts = Product::query()
-            ->where('is_published', '=', true)
-            ->orderBy('created_at', 'desc') // Сортировка по дате создания (последние добавленные)
+        $newProducts = Product::query()->where('is_published', '=', true)->orderBy('created_at', 'desc') // Сортировка по дате создания (последние добавленные)
             ->limit(20) // Ограничение количества записей до 20
             ->get();
 
@@ -60,13 +58,7 @@ class IndexController extends Controller
             $products = $products->where('name', 'like', "%{$searchKeyword}%");
         }
 
-        $bestSellingProducts = Product::query()
-            ->join('order_products', 'products.id', '=', 'order_products.product_id')
-            ->select('products.*', DB::raw('SUM(order_products.quantity) as total_quantity'))
-            ->groupBy('products.id')
-            ->orderByDesc('total_quantity')
-            ->limit(20)
-            ->get();
+        $bestSellingProducts = Product::query()->join('order_products', 'products.id', '=', 'order_products.product_id')->select('products.*', DB::raw('SUM(order_products.quantity) as total_quantity'))->groupBy('products.id')->orderByDesc('total_quantity')->limit(20)->get();
 
         $products = $products->paginate(9)->withQueryString();
 
@@ -94,19 +86,21 @@ class IndexController extends Controller
      */
     public function cart()
     {
-        $bestSellingProducts = Product::query()
-            ->join('order_products', 'products.id', '=', 'order_products.product_id')
-            ->select('products.*', DB::raw('SUM(order_products.quantity) as total_quantity'))
-            ->groupBy('products.id')
-            ->orderByDesc('total_quantity')
-            ->limit(20)
-            ->get();
+        $bestSellingProducts = Product::query()->join('order_products', 'products.id', '=', 'order_products.product_id')->select('products.*', DB::raw('SUM(order_products.quantity) as total_quantity'))->groupBy('products.id')->orderByDesc('total_quantity')->limit(20)->get();
 
         return \view('page.cart', compact('bestSellingProducts'));
     }
 
-    public function personalOrder()
+    /**
+     * @return Factory|\Illuminate\Foundation\Application|View|Application
+     */
+    public function personalOrder(): Factory|\Illuminate\Foundation\Application|View|Application
     {
         return \view('pages.personalOrder');
+    }
+
+    public function faq()
+    {
+        return \view('pages.faq');
     }
 }

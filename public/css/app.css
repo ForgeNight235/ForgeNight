@@ -3968,3 +3968,41 @@ section.personal__order .welcome-section .banner button.dropdown-toggle:hover
     }
 }
 /*Конец стилей для иконографии личного заказа*/
+
+/*Стили для страницы с вопросами*/
+section.faq .questions .accordion button:target,
+section.faq .questions .accordion button:focus
+{
+    box-shadow: none;
+}
+section.faq .questions .accordion
+{
+    display: grid;
+    gap: 30px;
+    color: #232323;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    margin: 0 auto 75px;
+}
+section.faq .questions .accordion-item button
+{
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(22px, 4vw, 32px);
+    line-height: clamp(28px, 4vw,39px);
+    text-transform: inherit;
+    gap: 10px;
+    transition: .3s linear;
+}
+section.faq .questions .accordion-item
+{
+    background: linear-gradient(180deg, rgba(244, 220, 94, 0.5) 0%, rgba(240, 240, 240, 0) 100%);
+    border-radius: 20px;
+}
+section.faq .questions .accordion-item h2
+
+{
+    padding: 0 15px;
+}
+/*Конец стилей для страницы с вопросами*/

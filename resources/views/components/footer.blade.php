@@ -52,7 +52,7 @@
             @endauth
 
             <ul>
-                <li><a href="/faq">ЧаВо</a></li>
+                <li><a href="{{ route('page.faq') }}">ЧаВо</a></li>
             </ul>
         </div>
         <div class="footer-section">

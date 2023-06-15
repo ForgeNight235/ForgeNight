@@ -29,7 +29,7 @@
                     <a href="">контакты</a>
                 </li>
                 <li class="header-link">
-                    <a href="">чаво</a>
+                    <a href="{{ route('page.faq') }}">чаво</a>
                 </li>
                 <form
                     action="{{ route('page.catalog') }}"
