@@ -147,7 +147,7 @@
 
                         <button type="submit">Обновить данные</button>
                     </form>
-
+                    <a class="logout-btn" href="{{ route('auth.logoutUser') }}">Выйти из аккаунта</a>
 
                 </div>
 

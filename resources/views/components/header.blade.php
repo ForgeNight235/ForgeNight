@@ -71,7 +71,7 @@
                         @endguest
 
                         @auth()
-                            <ul class="header__account-menu" style="text-align:left; top: 35px">
+                            <ul class="header__account-menu">
                                 <li><a href="{{ route('account.account') }}">Мой аккаунт</a></li>
                                 <li><p class="logout-btn" data-logouturl="{{ route('auth.logoutUser') }}">Выход</p></li>
                             </ul>
@@ -109,7 +109,7 @@
                     @endguest
 
                     @auth()
-                        <ul class="header__account-menu" style="text-align:left; top: 35px; padding: 0">
+                        <ul class="header__account-menu">
                             <li><a href="{{ route('account.account') }}">Мой аккаунт</a></li>
                             <li><a href="{{ route('page.catalog') }}">Каталог</a></li>
                             <li><a href="/cart">Корзина</a></li>
