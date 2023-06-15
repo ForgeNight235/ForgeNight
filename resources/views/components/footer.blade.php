@@ -34,12 +34,23 @@
             </ul>
         </div>
         <div class="footer-section">
-            <ul>
-                <li><a href="{{ route('page.login') }}">вход</a></li>
-            </ul>
-            <ul>
-                <li><a href="{{ route('page.register') }}">регистрация</a></li>
-            </ul>
+            @guest()
+                <ul>
+                    <li><a href="{{ route('page.login') }}">вход</a></li>
+                </ul>
+                <ul>
+                    <li><a href="{{ route('page.register') }}">регистрация</a></li>
+                </ul>
+            @endguest
+            @auth()
+                <ul>
+                    <li><a href="{{ route('account.account') }}">мой аккаунт</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/cart">моя корзина</a></li>
+                </ul>
+            @endauth
+
             <ul>
                 <li><a href="/faq">ЧаВо</a></li>
             </ul>
