@@ -67,5 +67,35 @@
 {{--            </ul>--}}
         </div>
     </div>
-    <h5 style="text-align: center; font-size: 4px">powered by avavion & vazgen</h5>
+    <div class="law">
+        <p>
+            * Вся представленная на сайте информация, включая комплектации, технические характеристики, цветовые сочетания и стоимость продукции, запасных частей и сервисного обслуживания, предоставляется исключительно в информационных целях. Эта информация не является публичной офертой в смысле, определенном положениями Статьи 437 (2) Гражданского кодекса Российской Федерации или аналогичными нормами законодательства других стран.
+        </p>
+    </div>
+    <div class="copyrights">
+        <p>@ForgeNight</p>
+    </div>
+    <style>
+        .law
+        {
+            padding: 0 15px;
+        }
+        .law p{
+            font-size: 14px;
+            font-family: Montserrat, sans-serif;
+        }
+        .copyrights
+        {
+            background: #232323;
+        }
+        .copyrights p
+        {
+            color: #f4dc5e;
+            text-align: center;
+            font-family: "Century Gothic", Montserrat, sans-serif;
+            margin: 0;
+            font-size: 14px;
+            padding: 4px;
+        }
+    </style>
 </footer>
