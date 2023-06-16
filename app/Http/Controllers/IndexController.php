@@ -58,7 +58,14 @@ class IndexController extends Controller
             $products = $products->where('name', 'like', "%{$searchKeyword}%");
         }
 
-        $bestSellingProducts = Product::query()->join('order_products', 'products.id', '=', 'order_products.product_id')->select('products.*', DB::raw('SUM(order_products.quantity) as total_quantity'))->groupBy('products.id')->orderByDesc('total_quantity')->limit(20)->get();
+        $bestSellingProducts = Product::query()
+            ->join('order_products', 'products.id', '=', 'order_products.product_id')
+            ->select('products.*', DB::raw('SUM(order_products.quantity) as total_quantity'))
+            ->where('products.is_published', true)
+            ->groupBy('products.id')
+            ->orderByDesc('total_quantity')
+            ->limit(20)
+            ->get();
 
         $products = $products->paginate(9)->withQueryString();
 
