@@ -9,7 +9,7 @@
     <section id="new">
         <div class="container">
             <div class="section-article">
-                <h1 style="background: none; color: #232323">
+                <h1 style="-webkit-text-fill-color: #232323 ;">
                     так же интересуются
                 </h1>
             </div>
