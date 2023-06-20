@@ -144,8 +144,9 @@ class ProductController extends Controller
         return back()->with('success', 'Товар " '.$productName.' успешно добавлен в корзину!"');
     }
 
+
     /**
-     * @id string $id
+     * @param Request $request
      * @return RedirectResponse
      */
     public function addToCart(Request $request): RedirectResponse

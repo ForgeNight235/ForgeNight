@@ -106,6 +106,7 @@
                         <span>Код товара: {{ $product->id }}</span>
                     </div>
 
+                    @if($product->quantity > 0)
                     <form
                         action="{{ route('product.addToCart', $product->id) }}"
                         method="post"
@@ -117,13 +118,33 @@
                             <p>{{ $product->price() }}</p>
                         </div>
 
+
                         <div class="item-form-block">
                             <button type="submit">
                                 в корзину
                                 <img src="{{asset('images/web-site_icons/addToCart.webp')}}" alt="addToCart">
                             </button>
                         </div>
+
+
                     </form>
+                    @else
+                        <div class="quantity-alert">
+                            <p>
+                                Извините, данное предложение больше недействительно.
+                            </p>
+                        </div>
+                        <style>
+                            .quantity-alert {
+                                margin: 25px 0;
+                            }
+                            .quantity-alert p {
+                                font-family: "Century Schoolbook", sans-serif;
+                                font-size: 24px;
+                                color: #ff0000; /* Красный цвет для предупреждения */
+                            }
+                        </style>
+                    @endif
 
 
                     <div class="accordion" id="accordionPanelsStayOpenExample">

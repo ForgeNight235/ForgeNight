@@ -18,7 +18,10 @@ class IndexController extends Controller
     public function home(): Factory|\Illuminate\Foundation\Application|View|Application
     {
         $collections = Collection::all();
-        $newProducts = Product::query()->where('is_published', '=', true)->orderBy('created_at', 'desc') // Сортировка по дате создания (последние добавленные)
+        $newProducts = Product::query()
+            ->where('is_published', '=', true)
+            ->orderBy('created_at', 'desc')
+            // Сортировка по дате создания (последние добавленные)
         ->limit(20) // Ограничение количества записей до 20
         ->get();
 
@@ -62,6 +65,7 @@ class IndexController extends Controller
             ->join('order_products', 'products.id', '=', 'order_products.product_id')
             ->select('products.*', DB::raw('SUM(order_products.quantity) as total_quantity'))
             ->where('products.is_published', true)
+            ->having('quantity', '>', 0)
             ->groupBy('products.id')
             ->orderByDesc('total_quantity')
             ->limit(20)
