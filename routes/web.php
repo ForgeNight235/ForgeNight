@@ -89,7 +89,7 @@ Route::group([
     Route::get('/adminPanel', 'index')->name('index');
     Route::get('/addProduct', 'create')->name('createProduct');
     Route::get('/showAllProducts', 'showAllProducts')->name('showAllProducts');
-    Route::get('/edit/{product:name}', 'updateProduct')->name('updateProduct');
+    Route::get('/edit/{product:id}', 'updateProduct')->name('updateProduct');
     Route::get('/collection', 'collectionPage')->name('collectionPage');
     Route::get('/allOrders', 'allOrders')->name('allOrders');
     Route::delete('/delete/{product:name}', 'deleteProduct')->name('deleteProduct');
@@ -145,7 +145,7 @@ Route::group([
 
 //    Route::get('/{product:id}', 'show')->name('show')->where('id', '[0-9]*');
 //    Выводим в адр. строке имя продукта, а не id
-    Route::get('/{product:name}', 'show')->name('show');
+    Route::get('/{product:id}', 'show')->name('show');
 });
 
 Route::group([
