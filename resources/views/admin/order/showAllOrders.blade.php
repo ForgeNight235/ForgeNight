@@ -207,7 +207,7 @@
                                                         <p class="center">{{ $orderProduct->product->price() }}</p>
                                                     </div>
 
-                                                    <div class="article">
+                                                    <div class="article last">
                                                         <span>Итого</span>
                                                         <p class="center">{{ $orderProduct->totalProductPrice() }}</p>
                                                     </div>
@@ -231,20 +231,29 @@
 
                                         <div class="article">
                                             <form
-                                                action="admin.order.addT"
+                                                action="{{ route('admin.order.addTrackCode', $order->id) }}"
+                                                method="post"
+                                                class="track"
                                             >
                                                 @csrf
+                                                <input type="hidden" name="orderId" value="{{ $order->id }}">
                                                 <label for="track_code">Трек-код:</label>
                                                 <input type="number" id="track_code"
                                                        value="{{ $order->delivery->track_code }}"
-                                                       placeholder="Трек-код доставки">
+                                                       placeholder="Трек-код доставки"
+                                                       name="track"
+                                                >
+                                                <div class="error-form">
+                                                    <p>@error('track') {{ $message }} @enderror</p>
+                                                </div>
+                                                <button>Сохранить</button>
                                             </form>
 
                                             @if($order->delivery)
                                                 @if($order->delivery->DeliveryOption->name === 'Почта России')
                                                     <a href="https://www.pochta.ru/tracking?barcode={{ $order->delivery->track_code }}"
                                                        class="track"
-                                                       target="_blank">{{ $order->delivery->track_code }}</a>
+                                                       target="_blank">Отследить:  {{ $order->delivery->track_code }}</a>
                                                 @else
                                                     <p>{{ $order->delivery->track_code }}</p>
                                                 @endif
@@ -253,8 +262,22 @@
                                             @endif
                                         </div>
 
-                                        <div class="article">
-                                            <p>Итого</p>
+                                        <style>
+                                            section.account.orders.admin .article.last
+                                            {
+                                                margin: 0 0 auto auto !important;
+                                            }
+                                            section.account.orders.admin form.track
+                                            {
+                                                display: flex;
+                                                align-items: center;
+                                                gap: 24px;
+                                                margin-left: 24px;
+                                            }
+                                        </style>
+
+                                        <div class="article last">
+                                            <p>Итогоr</p>
                                             <p class="price">
                                                 {{ $order->totalOrderPrice() }}
                                             </p>

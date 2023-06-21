@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Order\AddTrackCodeRequest;
 use App\Mail\OrderCreatedMail;
 use App\Models\Order;
 use App\Models\OrderProduct;
@@ -135,9 +136,23 @@ class OrderController extends Controller
         }
     }
 
-    public function addTrackCode($orderId, $deliveryId)
+    /**
+     * @param AddTrackCodeRequest $request
+     * @return RedirectResponse
+     */
+    public function addTrackCode(AddTrackCodeRequest $request): RedirectResponse
     {
 
+        $validated = $request->validated();
+
+        $orderId = $request->input('orderId');
+        $order = Order::findOrFail($orderId);
+
+        $order->delivery->update(['track_code' => $validated['track']]);
+
+        return redirect()
+            ->route('admin.allOrders')
+            ->with('success', 'Трек-код успешно обновлен.');
     }
 
 }

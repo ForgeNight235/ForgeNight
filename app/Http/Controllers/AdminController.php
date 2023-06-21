@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Admin\Order\AddTrackCodeRequest;
 use App\Models\Collection;
 use App\Models\Order;
 use App\Models\Product;
@@ -82,7 +83,6 @@ class AdminController extends Controller
         return \view('admin.product.showAllProducts', compact('products'))->with('success', 'Продукт успешно удален');
     }
 
-
     /**
      * @param Request $request
      * @return Factory|Application|View|\Illuminate\Contracts\Foundation\Application
@@ -107,7 +107,10 @@ class AdminController extends Controller
         return \view('admin.order.showAllOrders', compact('orders', 'products', 'orderStatuses'));
     }
 
-    public function showAllUsers()
+    /**
+     * @return Factory|Application|View|\Illuminate\Contracts\Foundation\Application
+     */
+    public function showAllUsers(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
         $users = User::all();
 

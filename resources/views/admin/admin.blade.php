@@ -90,6 +90,7 @@
                         </div>
 
                         <div class="option__selector__block">
+                        <div class="option__selector__block">
                             <h3>Управление заказами</h3>
                             <div class="selections">
                                 <a href="{{ route('admin.allOrders') }}">

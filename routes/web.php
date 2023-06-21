@@ -106,7 +106,7 @@ Route::group([
         Route::post('/order/{orderId}/product/{productId}/delete', 'deleteOrderProduct')->name('deleteOrderProduct');
         Route::post('/order/{orderId}/product/{productId}/replace', 'showReplaceProductForm')->name('showReplaceProductForm');
         Route::post('/replaceProduct/{orderId}/{productId}', 'replaceProduct')->name('replaceProduct');
-        Route::post('/addTrackCode/{orderId}/{deliveryId}', 'addTrackCode')->name('addTrackCode');
+        Route::post('/addTrackCode/{orderId}', 'addTrackCode')->name('addTrackCode');
 
     });
 
