@@ -72,4 +72,62 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return date('d:m:Y', strtotime($this->created_at));
     }
+
+    public function getFullName()
+    {
+        $fullName = '';
+        if (!empty($this->name)) {
+            $fullName .= $this->name . '<br>';
+        }
+        if (!empty($this->surname)) {
+            $fullName .= $this->surname . '<br>';
+        }
+        if (!empty($this->patronymic)) {
+            $fullName .= $this->patronymic . '<br>';
+        }
+
+        if (empty($fullName)) {
+            $fullName = 'Полное имя не указано';
+        }
+
+        return $fullName;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function fullAddress(): string
+    {
+        if (empty($this->address) || empty($this->index) || empty($this->city)) {
+            return 'Адрес не указан. Нужно связаться с покупателем';
+        }
+
+        return $this->index . ', ' . $this->city . ', ' . $this->address;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function mobile(): mixed
+    {
+        if (empty($this->mobile)) {
+            return 'Телефон не указан';
+        }
+
+        return $this->mobile;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function email(): mixed
+    {
+        if (empty($this->email))
+        {
+            return 'Почта не указана';
+        }
+
+        return $this->email;
+    }
 }

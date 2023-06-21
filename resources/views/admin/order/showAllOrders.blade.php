@@ -102,15 +102,15 @@
                                             <span>Оформлен: {{ \Carbon\Carbon::parse($order->created_at)->format('d.m.Y') }}</span>
                                         </div>
 
-{{--                                        <div class="promocode">--}}
-{{--                                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"--}}
-{{--                                                  data-bs-trigger="hover focus"--}}
-{{--                                                  data-bs-content="Пишите отзывы на товары, чтобы получить специальные скидочные промокоды! Промокоды действуют на все виды продукции магазина.">--}}
-{{--                                                <button class="btn btn-primary" type="button" disabled>--}}
-{{--                                                    <p>Оставить отзыв</p>--}}
-{{--                                                </button>--}}
-{{--                                            </span>--}}
-{{--                                        </div>--}}
+                                        {{--                                        <div class="promocode">--}}
+                                        {{--                                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover"--}}
+                                        {{--                                                  data-bs-trigger="hover focus"--}}
+                                        {{--                                                  data-bs-content="Пишите отзывы на товары, чтобы получить специальные скидочные промокоды! Промокоды действуют на все виды продукции магазина.">--}}
+                                        {{--                                                <button class="btn btn-primary" type="button" disabled>--}}
+                                        {{--                                                    <p>Оставить отзыв</p>--}}
+                                        {{--                                                </button>--}}
+                                        {{--                                            </span>--}}
+                                        {{--                                        </div>--}}
 
                                         <button class="showHide">
                                             {{ $order->products->count() }} Товары
@@ -190,11 +190,13 @@
                                                     </form>
 
                                                     <form
-                                                        action="{{ route('admin.order.deleteOrderProduct', ['orderId' => $order->id, 'productId' => $orderProduct->id]) }}" method="post">
+                                                        action="{{ route('admin.order.deleteOrderProduct', ['orderId' => $order->id, 'productId' => $orderProduct->id]) }}"
+                                                        method="post">
                                                         @csrf
                                                         <div class="article">
                                                             <span>Удалить товар</span>
-                                                            <button type="submit" class="delete-product" onclick="return confirm('Вы уверены, что хотите удалить этот продукт?')">
+                                                            <button type="submit" class="delete-product"
+                                                                    onclick="return confirm('Вы уверены, что хотите удалить этот продукт?')">
                                                                 Удалить
                                                             </button>
                                                         </div>
@@ -233,7 +235,9 @@
                                             >
                                                 @csrf
                                                 <label for="track_code">Трек-код:</label>
-                                                <input type="number" id="track_code" value="{{ $order->delivery->track_code }}" placeholder="Трек-код доставки">
+                                                <input type="number" id="track_code"
+                                                       value="{{ $order->delivery->track_code }}"
+                                                       placeholder="Трек-код доставки">
                                             </form>
 
                                             @if($order->delivery)
@@ -256,6 +260,35 @@
                                             </p>
                                         </div>
                                     </div>
+
+                                    <div class="order-footer">
+                                        <div class="article">
+                                            <p>
+                                                Полное имя: <br>
+                                                {!! $order->user->getFullName() !!}
+                                            </p>
+                                        </div>
+
+                                        <div class="article">
+                                            <p>
+                                                Адрес:<br> {{ $order->user->fullAddress() }}
+                                            </p>
+                                        </div>
+
+                                        <div class="article">
+                                            <p>
+                                                Телефон:<br> {{ $order->user->mobile() }}
+                                            </p>
+                                        </div>
+
+                                        <div class="article">
+                                            <p>
+                                                Почта:<br> {{ $order->user->email() }}
+                                            </p>
+                                        </div>
+
+                                    </div>
+
                                 </div>
                             @endforeach
                             {{ $orders->links() }}
