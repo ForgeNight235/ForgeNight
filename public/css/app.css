@@ -4013,3 +4013,9 @@ section.delivery .text p
 {
     font-family: "Century Gothic", Montserrat, sans-serif;
 }
+
+/*Выход из аккаунта*/
+.swal2-actions
+{
+    gap: 12px;
+}
