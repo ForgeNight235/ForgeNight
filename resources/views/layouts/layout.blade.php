@@ -6,6 +6,12 @@
           content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <meta property="og:image" content="{{ asset('images/logo/svg/website icon.svg') }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+
     <meta name="description" content="@yield('meta-description')">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('https://unpkg.com/swiper/swiper-bundle.min.css') }}" />
