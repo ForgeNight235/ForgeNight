@@ -53,7 +53,7 @@ class ProductController extends Controller
             ]);
         }
 
-        return redirect()->route('page.home');
+        return redirect()->route('admin.createProduct');
     }
 
     /**
